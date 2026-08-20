@@ -1,6 +1,5 @@
 import { APP_NAME, APP_STORE_URL } from '@/constants/app';
 import type { ChallengeCategory, ChallengeInstance } from '@/types';
-import { POSITIVE_REACTIONS } from '@/types';
 
 // "Cards compartilháveis" — só faz sentido pra categorias com carga emocional/humana real (ver
 // pedido: "não seja pra tudo"). trabalho_produtividade/financas_consumo ficam de fora de propósito
@@ -16,17 +15,13 @@ const SHAREABLE_CATEGORIES: ReadonlySet<ChallengeCategory> = new Set([
   'aprendizado_curiosidade',
 ]);
 
-/** true = essa instância vira um card compartilhável hoje. Concluída + reação positiva (a pessoa
- * "realmente gostou", não só cumpriu) + categoria elegível. Nunca guardado à parte — computado
- * direto do histórico do dia (ver home.tsx), então já "limpa sozinho" à meia-noite: o dia seguinte
- * começa com uma lista nova de instâncias, sem precisar zerar nada manualmente. */
+/** Dormente desde a remoção de Concluir/Não consegui (ver plano de migração seção 4) — o gatilho
+ * original era "concluída + reação positiva", sinal que não existe mais. Sempre `false` por
+ * enquanto (nunca gera card), sem apagar a lógica de texto abaixo (buildShareableCardText etc),
+ * que pode ser reaproveitada se um novo sinal voluntário for definido no futuro. */
 export function isShareableMoment(instance: ChallengeInstance): boolean {
-  return (
-    instance.status === 'concluido' &&
-    !!instance.reaction &&
-    POSITIVE_REACTIONS.includes(instance.reaction) &&
-    SHAREABLE_CATEGORIES.has(instance.categoria)
-  );
+  void instance;
+  return false;
 }
 
 // Verbo no imperativo (como o catálogo escreve as ações, ver src/data/challenges/*.ts) → primeira
@@ -245,7 +240,7 @@ const APP_BENEFIT_LINE_BY_CATEGORY: Record<ChallengeCategory, string> = {
  * categoria. `trabalho_produtividade`/`financas_consumo` nunca chegam aqui de verdade (fora de
  * `SHAREABLE_CATEGORIES`), mas ficam com fallback vazio por segurança de tipos. */
 function pickReflectionLine(instance: ChallengeInstance): string {
-  const haystack = stripAccents(`${instance.titulo} ${instance.descricao}`);
+  const haystack = stripAccents(`${instance.titulo} ${instance.descricao ?? ''}`);
   const rules = REFLECTION_RULES[instance.categoria] ?? [];
   for (const rule of rules) {
     if (rule.keywords.some((keyword) => haystack.includes(keyword))) return rule.line;

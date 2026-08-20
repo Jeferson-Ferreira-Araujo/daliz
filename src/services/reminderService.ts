@@ -1,7 +1,6 @@
 import { challengeInstanceRepository } from '@/storage/repositories/challengeInstanceRepository';
 import { notificationService } from './notificationService';
 import { analyticsService } from './analyticsService';
-import { progressionService } from './progressionService';
 import { getCurrentDate } from '@/utils/now';
 import type { ChallengeInstance, ReminderType } from '@/types';
 
@@ -32,9 +31,6 @@ export const reminderService = {
       reminderCount: (instance.reminderCount ?? 0) + 1,
     };
     await challengeInstanceRepository.save(updated);
-    // Adiar não é sinal de dificuldade (seção 11 do pedido de dificuldade adaptativa) — só soma
-    // ao contador, nunca mexe em consistência/currentDifficulty.
-    await progressionService.recordReminder(updated);
 
     analyticsService.log('action_reminder_scheduled', {
       actionId: instance.challengeId,

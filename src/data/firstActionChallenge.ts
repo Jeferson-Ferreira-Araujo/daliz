@@ -27,5 +27,5 @@ export const FIRST_ACTION_CHALLENGE: Challenge = {
   contexto: ['qualquer'],
   // Explícito (não deixado pra heurística): é uma reflexão sem urgência, não uma pausa "now" nem
   // depende de situação — e por ser sempre a primeira impressão do app, mantém o tom leve.
-  timing: 'today',
+  timing: { mode: 'today', preferredPeriods: [], avoidPeriods: [] },
 };

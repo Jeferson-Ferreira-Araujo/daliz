@@ -9,6 +9,7 @@ import type {
   DayOfWeek,
   ImportantPerson,
   Interest,
+  ProfileTag,
   RelationshipType,
   UserActionPerformance,
   UserProfile,
@@ -17,7 +18,6 @@ import {
   CHALLENGE_CATEGORY_LABELS,
   EMPTY_CONTEXT,
   INTEREST_LABELS,
-  POSITIVE_REACTIONS,
   RELATIONSHIP_GENERIC_PHRASE,
   RELATIONSHIP_LABELS,
   WEATHER_TYPE_LABELS,
@@ -27,13 +27,49 @@ import { scoreChallenge, type ScoringContext } from './scoring';
 import { computeDaySlots, remainingDayRatio, type DaySlot } from './dayModel';
 import { isSupersededByProgression } from './progression';
 import { getChallengeTiming } from './challengeTiming';
+import { computeProfileTags } from './profileTags';
+import { ALGORITHM_RULES } from './algorithmRules';
 import { generateId } from '@/utils/id';
 import { dayOfWeekFor, daysBetween, isBirthdayToday, logicalDateFor } from '@/utils/date';
+import { getCurrentDate } from '@/utils/now';
 import { SEASON_LABELS } from '@/utils/season';
 
-const DEFAULT_COOLDOWN_DAYS = 3; // usado quando o desafio não tem cooldownDias definido
-const IGNORE_LOOKBACK_DAYS = 30;
+// Deriva minutos reais a partir de `effort.time` quando `tempoEstimado` não está explícito —
+// permite que ações novas só precisem de `effort.time` (categoria), sem calibração manual em
+// minutos (ver plano de migração seção 1.2). O motor continua usando minutos reais internamente
+// (orçamento diário, `spreadTimesWithinSlot` etc) — isso nunca muda.
+const EFFORT_TIME_MINUTES: Record<'instant' | 'short' | 'medium' | 'long', number> = {
+  instant: 2,
+  short: 10,
+  medium: 25,
+  long: 50,
+};
+
+function resolveTempoEstimado(challenge: Challenge): number {
+  return challenge.tempoEstimado ?? EFFORT_TIME_MINUTES[challenge.effort?.time ?? 'short'];
+}
+
+/** Deriva `nivel` (fácil/médio/desafiador) de `difficulty` (1-5) quando ausente — mantém
+ * `intensityBonus` funcionando sem exigir os dois campos calibrados nas ações novas. */
+function resolveNivel(challenge: Challenge): ChallengeLevel {
+  if (challenge.nivel) return challenge.nivel;
+  const difficulty = challenge.difficulty ?? 2;
+  if (difficulty <= 2) return 'facil';
+  if (difficulty === 3) return 'medio';
+  return 'desafiador';
+}
+
+/** Interesses achatados de um desafio (required+preferred) — usado tanto pro bônus de pontuação
+ * quanto pra copiar em `ChallengeInstance.interests` (ver buildInstance). */
+function flattenInterests(challenge: Challenge): Interest[] {
+  const rules = challenge.interests;
+  if (!rules) return [];
+  return [...new Set([...rules.required, ...rules.preferred])];
+}
+
+const DEFAULT_COOLDOWN_DAYS = 3; // usado quando o desafio não tem cooldownDias/repetition.minIntervalDays definido
 const SAME_CATEGORY_PENALTY = 6; // penalidade por categoria já usada hoje, incentiva variedade sem travar
+const SAME_INTEREST_PENALTY = 6; // mesma ideia, por interesse repetido (ver ALGORITHM_RULES.maxSameInterestInSequence)
 
 // Quantidade de ações por dia é sorteada de novo todo dia dentro dessa faixa — nem todo usuário,
 // nem todo dia do mesmo usuário, recebe o mesmo número de ações (ver pickActionCountsPerSlot).
@@ -90,10 +126,6 @@ const SOCIAL_SHARE_LOOKBACK_DAYS = 30;
 const SOCIAL_SHARE_CAP: Record<'sim' | 'as_vezes', number> = { sim: 0.15, as_vezes: 0.08 };
 const SOCIAL_SHARE_PENALTY = 40;
 
-// Uma recusa com motivo "não fez sentido pra mim" pesa mais que uma recusa comum
-// (sem tempo, esqueci) — sinaliza rejeição ao desafio em si, não só a um dia ruim.
-const NAO_FEZ_SENTIDO_WEIGHT = 2;
-
 // Quando a pessoa topa receber notificações durante o expediente (ver
 // UserProfile.receiveDuringWorkHours), o slot "durante_dia" de trabalho só pode
 // escolher entre categorias discretas e compatíveis com estar no trabalho — nunca
@@ -114,6 +146,14 @@ const INTEREST_MATCH_MAX_BONUS = 12;
 // desafios de exploração continuarem aparecendo de vez em quando (ver seção 9).
 const DISCOVERY_EXPLORATION_BONUS = 4;
 const DISCOVERY_TAG = 'descoberta';
+
+// timing.preferredPeriods/avoidPeriods (ver ClockPeriod) — mesma ordem de grandeza dos outros
+// bônus/penalidades de contexto soft (weatherBonus/daytimeBonus), nunca filtro duro.
+const CLOCK_PERIOD_BONUS = 6;
+const CLOCK_PERIOD_PENALTY = 10;
+
+// profile.preferred (ver ProfileTag) — bônus pequeno, mesmo teto de grandeza de outros sinais soft.
+const PROFILE_PREFERRED_BONUS = 5;
 
 // Pessoas importantes — mesma filosofia dos interesses (sinal, nunca dominante), mas com
 // um filtro duro a mais: um desafio que exige uma pessoa específica (relationships/idade/
@@ -173,6 +213,7 @@ interface SelectionContext {
   socialShareCap: number;
   todayWeekday: DayOfWeek;
   daysSinceLastUse: Map<string, number>;
+  conceptDaysSinceLastUse: Map<string, number>;
   personDaysSinceLastUse: Map<string, number>;
   relationshipAffinity: Partial<Record<RelationshipType, number>>;
   context: AppContext;
@@ -224,6 +265,7 @@ export function selectDailyChallenges(
   const countsPerSlot = pickActionCountsPerSlot(slots, profile.challengeIntensity, remainingDayRatio(profile, now));
   const usedTodayIds = new Set<string>();
   const usedCategoriesToday = new Map<ChallengeCategory, number>();
+  const usedInterestsToday = new Map<Interest, number>();
   const usedPersonIds = new Map<string, number>();
   let totalMinutes = 0;
   const picks: { challenge: Challenge; scheduledFor: Date; person: ImportantPerson | null }[] = [];
@@ -248,7 +290,7 @@ export function selectDailyChallenges(
         const candidates = filterCandidatesForSlot(virtualSlot, profile, ctx, usedTodayIds, totalMinutes, picks.length > 0, minuteBudget);
         if (candidates.length === 0) continue; // nada combina bem o suficiente nesse momento — não força nada
 
-        const ranked = rankCandidates(candidates, virtualSlot, profile, ctx, usedCategoriesToday, usedPersonIds);
+        const ranked = rankCandidates(candidates, virtualSlot, profile, ctx, usedCategoriesToday, usedPersonIds, usedInterestsToday);
         best = ranked[0].challenge;
         options.onCandidatesScored?.(scheduledFor, ranked);
         person = selectPersonForChallenge(best, profile, ctx)?.person ?? null;
@@ -256,8 +298,11 @@ export function selectDailyChallenges(
 
       usedTodayIds.add(best.id);
       usedCategoriesToday.set(best.categoria, (usedCategoriesToday.get(best.categoria) ?? 0) + 1);
+      for (const interest of flattenInterests(best)) {
+        usedInterestsToday.set(interest, (usedInterestsToday.get(interest) ?? 0) + 1);
+      }
       if (person) usedPersonIds.set(person.id, (usedPersonIds.get(person.id) ?? 0) + 1);
-      totalMinutes += best.tempoEstimado;
+      totalMinutes += resolveTempoEstimado(best);
       picks.push({ challenge: best, scheduledFor, person });
     }
   }
@@ -283,10 +328,10 @@ export function selectDailyChallenges(
         'sugestao',
       );
       if (candidates.length === 0) continue; // nenhuma sugestão combina bem o suficiente agora — não força nada
-      const best = rankCandidates(candidates, virtualSlot, profile, ctx, usedCategoriesToday, usedPersonIds)[0].challenge;
+      const best = rankCandidates(candidates, virtualSlot, profile, ctx, usedCategoriesToday, usedPersonIds, usedInterestsToday)[0].challenge;
       usedTodayIds.add(best.id);
       usedCategoriesToday.set(best.categoria, (usedCategoriesToday.get(best.categoria) ?? 0) + 1);
-      suggestionMinutes += best.tempoEstimado;
+      suggestionMinutes += resolveTempoEstimado(best);
       picks.push({ challenge: best, scheduledFor: virtualSlot.start, person: null });
     }
   }
@@ -465,12 +510,13 @@ function buildSelectionContext(
   performanceByConcept: Record<string, UserActionPerformance>,
 ): SelectionContext {
   const daysSinceLastUse = computeDaysSinceLastUse(history, today);
-  const ignoreCounts = computeRecentIgnoreCounts(history, today, IGNORE_LOOKBACK_DAYS);
-  const categoryRates = computeCategoryCompletionRates(history);
-  const bestRatedIds = computeBestRatedIds(history);
-  const interestAffinity = computeInterestCompletionRates(history);
+  const conceptDaysSinceLastUse = computeConceptDaysSinceLastUse(history, today);
+  const ignoreCounts = computeRecentIgnoreCounts();
+  const categoryRates = computeCategoryCompletionRates();
+  const bestRatedIds = computeBestRatedIds();
+  const interestAffinity = computeInterestCompletionRates();
   const personDaysSinceLastUse = computePersonDaysSinceLastUse(history, today);
-  const relationshipAffinity = computeRelationshipCompletionRates(history, profile);
+  const relationshipAffinity = computeRelationshipCompletionRates();
 
   // Só bloqueia desafios 📱 de verdade se a pessoa disse que não quer (o sinal que
   // decide é o interesse, não a frequência de uso — ver UserProfile.socialChallengesInterest).
@@ -491,6 +537,7 @@ function buildSelectionContext(
     socialShareCap,
     todayWeekday,
     daysSinceLastUse,
+    conceptDaysSinceLastUse,
     personDaysSinceLastUse,
     relationshipAffinity,
     context,
@@ -511,22 +558,65 @@ function filterCandidatesForSlot(
   // Só a seleção de sugestões (ver bloco após o loop principal) passa 'sugestao' explicitamente.
   actionKind: ChallengeActionKind = 'acao',
 ): Challenge[] {
+  const profileTags = computeProfileTags(profile);
   return allChallenges.filter((challenge) => {
-    if ((challenge.actionKind ?? 'acao') !== actionKind) return false;
+    if ((challenge.type ?? 'acao') !== actionKind) return false;
     // Desafios de aniversário são especiais — só entram via injeção direta, nunca pela seleção normal.
     if (challenge.tags.includes('aniversario')) return false;
+    if (challenge.status && challenge.status !== 'approved') return false;
     if (usedTodayIds.has(challenge.id)) return false;
     // Sistema de dificuldade adaptativa: se a pessoa já demonstrou consistência nesse nível e o
     // próximo nível existe no catálogo, o nível atual sai do pool — a próxima vez que esse
     // conceito surgir naturalmente, é o próximo nível quem compete (ver src/engine/progression.ts).
+    // DESATIVADO na prática (nada mais popula actionPerformanceRepository, ver plano de migração
+    // seção 4/6) — mantido chamado por segurança, sempre recebe mapa vazio hoje.
     if (isSupersededByProgression(challenge, ctx.performanceByConcept, challengeById)) return false;
     if (challenge.socialContext && ctx.socialBlocked) return false;
     if (!profile.selectedCategories.includes(challenge.categoria)) return false;
     if (challenge.diasIdeais !== 'qualquer' && !challenge.diasIdeais.includes(ctx.todayWeekday)) return false;
 
-    const cooldown = challenge.cooldownDias ?? DEFAULT_COOLDOWN_DAYS;
+    // Interesses obrigatórios/excluídos (ver ChallengeInterestRules) — "interesse ausente nunca
+    // deve deixar a pessoa sem ações disponíveis": só filtra quando `required`/`excluded`
+    // realmente têm algo, o que é raro no catálogo (a maioria fica sem restrição, só bônus soft
+    // via interestBonus).
+    const interestRules = challenge.interests;
+    if (interestRules) {
+      const known = new Set<Interest>([...profile.interests, ...profile.discoveredInterests]);
+      if (interestRules.required.length > 0 && !interestRules.required.every((i) => known.has(i))) return false;
+      if (interestRules.excluded.some((i) => known.has(i))) return false;
+    }
+
+    // Localização (ver ChallengeLocationRules) — só bloqueia se a pessoa não tem localização
+    // cadastrada. `resources.required` NÃO é filtro duro ainda (ver ResourceTag: o app não tem
+    // hoje um inventário real do que está disponível pra cada pessoa) — dívida técnica documentada
+    // no tipo, não simulada aqui.
+    if (challenge.location?.required && !profile.location) return false;
+
+    // Perfil obrigatório/excluído (ver ChallengeProfileRules/computeProfileTags) — generaliza os
+    // filtros pontuais legados abaixo (requerFamilia/requerTempoLivre/relationships/minAge/maxAge/
+    // requiresPresence), que continuam valendo em paralelo pro catálogo antigo.
+    const profileRules = challenge.profile;
+    if (profileRules) {
+      if (profileRules.required.length > 0 && !profileRules.required.every((tag) => profileTags.has(tag))) return false;
+      if (profileRules.excluded.some((tag) => profileTags.has(tag))) return false;
+    }
+
+    // Repetição (ver ChallengeRepetition) — `allowed: false` bloqueia PRA SEMPRE depois da
+    // primeira aparição (não só "hoje"), cobre ações naturalmente únicas. `minIntervalDays` tem
+    // prioridade sobre o `cooldownDias` legado quando presente.
     const daysSince = ctx.daysSinceLastUse.get(challenge.id);
+    if (challenge.repetition?.allowed === false && daysSince != null) return false;
+    const cooldown = challenge.repetition?.minIntervalDays ?? challenge.cooldownDias ?? DEFAULT_COOLDOWN_DAYS;
     if (daysSince != null && daysSince < cooldown) return false;
+
+    // Cooldown de conceito (ver ALGORITHM_RULES.conceptCooldownDays) — duas ações de textos
+    // diferentes mas do mesmo `conceptGroup` (ex: "ligar" e "mandar mensagem", ambas
+    // strengthen_connection) compartilham cooldown, evitando repetição semântica mesmo com ids
+    // diferentes. Só se aplica quando o desafio tem `conceptGroup` preenchido.
+    if (challenge.conceptGroup) {
+      const conceptDaysSince = ctx.conceptDaysSinceLastUse.get(challenge.conceptGroup);
+      if (conceptDaysSince != null && conceptDaysSince < ALGORITHM_RULES.conceptCooldownDays) return false;
+    }
 
     if (!challenge.momentos.includes(slot.momento) && !challenge.momentos.includes('qualquer')) return false;
     if (!challenge.tiposDia.includes(slot.tipoDia) && !challenge.tiposDia.includes('qualquer')) return false;
@@ -583,7 +673,7 @@ function filterCandidatesForSlot(
 
     // Orçamento diário de minutos (escala com a intensidade — ver DAILY_MINUTE_BUDGET) — não
     // força se já estourou, exceto na primeira escolha do dia.
-    if (totalMinutes + challenge.tempoEstimado > minuteBudget && hasPicks) return false;
+    if (totalMinutes + resolveTempoEstimado(challenge) > minuteBudget && hasPicks) return false;
 
     return true;
   });
@@ -604,11 +694,13 @@ function rankCandidates(
   ctx: SelectionContext,
   usedCategoriesToday: Map<ChallengeCategory, number>,
   usedPersonIds: Map<string, number>,
+  usedInterestsToday: Map<Interest, number> = new Map(),
 ): ScoredCandidate[] {
+  const profileTags = computeProfileTags(profile);
   return candidates
     .map((challenge) => ({
       challenge,
-      score: scoreCandidate(challenge, slot, profile, ctx, usedCategoriesToday, usedPersonIds),
+      score: scoreCandidate(challenge, slot, profile, ctx, usedCategoriesToday, usedPersonIds, usedInterestsToday, profileTags),
     }))
     .sort((a, b) => b.score - a.score);
 }
@@ -631,6 +723,8 @@ function scoreCandidate(
   ctx: SelectionContext,
   usedCategoriesToday: Map<ChallengeCategory, number>,
   usedPersonIds: Map<string, number>,
+  usedInterestsToday: Map<Interest, number>,
+  profileTags: Set<ProfileTag>,
 ): number {
   return (
     scoreChallenge(challenge, ctx.scoringContext) +
@@ -638,8 +732,11 @@ function scoreCandidate(
     intensityBonus(challenge, profile.challengeIntensity) +
     momentFitBonus(challenge, slot) +
     categoryDiversityPenalty(challenge, usedCategoriesToday) +
+    interestDiversityPenalty(challenge, usedInterestsToday) +
     socialShareBonus(challenge, ctx.socialShare, ctx.socialShareCap) +
     interestBonus(challenge, profile, ctx.interestAffinity) +
+    profilePreferredBonus(challenge, profileTags) +
+    clockPeriodBonus(challenge, slot) +
     personScoreBonus(challenge, profile, ctx, usedPersonIds) +
     weatherBonus(challenge, ctx.context.weather) +
     daytimeBonus(challenge, slot) +
@@ -748,8 +845,12 @@ function socialShareBonus(challenge: Challenge, socialShare: number, cap: number
  * repetidamente, `interestAffinity` cai e o bônus cai junto (ver seção 8 do pedido).
  */
 function interestBonus(challenge: Challenge, profile: UserProfile, interestAffinity: Partial<Record<Interest, number>>): number {
-  const challengeInterests = challenge.interests ?? [];
-  if (challengeInterests.length === 0) {
+  // `required` já passou pelo filtro duro (ver filterCandidatesForSlot) — aqui só pontua o que
+  // pode variar: `preferred` (bônus soft) e `required` (também recebe bônus, é interesse de
+  // verdade batendo, só que garantido em vez de opcional).
+  const rules = challenge.interests;
+  const candidateInterests = rules ? [...new Set([...rules.required, ...rules.preferred])] : [];
+  if (candidateInterests.length === 0) {
     // Sem interesse específico, mas a pessoa ainda está descobrindo o que gosta —
     // desafios marcados como exploração recebem um pequeno empurrão (ver seção 9).
     if (profile.stillDiscoveringInterests && challenge.tags.includes(DISCOVERY_TAG)) return DISCOVERY_EXPLORATION_BONUS;
@@ -757,7 +858,7 @@ function interestBonus(challenge: Challenge, profile: UserProfile, interestAffin
   }
 
   const known = new Set<Interest>([...profile.interests, ...profile.discoveredInterests]);
-  const matched = challengeInterests.filter((interest) => known.has(interest));
+  const matched = candidateInterests.filter((interest) => known.has(interest));
   if (matched.length === 0) {
     return profile.stillDiscoveringInterests ? DISCOVERY_EXPLORATION_BONUS : 0;
   }
@@ -768,6 +869,45 @@ function interestBonus(challenge: Challenge, profile: UserProfile, interestAffin
     bonus += rate == null ? INTEREST_MATCH_BASE_BONUS : INTEREST_MATCH_BASE_BONUS * (0.3 + rate * 1.1);
   }
   return Math.min(bonus, INTEREST_MATCH_MAX_BONUS);
+}
+
+/** Bônus/penalidade soft a partir da hora REAL do relógio em que o slot vai notificar, comparada
+ * com `timing.preferredPeriods`/`avoidPeriods` (ver ClockPeriod) — mesmo padrão de `daytimeBonus`.
+ * Nunca filtro duro: uma ação sem período preferido/evitado simplesmente não pontua aqui. */
+function clockPeriodBonus(challenge: Challenge, slot: DaySlot): number {
+  const timing = challenge.timing;
+  if (!timing) return 0;
+  const period = clockPeriodFor(slot.start.getHours());
+  if (timing.avoidPeriods.includes(period)) return -CLOCK_PERIOD_PENALTY;
+  if (timing.preferredPeriods.includes(period)) return CLOCK_PERIOD_BONUS;
+  return 0;
+}
+
+function clockPeriodFor(hour: number): import('@/types').ClockPeriod {
+  if (hour < 6) return 'early_morning';
+  if (hour < 12) return 'morning';
+  if (hour < 18) return 'afternoon';
+  if (hour < 22) return 'evening';
+  return 'night';
+}
+
+/** Bônus pequeno quando o desafio conecta com um sinal derivado do perfil (ver ProfileTag) que a
+ * pessoa marcou como preferido — mesma filosofia de `interestBonus`, nunca filtro duro (isso já
+ * é `profile.required`/`excluded`, ver filterCandidatesForSlot). */
+function profilePreferredBonus(challenge: Challenge, profileTags: Set<ProfileTag>): number {
+  const preferred = challenge.profile?.preferred ?? [];
+  if (preferred.length === 0) return 0;
+  return preferred.some((tag) => profileTags.has(tag)) ? PROFILE_PREFERRED_BONUS : 0;
+}
+
+/** Mesma ideia de `categoryDiversityPenalty`, mas por interesse já usado hoje (ver
+ * ALGORITHM_RULES.maxSameInterestInSequence) — desincentiva (sem bloquear) repetir sempre o
+ * mesmo interesse dentro do mesmo dia. */
+function interestDiversityPenalty(challenge: Challenge, usedInterestsToday: Map<Interest, number>): number {
+  const interests = flattenInterests(challenge);
+  if (interests.length === 0) return 0;
+  const maxUsed = Math.max(0, ...interests.map((i) => usedInterestsToday.get(i) ?? 0));
+  return maxUsed >= ALGORITHM_RULES.maxSameInterestInSequence ? -SAME_INTEREST_PENALTY : 0;
 }
 
 function personMatchesChallenge(challenge: Challenge, person: ImportantPerson): boolean {
@@ -818,14 +958,14 @@ function selectPersonForChallenge(
 
 /** Resolve o token {pessoa} no texto do desafio — nome às vezes, frase genérica da relação
  * no resto das vezes (ver seção 13: repetir o nome toda hora soa artificial). */
-function resolvePersonText(challenge: Challenge, person: ImportantPerson | null): { titulo: string; descricao: string } {
+function resolvePersonText(challenge: Challenge, person: ImportantPerson | null): { titulo: string; descricao?: string } {
   if (!person || !challenge.titulo.includes(PERSON_PLACEHOLDER)) {
     return { titulo: challenge.titulo, descricao: challenge.descricao };
   }
   const replacement = person.name && Math.random() < NAME_USE_PROBABILITY ? person.name : RELATIONSHIP_GENERIC_PHRASE[person.relationship];
   return {
     titulo: challenge.titulo.split(PERSON_PLACEHOLDER).join(replacement),
-    descricao: challenge.descricao.split(PERSON_PLACEHOLDER).join(replacement),
+    descricao: challenge.descricao?.split(PERSON_PLACEHOLDER).join(replacement),
   };
 }
 
@@ -850,7 +990,7 @@ function buildReasons(challenge: Challenge, slot: DaySlot, profile: UserProfile,
   }
 
   const known = new Set<Interest>([...profile.interests, ...profile.discoveredInterests]);
-  const matchedInterests = (challenge.interests ?? []).filter((interest) => known.has(interest));
+  const matchedInterests = flattenInterests(challenge).filter((interest) => known.has(interest));
   if (matchedInterests.length > 0) {
     reasons.push(`Interesse compatível: ${matchedInterests.map((interest) => INTEREST_LABELS[interest]).join(', ')}`);
   } else if (profile.stillDiscoveringInterests && challenge.tags.includes(DISCOVERY_TAG)) {
@@ -934,34 +1074,36 @@ export function buildInstance(
     categoria: challenge.categoria,
     titulo,
     descricao,
-    tempoEstimado: challenge.tempoEstimado,
-    interests: challenge.interests ?? [],
+    tempoEstimado: resolveTempoEstimado(challenge),
+    interests: flattenInterests(challenge),
     relatedPersonId: person?.id ?? null,
     date,
-    sentAt: scheduledFor.toISOString(),
     scheduledFor: scheduledFor.toISOString(),
+    // Histórico orientado a eventos (ver plano de migração seção 1/4) — só `deliveredAt` é
+    // populado, no momento em que a instância é criada/entregue. Os outros três ficam presentes
+    // na estrutura, não escritos/lidos ainda.
+    deliveredAt: scheduledFor.toISOString(),
     completedAt: null,
+    dismissedAt: null,
+    skippedAt: null,
     timeToCompleteMs: null,
-    status: 'pendente',
-    reaction: null,
-    abandonReason: null,
-    abandonReasonDetail: null,
     notificationId: null,
     // challenge normalmente já vem de allChallenges (timing bakeado, ver src/data/challenges/
     // index.ts) — getChallengeTiming como reforço cobre qualquer Challenge construído à mão fora
     // desse pipeline que não tenha passado por lá.
-    timing: challenge.timing ?? getChallengeTiming(challenge),
-    // Ausente na base curada = 'acao' (default seguro, ver tipo Challenge.actionKind).
-    actionKind: challenge.actionKind ?? 'acao',
-    // Sistema de dificuldade adaptativa (ver src/engine/progression.ts) — copiados só quando o
-    // desafio participa de uma cadeia de progressão; ausentes em praticamente todo o catálogo.
-    concept: challenge.concept,
+    timing: challenge.timing ?? { mode: getChallengeTiming(challenge), preferredPeriods: [], avoidPeriods: [] },
+    // Ausente na base curada = 'acao' (default seguro, ver tipo Challenge.type).
+    type: challenge.type ?? 'acao',
+    // Sistema de dificuldade adaptativa DESATIVADO (ver comentário em Challenge.concept) — campos
+    // copiados só por compat, sem efeito prático hoje.
+    conceptGroup: challenge.conceptGroup,
     progressionGroup: challenge.progressionGroup,
     difficulty: challenge.difficulty,
   };
 }
 
-/** Dias desde a última vez que cada desafio apareceu (qualquer status). Ausente = nunca apareceu. */
+/** Dias desde a última vez que cada desafio apareceu (qualquer instância entregue). Ausente =
+ * nunca apareceu. */
 function computeDaysSinceLastUse(history: ChallengeInstance[], today: string): Map<string, number> {
   const map = new Map<string, number>();
   for (const instance of history) {
@@ -974,16 +1116,30 @@ function computeDaysSinceLastUse(history: ChallengeInstance[], today: string): M
   return map;
 }
 
-function computeRecentIgnoreCounts(history: ChallengeInstance[], today: string, days: number): Map<string, number> {
-  const counts = new Map<string, number>();
+/** Igual a computeDaysSinceLastUse, mas por `conceptGroup` em vez de `challengeId` — alimenta o
+ * cooldown de similaridade semântica (ver ALGORITHM_RULES.conceptCooldownDays). Só considera
+ * instâncias cujo desafio original ainda existe no catálogo e tem conceptGroup preenchido. */
+function computeConceptDaysSinceLastUse(history: ChallengeInstance[], today: string): Map<string, number> {
+  const map = new Map<string, number>();
   for (const instance of history) {
-    if (daysBetween(instance.date, today) > days) continue;
-    if (instance.status === 'ignorado' || instance.status === 'nao_concluido') {
-      const weight = instance.abandonReason === 'nao_fez_sentido' ? NAO_FEZ_SENTIDO_WEIGHT : 1;
-      counts.set(instance.challengeId, (counts.get(instance.challengeId) ?? 0) + weight);
+    const conceptGroup = instance.conceptGroup ?? challengeById[instance.challengeId]?.conceptGroup;
+    if (!conceptGroup) continue;
+    const days = daysBetween(instance.date, today);
+    const existing = map.get(conceptGroup);
+    if (existing == null || days < existing) {
+      map.set(conceptGroup, days);
     }
   }
-  return counts;
+  return map;
+}
+
+// Sem conclusão/reação (ver plano de migração seção 4), não há mais sinal de "foi ignorado" ou
+// "recusado" no histórico — as 4 funções abaixo (ignoreCounts/categoryRates/bestRatedIds/
+// interestAffinity/relationshipAffinity) ficam com pontuação mecânica mínima (sempre vazias) até
+// o produto decidir um novo sinal de qualidade. `scoreChallenge` (scoring.ts) trata mapas/sets
+// vazios como "sem dado", que já é o comportamento neutro de sempre.
+function computeRecentIgnoreCounts(): Map<string, number> {
+  return new Map();
 }
 
 /** Fatia de desafios 📱 recebidos nos últimos `days` dias (qualquer status) — usada pra manter a surpresa. */
@@ -998,44 +1154,12 @@ function computeRecentSocialShare(history: ChallengeInstance[], today: string, d
   return total > 0 ? social / total : 0;
 }
 
-function computeCategoryCompletionRates(history: ChallengeInstance[]): Partial<Record<ChallengeCategory, number>> {
-  const totals = new Map<ChallengeCategory, { resolved: number; completed: number }>();
-  for (const instance of history) {
-    if (instance.status === 'pendente') continue;
-    const entry = totals.get(instance.categoria) ?? { resolved: 0, completed: 0 };
-    entry.resolved += 1;
-    if (instance.status === 'concluido') entry.completed += 1;
-    totals.set(instance.categoria, entry);
-  }
-  const rates: Partial<Record<ChallengeCategory, number>> = {};
-  for (const [categoria, entry] of totals) {
-    if (entry.resolved >= 2) rates[categoria] = entry.completed / entry.resolved;
-  }
-  return rates;
+function computeCategoryCompletionRates(): Partial<Record<ChallengeCategory, number>> {
+  return {};
 }
 
-/**
- * Igual a computeCategoryCompletionRates, mas por interesse — é o que faz o "comportamento
- * real pesa mais que a seleção do cadastro" (seção 8): se a pessoa marcou "música" mas
- * ignora repetidamente os desafios que batem com esse interesse, a taxa cai e o bônus
- * em interestBonus cai junto, mesmo com o interesse continuando marcado no perfil.
- */
-function computeInterestCompletionRates(history: ChallengeInstance[]): Partial<Record<Interest, number>> {
-  const totals = new Map<Interest, { resolved: number; completed: number }>();
-  for (const instance of history) {
-    if (instance.status === 'pendente') continue;
-    for (const interest of instance.interests) {
-      const entry = totals.get(interest) ?? { resolved: 0, completed: 0 };
-      entry.resolved += 1;
-      if (instance.status === 'concluido') entry.completed += 1;
-      totals.set(interest, entry);
-    }
-  }
-  const rates: Partial<Record<Interest, number>> = {};
-  for (const [interest, entry] of totals) {
-    if (entry.resolved >= 2) rates[interest] = entry.completed / entry.resolved;
-  }
-  return rates;
+function computeInterestCompletionRates(): Partial<Record<Interest, number>> {
+  return {};
 }
 
 /** Dias desde o último desafio ligado a cada pessoa (qualquer status). Ausente = nunca. */
@@ -1052,43 +1176,12 @@ function computePersonDaysSinceLastUse(history: ChallengeInstance[], today: stri
   return map;
 }
 
-/**
- * Igual a computeCategoryCompletionRates, mas por tipo de relação — o comportamento real
- * com aquele tipo de pessoa pesa mais que a simples existência dela no cadastro (seção 16).
- * Junta o histórico (que só guarda o id da pessoa) com o cadastro atual pra saber a relação;
- * se a pessoa foi removida do cadastro, esses registros antigos só deixam de contar.
- */
-function computeRelationshipCompletionRates(
-  history: ChallengeInstance[],
-  profile: UserProfile,
-): Partial<Record<RelationshipType, number>> {
-  const relationshipByPersonId = new Map(profile.importantPeople.map((person) => [person.id, person.relationship]));
-  const totals = new Map<RelationshipType, { resolved: number; completed: number }>();
-  for (const instance of history) {
-    if (instance.status === 'pendente' || !instance.relatedPersonId) continue;
-    const relationship = relationshipByPersonId.get(instance.relatedPersonId);
-    if (!relationship) continue;
-    const entry = totals.get(relationship) ?? { resolved: 0, completed: 0 };
-    entry.resolved += 1;
-    if (instance.status === 'concluido') entry.completed += 1;
-    totals.set(relationship, entry);
-  }
-  const rates: Partial<Record<RelationshipType, number>> = {};
-  for (const [relationship, entry] of totals) {
-    if (entry.resolved >= 2) rates[relationship] = entry.completed / entry.resolved;
-  }
-  return rates;
+function computeRelationshipCompletionRates(): Partial<Record<RelationshipType, number>> {
+  return {};
 }
 
-function computeBestRatedIds(history: ChallengeInstance[]): Set<string> {
-  const counts = new Map<string, number>();
-  for (const instance of history) {
-    if (instance.status === 'concluido' && instance.reaction && POSITIVE_REACTIONS.includes(instance.reaction)) {
-      counts.set(instance.challengeId, (counts.get(instance.challengeId) ?? 0) + 1);
-    }
-  }
-  const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 15);
-  return new Set(sorted.map(([id]) => id));
+function computeBestRatedIds(): Set<string> {
+  return new Set();
 }
 
 function timeOfDayBonus(challenge: Challenge, slot: DaySlot): number {
@@ -1103,7 +1196,7 @@ const INTENSITY_RANK: Record<ChallengeIntensity, number> = { leve: 0, equilibrad
 
 /** Aproxima o nível do desafio (fácil/médio/desafiador) da intensidade que o usuário pediu no cadastro. */
 function intensityBonus(challenge: Challenge, intensity: ChallengeIntensity): number {
-  const diff = Math.abs(LEVEL_RANK[challenge.nivel] - INTENSITY_RANK[intensity]);
+  const diff = Math.abs(LEVEL_RANK[resolveNivel(challenge)] - INTENSITY_RANK[intensity]);
   if (diff === 0) return 8;
   if (diff === 1) return 0;
   return -8;

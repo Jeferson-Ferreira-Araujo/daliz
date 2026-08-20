@@ -2,7 +2,12 @@ import { actionPerformanceRepository } from '@/storage/repositories/actionPerfor
 import { analyticsService } from './analyticsService';
 import { isReadyForProgression } from '@/engine/progression';
 import { getCurrentDate } from '@/utils/now';
-import type { AbandonReason, ChallengeInstance, UserActionPerformance } from '@/types';
+import type { ChallengeInstance, UserActionPerformance } from '@/types';
+
+// DESATIVADO (ver plano de migração seção 4/6): nada mais chama recordCompletion/recordRejection/
+// recordReminder desde a remoção de Concluir/Não consegui — o service fica intacto pra reativação
+// futura com outro sinal, sem re-arquitetar. `instance.conceptGroup` foi renomeado pra `conceptGroup`
+// (ver Challenge/ChallengeInstance), mesmo campo/papel.
 
 function emptyPerformance(concept: string, difficulty: number): UserActionPerformance {
   return {
@@ -33,16 +38,16 @@ export const progressionService = {
    * novo, seção 12: "não pular vários níveis").
    */
   async recordCompletion(instance: ChallengeInstance, now: Date = getCurrentDate()): Promise<void> {
-    if (!instance.concept || instance.difficulty == null) return;
-    const existing = await actionPerformanceRepository.getByConcept(instance.concept);
-    const perf = existing ?? emptyPerformance(instance.concept, instance.difficulty);
+    if (!instance.conceptGroup || instance.difficulty == null) return;
+    const existing = await actionPerformanceRepository.getByConcept(instance.conceptGroup);
+    const perf = existing ?? emptyPerformance(instance.conceptGroup, instance.difficulty);
 
     if (instance.difficulty > perf.currentDifficulty) {
       const previousDifficulty = perf.currentDifficulty;
       perf.currentDifficulty = instance.difficulty;
       perf.consecutiveCompletions = 1; // nível novo, evidência recomeça (seção 12/18)
       analyticsService.log('action_difficulty_increased', {
-        concept: instance.concept,
+        concept: instance.conceptGroup,
         progressionGroup: instance.progressionGroup,
         previousDifficulty,
         newDifficulty: instance.difficulty,
@@ -60,7 +65,7 @@ export const progressionService = {
 
     if (isReadyForProgression(perf)) {
       analyticsService.log('action_progression_detected', {
-        concept: instance.concept,
+        concept: instance.conceptGroup,
         progressionGroup: instance.progressionGroup,
         currentDifficulty: perf.currentDifficulty,
         completedCount: perf.completedCount,
@@ -74,10 +79,10 @@ export const progressionService = {
    * demais (sem tempo, esqueci, momento inadequado, não gostei, não fez sentido) só contam como
    * rejeição pro histórico, sem interpretar que o nível está inadequado.
    */
-  async recordRejection(instance: ChallengeInstance, reason: AbandonReason): Promise<void> {
-    if (!instance.concept || instance.difficulty == null) return;
-    const existing = await actionPerformanceRepository.getByConcept(instance.concept);
-    const perf = existing ?? emptyPerformance(instance.concept, instance.difficulty);
+  async recordRejection(instance: ChallengeInstance, reason: string): Promise<void> {
+    if (!instance.conceptGroup || instance.difficulty == null) return;
+    const existing = await actionPerformanceRepository.getByConcept(instance.conceptGroup);
+    const perf = existing ?? emptyPerformance(instance.conceptGroup, instance.difficulty);
 
     perf.rejectedCount += 1;
     if (reason === 'foi_dificil') perf.consecutiveCompletions = 0;
@@ -91,9 +96,9 @@ export const progressionService = {
    * era bom (ver reminderService.ts, que já não mexe em `timing` pelo mesmo motivo).
    */
   async recordReminder(instance: ChallengeInstance): Promise<void> {
-    if (!instance.concept || instance.difficulty == null) return;
-    const existing = await actionPerformanceRepository.getByConcept(instance.concept);
-    const perf = existing ?? emptyPerformance(instance.concept, instance.difficulty);
+    if (!instance.conceptGroup || instance.difficulty == null) return;
+    const existing = await actionPerformanceRepository.getByConcept(instance.conceptGroup);
+    const perf = existing ?? emptyPerformance(instance.conceptGroup, instance.difficulty);
     perf.reminderCount += 1;
     await actionPerformanceRepository.save(perf);
   },

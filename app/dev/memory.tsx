@@ -13,7 +13,7 @@ type ConfirmKind = null | 'history' | 'learning';
 
 export default function DevMemoryScreen() {
   const { colors } = useTheme();
-  const [summary, setSummary] = useState({ completed: 0, notCompleted: 0, pending: 0, daysRegistered: 0, categoriesUsed: 0 });
+  const [summary, setSummary] = useState({ delivered: 0, daysRegistered: 0, categoriesUsed: 0 });
   const [showHistory, setShowHistory] = useState(false);
   const [history, setHistory] = useState<ChallengeInstance[]>([]);
   const [confirming, setConfirming] = useState<ConfirmKind>(null);
@@ -49,9 +49,7 @@ export default function DevMemoryScreen() {
   return (
     <DevScreen title="Memória e Aprendizado">
       <DevSection title="Resumo geral">
-        <DevKeyValue label="Concluídos" value={String(summary.completed)} />
-        <DevKeyValue label="Não concluídos" value={String(summary.notCompleted)} />
-        <DevKeyValue label="Pendentes" value={String(summary.pending)} />
+        <DevKeyValue label="Ações entregues" value={String(summary.delivered)} />
         <DevKeyValue label="Dias registrados" value={String(summary.daysRegistered)} />
         <DevKeyValue label="Categorias utilizadas" value={String(summary.categoriesUsed)} last />
       </DevSection>
@@ -99,7 +97,7 @@ export default function DevMemoryScreen() {
                   </AppText>
                 </View>
                 <AppText variant="caption" color={colors.textMuted}>
-                  {instance.status}
+                  {instance.deliveredAt ? 'entregue' : '—'}
                 </AppText>
               </View>
             ))

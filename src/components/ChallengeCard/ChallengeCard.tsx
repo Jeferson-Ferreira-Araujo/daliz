@@ -6,82 +6,39 @@ import * as MediaLibrary from 'expo-media-library';
 import { AppText } from '@/components/ui/AppText';
 import { Button } from '@/components/ui/Button';
 import { radius, spacing, useTheme } from '@/theme';
-import { ReactionPicker } from './ReactionPicker';
-import { AbandonReasonPicker } from './AbandonReasonPicker';
 import { NoteField } from './NoteField';
 import { ActionSupport } from './ActionSupport';
 import { ReminderPicker } from './ReminderPicker';
 import { CATEGORY_ICON_NAMES } from '@/utils/categoryIcons';
-import { getEncouragementMessage } from '@/data/encouragementMessages';
 import { buildSpotifySearchUrl } from '@/utils/spotify';
 import { buildBibleSearchUrl } from '@/utils/bible';
 import { challengeById, getInstanceTiming } from '@/data/challenges';
 import { TIMING_LABELS } from '@/engine/challengeTiming';
-import {
-  ABANDON_REASON_LABELS,
-  CHALLENGE_REACTION_LABELS,
-  type AbandonReason,
-  type ChallengeInstance,
-  type ChallengeReaction,
-  type ReminderType,
-} from '@/types';
-
-const REACTION_EMOJI: Record<ChallengeReaction, string> = {
-  fez_muito_bem: '❤️',
-  foi_bom: '🙂',
-  foi_normal: '😐',
-  nao_fez_diferenca: '😕',
-  foi_dificil: '😣',
-};
+import type { ChallengeInstance, ReminderType } from '@/types';
 
 interface ChallengeCardProps {
   instance: ChallengeInstance;
-  isLate: boolean;
   highlighted?: boolean;
-  onComplete: (reaction: ChallengeReaction) => void;
-  onAbandon: (reason: AbandonReason, detail?: string) => void;
   onSaveNote: (note: string) => void;
   onScheduleReminder: (scheduledFor: Date, reminderType: ReminderType) => void;
   onCancelReminder: () => void;
 }
 
-type PickerMode = null | 'reaction' | 'abandon' | 'reminder';
+type PickerMode = null | 'reminder';
 type CameraState = 'idle' | 'saving' | 'saved' | 'denied';
 
-export function ChallengeCard({
-  instance,
-  isLate,
-  highlighted,
-  onComplete,
-  onAbandon,
-  onSaveNote,
-  onScheduleReminder,
-  onCancelReminder,
-}: ChallengeCardProps) {
+/**
+ * Sem ciclo de vida de resultado (ver plano de migração seção 4): mostra a ação, o suporte pra
+ * fazê-la (Spotify/Bíblia/câmera/ActionSupport), a anotação quando faz sentido, e "Lembrar mais
+ * tarde" — nunca um botão de Concluir/Não consegui. `deliveredAt` já é o único marco de histórico
+ * hoje (ver ChallengeInstance).
+ */
+export function ChallengeCard({ instance, highlighted, onSaveNote, onScheduleReminder, onCancelReminder }: ChallengeCardProps) {
   const { colors } = useTheme();
   const [pickerMode, setPickerMode] = useState<PickerMode>(null);
-  const [expanded, setExpanded] = useState(false);
   const [cameraState, setCameraState] = useState<CameraState>('idle');
 
   const icon = CATEGORY_ICON_NAMES[instance.categoria];
-  const isPending = instance.status === 'pendente';
-  const isDone = instance.status === 'concluido';
-  const isNotDone = instance.status === 'nao_concluido';
-  const isIgnored = instance.status === 'ignorado';
-
-  const tone = isDone ? colors.success : isNotDone ? colors.danger : isIgnored ? colors.textMuted : colors.warning;
-  const toneBg = isDone ? colors.successBg : isNotDone ? colors.dangerBg : isIgnored ? colors.surfaceMuted : colors.warningBg;
-  const statusLabel = isDone
-    ? 'Concluída'
-    : isNotDone
-      ? 'Não realizada'
-      : isIgnored
-        ? 'Sem interação'
-        : isLate
-          ? 'Atrasado'
-          : 'Pendente';
-
-  const canExpand = isDone || isNotDone;
   const showingPicker = pickerMode !== null;
   const timing = getInstanceTiming(instance);
   const musicQuery = challengeById[instance.challengeId]?.musicQuery;
@@ -90,10 +47,6 @@ export function ChallengeCard({
   const supportType = challengeById[instance.challengeId]?.supportType;
   const supportLabel = challengeById[instance.challengeId]?.supportLabel;
   const supportData = challengeById[instance.challengeId]?.supportData;
-
-  function handleHeaderPress() {
-    if (canExpand) setExpanded((prev) => !prev);
-  }
 
   function handleOpenSpotify() {
     if (musicQuery) Linking.openURL(buildSpotifySearchUrl(musicQuery)).catch(() => {});
@@ -126,16 +79,6 @@ export function ChallengeCard({
     }
   }
 
-  function handleComplete(reaction: ChallengeReaction) {
-    setPickerMode(null);
-    onComplete(reaction);
-  }
-
-  function handleAbandon(reason: AbandonReason, detail?: string) {
-    setPickerMode(null);
-    onAbandon(reason, detail);
-  }
-
   function handleScheduleReminder(scheduledFor: Date, reminderType: ReminderType) {
     setPickerMode(null);
     onScheduleReminder(scheduledFor, reminderType);
@@ -148,40 +91,19 @@ export function ChallengeCard({
 
   return (
     <View style={[styles.card, { backgroundColor: colors.surface }, highlighted && { borderColor: colors.primary, borderWidth: 2 }]}>
-      <Pressable
-        onPress={handleHeaderPress}
-        style={styles.header}
-        disabled={!canExpand}
-        accessibilityRole={canExpand ? 'button' : undefined}
-      >
-        <AppText variant="pillLabel" color={tone}>
-          {statusLabel}
-        </AppText>
-        {canExpand && (
-          <Ionicons name={expanded ? 'chevron-up' : 'chevron-down'} size={16} color={colors.textMuted} />
-        )}
-      </Pressable>
-
       <View style={styles.body}>
-        <View style={[styles.iconCircle, { backgroundColor: toneBg }]}>
-          <Ionicons name={icon} size={20} color={tone} />
+        <View style={[styles.iconCircle, { backgroundColor: colors.primaryMuted }]}>
+          <Ionicons name={icon} size={20} color={colors.primary} />
         </View>
         <View style={styles.textGroup}>
-          {isPending && (
-            <View style={[styles.timingBadge, { backgroundColor: colors.primaryMuted }]}>
-              <AppText variant="pillLabel" color={colors.primary}>
-                {TIMING_LABELS[timing]}
-              </AppText>
-            </View>
-          )}
-          <AppText variant="subtitle">{instance.titulo}</AppText>
-          {!isPending && (
-            <AppText variant="caption" color={colors.textMuted} style={styles.subtitle}>
-              {subtitleFor(instance)}
+          <View style={[styles.timingBadge, { backgroundColor: colors.primaryMuted }]}>
+            <AppText variant="pillLabel" color={colors.primary}>
+              {TIMING_LABELS[timing]}
             </AppText>
-          )}
+          </View>
+          <AppText variant="subtitle">{instance.titulo}</AppText>
 
-          {isPending && musicQuery && (
+          {musicQuery && (
             <Button
               label="🎧 Abrir no Spotify"
               variant="outline"
@@ -191,7 +113,7 @@ export function ChallengeCard({
             />
           )}
 
-          {isPending && bibleQuery && (
+          {bibleQuery && (
             <Button
               label="📖 Ler versículo"
               variant="outline"
@@ -201,7 +123,7 @@ export function ChallengeCard({
             />
           )}
 
-          {isPending && opensCamera && (
+          {opensCamera && (
             <View>
               <Button
                 label={cameraState === 'saving' ? 'Salvando na galeria...' : '📷 Tirar foto agora'}
@@ -224,27 +146,15 @@ export function ChallengeCard({
             </View>
           )}
 
-          {isPending && (
-            <ActionSupport supportType={supportType} supportLabel={supportLabel} supportData={supportData} />
-          )}
+          <ActionSupport supportType={supportType} supportLabel={supportLabel} supportData={supportData} />
 
-          {isPending && !showingPicker && asksToWrite(instance) && (
-            <NoteField value={instance.note ?? ''} onSave={onSaveNote} />
-          )}
+          {!showingPicker && asksToWrite(instance) && <NoteField value={instance.note ?? ''} onSave={onSaveNote} />}
 
-          {isPending && !showingPicker && (
+          {!showingPicker && (
             <View style={styles.pendingActions}>
-              <Button label="Concluir" tone="success" size="sm" onPress={() => setPickerMode('reaction')} />
-              <Button
-                label="Não consegui fazer"
-                tone="neutral"
-                variant="soft"
-                size="sm"
-                onPress={() => setPickerMode('abandon')}
-              />
               {/* "Lembrar mais tarde" fica disponível em qualquer timing (now/today/contextual) —
                   não é uma decisão de `timing`, é a pessoa dizendo que esse momento específico não
-                  é bom (ver seção 1 do pedido de lembretes). */}
+                  é bom. Independente de conclusão (ver ChallengeInstance). */}
               <Button
                 label={instance.reminder ? `⏰ ${formatTime(instance.reminder.scheduledFor)}` : '⏰ Lembrar mais tarde'}
                 tone={instance.reminder ? 'primary' : 'neutral'}
@@ -254,30 +164,9 @@ export function ChallengeCard({
               />
             </View>
           )}
-
-          {isDone && !expanded && instance.reaction && (
-            <Pressable onPress={() => setExpanded(true)} style={[styles.recapPill, { borderColor: colors.border }]}>
-              <AppText style={styles.recapEmoji}>{REACTION_EMOJI[instance.reaction]}</AppText>
-              <AppText variant="caption">{CHALLENGE_REACTION_LABELS[instance.reaction]}</AppText>
-              <Ionicons name="chevron-forward" size={13} color={colors.textMuted} />
-            </Pressable>
-          )}
-
-          {isNotDone && !expanded && instance.abandonReason && (
-            <Pressable onPress={() => setExpanded(true)} style={[styles.recapPill, { borderColor: colors.border }]}>
-              <AppText variant="caption" numberOfLines={1} style={{ flexShrink: 1 }}>
-                {instance.abandonReason === 'outro' && instance.abandonReasonDetail
-                  ? instance.abandonReasonDetail
-                  : ABANDON_REASON_LABELS[instance.abandonReason]}
-              </AppText>
-              <Ionicons name="chevron-forward" size={13} color={colors.textMuted} />
-            </Pressable>
-          )}
         </View>
       </View>
 
-      {pickerMode === 'reaction' && <ReactionPicker onSelect={handleComplete} />}
-      {pickerMode === 'abandon' && <AbandonReasonPicker onSelect={handleAbandon} />}
       {pickerMode === 'reminder' && (
         <ReminderPicker
           activeReminderLabel={instance.reminder ? formatTime(instance.reminder.scheduledFor) : null}
@@ -287,68 +176,11 @@ export function ChallengeCard({
         />
       )}
 
-      {expanded && isDone && instance.reaction && (
+      {instance.note && (
         <View style={styles.expandedDetail}>
-          <ReactionRecap reaction={instance.reaction} />
-          <View style={[styles.encouragementBox, { backgroundColor: colors.successBg }]}>
-            <AppText variant="body" color={colors.success}>
-              ✨ {getEncouragementMessage(instance.categoria, instance.reaction)}
-            </AppText>
-          </View>
-          {instance.note && <NoteRecap text={instance.note} />}
+          <NoteRecap text={instance.note} />
         </View>
       )}
-
-      {expanded && isNotDone && instance.abandonReason && (
-        <View style={styles.expandedDetail}>
-          <AbandonRecap reason={instance.abandonReason} detail={instance.abandonReasonDetail} />
-          {instance.note && <NoteRecap text={instance.note} />}
-        </View>
-      )}
-    </View>
-  );
-}
-
-function ReactionRecap({ reaction }: { reaction: ChallengeReaction }) {
-  const { colors } = useTheme();
-  const order: ChallengeReaction[] = ['fez_muito_bem', 'foi_bom', 'foi_normal', 'nao_fez_diferenca', 'foi_dificil'];
-  return (
-    <View style={styles.recapGrid}>
-      <AppText variant="bodyStrong" style={styles.question}>
-        Como essa ação fez você se sentir?
-      </AppText>
-      <View style={styles.options}>
-        {order.map((r) => {
-          const selected = r === reaction;
-          return (
-            <View key={r} style={styles.option}>
-              <View
-                style={[
-                  styles.emojiCircle,
-                  { backgroundColor: colors.surface, borderColor: selected ? colors.success : colors.border },
-                  selected && { borderWidth: 2 },
-                ]}
-              >
-                <AppText style={styles.emoji}>{REACTION_EMOJI[r]}</AppText>
-              </View>
-              <AppText variant="caption" color={selected ? colors.text : colors.textMuted} style={styles.optionLabel}>
-                {CHALLENGE_REACTION_LABELS[r]}
-              </AppText>
-            </View>
-          );
-        })}
-      </View>
-    </View>
-  );
-}
-
-function AbandonRecap({ reason, detail }: { reason: AbandonReason; detail: string | null }) {
-  const { colors } = useTheme();
-  return (
-    <View style={[styles.abandonRecapBox, { backgroundColor: colors.dangerBg }]}>
-      <AppText variant="body" color={colors.danger}>
-        {reason === 'outro' && detail ? detail : ABANDON_REASON_LABELS[reason]}
-      </AppText>
     </View>
   );
 }
@@ -368,12 +200,12 @@ function NoteRecap({ text }: { text: string }) {
 const WRITING_VERBS = ['escreva', 'anote', 'liste'];
 
 /** Detecta ações que pedem pra escrever/anotar algo, a partir do texto já resolvido da própria
- * instância — não existe hoje nenhum campo de dados confiável pra isso (ver plano). Mesmo
- * espírito do prefix-match de scripts/challengeHeuristics.js, só que em runtime. */
+ * instância — não existe hoje nenhum campo de dados confiável pra isso. Mesmo espírito do
+ * prefix-match de scripts/challengeHeuristics.js, só que em runtime. */
 function asksToWrite(instance: ChallengeInstance): boolean {
   const title = normalizeText(instance.titulo);
   if (WRITING_VERBS.some((verb) => title.startsWith(verb))) return true;
-  const description = normalizeText(instance.descricao);
+  const description = normalizeText(instance.descricao ?? '');
   return WRITING_VERBS.some((verb) => description.includes(verb));
 }
 
@@ -383,24 +215,6 @@ function normalizeText(text: string): string {
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
     .trim();
-}
-
-// Só chamada pra status resolvidos (isPending já filtra "pendente" antes de renderizar isto) —
-// enquanto pendente, o card não mostra nenhuma estimativa de tempo (ver seção "primeira
-// notificação" do pedido: tempo estimado passava a sensação errada de prazo pra concluir).
-function subtitleFor(instance: ChallengeInstance): string {
-  if (instance.status === 'concluido') {
-    return instance.timeToCompleteMs != null
-      ? `Você fez isso em ${formatMinutes(instance.timeToCompleteMs)}.`
-      : 'Concluído.';
-  }
-  if (instance.status === 'nao_concluido') return 'Você não realizou essa ação.';
-  return 'Você não interagiu com essa ação.';
-}
-
-function formatMinutes(ms: number): string {
-  const minutes = Math.max(1, Math.round(ms / 60000));
-  return `${minutes} minuto${minutes > 1 ? 's' : ''}`;
 }
 
 function formatTime(iso: string): string {
@@ -413,12 +227,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.md,
     marginBottom: spacing.md,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: spacing.sm,
   },
   body: {
     flexDirection: 'row',
@@ -433,9 +241,6 @@ const styles = StyleSheet.create({
   },
   textGroup: {
     flex: 1,
-  },
-  subtitle: {
-    marginTop: 2,
   },
   timingBadge: {
     alignSelf: 'flex-start',
@@ -458,69 +263,13 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
     gap: spacing.sm,
   },
-  recapPill: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    marginTop: spacing.sm,
-    paddingVertical: spacing.xs,
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    gap: spacing.xs,
-    maxWidth: '100%',
-  },
-  recapEmoji: {
-    fontSize: 14,
-  },
   expandedDetail: {
     marginTop: spacing.md,
     paddingTop: spacing.md,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: 'transparent',
   },
-  recapGrid: {},
-  question: {
-    marginBottom: spacing.md,
-  },
-  options: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-  option: {
-    alignItems: 'center',
-    width: '19%',
-    minWidth: 58,
-    marginBottom: spacing.sm,
-  },
-  emojiCircle: {
-    width: 48,
-    height: 48,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: spacing.xs,
-  },
-  emoji: {
-    fontSize: 22,
-  },
-  optionLabel: {
-    textAlign: 'center',
-    fontSize: 11,
-  },
-  encouragementBox: {
-    marginTop: spacing.md,
-    borderRadius: radius.md,
-    padding: spacing.md,
-  },
-  abandonRecapBox: {
-    borderRadius: radius.md,
-    padding: spacing.md,
-  },
   noteRecapBox: {
-    marginTop: spacing.md,
     borderRadius: radius.md,
     padding: spacing.md,
   },

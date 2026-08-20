@@ -11,20 +11,12 @@ import { resolveActiveDate } from '@/services/dayCycleService';
 import { getInstanceActionKind } from '@/data/challenges';
 import { formatLongDate, logicalDateFor, parseISODate } from '@/utils/date';
 import { getCurrentDate } from '@/utils/now';
-import type { ChallengeInstance, ChallengeInstanceStatus, DaySummary, UserProfile } from '@/types';
+import type { ChallengeInstance, DaySummary, UserProfile } from '@/types';
 
 interface DayCardProps {
   summary: DaySummary;
   profile: UserProfile | null;
 }
-
-const STATUS_META: Record<ChallengeInstanceStatus, { icon: keyof typeof Ionicons.glyphMap; label: string }> = {
-  concluido: { icon: 'checkmark-circle', label: 'Concluído' },
-  nao_concluido: { icon: 'close-circle', label: 'Não concluído' },
-  ignorado: { icon: 'remove-circle', label: 'Ignorado' },
-  pendente: { icon: 'time', label: 'Pendente' },
-  atrasado: { icon: 'alert-circle', label: 'Atrasado' },
-};
 
 /** Card de um dia no Histórico — resumo sempre visível, detalhe (quais tarefas foram
  * feitas e o resumo em texto livre daquele dia) só carrega quando a pessoa expande. */
@@ -36,8 +28,6 @@ export function DayCard({ summary, profile }: DayCardProps) {
   const [journalText, setJournalText] = useState('');
   const [savedText, setSavedText] = useState('');
   const [saving, setSaving] = useState(false);
-
-  const percentage = Math.round(summary.completionRate * 100);
 
   async function handleToggle() {
     const next = !expanded;
@@ -78,12 +68,7 @@ export function DayCard({ summary, profile }: DayCardProps) {
         <View style={{ flex: 1 }}>
           <AppText variant="bodyStrong">{formatLongDate(parseISODate(summary.date))}</AppText>
           <AppText variant="caption" color={colors.textMuted}>
-            {summary.completed} concluídas · {summary.notCompleted + summary.ignored} não realizadas
-          </AppText>
-        </View>
-        <View style={[styles.percentageBadge, { backgroundColor: percentage >= 50 ? colors.successBg : colors.surfaceMuted }]}>
-          <AppText variant="pillLabel" color={percentage >= 50 ? colors.success : colors.textMuted}>
-            {percentage}%
+            {summary.total} {summary.total === 1 ? 'ação' : 'ações'}
           </AppText>
         </View>
         <Ionicons
@@ -106,23 +91,16 @@ export function DayCard({ summary, profile }: DayCardProps) {
                 </AppText>
               ) : (
                 <View style={styles.taskList}>
-                  {instances.map((instance) => {
-                    const meta = STATUS_META[instance.status];
-                    const isDone = instance.status === 'concluido';
-                    return (
-                      <View key={instance.id} style={styles.taskRow}>
-                        <Ionicons
-                          name={meta.icon}
-                          size={16}
-                          color={isDone ? colors.success : colors.textMuted}
-                          style={styles.taskIcon}
-                        />
-                        <AppText variant="body" color={isDone ? colors.text : colors.textMuted} style={styles.taskTitle}>
-                          {instance.titulo}
-                        </AppText>
-                      </View>
-                    );
-                  })}
+                  {instances.map((instance) => (
+                    <View key={instance.id} style={styles.taskRow}>
+                      <AppText variant="caption" color={colors.textMuted} style={styles.taskTime}>
+                        {formatTime(instance.deliveredAt ?? instance.scheduledFor)}
+                      </AppText>
+                      <AppText variant="body" style={styles.taskTitle}>
+                        {instance.titulo}
+                      </AppText>
+                    </View>
+                  ))}
                 </View>
               )}
 
@@ -160,6 +138,11 @@ export function DayCard({ summary, profile }: DayCardProps) {
   );
 }
 
+function formatTime(iso: string): string {
+  const date = new Date(iso);
+  return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+}
+
 const styles = StyleSheet.create({
   card: {
     borderRadius: radius.lg,
@@ -170,11 +153,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: spacing.md,
-  },
-  percentageBadge: {
-    paddingVertical: spacing.xs,
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.pill,
   },
   chevron: {
     marginLeft: spacing.sm,
@@ -194,7 +172,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: spacing.xs,
   },
-  taskIcon: {
+  taskTime: {
+    width: 44,
     marginRight: spacing.sm,
   },
   taskTitle: {

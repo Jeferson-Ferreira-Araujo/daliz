@@ -49,19 +49,13 @@ export interface DailyActionsResult {
   profile: UserProfile;
 }
 
+// Sem Concluir/Não consegui (ver plano de migração seção 4), não existe mais status de conclusão
+// pra contar — `completed`/`notCompleted`/`ignored` ficam sempre 0, `total` conta o que foi
+// entregue (`deliveredAt`). Mantém o shape de `DaySummary` intacto (menor mudança possível — ver
+// DayCard.tsx, que já foi ajustado pra não depender mais dessas contagens).
 function buildSummary(date: string, instances: ChallengeInstance[]): DaySummary {
-  const completed = instances.filter((i) => i.status === 'concluido').length;
-  const notCompleted = instances.filter((i) => i.status === 'nao_concluido').length;
-  const ignored = instances.filter((i) => i.status === 'ignorado').length;
-  const total = instances.length;
-  return {
-    date,
-    completed,
-    notCompleted,
-    ignored,
-    total,
-    completionRate: total > 0 ? completed / total : 0,
-  };
+  const total = instances.filter((i) => i.deliveredAt != null).length;
+  return { date, completed: 0, notCompleted: 0, ignored: 0, total, completionRate: 0 };
 }
 
 /**
@@ -79,20 +73,14 @@ export function resolveActiveDate(profile: UserProfile, now: Date = getCurrentDa
 }
 
 /**
- * Expira (vira `ignorado`) qualquer ação ainda `pendente` de uma data diferente de `activeDate`
- * cujo horário de dormir já passou — substitui o antigo "fechamento de ciclo", sem precisar de
- * nenhum registro à parte pra saber o que já foi "fechado". `force` ignora a checagem de horário
- * (usado só pelo Modo Dev, ver `forceExpirePending`).
+ * DORMENTE (ver plano de migração seção 4): existia pra transicionar ações `pendente` de um
+ * período já dormido pra `ignorado` — esse status não existe mais em `ChallengeInstance` (histórico
+ * virou orientado a eventos, ver deliveredAt/completedAt/dismissedAt/skippedAt). Mantida como
+ * função sem efeito, em vez de removida, pra não precisar mexer nos call sites (`ensureUpcomingActions`/
+ * `forceExpirePending`) até o produto decidir o que "expirar" significa nesse modelo novo.
  */
-async function expireStalePending(profile: UserProfile, now: Date, activeDate: string, force = false): Promise<void> {
-  const all = await challengeInstanceRepository.getAll();
-  const stale = all.filter((i) => {
-    if (i.status !== 'pendente' || i.date === activeDate) return false;
-    return force || now.getTime() >= sleepDeadlineFor(i.date, profile).getTime();
-  });
-  if (stale.length > 0) {
-    await challengeInstanceRepository.saveMany(stale.map((i) => ({ ...i, status: 'ignorado' as const })));
-  }
+async function expireStalePending(_profile: UserProfile, _now: Date, _activeDate: string, _force = false): Promise<void> {
+  // no-op — ver comentário acima.
 }
 
 /**
@@ -289,14 +277,10 @@ export const dayCycleService = {
    * dormir — só pro Modo Dev (botão "Encerrar dia agora"), pra testar o comportamento de expiração
    * sem esperar o horário real. `true` se havia alguma pendência pra expirar.
    */
-  async forceExpirePending(profile: UserProfile, now: Date = getCurrentDate()): Promise<boolean> {
-    const activeDate = resolveActiveDate(profile, now);
-    const before = await challengeInstanceRepository.getAll();
-    const hadAnyPending = before.some((i) => i.status === 'pendente' && i.date !== activeDate);
-    if (!hadAnyPending) return false;
-
-    await expireStalePending(profile, now, activeDate, true);
-    return true;
+  // DORMENTE (ver expireStalePending) — sempre `false`, não existe mais status "pendente" pra
+  // expirar. Mantida pro botão "Encerrar dia agora" do Modo Dev continuar compilando/chamável.
+  async forceExpirePending(_profile: UserProfile, _now: Date = getCurrentDate()): Promise<boolean> {
+    return false;
   },
 };
 

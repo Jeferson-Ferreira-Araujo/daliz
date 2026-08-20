@@ -8,7 +8,6 @@ import { notificationService } from './notificationService';
 import { analyticsService } from './analyticsService';
 import { otherInterestFeedbackService } from './otherInterestFeedbackService';
 import { getCurrentDate } from '@/utils/now';
-import { POSITIVE_REACTIONS } from '@/types';
 import type {
   ChallengeCategory,
   ChallengeInstance,
@@ -157,17 +156,11 @@ export const profileService = {
    * Nunca mexe em `interests` (a escolha original do cadastro fica intocada), só
    * acrescenta a `discoveredInterests`, usado pelo ChallengeEngine como sinal a mais.
    */
-  async registerInterestDiscovery(profile: UserProfile, instance: ChallengeInstance): Promise<UserProfile> {
-    if (instance.status !== 'concluido' || !instance.reaction || !POSITIVE_REACTIONS.includes(instance.reaction)) {
-      return profile;
-    }
-    const known = new Set<Interest>([...profile.interests, ...profile.discoveredInterests]);
-    const newly = instance.interests.filter((interest) => !known.has(interest));
-    if (newly.length === 0) return profile;
-
-    const updated: UserProfile = { ...profile, discoveredInterests: [...profile.discoveredInterests, ...newly] };
-    await profileRepository.save(updated);
-    return updated;
+  // DORMENTE (ver plano de migração seção 4): dependia de "concluiu com reação positiva", sinal
+  // que não existe mais desde a remoção de Concluir/Não consegui — sempre devolve o perfil sem
+  // mudança. Mantida (não removida) pro call site em home.tsx continuar compilando/chamável.
+  async registerInterestDiscovery(profile: UserProfile, _instance: ChallengeInstance): Promise<UserProfile> {
+    return profile;
   },
 
   /** Limpa TUDO que fica salvo neste aparelho — perfil, dias, histórico de ações, resumos de

@@ -10,7 +10,6 @@
  */
 import { profileService, type OnboardingProfileInput } from '@/services/profileService';
 import { dayCycleService, resolveActiveDate } from '@/services/dayCycleService';
-import { challengeActionsService } from '@/services/challengeActionsService';
 import { notificationService } from '@/services/notificationService';
 import { statsService } from '@/services/statsService';
 import { buildTopHighlightPhrase } from '@/data/weeklyHighlightCopy';
@@ -35,13 +34,11 @@ import { devNotificationTester } from './devNotificationTester';
 import { devOnboardingAutofill, DEV_ONBOARDING_TEST_DATA } from './onboardingAutofill';
 import { CHALLENGE_CATEGORY_LABELS, DEFAULT_PREFERENCES } from '@/types';
 import type {
-  AbandonReason,
   ActionSupportType,
   AppContext,
   Challenge,
   ChallengeCategory,
   ChallengeInstance,
-  ChallengeReaction,
   ChallengeTiming,
   EventPhaseInfo,
   ImportantPerson,
@@ -129,7 +126,7 @@ export const devService = {
    * formato de notificação próprio de sugestão ("💡 Uma orientação pra agora", ver
    * notificationService.notificationTitleFor) sem depender do sorteio normal do dia incluir uma. */
   async sendSuggestionNow(profile: UserProfile): Promise<ChallengeInstance | null> {
-    const challenge = randomChallengeWith(profile, (c) => (c.actionKind ?? 'acao') === 'sugestao');
+    const challenge = randomChallengeWith(profile, (c) => (c.type ?? 'acao') === 'sugestao');
     return challenge ? sendSpecificChallengeNow(profile, challenge) : null;
   },
 
@@ -142,11 +139,9 @@ export const devService = {
   },
 
   /**
-   * Sistema de dificuldade adaptativa (ver src/engine/progression.ts / progressionService.ts).
-   * Envia sempre o desafio de NÍVEL 1 de um `progressionGroup` de teste — combine com
-   * `setInstanceStatus(instance, 'concluido')` (já usado pela tela "Desafios") 3x seguidas pra
-   * simular consistência, depois use "Testar seleção" (Contexto Inteligente) pra conferir que o
-   * nível 1 sumiu do pool e o nível 2 passa a competir normalmente.
+   * Sistema de dificuldade adaptativa DORMENTE (ver progressionService.ts — nada mais chama
+   * recordCompletion desde a remoção de Concluir/Não consegui). Mantido só pra continuar
+   * enviando o desafio de NÍVEL 1 de um `progressionGroup` de teste, sem efeito prático hoje.
    */
   async sendProgressiveChallengeNow(profile: UserProfile, concept: string): Promise<ChallengeInstance | null> {
     const challenge = randomChallengeWith(profile, (c) => c.concept === concept && c.difficulty === 1);
@@ -206,24 +201,6 @@ export const devService = {
     return [...instances].sort((a, b) => a.scheduledFor.localeCompare(b.scheduledFor));
   },
 
-  /** Aplica um novo status a uma instância reutilizando os mesmos serviços do fluxo real.
-   * 'ignorado' é a exceção: não existe um método de "ignorar" no fluxo real (só acontece em lote
-   * no fechamento do dia, ver dayCycleService.closeCycle) — aqui replica exatamente o mesmo
-   * assignment, só que pra uma instância isolada, pra testar sem precisar fechar o dia inteiro. */
-  async setInstanceStatus(
-    instance: ChallengeInstance,
-    status: 'concluido' | 'nao_concluido' | 'ignorado' | 'pendente',
-  ): Promise<ChallengeInstance> {
-    if (status === 'concluido') return challengeActionsService.complete(instance, 'foi_bom');
-    if (status === 'nao_concluido') return challengeActionsService.abandon(instance, 'sem_tempo', undefined);
-    if (status === 'ignorado') {
-      const updated: ChallengeInstance = { ...instance, status: 'ignorado' };
-      await challengeInstanceRepository.save(updated);
-      return updated;
-    }
-    return challengeActionsService.resetStatus(instance);
-  },
-
   // ===== Notificações =====
 
   async sendTestNotification(): Promise<void> {
@@ -274,26 +251,24 @@ export const devService = {
 
   // ===== Memória / histórico =====
 
+  // Sem Concluir/Não consegui (ver plano de migração seção 4), não há mais status pra contar —
+  // `delivered` conta o que tem `deliveredAt` preenchido (praticamente tudo).
   async getMemorySummary(): Promise<MemorySummary> {
     const instances = await challengeInstanceRepository.getAll();
     const categories = new Set<ChallengeCategory>();
     const dates = new Set<string>();
-    let completed = 0;
-    let notCompleted = 0;
-    let pending = 0;
+    let delivered = 0;
     for (const instance of instances) {
       categories.add(instance.categoria);
       dates.add(instance.date);
-      if (instance.status === 'concluido') completed += 1;
-      else if (instance.status === 'nao_concluido' || instance.status === 'ignorado') notCompleted += 1;
-      else if (instance.status === 'pendente') pending += 1;
+      if (instance.deliveredAt != null) delivered += 1;
     }
-    return { completed, notCompleted, pending, daysRegistered: dates.size, categoriesUsed: categories.size };
+    return { delivered, daysRegistered: dates.size, categoriesUsed: categories.size };
   },
 
   async getFullHistory(): Promise<ChallengeInstance[]> {
     const all = await challengeInstanceRepository.getAll();
-    return [...all].sort((a, b) => b.sentAt.localeCompare(a.sentAt));
+    return [...all].sort((a, b) => b.scheduledFor.localeCompare(a.scheduledFor));
   },
 
   /** Usado tanto por "Limpar histórico" quanto por "Resetar aprendizado" — neste app, o aprendizado É derivado do histórico, não há tabela separada. */
@@ -383,37 +358,27 @@ export const devService = {
     devOnboardingAutofill.arm(DEV_ONBOARDING_TEST_DATA);
   },
 
+  // Sem Concluir/Não consegui (ver plano de migração seção 4), "engajado" vs "baixa adesão" não
+  // tem mais como se diferenciar por taxa de conclusão — os dois cenários geram histórico só com
+  // `deliveredAt` variado (frequência/volume), diferenciados pelo número de dias.
   async simulateEngagedUser(): Promise<UserProfile> {
     const profile = await ensureTestProfile();
-    await generateHistoryDays(profile, {
-      days: 12,
-      instancesPerDay: [3, 4],
-      completedRatio: 0.85,
-      positiveReactionRatio: 0.9,
-    });
+    await generateHistoryDays(profile, { days: 12, instancesPerDay: [3, 4] });
     return profile;
   },
 
   async simulateLowEngagementUser(): Promise<UserProfile> {
     const profile = await ensureTestProfile();
-    await generateHistoryDays(profile, {
-      days: 10,
-      instancesPerDay: [3, 4],
-      completedRatio: 0.2,
-      positiveReactionRatio: 0.3,
-    });
+    await generateHistoryDays(profile, { days: 10, instancesPerDay: [3, 4] });
     return profile;
   },
 
+  // Sem Concluir/Não consegui (ver plano de migração seção 4), simular "final do dia" é só
+  // avançar o relógio e garantir que o lote do dia já foi gerado — não há mais status pra
+  // manipular por instância.
   async simulateEndOfDay(profile: UserProfile): Promise<void> {
     devClock.setTimeOfDay(23, 59);
-    const { instances } = await dayCycleService.ensureUpcomingActions(profile, getCurrentDate());
-    const pending = instances.filter((i) => i.status === 'pendente');
-    for (let i = 0; i < pending.length; i += 1) {
-      if (i % 3 === 0) await challengeActionsService.complete(pending[i], 'foi_bom');
-      else if (i % 3 === 1) await challengeActionsService.abandon(pending[i], 'sem_tempo', undefined);
-      // o restante fica pendente de propósito, pra ver o fechamento tratar como "ignorado"
-    }
+    await dayCycleService.ensureUpcomingActions(profile, getCurrentDate());
   },
 
   async simulatePendingChallenge(profile: UserProfile): Promise<ChallengeInstance> {
@@ -554,18 +519,14 @@ async function ensureTestProfile(): Promise<UserProfile> {
   return profileService.completeOnboarding(input, true);
 }
 
-const POSITIVE_REACTIONS: ChallengeReaction[] = ['fez_muito_bem', 'foi_bom'];
-const NEUTRAL_REACTIONS: ChallengeReaction[] = ['foi_normal', 'nao_fez_diferenca', 'foi_dificil'];
-const ABANDON_REASONS: AbandonReason[] = ['sem_tempo', 'momento_inadequado', 'esqueci', 'nao_gostei', 'foi_dificil'];
-
 interface GenerateHistoryOptions {
   days: number;
   instancesPerDay: [number, number];
-  completedRatio: number;
-  positiveReactionRatio: number;
 }
 
-/** Gera histórico sintético reutilizando complete()/abandon() reais, com timestamps retroativos. */
+/** Gera histórico sintético com timestamps retroativos — sem Concluir/Não consegui (ver plano de
+ * migração seção 4), só cria as instâncias entregues (`deliveredAt` = horário retroativo), sem
+ * simular nenhum resultado. */
 async function generateHistoryDays(profile: UserProfile, options: GenerateHistoryOptions): Promise<void> {
   const usedChallengeIds = new Set<string>();
 
@@ -583,21 +544,8 @@ async function generateHistoryDays(profile: UserProfile, options: GenerateHistor
       const challenge = randomChallenge(profile, usedChallengeIds);
       usedChallengeIds.add(challenge.id);
 
-      let instance = buildInstance(challenge, sentAt, dateISO);
+      const instance = buildInstance(challenge, sentAt, dateISO);
       await challengeInstanceRepository.save(instance);
-
-      const willComplete = Math.random() < options.completedRatio;
-      if (willComplete) {
-        const completedAt = new Date(sentAt.getTime() + randomBetween(3, 40) * 60000);
-        const reaction =
-          Math.random() < options.positiveReactionRatio
-            ? POSITIVE_REACTIONS[Math.floor(Math.random() * POSITIVE_REACTIONS.length)]
-            : NEUTRAL_REACTIONS[Math.floor(Math.random() * NEUTRAL_REACTIONS.length)];
-        instance = await challengeActionsService.complete(instance, reaction, completedAt);
-      } else {
-        const reason = ABANDON_REASONS[Math.floor(Math.random() * ABANDON_REASONS.length)];
-        instance = await challengeActionsService.abandon(instance, reason, undefined, sentAt);
-      }
     }
   }
 }
@@ -607,9 +555,7 @@ function randomBetween(min: number, max: number): number {
 }
 
 interface MemorySummary {
-  completed: number;
-  notCompleted: number;
-  pending: number;
+  delivered: number;
   daysRegistered: number;
   categoriesUsed: number;
 }

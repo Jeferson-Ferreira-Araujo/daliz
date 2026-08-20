@@ -9,9 +9,6 @@ import { AppText } from '@/components/ui/AppText';
 import { CurrentWeatherWidget } from '@/components/CurrentWeatherWidget';
 import { EmptyState } from '@/components/EmptyState';
 import { ChallengeCard } from '@/components/ChallengeCard/ChallengeCard';
-import { CollapsibleSection } from '@/components/CollapsibleSection';
-import { ShareableMomentCard } from '@/components/ShareableMomentCard';
-import { FirstActionCompletedScreen, type NextActionPreview } from '@/components/FirstActionCompletedScreen';
 import { radius, spacing, useTheme } from '@/theme';
 import { profileService } from '@/services/profileService';
 import { dayCycleService } from '@/services/dayCycleService';
@@ -21,14 +18,13 @@ import { reminderService } from '@/services/reminderService';
 import { TabHeaderIcons } from '@/components/TabHeaderIcons';
 import { motivationalPhraseForDate } from '@/data/motivationalPhrases';
 import { getInstanceActionKind, getInstanceTiming } from '@/data/challenges';
-import { isShareableMoment } from '@/data/shareableMomentCopy';
 import { MAX_OPEN_ACTIONS } from '@/engine/ChallengeEngine';
 import { isWorkdayToday, sleepDeadlineFor } from '@/engine/dayModel';
 import { resolveActiveDate } from '@/services/dayCycleService';
 import { logicalDateFor } from '@/utils/date';
 import { getCurrentDate } from '@/utils/now';
 import { timeToMinutes } from '@/utils/time';
-import type { AbandonReason, ChallengeInstance, ChallengeReaction, ReminderType, UserProfile } from '@/types';
+import type { ChallengeInstance, ReminderType, UserProfile } from '@/types';
 
 export default function HomeScreen() {
   const { colors } = useTheme();
@@ -38,7 +34,6 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
   const [now, setNow] = useState(() => getCurrentDate());
   const [notificationsGranted, setNotificationsGranted] = useState(false);
-  const [firstActionTransition, setFirstActionTransition] = useState<{ completed: boolean; preview: NextActionPreview } | null>(null);
   // "Recuperação/recomeço" — dias desde a última abertura, só quando ultrapassa
   // RECOVERY_THRESHOLD_DAYS (ver dayCycleService.ensureUpcomingActions). null = nada a mostrar.
   const [welcomeBackGapDays, setWelcomeBackGapDays] = useState<number | null>(null);
@@ -122,23 +117,6 @@ export default function HomeScreen() {
     setNow(getCurrentDate());
   }
 
-  async function handleComplete(instance: ChallengeInstance, reaction: ChallengeReaction) {
-    const updated = await challengeActionsService.complete(instance, reaction);
-    const nextInstances = instances.map((i) => (i.id === updated.id ? updated : i));
-    setInstances(nextInstances);
-    if (profile) {
-      const nextProfile = await profileService.registerInterestDiscovery(profile, updated);
-      await resolveFirstActionIfNeeded(nextProfile, updated, nextInstances);
-    }
-  }
-
-  async function handleAbandon(instance: ChallengeInstance, reason: AbandonReason, detail?: string) {
-    const updated = await challengeActionsService.abandon(instance, reason, detail);
-    const nextInstances = instances.map((i) => (i.id === updated.id ? updated : i));
-    setInstances(nextInstances);
-    if (profile) await resolveFirstActionIfNeeded(profile, updated, nextInstances);
-  }
-
   async function handleSaveNote(instance: ChallengeInstance, note: string) {
     const updated = await challengeActionsService.saveNote(instance, note);
     setInstances((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
@@ -154,38 +132,11 @@ export default function HomeScreen() {
     setInstances((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
   }
 
-  // Estado C do pedido: quando a instância resolvida é a primeira ação de todas, marca o milestone
-  // e mostra a tela de transição uma única vez, com uma prévia qualitativa (sem revelar horário
-  // nem conteúdo) da próxima ação — ver FirstActionCompletedScreen.
-  async function resolveFirstActionIfNeeded(currentProfile: UserProfile, updated: ChallengeInstance, currentInstances: ChallengeInstance[]) {
-    if (currentProfile.firstActionState !== 'available' || updated.id !== currentProfile.firstActionInstanceId) {
-      if (currentProfile !== profile) setProfile(currentProfile);
-      return;
-    }
-    const completed = updated.status === 'concluido';
-    const resolvedProfile = await profileService.markFirstActionResolved(completed);
-    setProfile(resolvedProfile);
-    setFirstActionTransition({
-      completed,
-      preview: describeNextActionPreview(currentInstances, updated.id, resolvedProfile, getCurrentDate()),
-    });
-  }
-
   if (loading || !profile) {
     return (
       <Screen style={styles.centered}>
         <ActivityIndicator color={colors.primary} />
       </Screen>
-    );
-  }
-
-  if (firstActionTransition) {
-    return (
-      <FirstActionCompletedScreen
-        completed={firstActionTransition.completed}
-        nextActionPreview={firstActionTransition.preview}
-        onContinue={() => setFirstActionTransition(null)}
-      />
     );
   }
 
@@ -207,17 +158,11 @@ export default function HomeScreen() {
     profile.firstActionState === 'available' ? instances.find((i) => i.id === profile.firstActionInstanceId) : undefined;
 
   // Sistema de timing: separa a ação mais recente ("ação atual", em destaque) das demais ações
-  // `today`/`contextual` ainda pendentes ("Em aberto" — ver seção 4 do pedido). `now` que não é
-  // mais a atual simplesmente some da tela (seção 5) — continua em storage/histórico até o
-  // fechamento do dia, só não acumula na seção "Em aberto".
-  // Concluídas e não realizadas ficam dentro de collapses fechados por padrão (ver
-  // CollapsibleSection), abaixo das pendentes — continuam acessíveis, mas não competem por espaço
-  // com o que realmente importa agora. `ignorado` entra em "Não realizadas" junto com
-  // `nao_concluido` — mesmo agrupamento que o resumo por trás dos Insights já usa.
-  const resolvedVisible = actionInstancesVisible.filter((i) => i.status !== 'pendente');
-  const completedVisible = resolvedVisible.filter((i) => i.status === 'concluido');
-  const notCompletedVisible = resolvedVisible.filter((i) => i.status !== 'concluido');
-  const pendingVisible = actionInstancesVisible.filter((i) => i.status === 'pendente'); // já ordenado por scheduledFor (ascendente)
+  // `today`/`contextual` ainda por aí ("Em aberto" — ver seção 4 do pedido). Sem Concluir/Não
+  // consegui (ver plano de migração seção 4), toda ação entregue conta aqui — não há mais uma
+  // distinção "resolvida vs pendente". `now` que não é mais a atual simplesmente some da tela
+  // (seção 5) — continua em storage/histórico, só não acumula na seção "Em aberto".
+  const pendingVisible = actionInstancesVisible; // já ordenado por scheduledFor (ascendente)
   const currentAction = pendingVisible[pendingVisible.length - 1] ?? null;
   const openActions = pendingVisible
     .filter((i) => i.id !== currentAction?.id && getInstanceTiming(i) !== 'now')
@@ -229,14 +174,6 @@ export default function HomeScreen() {
   // tem Concluir/Não consegui), então não faz sentido "substituir" a anterior; todas as reveladas
   // hoje continuam na tela, mais antiga primeiro (mesma ordem de `visibleInstances`).
   const suggestionsToday = suggestionInstancesVisible;
-
-  // "Cards compartilháveis" — derivados do próprio dia, sem nada persistido à parte (ver
-  // src/data/shareableMomentCopy.ts): `instances` já é só o ciclo de hoje, então a lista
-  // naturalmente "limpa e recomeça em branco" a cada novo dia, sem nenhuma limpeza manual.
-  // Mais recente primeiro, pra sentir como um feed que vai sendo alimentado ao longo do dia.
-  const shareableMoments = resolvedVisible
-    .filter(isShareableMoment)
-    .sort((a, b) => (b.completedAt ?? '').localeCompare(a.completedAt ?? ''));
 
   return (
     <Screen padded={false} edges={['top']}>
@@ -320,10 +257,7 @@ export default function HomeScreen() {
           <ChallengeCard
             key={currentAction.id}
             instance={currentAction}
-            isLate={isLateFor(currentAction, now)}
             highlighted={currentAction.id === instanceId || currentAction.id === firstActionInstance?.id}
-            onComplete={(reaction) => handleComplete(currentAction, reaction)}
-            onAbandon={(reason, detail) => handleAbandon(currentAction, reason, detail)}
             onSaveNote={(note) => handleSaveNote(currentAction, note)}
             onScheduleReminder={(scheduledFor, reminderType) => handleScheduleReminder(currentAction, scheduledFor, reminderType)}
             onCancelReminder={() => handleCancelReminder(currentAction)}
@@ -339,69 +273,12 @@ export default function HomeScreen() {
               <ChallengeCard
                 key={instance.id}
                 instance={instance}
-                isLate={isLateFor(instance, now)}
                 highlighted={instance.id === instanceId || instance.id === firstActionInstance?.id}
-                onComplete={(reaction) => handleComplete(instance, reaction)}
-                onAbandon={(reason, detail) => handleAbandon(instance, reason, detail)}
                 onSaveNote={(note) => handleSaveNote(instance, note)}
                 onScheduleReminder={(scheduledFor, reminderType) => handleScheduleReminder(instance, scheduledFor, reminderType)}
                 onCancelReminder={() => handleCancelReminder(instance)}
               />
             ))}
-          </>
-        )}
-
-        {completedVisible.length > 0 && (
-          <CollapsibleSection title="Concluídas" count={completedVisible.length}>
-            {completedVisible.map((instance) => (
-              <ChallengeCard
-                key={instance.id}
-                instance={instance}
-                isLate={false}
-                highlighted={instance.id === instanceId || instance.id === firstActionInstance?.id}
-                onComplete={(reaction) => handleComplete(instance, reaction)}
-                onAbandon={(reason, detail) => handleAbandon(instance, reason, detail)}
-                onSaveNote={(note) => handleSaveNote(instance, note)}
-                onScheduleReminder={(scheduledFor, reminderType) => handleScheduleReminder(instance, scheduledFor, reminderType)}
-                onCancelReminder={() => handleCancelReminder(instance)}
-              />
-            ))}
-          </CollapsibleSection>
-        )}
-
-        {notCompletedVisible.length > 0 && (
-          <CollapsibleSection title="Não realizadas" count={notCompletedVisible.length}>
-            {notCompletedVisible.map((instance) => (
-              <ChallengeCard
-                key={instance.id}
-                instance={instance}
-                isLate={false}
-                highlighted={instance.id === instanceId || instance.id === firstActionInstance?.id}
-                onComplete={(reaction) => handleComplete(instance, reaction)}
-                onAbandon={(reason, detail) => handleAbandon(instance, reason, detail)}
-                onSaveNote={(note) => handleSaveNote(instance, note)}
-                onScheduleReminder={(scheduledFor, reminderType) => handleScheduleReminder(instance, scheduledFor, reminderType)}
-                onCancelReminder={() => handleCancelReminder(instance)}
-              />
-            ))}
-          </CollapsibleSection>
-        )}
-
-        {shareableMoments.length > 0 && (
-          <>
-            <AppText variant="subtitle" style={styles.sectionTitle}>
-              ✨ Momentos que valem compartilhar
-            </AppText>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.shareableCarousel}
-              style={styles.shareableCarouselWrapper}
-            >
-              {shareableMoments.map((instance) => (
-                <ShareableMomentCard key={instance.id} instance={instance} />
-              ))}
-            </ScrollView>
           </>
         )}
       </ScrollView>
@@ -411,14 +288,6 @@ export default function HomeScreen() {
 
 function sortByScheduledTime(instances: ChallengeInstance[]): ChallengeInstance[] {
   return [...instances].sort((a, b) => a.scheduledFor.localeCompare(b.scheduledFor));
-}
-
-// "Atrasado" só existe pra timing 'now' (uma pausa que devia acontecer perto do momento da
-// notificação) — 'today'/'contextual' nunca ficam "atrasadas", ficam "em aberto" (ver seção 2/6/7
-// do pedido: evitar linguagem de prazo pra ações que a pessoa pode fazer em qualquer momento).
-function isLateFor(instance: ChallengeInstance, now: Date): boolean {
-  if (instance.status !== 'pendente' || getInstanceTiming(instance) !== 'now') return false;
-  return new Date(instance.scheduledFor).getTime() < now.getTime() - 60 * 60 * 1000;
 }
 
 interface EmptyStateContent {
@@ -446,10 +315,10 @@ function describeEmptyState(instances: ChallengeInstance[], now: Date, profile: 
     };
   }
 
-  // A primeira ainda pendente (não a instances[0] pura) — agora que concluídas/não realizadas
-  // ficam em collapses (ver home.tsx), esse bloco pode aparecer mesmo com ações mais cedo no dia
-  // já resolvidas; "next" precisa ser a próxima de verdade, não a mais antiga do dia.
-  const next = instances.find((i) => i.status === 'pendente'); // já vem ordenado por scheduledFor
+  // Só é chamado quando não há nenhuma ação ainda visível hoje (ver pendingVisible.length === 0
+  // em home.tsx) — então, se `instances` (o dia inteiro) tem algo, é sempre uma ação futura ainda
+  // não revelada; a mais próxima é sempre a primeira (já vem ordenado por scheduledFor).
+  const next = instances[0];
 
   if (!next) {
     // O dia agora vira à meia-noite (ver utils/date.ts) — então, se ainda não
@@ -485,44 +354,6 @@ function describeEmptyState(instances: ChallengeInstance[], now: Date, profile: 
       };
 }
 
-// Quão perto da hora de dormir já conta como "tarde" pra mensagem de transição pós-primeira-ação
-// (seção 9 do pedido) — mesma janela usada em outros lugares do app pra "antes de dormir".
-const CLOSE_TO_BEDTIME_MINUTES = 90;
-
-/**
- * Copy da tela de transição pós-primeira-ação (Estado C) — nunca revela horário exato nem
- * conteúdo da próxima ação (seção final do pedido: "precisa ser surpresa"), só reformula em texto
- * qualitativo o que `dayCycleService` já calculou ao gerar o dia inteiro (nenhum novo cálculo de
- * horário/slot aqui).
- */
-function describeNextActionPreview(
-  instances: ChallengeInstance[],
-  resolvedInstanceId: string,
-  profile: UserProfile,
-  now: Date,
-): NextActionPreview {
-  // Compara com o horário de dormir do período ativo (não a virada do calendário) — mesma razão
-  // de describeEmptyState: pra quem atravessa a meia-noite, "mais tarde hoje" ainda é hoje mesmo
-  // que a data mude no meio do caminho.
-  const activeDate = resolveActiveDate(profile, now);
-  const sleepDeadline = sleepDeadlineFor(activeDate, profile);
-  const laterToday = instances.some(
-    (i) =>
-      i.id !== resolvedInstanceId &&
-      i.status === 'pendente' &&
-      new Date(i.scheduledFor).getTime() > now.getTime() &&
-      new Date(i.scheduledFor).getTime() < sleepDeadline.getTime(),
-  );
-  if (laterToday) {
-    return { icon: 'leaf-outline', text: 'Sua próxima ação chegará ainda hoje, no momento certo para você.' };
-  }
-
-  const minutesUntilSleep = (sleepDeadline.getTime() - now.getTime()) / 60000;
-  const closeToBedtime = minutesUntilSleep <= CLOSE_TO_BEDTIME_MINUTES;
-  return closeToBedtime
-    ? { icon: 'moon-outline', text: 'Já está ficando tarde. Vamos deixar sua próxima ação para amanhã, em um momento melhor para você.' }
-    : { icon: 'moon-outline', text: 'Você já deu seu passo por hoje. Sua próxima ação chega amanhã, no momento certo para começar o dia.' };
-}
 
 /** true só quando a pessoa pediu silêncio no expediente (ver UserProfile.receiveDuringWorkHours)
  * e "agora" cai dentro do horário de trabalho de hoje — usado pra explicar a tela vazia. */

@@ -50,7 +50,6 @@ export default function DevDataScreen() {
         <DevSection title="Estado atual do sistema">
           <DevKeyValue label="Data ativa" value={snapshot.activeDate ?? '—'} />
           <DevKeyValue label="Ações de hoje" value={String(snapshot.todayInstances.length)} />
-          <DevKeyValue label="Pendências" value={String(snapshot.todayInstances.filter((i) => i.status === 'pendente').length)} />
           <DevKeyValue label="Relógio simulado" value={snapshot.clockEnabled ? (snapshot.simulatedNow ?? '') : 'desativado'} />
           <DevKeyValue label="Notificações" value={snapshot.notificationsPermission} />
           <DevKeyValue label="Perfil" value={snapshot.profile ? snapshot.profile.name : 'nenhum'} last />

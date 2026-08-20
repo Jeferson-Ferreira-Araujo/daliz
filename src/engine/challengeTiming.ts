@@ -113,14 +113,16 @@ function normalize(text: string): string {
  * é 'today' quando nada bate, nunca quebra o app com um desafio sem timing.
  */
 function classifyTiming(challenge: Challenge): ChallengeTiming {
-  const text = normalize(`${challenge.titulo} ${challenge.descricao}`);
+  const text = normalize(`${challenge.titulo} ${challenge.descricao ?? ''}`);
 
   if (CONTEXTUAL_PREFIXES.some((prefix) => text.includes(prefix))) return 'contextual';
   if (NOW_KEYWORDS.some((keyword) => text.includes(keyword))) return 'now';
   return 'today';
 }
 
-/** Timing efetivo de um desafio: explícito (autoria) > heurística de texto. */
+/** Modo de timing efetivo de um desafio: explícito (`timing.mode`, autoria) > heurística de
+ * texto. `preferredPeriods`/`avoidPeriods` (ver ChallengeTimingConfig) nunca são inferidos por
+ * heurística — só existem quando explicitamente curados. */
 export function getChallengeTiming(challenge: Challenge): ChallengeTiming {
-  return challenge.timing ?? classifyTiming(challenge);
+  return challenge.timing?.mode ?? classifyTiming(challenge);
 }

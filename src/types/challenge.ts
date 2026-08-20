@@ -17,12 +17,35 @@ export type ChallengeLevel = 'facil' | 'medio' | 'desafiador';
 
 export type ChallengeType = 'acao' | 'reflexao' | 'contato' | 'habito' | 'organizacao';
 
+// Curadoria: se a ação já passou por revisão e pode ser sorteada de verdade. Ausente = 'approved'
+// (todo o catálogo hoje é implicitamente aprovado — este campo só existe pra permitir rascunhos
+// futuros na curadoria sem precisar removê-los do arquivo de dados).
+export type ChallengeStatus = 'approved' | 'draft' | 'archived';
+
 // Quando a ação deve ser realizada — não é prioridade/urgência (ver TIMING_LABELS em
 // src/engine/challengeTiming.ts): 'now' = faz sentido no momento da notificação (pausas,
 // autorregulação); 'today' = qualquer hora até o fim do dia; 'contextual' = espera uma situação
-// específica acontecer, pode nem acontecer hoje. Resolvido via Challenge.timing (explícito) ou
-// classifyTiming (heurística de texto) — ver getChallengeTiming.
+// específica acontecer, pode nem acontecer hoje. Resolvido via Challenge.timing.mode (explícito)
+// ou classifyTiming (heurística de texto) — ver getChallengeTiming.
 export type ChallengeTiming = 'now' | 'today' | 'contextual';
+
+// Período do RELÓGIO real (diferente de `Moment`, que é relativo à rotina — acordar/trabalhar/
+// dormir da pessoa) — usado só como preferência soft de horário dentro de `timing.preferredPeriods`/
+// `avoidPeriods` (ver clockPeriodBonus em ChallengeEngine.ts). Nunca um filtro duro.
+export type ClockPeriod = 'early_morning' | 'morning' | 'afternoon' | 'evening' | 'night';
+
+// Config de timing de uma ação — `mode` já existia solto como `Challenge.timing`; os períodos são
+// novos. Congelada uma vez no bake de `allChallenges` (ver src/data/challenges/index.ts) e de novo
+// na criação da instância (ver buildInstance), mesmo padrão do resto do "congelado na criação".
+export interface ChallengeTimingConfig {
+  mode: ChallengeTiming;
+  // Faz o motor preferir (nunca exigir) que o horário real de envio caia nesses períodos —
+  // ver clockPeriodBonus. [] = sem preferência.
+  preferredPeriods: ClockPeriod[];
+  // Faz o motor evitar (nunca bloquear com certeza absoluta, só penalizar bastante) esses
+  // períodos — mesma filosofia de "contexto nunca é filtro duro absoluto" já usada em weatherBonus.
+  avoidPeriods: ClockPeriod[];
+}
 
 // Camada opcional de assistência — responde "como posso ajudar a pessoa a executar essa ação?",
 // um conceito deliberadamente separado de `timing` ("faz sentido lembrá-la disso depois?"). Ver
@@ -40,6 +63,67 @@ export interface ActionSupportData {
   // AdoroCinema; um 'kind' novo no futuro reaproveita o mesmo MovieCategorySupport-like case sem
   // precisar de um supportType novo).
   kind?: 'movies';
+}
+
+// Recurso externo/local que uma ação pode envolver — presença em `resources.required` ainda NÃO é
+// um filtro duro de verdade (ver 2.1 do plano de migração): o app não tem hoje um inventário real
+// do que está disponível pra cada pessoa, então isso serve por enquanto só como metadado/sinal pra
+// acionar `supportType`, dívida técnica documentada. `resources.optional` nunca bloqueia.
+export type ResourceTag = 'google_search' | 'maps' | 'spotify' | 'camera' | 'photos' | 'internal' | 'external_link';
+
+export type LocationRequirementType = 'none' | 'city' | 'region' | 'country' | 'nearby';
+
+// Situação relativa à rotina/calendário — se sobrepõe por design com `DayType`/`Moment` já
+// existentes (ver bakeSituations em src/data/challenges/index.ts, que deriva tiposDia/momentos a
+// partir disso quando eles estiverem ausentes, evitando duas fontes de verdade divergentes).
+export type SituationTag = 'workday' | 'day_off' | 'weekend' | 'after_waking' | 'before_sleep' | 'after_meal';
+
+// Sinal derivado do perfil do usuário (ver computeProfileTags em src/engine/profileTags.ts) —
+// generaliza os filtros pontuais antigos (requerFamilia/requerTempoLivre/relationships/minAge/
+// maxAge/requiresPresence, mantidos como fallback enquanto o catálogo legado ainda existir).
+export type ProfileTag = 'has_children' | 'has_partner' | 'works' | 'works_from_home' | 'has_car' | 'uses_social_media';
+
+export type EffortTime = 'instant' | 'short' | 'medium' | 'long';
+export type EffortLevel = 'low' | 'medium' | 'high';
+
+export interface ChallengeEffort {
+  time: EffortTime;
+  mental: EffortLevel;
+  physical: EffortLevel;
+  emotional: EffortLevel;
+}
+
+export interface ChallengeRepetition {
+  // false = a ação (ou qualquer título em `variants`) nunca pode repetir, depois da primeira vez
+  // que apareceu no histórico (não só "hoje" — pra sempre). Resolve ações naturalmente únicas
+  // (ex: "descubra o que aconteceu no mundo no dia em que você nasceu").
+  allowed: boolean;
+  // Substitui `cooldownDias` — dias mínimos antes de poder repetir. null = usa DEFAULT_COOLDOWN_DAYS.
+  minIntervalDays: number | null;
+  // Fora do v1 — sempre null por enquanto (ver plano de migração).
+  maxUsesPerPeriod?: number | null;
+}
+
+export interface ChallengeInterestRules {
+  required: Interest[];
+  preferred: Interest[];
+  excluded: Interest[];
+}
+
+export interface ChallengeResourceRules {
+  required: ResourceTag[];
+  optional: ResourceTag[];
+}
+
+export interface ChallengeLocationRules {
+  required: boolean;
+  type: LocationRequirementType | null;
+}
+
+export interface ChallengeProfileRules {
+  required: ProfileTag[];
+  preferred: ProfileTag[];
+  excluded: ProfileTag[];
 }
 
 export type IdealTimeOfDay = 'manha' | 'tarde' | 'noite' | 'qualquer';
@@ -67,11 +151,9 @@ export type DayType = 'trabalho' | 'folga' | 'qualquer';
 // nunca como filtro duro (o app não sabe a localização real do usuário).
 export type ContextType = 'em_casa' | 'no_trabalho' | 'qualquer';
 
-// 'acao' = tarefa concreta (ganha botões Concluir/Não consegui, entra em estatísticas/streak).
-// 'sugestao' = orientação contextual sem conclusão objetiva (ex: "Se perceber que está se
-// comparando com outras pessoas hoje..."), exibida como banner avulso na Home — nunca como card,
-// nunca conta em Histórico/Insights (ver ChallengeCard/dayCycleService/statsService). Vem
-// marcado explicitamente na base curada (tags `[AÇÃO]`/`[DICA]`, ver scripts/sync-challenges-v2.js).
+// 'acao' = tarefa concreta. 'sugestao' = orientação contextual sem conclusão objetiva (ex: "Se
+// perceber que está se comparando com outras pessoas hoje..."), exibida como banner avulso na
+// Home — nunca como card, nunca conta em Histórico/Insights (ver ChallengeCard/statsService).
 export type ChallengeActionKind = 'acao' | 'sugestao';
 
 // Filosofia dos desafios com contexto de redes sociais: não é "use menos o
@@ -88,13 +170,15 @@ export const SOCIAL_ACTION_TYPE_LABELS: Record<SocialActionType, string> = {
 export interface Challenge {
   id: string;
   categoria: ChallengeCategory;
-  // Ausente = 'acao' (default seguro pra desafios ainda não re-sincronizados com a base curada
-  // que introduziu essa distinção).
-  actionKind?: ChallengeActionKind;
+  // Ausente = 'approved' (curadoria — ver ChallengeStatus).
+  status?: ChallengeStatus;
+  // Ausente = 'acao' (default seguro). Renomeado de `actionKind` — ocupa o papel do `type` do
+  // documento de especificação (que não previa sugestões).
+  type?: ChallengeActionKind;
   titulo: string;
-  descricao: string;
-  tempoEstimado: number; // minutos
-  nivel: ChallengeLevel;
+  descricao?: string;
+  tempoEstimado?: number; // minutos — ausente = deriva de effort.time (ver EFFORT_TIME_MINUTES)
+  nivel?: ChallengeLevel; // mantido por compat de exibição — deriva de `difficulty` quando ausente
   tipo: ChallengeType;
   horariosIdeais: IdealTimeOfDay[];
   diasIdeais: DayOfWeek[] | 'qualquer';
@@ -107,23 +191,50 @@ export interface Challenge {
   momentos: Moment[];
   tiposDia: DayType[];
   contexto: ContextType[];
+  // Situação relativa à rotina/calendário (ver SituationTag) — quando presente e momentos/tiposDia
+  // ausentes/genéricos, o bake em src/data/challenges/index.ts deriva momentos/tiposDia a partir
+  // disso, pra nunca ter duas fontes de verdade divergentes sobre a mesma coisa.
+  situations?: SituationTag[];
+  // Campos legados de filtro por perfil — mantidos como fallback enquanto o catálogo legado (as
+  // ~1686 ações antigas) ainda estiver bakeado no shape novo. Ver `profile` abaixo, que os
+  // generaliza; `computeProfileTags` (src/engine/profileTags.ts) só é consultado quando
+  // `profile.required`/`profile.excluded` estiverem vazios.
   requerFamilia?: boolean;
   requerTempoLivre?: boolean; // não cabe num intervalo curto durante o expediente
-  cooldownDias?: number; // dias mínimos antes de poder repetir (default no ChallengeEngine)
-  // Interesses/hobbies com que esse desafio conecta naturalmente — sinal de
-  // personalização, não filtro duro. Ausente ou [] = desafio sem interesse
-  // específico, continua totalmente válido (ver UserProfile.interests).
-  interests?: Interest[];
-  // Pessoas importantes com que esse desafio conecta — ao contrário de `interests`,
-  // isso É um filtro duro (ver ChallengeEngine.filterCandidatesForSlot): não faz
-  // sentido sugerir "brinque com seu filho" pra quem não tem filho cadastrado.
-  // Ausente/[] = desafio não é sobre uma pessoa específica, continua válido pra todos.
+  cooldownDias?: number; // legado — ver `repetition.minIntervalDays`, que tem prioridade quando presente
+  // Interesses/hobbies com que esse desafio conecta — ver ChallengeInterestRules. Ausente =
+  // `{ required: [], preferred: [], excluded: [] }` (sem nenhuma restrição/bônus).
+  interests?: ChallengeInterestRules;
+  // Pessoas importantes com que esse desafio conecta — filtro duro legado (ver
+  // ChallengeEngine.filterCandidatesForSlot): não faz sentido sugerir "brinque com seu filho" pra
+  // quem não tem filho cadastrado. Ausente/[] = desafio não é sobre uma pessoa específica.
   relationships?: RelationshipType[];
   minAge?: number; // faixa etária da pessoa — sinal de contexto, não regra rígida
   maxAge?: number;
   // true = só faz sentido com alguém que mora com o usuário (ação física/presencial).
-  // Ausente/false = funciona com qualquer convivência (ex: ligar, mandar mensagem).
   requiresPresence?: boolean;
+  // Recursos externos/locais envolvidos (ver ChallengeResourceRules) — `required` não é filtro
+  // duro de verdade no v1 (ver comentário em ResourceTag), só sinal/metadado. Ausente =
+  // `{ required: [], optional: [] }`.
+  resources?: ChallengeResourceRules;
+  // Requisito de localização (ver ChallengeLocationRules) — `required: true` só bloqueia se
+  // `profile.location` for null. Ausente = `{ required: false, type: null }`.
+  location?: ChallengeLocationRules;
+  // Sinal derivado do perfil (ver ChallengeProfileRules/ProfileTag/computeProfileTags). Ausente =
+  // `{ required: [], preferred: [], excluded: [] }` — cai nos campos legados acima como fallback.
+  profile?: ChallengeProfileRules;
+  // Regras de repetição (ver ChallengeRepetition). Ausente = `{ allowed: true, minIntervalDays:
+  // null }` — usa `cooldownDias`/DEFAULT_COOLDOWN_DAYS como sempre.
+  repetition?: ChallengeRepetition;
+  // Carga da ação em 4 eixos (ver ChallengeEffort). Ausente = deriva um default neutro
+  // (`{ time: 'short', mental: 'medium', physical: 'low', emotional: 'medium' }`).
+  effort?: ChallengeEffort;
+  // Sinal de prioridade pro motor (1 baixa .. 5 especial) — nunca uma garantia de entrega, só mais
+  // um termo pequeno na pontuação. Ausente = 3 (normal).
+  priority?: 1 | 2 | 3 | 4 | 5;
+  // Textos alternativos pro MESMO conceito/oportunidade — nunca contam como repetição nova entre
+  // si (ver filtro de repetição no motor). Ausente/[] = sem variantes.
+  variants?: string[];
   // Clima/estação/data comemorativa — mesma filosofia de `interests`: sinal de pontuação,
   // não filtro duro (com uma exceção leve: ver WEATHER_BLOCK_TYPES no ChallengeEngine,
   // que só reduz bastante a prioridade de uma ação outdoor em clima ruim, nunca a esconde
@@ -149,58 +260,55 @@ export interface Challenge {
   // ChallengeCard.tsx). Escolhido na autoria: o texto de "foto" sozinho não distingue tirar uma
   // foto nova de mexer em fotos já existentes.
   opensCamera?: boolean;
-  // Explícito > heurística: se ausente, getChallengeTiming classifica pelo texto do desafio
-  // (ver classifyTiming em src/engine/challengeTiming.ts). Preenchido à mão só quando a
-  // classificação automática precisaria ser sobrescrita (ex: src/data/firstActionChallenge.ts).
-  timing?: ChallengeTiming;
+  // Config de timing (ver ChallengeTimingConfig) — explícito > heurística: se `mode` ausente,
+  // getChallengeTiming classifica pelo texto do desafio (ver classifyTiming em
+  // src/engine/challengeTiming.ts). `preferredPeriods`/`avoidPeriods` sempre explícitos, nunca
+  // inferidos por heurística.
+  timing?: ChallengeTimingConfig;
   // Ausente/'none' = sem assistência, card se comporta exatamente como hoje (ver ActionSupport.tsx
   // e ChallengeCard.tsx). Escolhido na autoria só quando a assistência remove uma dificuldade real
-  // — não é gerado por palavra-chave, é uma decisão de propósito por desafio (ver seção 10 do
-  // pedido: "não marque tudo").
+  // — não é gerado por palavra-chave, é uma decisão de propósito por desafio.
   supportType?: ActionSupportType;
   // Texto do botão. Ausente = usa o label padrão do supportType (ver DEFAULT_SUPPORT_LABEL).
   supportLabel?: string;
   supportData?: ActionSupportData;
   // Sistema de dificuldade adaptativa (ver src/engine/progression.ts e progressionService.ts) —
-  // conceito deliberadamente separado de `timing`/`supportType`: responde "isso pode evoluir pra
-  // uma versão um pouco mais desafiadora?", nunca "quando"/"como ajudar a fazer". Ausente em
-  // praticamente todo o catálogo — só um pequeno grupo de ações com progressão natural (seção 2/5
-  // do pedido) recebe esses campos; todo o resto do app se comporta exatamente como hoje.
+  // DESATIVADO (nada popula actionPerformanceRepository desde a remoção de Concluir/Não consegui,
+  // ver plano de migração seção 4/6) — os campos ficam no tipo pra facilitar reativação futura com
+  // outro sinal, mas não têm efeito prático hoje (isSupersededByProgression sempre recebe mapa vazio).
   //
-  // Agrupador temático solto (ex: 'squat') — não precisa ser único por progressionGroup, só serve
-  // pra reconhecer "isso é sobre o mesmo tipo de coisa" (seção 3). Pode existir em ações que nem
-  // são `progressive` (útil pro futuro "nível de conforto" da seção 16), mas hoje só é preenchido
-  // junto com progressionGroup.
+  // Agrupador temático solto (ex: 'squat') — renomeado conceitualmente pra `conceptGroup` abaixo
+  // no uso geral do motor (cooldown de similaridade), mas mantido aqui pro sistema de progressão.
   concept?: string;
+  // Agrupador de similaridade semântica pro cooldown de conceito (ver ALGORITHM_RULES.conceptCooldownDays
+  // em src/engine/algorithmRules.ts) — duas ações de textos diferentes mas do mesmo `conceptGroup`
+  // (ex: "ligar pra alguém" e "mandar mensagem", ambas `strengthen_connection`) compartilham
+  // cooldown, evitando repetição semântica mesmo com ids diferentes. Ausente = sem cooldown de
+  // conceito pra essa ação (só o cooldown normal de `repetition`/`cooldownDias` se aplica).
+  conceptGroup?: string;
   // 1 (muito leve) a 5 (avançada) — nível dessa ação especificamente, não uma prioridade/urgência.
+  // Ausente = 2.
   difficulty?: 1 | 2 | 3 | 4 | 5;
-  // true = essa ação pertence a uma cadeia de progressão (progressionGroup) e pode ser substituída
-  // por um nível seguinte quando a pessoa demonstrar consistência (ver isSupersededByProgression).
-  // false/ausente = ação nunca é escalada — a maioria do catálogo continua assim de propósito
-  // (seção 5 do pedido: nem toda ação precisa/deve virar progressiva).
+  // true = essa ação pertence a uma cadeia de progressão (progressionGroup) — ver nota de
+  // "DESATIVADO" acima.
   progressive?: boolean;
-  // Cadeia específica de progressão (ex: 'squat_repeticoes') — várias ações podem compartilhar o
-  // mesmo `concept` sem pertencer à mesma cadeia (ex: alongamento por repetição vs. por duração).
   progressionGroup?: string;
   progressionType?: ProgressionType;
   progression?: ChallengeProgression;
 }
 
-// Formas de evolução (seção 6 do pedido) — dificuldade não é só "mais repetições": pode ser
-// duração, complexidade, frequência ou profundidade de uma reflexão. Hoje só `repetitions` e
-// `duration` têm ações reais cadastradas (ver seção "Ações classificadas como progressivas" no
-// resumo da entrega); os demais já existem no tipo pra não travar cadeias futuras.
+// Formas de evolução — dificuldade não é só "mais repetições": pode ser duração, complexidade,
+// frequência ou profundidade de uma reflexão. Sistema de progressão desativado (ver comentário em
+// `Challenge.concept`) — tipo mantido pra reativação futura.
 export type ProgressionType = 'repetitions' | 'duration' | 'complexity' | 'frequency' | 'depth';
 
 export interface ChallengeProgression {
-  // Id do próximo nível dentro do mesmo progressionGroup. Ausente = topo da cadeia (ver seção 18:
-  // o limite máximo de dificuldade de um grupo é, na prática, "onde a cadeia de nextActionId
-  // termina" — não existe um `maxDifficulty` solto pra manter sincronizado à parte).
+  // Id do próximo nível dentro do mesmo progressionGroup. Ausente = topo da cadeia.
   nextActionId?: string;
 }
 
 // Tags de contexto climático que uma ação pode ter — não é o WeatherType bruto (ver
-// src/types/weather.ts), é só "essa ação combina com..." (ver seção 10 do pedido).
+// src/types/weather.ts), é só "essa ação combina com...".
 export type WeatherTag = 'outdoor' | 'indoor' | 'rain' | 'sunny' | 'cold' | 'hot' | 'comfortable';
 
 export const CHALLENGE_CATEGORY_LABELS: Record<ChallengeCategory, string> = {

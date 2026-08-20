@@ -3,7 +3,6 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { DevScreen, DevSection, DevRow, DevKeyValue, DevBanner } from '@/dev/DevUI';
 import { AppText } from '@/components/ui/AppText';
-import { Button } from '@/components/ui/Button';
 import { radius, spacing, useTheme } from '@/theme';
 import { profileService } from '@/services/profileService';
 import { devService } from '@/dev/devService';
@@ -125,7 +124,7 @@ export default function DevChallengesScreen() {
                 {instance.titulo}
               </AppText>
               <AppText variant="caption" color={colors.textMuted}>
-                {instance.status}
+                {instance.deliveredAt ? 'entregue' : '—'}
               </AppText>
             </Pressable>
           ))
@@ -143,49 +142,7 @@ export default function DevChallengesScreen() {
               label="Interesses"
               value={selected.interests.length > 0 ? selected.interests.map((i) => INTEREST_LABELS[i]).join(', ') : '—'}
             />
-            <DevKeyValue label="Status atual" value={selected.status} last />
-          </View>
-          <View style={styles.actionsRow}>
-            <Button
-              label="Concluído"
-              tone="success"
-              size="sm"
-              disabled={busy}
-              onPress={() =>
-                withBusy(async () => {
-                  const updated = await devService.setInstanceStatus(selected, 'concluido');
-                  setSelected(updated);
-                })
-              }
-              style={styles.actionButton}
-            />
-            <Button
-              label="Não concluído"
-              tone="danger"
-              size="sm"
-              disabled={busy}
-              onPress={() =>
-                withBusy(async () => {
-                  const updated = await devService.setInstanceStatus(selected, 'nao_concluido');
-                  setSelected(updated);
-                })
-              }
-              style={styles.actionButton}
-            />
-            <Button
-              label="Resetar status"
-              tone="neutral"
-              variant="soft"
-              size="sm"
-              disabled={busy}
-              onPress={() =>
-                withBusy(async () => {
-                  const updated = await devService.setInstanceStatus(selected, 'pendente');
-                  setSelected(updated);
-                })
-              }
-              style={styles.actionButton}
-            />
+            <DevKeyValue label="Entregue em" value={selected.deliveredAt ?? '—'} last />
           </View>
         </DevSection>
       )}

@@ -11,7 +11,7 @@ async function getAllMap(): Promise<ChallengeInstanceMap> {
 export const challengeInstanceRepository = {
   async getAll(): Promise<ChallengeInstance[]> {
     const map = await getAllMap();
-    return Object.values(map).sort((a, b) => a.sentAt.localeCompare(b.sentAt));
+    return Object.values(map).sort((a, b) => a.scheduledFor.localeCompare(b.scheduledFor));
   },
 
   async getById(id: string): Promise<ChallengeInstance | null> {
