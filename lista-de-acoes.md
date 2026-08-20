@@ -1,0 +1,2157 @@
+# Lista completa de ações — Melhor que Ontem
+
+Total: 1998 ações, organizadas por categoria e subcategoria.
+
+## Desenvolvimento pessoal (234)
+
+### Base oficial (900) (102)
+
+- Escreva uma coisa que você gostaria de melhorar em si mesmo.
+- Anote uma coisa que você fez bem hoje.
+- Pense em uma decisão que você está adiando e dê o primeiro passo.
+- Reserve 5 minutos sem celular para desacelerar e perceber como você está se sentindo. Não tente resolver nada nesse intervalo; apenas observe seus pensamentos e retome o dia depois.
+- Escreva uma preocupação e uma possível ação sobre ela.
+- Identifique uma coisa que está sob seu controle hoje.
+- Identifique uma coisa que você precisa parar de tentar controlar.
+- Faça algo pequeno que você vem adiando.
+- Escreva uma meta para os próximos 7 dias.
+- Escolha uma ação de hoje que aproxime você dessa meta.
+- Anote uma coisa que aprendeu esta semana.
+- Pense em um erro recente e escreva o que ele ensinou.
+- Perdoe a si mesmo por uma pequena falha.
+- Pare de se comparar com outras pessoas durante o restante do dia.
+- Faça algo sozinho que normalmente faria acompanhado.
+- Experimente uma maneira diferente de realizar uma tarefa comum.
+- Pergunte a alguém em quem confia qual qualidade mais admira em você.
+- Pergunte a alguém em quem confia o que você poderia melhorar.
+- Faça uma coisa que normalmente evita por insegurança.
+- Admita para alguém que você não sabe alguma coisa.
+- Peça ajuda em algo que está tentando resolver sozinho.
+- Diga "não" a uma solicitação que realmente não pode assumir.
+- Aceite um elogio sem diminuí-lo.
+- Faça algo criativo durante 10 minutos.
+- Escreva livremente durante 5 minutos.
+- Fotografe alguma coisa bonita que você normalmente ignora.
+- Observe seu ambiente durante 2 minutos sem mexer no celular.
+- Escreva três coisas pelas quais você é grato.
+- Pense em uma pessoa que mudou sua vida positivamente.
+- Mande uma mensagem agradecendo essa pessoa.
+- Relembre uma conquista que você quase esqueceu.
+- Escreva como você gostaria de estar daqui a um ano.
+- Escolha uma pequena ação que seu "eu do futuro" agradeceria.
+- Faça hoje uma coisa que você prometeu a si mesmo.
+- Termine algo que começou e abandonou.
+- Recomece algo importante que abandonou.
+- Identifique um hábito que está ajudando você.
+- Identifique um hábito que está atrapalhando você.
+- Passe uma hora sem reclamar de pequenas coisas.
+- Quando surgir uma reclamação, tente transformá-la em uma ação.
+- Antes de responder algo que irritou você, faça uma pausa e respire lentamente. Use esse intervalo para escolher sua resposta em vez de reagir no impulso.
+- Escolha responder em vez de reagir.
+- Nomeie o que você está sentindo neste momento.
+- Pergunte a si mesmo o que pode ter provocado esse sentimento.
+- Faça uma tarefa difícil antes de uma tarefa fácil.
+- Escolha uma pequena decisão e tome-a imediatamente.
+- Pare de pesquisar uma decisão que já tem informação suficiente para tomar.
+- Faça uma coisa sem buscar aprovação de ninguém.
+- Dê sua opinião de forma honesta e respeitosa.
+- Reconheça uma opinião diferente sem tentar mudá-la.
+- Passe 30 minutos sem redes sociais.
+- Desative uma notificação que não acrescenta nada à sua vida.
+- Retire um aplicativo que você não usa.
+- Organize a tela inicial do celular.
+- Deixe o celular longe durante uma atividade importante.
+- Faça uma refeição sem olhar para uma tela.
+- Reserve 10 minutos sem celular, notificações ou outras telas para dar uma pausa real à sua atenção. Use o tempo para descansar ou fazer algo que exija presença.
+- Faça uma atividade inteira sem multitarefa.
+- Termine uma tarefa antes de começar outra.
+- Pergunte "qual é o próximo passo?" quando se sentir perdido.
+- Escreva uma pergunta que você gostaria de responder.
+- Pesquise a resposta para essa pergunta.
+- Aprenda uma palavra nova.
+- Leia duas páginas de um livro.
+- Leia cinco páginas de um livro.
+- Ouça 10 minutos de conteúdo educativo.
+- Aprenda algo com uma pessoa mais experiente.
+- Ensine alguém algo que você sabe.
+- Explique uma ideia difícil usando palavras simples.
+- Faça uma pergunta que normalmente teria vergonha de fazer.
+- Experimente algo novo hoje.
+- Faça algo que você sabe que será bom para você, mesmo sem vontade.
+- Reconheça uma pequena vitória.
+- Celebre uma conquista de outra pessoa.
+- Pare por um minuto e observe sua respiração.
+- Faça cinco respirações lentas antes de uma decisão.
+- Faça uma pausa antes de responder uma mensagem importante.
+- Escreva uma coisa que você gostaria de deixar para trás.
+- Escreva uma coisa que gostaria de levar para o futuro.
+- Pense em uma pessoa que você precisa perdoar.
+- Pense em uma pessoa para quem precisa pedir perdão.
+- Se for apropriado, peça desculpas por algo específico.
+- Reconheça um erro sem tentar justificá-lo.
+- Faça algo que aumente sua confiança.
+- Vista-se de uma maneira que faça você se sentir bem.
+- Organize um pequeno espaço que esteja incomodando você.
+- Faça uma tarefa imediatamente em vez de colocá-la na lista.
+- Escolha uma coisa para não fazer hoje.
+- Reserve 10 minutos para descansar de verdade.
+- Faça algo divertido sem transformar isso em produtividade.
+- Pense em uma coisa que gostaria de aprender.
+- Dê um pequeno passo para aprender essa coisa.
+- Escreva uma frase que gostaria de lembrar amanhã.
+- Anote algo que deu certo hoje.
+- Anote algo que faria diferente hoje.
+- Pense em uma dificuldade que você já superou.
+- Faça uma escolha alinhada com aquilo que considera importante.
+- Faça hoje uma coisa que seu futuro eu agradecerá.
+- Reconheça que progresso pequeno ainda é progresso.
+- Termine o dia escrevendo: "Hoje eu avancei em..."
+- Escolha uma pequena atitude que torne amanhã um pouco melhor.
+- Celebre seu aniversário 🎂
+
+### Combos por interesse/hobby (4)
+
+- Separe 10 minutos para aprender algo novo sobre música — um artista, um estilo ou a história de uma canção.
+- Resolva um desafio de lógica ou um quebra-cabeça — só pelo prazer de pensar, sem pressa.
+- Observe seu ambiente com atenção e fotografe algo bonito que normalmente passaria despercebido.
+- Aprenda uma técnica simples de cozinha que você nunca tinha experimentado antes.
+
+### Datas comemorativas (combos originais) (2)
+
+- Pense em uma coisa pela qual você é grato na sua família hoje.
+- O ano está terminando. Anote uma coisa boa que aconteceu nos últimos meses.
+
+### Expansão — Atividades indoor (30)
+
+- Aproveite um momento dentro de casa pra organizar seus pensamentos por escrito.
+- Reserve um tempo em casa pra uma pausa de silêncio, sem tela.
+- Aproveite pra organizar um espaço da casa que está bagunçado.
+- Reserve um tempo dentro de casa pra planejar a semana com calma.
+- Aproveite um momento em casa pra fazer um alongamento tranquilo.
+- Reserve um tempo pra terminar uma tarefa pendente dentro de casa.
+- Aproveite pra organizar seus documentos ou papéis importantes em casa.
+- Reserve um momento em casa pra refletir sobre uma decisão que está adiando.
+- Aproveite um dia dentro de casa pra descansar de verdade, sem culpa.
+- Reserve um tempo pra escrever três coisas que você é grato hoje.
+- Aproveite um momento em casa pra organizar sua área de trabalho.
+- Reserve um tempo dentro de casa pra uma meditação ou respiração guiada.
+- Aproveite pra reorganizar seu quarto de um jeito que te deixe mais confortável.
+- Reserve um momento em casa pra revisar suas metas pessoais.
+- Aproveite um dia dentro de casa pra cuidar de uma tarefa financeira simples.
+- Reserve um tempo pra organizar seu guarda-roupa e separar o que não usa mais.
+- Aproveite um momento em casa pra escrever sobre como você está se sentindo.
+- Reserve um tempo dentro de casa pra planejar um objetivo pequeno pra semana.
+- Aproveite pra organizar sua lista de tarefas e priorizar o que importa.
+- Reserve um momento em casa pra descansar os olhos das telas.
+- Aproveite um dia dentro de casa pra reorganizar seus arquivos digitais.
+- Reserve um tempo pra uma pausa de verdade entre duas tarefas em casa.
+- Aproveite um momento em casa pra revisar como está indo o seu mês.
+- Reserve um tempo dentro de casa pra pensar num próximo passo pra um objetivo seu.
+- Aproveite pra organizar sua rotina de sono, já que vai passar a noite em casa.
+- Reserve um momento em casa pra reconhecer uma pequena vitória sua recente.
+- Aproveite um dia dentro de casa pra cuidar de algo que estava pendente há tempo.
+- Reserve um tempo pra escrever uma reflexão sobre a semana que está passando.
+- Aproveite um momento em casa pra simplesmente descansar sem culpa.
+- Termine um dia dentro de casa reconhecendo algo que você organizou ou resolveu.
+
+### Expansão — Clima: frio (24)
+
+- Use o clima mais parado pra escrever sobre como você está se sentindo.
+- Aproveite o frio pra ler algumas páginas de um livro com calma.
+- Reserve um tempo pra planejar a semana num dia mais tranquilo de frio.
+- Aproveite o clima pra fazer uma pausa mais longa e reflexiva.
+- Use o dia frio pra organizar uma tarefa que você vem adiando.
+- Aproveite pra escrever três coisas que você é grato hoje, num dia mais lento.
+- Reserve um tempo pra pensar em uma meta pequena para essa semana.
+- Aproveite o clima frio pra reorganizar seu espaço de trabalho ou estudo.
+- Use um dia frio pra terminar algo que você começou e não finalizou.
+- Aproveite pra planejar com calma um objetivo pessoal.
+- Reserve um tempo pra revisar suas finanças num dia mais parado.
+- Aproveite o frio pra fazer uma leitura mais longa do que o normal.
+- Use o clima pra escrever uma carta ou mensagem que você vem adiando.
+- Aproveite um dia frio pra organizar fotos ou arquivos antigos.
+- Reserve um momento pra pensar em algo que você quer aprender.
+- Aproveite o clima mais calmo pra fazer uma reflexão sobre a semana.
+- Use o dia frio pra escrever sobre uma conquista recente, mesmo pequena.
+- Aproveite pra organizar seus objetivos para o próximo mês.
+- Reserve um tempo pra descansar de verdade, sem culpa, no frio.
+- Aproveite o clima frio pra estudar algo que te interessa.
+- Use um dia mais parado pra revisar suas prioridades da semana.
+- Aproveite pra escrever uma lista de coisas que você quer fazer quando esquentar.
+- Reserve um tempo pra organizar seus compromissos dos próximos dias.
+- Termine um dia frio escrevendo uma coisa boa que aconteceu, mesmo pequena.
+
+### Expansão — Datas comemorativas (33)
+
+- Escreva uma palavra que você quer que guie o seu próximo ano.
+- Escreva três coisas boas que aconteceram nesse ano que está terminando.
+- Pense em uma coisa que você quer deixar para trás nesse novo ciclo.
+- Escreva uma meta pequena e realista para os próximos meses.
+- Agradeça por uma conquista desse ano, mesmo que pequena.
+- Pense em uma pessoa que fez diferença na sua vida nesse ano e agradeça a ela.
+- Escreva uma coisa que você aprendeu esse ano sobre você mesmo.
+- Reserve um tempo pra revisar o que funcionou bem esse ano.
+- Escolha uma intenção simples pra guiar seu próximo ciclo.
+- Pense em uma dificuldade desse ano que te ensinou algo importante.
+- Escreva uma carta para o seu "eu" do ano que vem.
+- Reconheça um progresso que você fez esse ano, mesmo pequeno.
+- Pense em uma coisa que você quer fazer diferente daqui pra frente.
+- Agradeça por algo simples que você teve esse ano e talvez nunca tenha reconhecido.
+- Escolha uma pequena atitude que represente como você quer começar esse novo ciclo.
+- Escolha uma música alegre e dance por alguns minutos, só por diversão.
+- Faça algo divertido hoje sem transformar isso em produtividade.
+- Reserve um tempo pra brincar, rir e não levar tudo tão a sério.
+- Convide alguém para curtir um momento leve e descontraído com você.
+- Escute uma playlist animada enquanto faz alguma tarefa do dia.
+- Permita-se um momento de leveza e diversão, mesmo que simples.
+- Faça algo criativo e divertido que você não faz há tempos.
+- Aproveite o clima de festa pra se conectar com pessoas queridas.
+- Reserve cinco minutos pra checar como você realmente está se sentindo hoje.
+- Escreva sobre uma preocupação que está pesando e uma ação possível sobre ela.
+- Permita-se descansar sem culpa, mesmo que só por hoje.
+- Pergunte a alguém importante como a saúde mental dela está esses dias.
+- Reconheça um progresso emocional que você fez recentemente, mesmo pequeno.
+- Pratique cinco minutos de respiração consciente, sem pressa.
+- Escreva sobre um limite que você precisa colocar pra se cuidar melhor.
+- Pergunte a alguém se ela está precisando de apoio ultimamente.
+- Perdoe a si mesmo por uma pequena falha recente.
+- Reserve um tempo pra fazer algo que só existe pra te trazer prazer, sem culpa.
+
+### Expansão — Estações do ano (39)
+
+- Aproveite o outono pra refletir sobre o que você quer deixar pra trás.
+- Observe as folhas ou mudanças de cor típicas do outono, se houver perto de você.
+- Aproveite o clima mais ameno do outono pra uma caminhada tranquila.
+- Escreva sobre uma coisa que você colheu (aprendeu ou conquistou) nos últimos meses.
+- Aproveite o outono pra organizar o guarda-roupa pra estação mais fria.
+- Reserve um tempo pra uma leitura mais longa, aproveitando as noites do outono.
+- Aproveite o clima do outono pra preparar uma bebida quente com calma.
+- Escreva sobre algo que está em transição na sua vida agora.
+- Aproveite o outono pra revisar suas metas do ano até aqui.
+- Reserve um momento pra agradecer por algo que você colheu esse ano.
+- Aproveite o clima mais fresco do outono pra dormir um pouco mais cedo.
+- Aproveite o outono pra reorganizar sua rotina antes do frio chegar.
+- Reserve um tempo pra uma reflexão tranquila sobre os últimos meses.
+- Aproveite o outono pra se reconectar com alguém antes do fim do ano chegar.
+- Aproveite o clima do outono pra uma caminhada mais contemplativa.
+- Escreva sobre uma mudança que você percebeu em você mesmo recentemente.
+- Aproveite o outono pra preparar a casa para os meses mais frios.
+- Reserve um tempo pra terminar algo que você começou no meio do ano.
+- Aproveite o clima do outono pra uma tarde de leitura tranquila.
+- Termine o dia de outono reconhecendo algo que amadureceu em você esse ano.
+- Aproveite o inverno pra ficar mais tempo em casa com quem você ama.
+- Aproveite as noites mais longas do inverno pra dormir um pouco mais.
+- Reserve um tempo pra uma reflexão tranquila num dia frio de inverno.
+- Aproveite o inverno pra reorganizar o guarda-roupa mais quente.
+- Prepare uma refeição reconfortante típica do inverno.
+- Aproveite o clima frio pra uma tarde de jogos em família.
+- Reserve um tempo pra escrever sobre o que você aprendeu esse ano.
+- Aproveite o inverno pra ler mais, já que se sai menos de casa.
+- Prepare um chá ou chocolate quente pra compartilhar com alguém.
+- Aproveite as noites de inverno pra assistir algo tranquilo em família.
+- Reserve um tempo pra planejar metas pro início do próximo ciclo.
+- Aproveite o inverno pra cuidar mais da sua pele e do seu conforto.
+- Aproveite o clima frio pra uma conversa longa e tranquila em casa.
+- Reserve um momento pra agradecer pelo aconchego que você tem hoje.
+- Aproveite o inverno pra reorganizar a casa pra ficar mais aconchegante.
+- Aproveite as noites mais longas pra um ritual de sono mais cuidadoso.
+- Reserve um tempo pra reconectar com alguém que você não vê há um tempo.
+- Aproveite o clima frio pra uma tarde de conforto, sem culpa, em casa.
+- Termine um dia de inverno reconhecendo o aconchego de estar em casa.
+
+## Relacionamentos (425)
+
+### Base oficial (900) (100)
+
+- Ligue para alguém com quem você não fala há algum tempo.
+- Envie uma mensagem dizendo que sente saudade.
+- Diga "eu te amo" para alguém importante.
+- Pergunte a alguém como foi realmente o dia dela.
+- Faça um elogio sincero.
+- Agradeça alguém por algo específico.
+- Diga a alguém uma qualidade que você admira nela.
+- Mande uma mensagem de bom dia para alguém especial.
+- Mande uma mensagem de boa noite para alguém especial.
+- Pergunte a alguém o que está fazendo essa pessoa feliz.
+- Pergunte a alguém o que está preocupando essa pessoa.
+- Ouça alguém por cinco minutos sem interromper.
+- Durante uma conversa, deixe o celular de lado.
+- Pergunte antes de oferecer uma solução para um problema.
+- Reconheça o esforço de alguém.
+- Parabenize alguém por uma pequena conquista.
+- Envie uma mensagem de incentivo para alguém.
+- Pergunte a alguém qual é seu sonho atual.
+- Pergunte a alguém qual lugar gostaria de conhecer.
+- Pergunte qual foi a melhor parte da semana de alguém.
+- Pergunte o que alguém gostaria de aprender.
+- Compartilhe uma memória boa com alguém.
+- Envie uma foto que lembre um momento feliz.
+- Envie uma música para alguém.
+- Envie uma frase que fez você lembrar de alguém.
+- Ligue para um amigo antigo.
+- Mande mensagem para um parente distante.
+- Responda uma mensagem que você está adiando.
+- Faça uma chamada de vídeo curta com alguém.
+- Envie um áudio em vez de apenas escrever.
+- Pergunte a alguém se precisa de ajuda.
+- Ofereça ajuda em uma tarefa.
+- Faça uma pequena gentileza sem avisar.
+- Faça uma tarefa que normalmente outra pessoa faz.
+- Dê atenção exclusiva a alguém durante 10 minutos.
+- Faça uma refeição com alguém sem celular.
+- Convide alguém para conversar.
+- Pergunte a alguém se quer conversar.
+- Não transforme uma conversa em disputa.
+- Faça uma pergunta antes de dar sua opinião.
+- Reconheça o ponto de vista de alguém mesmo discordando.
+- Evite uma crítica desnecessária hoje.
+- Troque uma reclamação por um pedido claro.
+- Dê crédito a alguém por uma ideia.
+- Agradeça alguém que costuma ajudar você.
+- Agradeça alguém cujo trabalho normalmente passa despercebido.
+- Recomende o trabalho de alguém.
+- Indique um pequeno negócio de alguém conhecido.
+- Compartilhe uma oportunidade com alguém.
+- Pergunte a um colega como está sua semana.
+- Cumprimente pelo nome alguém que você encontra frequentemente.
+- Dê bom dia a alguém que costuma passar despercebido.
+- Pergunte a uma pessoa mais velha sobre uma lembrança da juventude.
+- Pergunte a uma criança o que ela está aprendendo.
+- Brinque com uma criança durante 10 minutos.
+- Pergunte ao seu parceiro como você pode tornar o dia melhor.
+- Pergunte aos seus filhos qual foi a melhor parte do dia.
+- Faça uma brincadeira espontânea com sua família.
+- Guarde o celular durante uma conversa importante.
+- Ouça uma história sem tentar contar uma história melhor.
+- Pergunte: "Como posso estar mais presente para você?"
+- Faça uma gentileza para um vizinho.
+- Dê feedback positivo a um colega.
+- Reconheça alguém que fez um bom trabalho.
+- Envie uma mensagem para alguém que está começando algo novo.
+- Pergunte como foi algo importante que aconteceu ontem.
+- Comemore a vitória de outra pessoa.
+- Pergunte a alguém sobre um sonho antigo.
+- Pergunte qual foi a viagem favorita de alguém.
+- Pergunte qual comida lembra a infância de alguém.
+- Pergunte qual música sempre melhora o humor de alguém.
+- Descubra algo novo sobre uma pessoa que você conhece há anos.
+- Faça uma pergunta que nunca fez a um familiar.
+- Relembre uma história engraçada da família.
+- Envie uma foto antiga para alguém.
+- Ligue para alguém em vez de mandar mensagem.
+- Peça desculpas se existe uma conversa pendente.
+- Resolva uma pequena mágoa com respeito.
+- Diga "eu entendo" antes de explicar seu ponto.
+- Deixe alguém terminar de falar.
+- Pergunte "você quer conselho ou só quer que eu escute?"
+- Diga obrigado sem acrescentar "mas".
+- Diga a alguém que você acredita nela.
+- Incentive alguém que está desanimado.
+- Pergunte a um amigo como você pode ajudá-lo.
+- Faça companhia a alguém que esteja sozinho.
+- Visite alguém próximo, se for conveniente.
+- Faça uma surpresa simples para alguém.
+- Deixe um bilhete carinhoso.
+- Faça uma tarefa para aliviar alguém.
+- Compartilhe uma lembrança que você valoriza.
+- Conte para alguém por que essa pessoa é importante.
+- Diga a alguém algo que você deveria ter dito há muito tempo.
+- Agradeça alguém por ter entrado na sua vida.
+- Pergunte a alguém o que gostaria de fazer juntos.
+- Marque um momento para vocês se encontrarem.
+- Faça hoje uma demonstração de carinho que normalmente você só pensa.
+- Não espere uma ocasião especial para demonstrar carinho.
+- Escolha uma pessoa para receber sua atenção completa hoje.
+- Termine o dia dizendo a alguém: "Fico feliz que você faça parte da minha vida."
+
+### Combos por interesse/hobby (2)
+
+- Envie uma música para alguém que você gosta, contando por que ela te lembrou dessa pessoa.
+- Convide alguém para assistir a um jogo com você — mesmo que só por uma parte dele.
+
+### Combos por pessoa importante (6)
+
+- Envie uma música para {pessoa} que lembre um momento especial de vocês.
+- Mande uma mensagem para {pessoa}, com quem você costumava curtir esporte junto.
+- Pergunte a {pessoa} como foi o dia dela e escute sem mexer no celular.
+- Pergunte a {pessoa} sobre algo que ele(a) realmente gosta, só pra escutar de verdade.
+- Mande uma mensagem para {pessoa} dizendo que você está pensando nele(a).
+- Ligue para {pessoa}, mesmo que seja rápido.
+
+### Datas comemorativas (combos originais) (4)
+
+- Hoje é um dia de gratidão por quem cuidou de você. Entre em contato com alguém importante para você.
+- Aproveite este dia especial e pense em alguém que exerce um papel importante na sua vida.
+- Faça algo especial para {pessoa} hoje — mesmo que simples.
+- Separe alguns minutos hoje para fazer algo especial por alguém que você ama, mesmo que simples.
+
+### Expansão — Amigos (99)
+
+- Mande uma mensagem para um amigo que você não fala há tempos.
+- Pergunte a um amigo como ele está de verdade, além do "tudo bem".
+- Ligue para um amigo antigo, mesmo que rápido.
+- Marque um encontro com um amigo, mesmo que simples.
+- Agradeça a um amigo por algo específico que ele fez por você.
+- Envie uma mensagem contando que você está pensando em um amigo.
+- Pergunte a um amigo sobre um projeto ou sonho que ele está buscando.
+- Compartilhe uma boa notícia com um amigo.
+- Pergunte a um amigo se ele precisa de ajuda com alguma coisa.
+- Ofereça ajuda a um amigo em algo que ele está enfrentando.
+- Envie uma foto ou lembrança que lembre um momento com um amigo.
+- Pergunte a um amigo qual foi a melhor parte da semana dele.
+- Parabenize um amigo por uma conquista, mesmo pequena.
+- Reconecte-se com um amigo de uma fase antiga da sua vida.
+- Convide um amigo para fazer algo simples juntos.
+- Pergunte a um amigo o que o deixaria mais animado essa semana.
+- Diga a um amigo por que a amizade dele importa pra você.
+- Envie um áudio em vez de só texto para um amigo.
+- Pergunte a um amigo como ele está lidando com algo difícil.
+- Escute um amigo contar uma história sem tentar resolver o problema dele.
+- Recomende algo que você gostou para um amigo que combina com o gosto dele.
+- Pergunte a um amigo sobre um lugar que ele quer conhecer.
+- Envie uma mensagem de apoio para um amigo em um momento difícil.
+- Pergunte a um amigo o que faria a semana dele mais leve.
+- Convide um amigo para uma chamada de vídeo curta.
+- Pergunte a um amigo sobre uma memória boa que vocês compartilham.
+- Compartilhe uma memória boa com um amigo.
+- Pergunte a um amigo se ele quer só desabafar ou quer conselho.
+- Faça companhia a um amigo que está sozinho, mesmo que à distância.
+- Convide um amigo para uma atividade que vocês faziam antes e pararam.
+- Pergunte a um amigo qual foi a última vez que ele riu muito.
+- Envie uma mensagem de bom dia para um amigo especial.
+- Reconheça publicamente uma conquista de um amigo.
+- Pergunte a um amigo sobre um hobby novo que ele começou.
+- Peça desculpas a um amigo, se existir algo pendente entre vocês.
+- Resolva com respeito uma pequena mágoa com um amigo.
+- Diga a um amigo que você sente falta dele.
+- Pergunte a um amigo o que ele está achando difícil ultimamente.
+- Faça uma pergunta que você nunca fez a um amigo antigo.
+- Convide um amigo para conhecer algo novo junto.
+- Pergunte a um amigo qual foi o conselho mais importante que já recebeu.
+- Ofereça um lugar pra ficar ou ajuda prática a um amigo, se puder.
+- Compartilhe com um amigo algo que você aprendeu recentemente.
+- Pergunte a um amigo se ele tem tempo pra conversar essa semana.
+- Pergunte a um amigo como está a família dele.
+- Envie para um amigo uma música que lembre a amizade de vocês.
+- Pergunte a um amigo o que ele gostaria de fazer que nunca fez.
+- Marque uma data futura para reencontrar um amigo distante.
+- Pergunte a um amigo qual foi um momento em que ele se sentiu apoiado por você.
+- Diga a um amigo algo que você admira nele.
+- Pergunte a um colega de trabalho como está sua semana.
+- Cumprimente pelo nome alguém que você encontra com frequência.
+- Dê bom dia a alguém que costuma passar despercebido no seu dia.
+- Faça uma pergunta genuína a um vizinho sobre a vida dele.
+- Ofereça ajuda a um vizinho com alguma coisa simples.
+- Reconecte-se com alguém de uma fase antiga que você perdeu contato.
+- Pergunte a alguém como foi um evento importante que aconteceu ontem.
+- Compartilhe uma oportunidade que pode ajudar um amigo.
+- Indique o trabalho de um amigo pra quem possa se interessar.
+- Faça uma pergunta a um amigo sobre um sonho antigo dele.
+- Pergunte a um amigo qual foi a viagem favorita da vida dele.
+- Pergunte a um amigo qual comida lembra a infância dele.
+- Pergunte a um amigo qual música sempre melhora o humor dele.
+- Descubra algo novo sobre um amigo que você conhece há anos.
+- Convide um amigo para uma refeição simples, mesmo que em casa.
+- Envie um convite espontâneo para um amigo fazer algo hoje.
+- Pergunte a um amigo o que ele gostaria de comemorar essa semana.
+- Faça uma surpresa pequena para um amigo.
+- Deixe um bilhete ou mensagem carinhosa para um amigo.
+- Pergunte a um amigo se ele topa criar um hábito juntos.
+- Combine um horário fixo pra falar com um amigo mais vezes.
+- Pergunte a um amigo qual foi a última vez que ele pediu ajuda.
+- Ofereça-se para ouvir um amigo sem interromper.
+- Pergunte a um amigo o que costuma tirar o sono dele.
+- Convide um amigo para desabafar, se ele quiser.
+- Diga a um amigo algo que você nunca disse, mas sente.
+- Escolha uma pessoa para fortalecer a amizade essa semana.
+- Pergunte a um amigo distante como ele está se adaptando à rotina atual.
+- Envie uma mensagem de incentivo para um amigo que está desanimado.
+- Comemore com um amigo uma vitória dele, mesmo pequena.
+- Pergunte a um amigo sobre um livro, filme ou série que ele recomendaria.
+- Ofereça-se para apresentar um amigo a alguém que possa ajudá-lo.
+- Pergunte a um amigo como ele está cuidando de si mesmo ultimamente.
+- Pergunte a um amigo se ele quer companhia para algo hoje.
+- Escreva pra um amigo por que ele é importante na sua vida.
+- Pergunte a um amigo o que mudou na vida dele recentemente.
+- Reconheça o esforço de um amigo em algo que ele está tentando.
+- Convide um amigo para participar de algo que você está fazendo.
+- Pergunte a um amigo qual foi um erro que ele aprendeu bastante.
+- Faça uma gentileza por um amigo sem avisar que foi você.
+- Pergunte a um amigo o que ele espera dos próximos meses.
+- Compartilhe com um amigo uma dificuldade sua, se você confiar nele.
+- Pergunte a um amigo se ele sente que está tendo tempo pra ele mesmo.
+- Convide um amigo pra experimentar algo novo com você.
+- Pergunte a um amigo o que o faz sentir que a amizade vale a pena.
+- Reconecte um grupo de amigos que não se fala há tempos.
+- Organize, mesmo que informalmente, um encontro entre amigos.
+- Agradeça a um amigo por estar presente em um momento difícil.
+- Termine o dia mandando uma mensagem simples pra um amigo: "pensando em você".
+
+### Expansão — Datas comemorativas (55)
+
+- Reconheça e agradeça a uma mulher que foi importante na sua formação.
+- Envie uma mensagem de admiração para uma mulher que você respeita.
+- Elogie sinceramente uma conquista de uma mulher importante na sua vida.
+- Pergunte a uma mulher importante pra você como ela está se sentindo hoje.
+- Reconheça publicamente o trabalho de uma mulher que você admira.
+- Pense em uma mulher que abriu caminho pra você e agradeça a ela.
+- Ofereça apoio a uma mulher que esteja enfrentando um momento difícil.
+- Compartilhe uma conquista de uma mulher importante pra você.
+- Diga a uma mulher da sua vida uma qualidade que você admira nela.
+- Reconheça, com alguém importante, o esforço das mulheres da sua família.
+- Pense em alguém que teve um papel materno na sua vida e agradeça a ela.
+- Envie uma mensagem carinhosa para uma mulher que cuidou de você em algum momento.
+- Reconheça o esforço de alguém que teve um papel importante na sua criação.
+- Agradeça a alguém que exerceu cuidado maternal com você, mesmo sem ser sua mãe biológica.
+- Pense em uma qualidade de cuidado que você quer levar adiante na sua vida.
+- Envie uma mensagem de carinho a alguém que você considera uma figura materna.
+- Reserve um tempo pra pensar em como o cuidado de alguém moldou quem você é.
+- Agradeça a alguém que sempre esteve presente cuidando de você.
+- Reconheça, mesmo à distância, alguém que exerceu um papel de cuidado importante.
+- Pense numa forma simples de honrar quem cuidou de você ao longo da vida.
+- Planeje um momento simples e especial pra passar com {pessoa}.
+- Diga a {pessoa} um motivo específico pelo qual você a escolhe todos os dias.
+- Prepare algo que {pessoa} goste, sem esperar uma data maior.
+- Envie pra {pessoa} uma mensagem que descreva o que essa data significa pra vocês.
+- Relembre com {pessoa} um momento marcante do começo da relação de vocês.
+- Ofereça 20 minutos de atenção total a {pessoa}, sem celular por perto.
+- Escreva pra {pessoa} três coisas que você ama nela.
+- Pergunte a {pessoa} como ela gostaria de comemorar esse dia com você.
+- Prepare uma surpresa pequena e simples pra {pessoa}.
+- Diga a {pessoa} algo que você nunca teve coragem de dizer.
+- Planeje um momento simples e especial com alguém importante pra você.
+- Diga a alguém um motivo específico pelo qual ela é especial na sua vida.
+- Prepare algo que alguém importante goste, sem esperar uma data maior.
+- Envie pra alguém importante uma mensagem que descreva o que essa data significa pra vocês.
+- Relembre com alguém um momento marcante do começo da relação de vocês.
+- Ofereça 20 minutos de atenção total a alguém, sem celular por perto.
+- Escreva sobre três coisas que você ama em alguém importante e diga a ela.
+- Pergunte a alguém importante como ela gostaria de passar esse dia com você.
+- Prepare uma surpresa pequena e simples pra alguém que você ama.
+- Diga a alguém importante algo que você nunca teve coragem de dizer.
+- Ligue para {pessoa} só pra dizer que a amizade dela importa pra você.
+- Relembre com {pessoa} um momento engraçado que vocês viveram juntos.
+- Envie uma mensagem contando a {pessoa} um motivo pelo qual você é grato por ela.
+- Convide {pessoa} para um encontro simples nesses dias.
+- Diga a {pessoa} uma qualidade dela que você sempre admirou.
+- Reconecte-se com {pessoa}, mesmo que tenham perdido contato por um tempo.
+- Ligue para um amigo só pra dizer que a amizade dele importa pra você.
+- Relembre com um amigo um momento engraçado que vocês viveram juntos.
+- Envie uma mensagem contando a um amigo um motivo pelo qual você é grato por ele.
+- Convide um amigo para um encontro simples nesses dias.
+- Pense em alguém que teve um papel paterno na sua vida e agradeça a ela.
+- Envie uma mensagem carinhosa para alguém que cuidou de você em algum momento.
+- Agradeça a alguém que exerceu cuidado paternal com você, mesmo sem ser seu pai biológico.
+- Envie uma mensagem de carinho a alguém que você considera uma figura paterna.
+- Escreva sobre uma lição de vida que alguém importante te ensinou.
+
+### Expansão — Pais / figuras importantes (59)
+
+- Ligue para {pessoa} só para saber como ela está.
+- Pergunte a {pessoa} uma lembrança da juventude dela.
+- Agradeça a {pessoa} por algo específico que ela fez por você.
+- Pergunte a {pessoa} um conselho sobre algo que você está vivendo.
+- Diga a {pessoa} uma coisa que você aprendeu com ela.
+- Pergunte a {pessoa} como era a vida dela na sua idade.
+- Envie uma mensagem contando algo bom que aconteceu com você hoje.
+- Pergunte a {pessoa} sobre um sonho que ela teve e não realizou.
+- Pergunte a {pessoa} qual foi a decisão mais difícil que ela já tomou.
+- Diga a {pessoa} que você tem orgulho de quem ela é.
+- Pergunte a {pessoa} sobre uma tradição de família que ela quer manter.
+- Ofereça ajuda a {pessoa} com algo que ela tem adiado.
+- Pergunte a {pessoa} como ela está de saúde, com atenção de verdade.
+- Peça a {pessoa} para contar uma história que você nunca ouviu.
+- Envie uma foto antiga para {pessoa} e pergunte sobre o momento.
+- Pergunte a {pessoa} o que ela gostaria de fazer mais vezes com você.
+- Diga a {pessoa} algo que você nunca agradeceu antes.
+- Visite {pessoa}, se for possível e conveniente.
+- Pergunte a {pessoa} sobre os pais ou avós dela.
+- Reserve um tempo ao telefone com {pessoa}, sem pressa.
+- Pergunte a {pessoa} o que ela sente falta de fazer com você.
+- Diga a {pessoa} uma qualidade dela que moldou quem você é.
+- Pergunte a {pessoa} como ela lidava com dificuldades quando você era criança.
+- Peça perdão a {pessoa} por algo, se fizer sentido.
+- Pergunte a {pessoa} qual conselho ela daria pro você de hoje.
+- Compartilhe com {pessoa} uma preocupação sua, se você se sentir à vontade.
+- Pergunte a {pessoa} sobre um momento em que ela se sentiu orgulhosa de você.
+- Ofereça companhia a {pessoa} por alguns minutos hoje.
+- Pergunte a {pessoa} o que ela gostaria que você soubesse sobre a vida dela.
+- Termine o dia mandando uma mensagem carinhosa para {pessoa}.
+- Ligue para alguém que teve um papel importante na sua formação.
+- Pense em uma lembrança boa de alguém que ajudou a formar quem você é.
+- Agradeça a alguém que foi importante na sua criação ou formação.
+- Peça um conselho a alguém mais velho em quem você confia.
+- Diga a alguém uma coisa que você aprendeu com ela.
+- Pergunte a alguém mais velho como era a vida dela na sua idade.
+- Pense em um sonho que alguém importante para você teve e talvez não realizou.
+- Pergunte a alguém sobre a decisão mais difícil que ela já tomou.
+- Diga a alguém que você tem orgulho de quem ela é.
+- Pense em uma tradição de família que você quer manter viva.
+- Ofereça ajuda a alguém mais velho com algo que ela tem adiado.
+- Pergunte a alguém importante como ela está de saúde, com atenção de verdade.
+- Peça a alguém para contar uma história que você nunca ouviu.
+- Reveja uma foto antiga e lembre de um momento importante.
+- Pense no que você gostaria de fazer mais vezes com alguém que te formou.
+- Diga a alguém algo que você nunca agradeceu antes.
+- Visite alguém importante, se for possível e conveniente.
+- Pergunte a um familiar mais velho sobre os pais ou avós dele.
+- Reserve um tempo ao telefone com alguém importante, sem pressa.
+- Pense no que você sente falta de fazer com alguém que te formou.
+- Reconheça uma qualidade que moldou quem você é hoje.
+- Pense em como alguém importante lidava com dificuldades quando você era jovem.
+- Peça perdão a alguém, se fizer sentido.
+- Pense em qual conselho alguém mais velho daria pro você de hoje.
+- Compartilhe com alguém de confiança uma preocupação sua.
+- Pense em um momento em que alguém se sentiu orgulhoso de você.
+- Ofereça companhia a alguém mais velho por alguns minutos hoje.
+- Pense no que alguém importante gostaria que você soubesse sobre a vida dela.
+- Termine o dia mandando uma mensagem carinhosa para alguém que te formou.
+
+### Expansão — Parceiro(a) (100)
+
+- Pergunte a {pessoa} como ela realmente está, sem pressa para responder.
+- Prepare algo simples que {pessoa} gosta, sem ocasião especial.
+- Deixe um bilhete carinhoso para {pessoa} encontrar durante o dia.
+- Elogie algo específico em {pessoa} hoje, não só "você é ótimo(a)".
+- Pergunte a {pessoa} o que faria a semana dela mais leve.
+- Ofereça 15 minutos de atenção total a {pessoa}, sem celular.
+- Pergunte a {pessoa} qual é um sonho que ela ainda não realizou.
+- Assuma uma tarefa que normalmente é de {pessoa}, sem avisar antes.
+- Diga a {pessoa} um motivo específico pelo qual você é grato(a) por ela.
+- Planeje uma surpresa pequena e simples para {pessoa}.
+- Pergunte a {pessoa} como você pode apoiá-la em algo que ela está enfrentando.
+- Envie uma mensagem carinhosa para {pessoa} no meio do dia.
+- Prepare um momento a dois, mesmo que seja curto.
+- Pergunte a {pessoa} qual foi a parte mais difícil da semana dela.
+- Escute {pessoa} contar sobre o dia sem tentar resolver nada, só ouvindo.
+- Toque em {pessoa} com carinho — segurar a mão já basta.
+- Diga a {pessoa} algo que você nunca disse antes.
+- Reserve um tempo sem distrações para conversar com {pessoa}.
+- Pergunte a {pessoa} o que ela sente que está faltando na rotina de vocês.
+- Faça um elogio sincero sobre como {pessoa} lida com algo difícil.
+- Proponha um encontro simples com {pessoa}, mesmo que seja em casa.
+- Pergunte a {pessoa} qual memória de vocês ela mais gosta de lembrar.
+- Cozinhe ou prepare algo especial para {pessoa} hoje.
+- Pergunte a {pessoa} se ela precisa de mais espaço ou mais presença hoje.
+- Reconheça algo que {pessoa} fez recentemente que passou despercebido.
+- Pergunte a {pessoa} o que a faria se sentir mais amada esta semana.
+- Convide {pessoa} para fazer algo que ela gosta e você nem tanto.
+- Diga a {pessoa} uma qualidade dela que você admira profundamente.
+- Combine com {pessoa} uma pausa sem celular durante uma refeição.
+- Pergunte a {pessoa} sobre um objetivo pessoal que ela está buscando.
+- Apoie {pessoa} em uma decisão que ela está tentando tomar.
+- Pergunte a {pessoa} o que a deixou desconfortável recentemente, com abertura.
+- Peça desculpas a {pessoa} se existir alguma coisa pendente entre vocês.
+- Pergunte a {pessoa} como foi conhecer você, do ponto de vista dela.
+- Relembre com {pessoa} um momento bom do início da relação de vocês.
+- Envie uma música para {pessoa} que descreva como você se sente hoje.
+- Pergunte a {pessoa} o que ela gostaria de fazer juntos este mês.
+- Marque um momento no calendário só para vocês dois.
+- Pergunte a {pessoa} se ela sente que está sendo ouvida ultimamente.
+- Ofereça-se para cuidar de algo que sobrecarrega {pessoa}.
+- Diga a {pessoa} "eu escolho você" de alguma forma hoje.
+- Pergunte a {pessoa} o que mudou nela nos últimos anos que você admira.
+- Faça uma pergunta sobre os planos futuros de vocês juntos.
+- Pergunte a {pessoa} qual foi o gesto mais gentil que você já teve com ela.
+- Reconheça, em voz alta, o parceiro ou parceira que {pessoa} é.
+- Pergunte a {pessoa} algo sobre a família dela que você nunca perguntou.
+- Escreva três coisas que você admira em {pessoa} e compartilhe uma delas.
+- Pergunte a {pessoa} o que ela precisa hoje: conversa, silêncio ou colo.
+- Convide {pessoa} para uma caminhada curta só para conversar.
+- Termine o dia dizendo a {pessoa} algo que você é grato(a) nela.
+- Pergunte a alguém importante pra você como ela realmente está, sem pressa para responder.
+- Prepare algo simples que alguém gosta, sem ocasião especial.
+- Deixe um bilhete carinhoso para alguém encontrar durante o dia.
+- Elogie algo específico em alguém hoje, não só "você é ótimo(a)".
+- Pergunte a alguém o que faria a semana dela mais leve.
+- Ofereça 15 minutos de atenção total a alguém, sem celular.
+- Pergunte a alguém qual é um sonho que ela ainda não realizou.
+- Assuma uma tarefa que normalmente é de outra pessoa, sem avisar antes.
+- Diga a alguém um motivo específico pelo qual você é grato(a) por ela.
+- Planeje uma surpresa pequena e simples para alguém importante.
+- Pergunte a alguém como você pode apoiá-la em algo que ela está enfrentando.
+- Envie uma mensagem carinhosa para alguém no meio do dia.
+- Prepare um momento a sós com alguém, mesmo que seja curto.
+- Pergunte a alguém qual foi a parte mais difícil da semana dela.
+- Escute alguém contar sobre o dia sem tentar resolver nada, só ouvindo.
+- Ofereça um gesto de carinho simples a alguém, se fizer sentido.
+- Diga a alguém algo que você nunca disse antes.
+- Reserve um tempo sem distrações para conversar com alguém importante.
+- Pergunte a alguém o que ela sente que está faltando na rotina de vocês.
+- Faça um elogio sincero sobre como alguém lida com algo difícil.
+- Proponha um encontro simples com alguém, mesmo que seja em casa.
+- Pergunte a alguém qual memória de vocês ela mais gosta de lembrar.
+- Prepare algo especial para alguém importante hoje.
+- Pergunte a alguém se ela precisa de mais espaço ou mais presença hoje.
+- Reconheça algo que alguém fez recentemente que passou despercebido.
+- Pergunte a alguém o que a faria se sentir mais valorizada esta semana.
+- Convide alguém para fazer algo que ela gosta e você nem tanto.
+- Diga a alguém uma qualidade dela que você admira profundamente.
+- Combine com alguém uma pausa sem celular durante uma refeição.
+- Pergunte a alguém sobre um objetivo pessoal que ela está buscando.
+- Apoie alguém em uma decisão que ela está tentando tomar.
+- Pergunte a alguém o que a deixou desconfortável recentemente, com abertura.
+- Peça desculpas a alguém se existir alguma coisa pendente entre vocês.
+- Pergunte a alguém como foi conhecer você, do ponto de vista dela.
+- Relembre com alguém um momento bom do início da amizade ou relação de vocês.
+- Envie uma música para alguém que descreva como você se sente hoje.
+- Pergunte a alguém o que ela gostaria de fazer juntos este mês.
+- Marque um momento no calendário só para vocês.
+- Pergunte a alguém se ela sente que está sendo ouvida ultimamente.
+- Ofereça-se para cuidar de algo que sobrecarrega alguém importante.
+- Diga a alguém, de alguma forma, que você escolhe tê-la na sua vida.
+- Pergunte a alguém o que mudou nela nos últimos anos que você admira.
+- Faça uma pergunta sobre os planos futuros de alguém.
+- Pergunte a alguém qual foi o gesto mais gentil que você já teve com ela.
+- Reconheça, em voz alta, o que alguém importante representa pra você.
+- Pergunte a alguém algo sobre a família dela que você nunca perguntou.
+- Escreva três coisas que você admira em alguém e compartilhe uma delas.
+- Pergunte a alguém o que ela precisa hoje: conversa, silêncio ou companhia.
+- Convide alguém para uma caminhada curta só para conversar.
+- Termine o dia dizendo a alguém algo que você é grato(a) nela.
+
+## Família e presença (529)
+
+### Base oficial (900) (96)
+
+- Faça uma refeição com a família sem celular.
+- Pergunte como foi o dia de cada pessoa da casa.
+- Brinque 10 minutos com uma criança.
+- Ajude espontaneamente em uma tarefa doméstica.
+- Guarde algo que outra pessoa deixou fora do lugar.
+- Prepare um lanche simples para alguém.
+- Pergunte ao seu parceiro como foi o dia.
+- Pergunte aos seus filhos o que mais gostaram hoje.
+- Ouça uma história de alguém da família.
+- Conte uma lembrança da sua infância.
+- Mostre uma foto antiga para alguém.
+- Relembre uma viagem em família.
+- Escolha uma música para ouvir juntos.
+- Faça uma brincadeira em família.
+- Assistam a algo curto juntos sem celulares.
+- Faça uma caminhada curta com alguém da família.
+- Convide alguém da casa para conversar.
+- Ajude uma criança em uma pequena tarefa.
+- Pergunte o que alguém gostaria de fazer no fim de semana.
+- Pergunte qual foi a melhor coisa do dia.
+- Pergunte se alguém precisa de ajuda amanhã.
+- Prepare alguma coisa para facilitar a manhã de alguém.
+- Organize a mochila de uma criança.
+- Confira se algo importante da família está preparado.
+- Organize um espaço comum da casa.
+- Limpe uma área usada por todos.
+- Guarde objetos espalhados pela casa.
+- Faça uma tarefa doméstica sem ser solicitado.
+- Troque uma reclamação por uma ação prática.
+- Agradeça alguém da família por uma tarefa.
+- Elogie uma atitude positiva de alguém.
+- Diga algo carinhoso para alguém.
+- Diga "eu te amo".
+- Diga "estou feliz por ter você".
+- Dê um abraço, se houver consentimento.
+- Pergunte se alguém quer companhia.
+- Deixe outra pessoa escolher o filme.
+- Deixe outra pessoa escolher a música.
+- Faça uma pequena surpresa.
+- Envie uma mensagem carinhosa para alguém da casa.
+- Guarde o celular durante uma conversa.
+- Ouça sem interromper.
+- Pergunte antes de dar conselhos.
+- Perceba se alguém está cansado.
+- Ofereça uma pausa para alguém sobrecarregado.
+- Assuma uma tarefa que aliviará outra pessoa.
+- Prepare alguma coisa para amanhã.
+- Pergunte se alguém precisa de alguma coisa antes de sair.
+- Pergunte a uma criança o que gostaria de aprender.
+- Ensine algo simples a uma criança.
+- Deixe uma criança ensinar algo a você.
+- Pergunte sobre o desenho, jogo ou interesse de uma criança.
+- Passe 10 minutos brincando sem celular.
+- Leia algumas páginas com uma criança.
+- Pergunte a um adolescente como estão as coisas.
+- Escute sem transformar a conversa em sermão.
+- Ligue para um familiar que mora longe.
+- Envie uma foto do seu dia para alguém da família.
+- Compartilhe uma pequena conquista com sua família.
+- Pergunte sobre um sonho antigo.
+- Pergunte sobre um lugar que alguém gostaria de conhecer.
+- Pergunte sobre uma comida favorita.
+- Prepare uma comida que alguém gosta.
+- Organize um pequeno lanche em família.
+- Faça uma tarefa chata acompanhado.
+- Arrume uma área enquanto conversa com alguém.
+- Guarde as compras sem esperar alguém pedir.
+- Verifique se há lixo para retirar.
+- Deixe a cozinha organizada para a próxima pessoa.
+- Deixe o banheiro organizado depois de usar.
+- Coloque alguma coisa de volta no lugar.
+- Resolva uma pequena pendência familiar.
+- Confirme um compromisso da família.
+- Adicione um compromisso importante à agenda.
+- Planeje uma atividade simples para o fim de semana.
+- Escolha uma atividade gratuita para fazer juntos.
+- Passe 15 minutos sem televisão conversando.
+- Faça uma pergunta diferente durante o jantar.
+- Pergunte o que alguém aprendeu hoje.
+- Pergunte o que deixou alguém feliz hoje.
+- Pergunte o que deixou alguém frustrado.
+- Pergunte como você pode ajudar amanhã.
+- Reconheça uma pequena conquista de alguém.
+- Comemore uma pequena vitória da família.
+- Faça uma gentileza sem contar que foi você.
+- Ajude alguém antes que peça.
+- Tire alguns minutos para brincar com seu filho.
+- Pergunte a alguém da casa como está se sentindo.
+- Diga algo positivo durante o jantar.
+- Faça uma foto espontânea em família.
+- Conte uma história da sua infância.
+- Pergunte aos filhos qual é o sonho deles.
+- Pergunte ao parceiro qual é um objetivo atual.
+- Escolha uma noite para ficarem sem celulares por 30 minutos.
+- Faça algo hoje que torne a vida da sua família um pouco mais fácil.
+- Termine o dia com uma palavra positiva para cada pessoa da casa.
+
+### Combos por interesse/hobby (2)
+
+- Convide alguém da sua família para jogar algo com você por 15 minutos — vale videogame, carta ou tabuleiro.
+- Prepare algo simples de comer que alguém da sua casa gosta bastante.
+
+### Combos por pessoa importante (4)
+
+- Convide {pessoa} para jogar algo com você por 15 minutos.
+- Registre uma pequena lembrança do dia com {pessoa}.
+- Prepare algo simples que {pessoa} gosta bastante.
+- Brinque com {pessoa} por 10 minutos sem celular.
+
+### Datas comemorativas (combos originais) (3)
+
+- Pense em uma forma simples de demonstrar carinho a {pessoa}, no Dia das Mães.
+- Hoje é um dia especial. Faça algo que demonstre gratidão a {pessoa}.
+- Convide {pessoa} para brincar ou jogar algo simples hoje.
+
+### Expansão — Clima: calor (20)
+
+- Prepare uma bebida gelada pra compartilhar com quem estiver em casa.
+- Aproveite um ambiente fresco de casa pra conversar com a família.
+- Prepare uma fruta gelada pra compartilhar com a família no calor.
+- Escolha uma atividade tranquila dentro de casa pra fazer com a família hoje.
+- Aproveite o calor pra fazer uma pausa mais longa com quem está em casa.
+- Prepare uma salada de frutas gelada pra família num dia quente.
+- Reserve um horário mais fresco do dia pra sair com a família, se for sair.
+- Aproveite pra assistir algo tranquilo em casa com a família no calor.
+- Prepare uma limonada ou suco natural pra compartilhar em casa.
+- Escolha um jogo tranquilo pra jogar em ambiente fresco com a família.
+- Aproveite o calor pra ficar mais tempo dentro de casa com quem você gosta.
+- Prepare um lanche leve e fresco pra compartilhar com a família.
+- Reserve um tempo num ambiente com ventilador ou ar-condicionado pra conversar em família.
+- Aproveite pra contar histórias num canto fresco da casa com a família.
+- Prepare uma sobremesa gelada simples pra fazer com uma criança da casa.
+- Escolha uma atividade leve e tranquila pra fazer com os filhos no calor.
+- Aproveite pra brincar de algo tranquilo dentro de casa com uma criança.
+- Reserve o horário mais fresco do fim de tarde pra um momento em família.
+- Prepare água aromatizada com frutas pra deixar por perto da família.
+- Termine o dia quente com a família num ambiente fresco, conversando com calma.
+
+### Expansão — Clima: chuva (40)
+
+- Aproveite o dia de chuva para jogar um jogo de tabuleiro em família.
+- Organize um armário ou gaveta que você vem adiando, já que é dia de ficar em casa.
+- Assista a um filme com a família enquanto chove lá fora.
+- Prepare uma receita nova em casa aproveitando o dia chuvoso.
+- Conte histórias em família ao som da chuva.
+- Organize fotos antigas da família num dia chuvoso.
+- Aproveite a chuva pra fazer uma faxina leve e organizar a casa.
+- Monte um quebra-cabeça com quem estiver em casa.
+- Aproveite o dia chuvoso pra ensinar algo simples a uma criança da casa.
+- Cozinhe algo em família que exija mais tempo, já que ninguém vai sair.
+- Use o dia de chuva pra reorganizar um espaço comum da casa.
+- Aproveite pra ler um livro com alguém da família enquanto chove.
+- Faça uma tarde de jogos com a família por causa da chuva.
+- Prepare uma pipoca e assista algo em família num dia chuvoso.
+- Aproveite o dia mais parado pra ter uma conversa longa com a família.
+- Organize uma gaveta de papéis ou documentos importantes da casa.
+- Aproveite a chuva pra brincar dentro de casa com uma criança.
+- Faça uma limpeza organizada de um cômodo, aproveitando o dia em casa.
+- Prepare uma receita que a família toda gosta, já que estão todos em casa.
+- Aproveite pra desenhar ou pintar junto com alguém da família.
+- Organize as roupas de inverno ou de chuva da família.
+- Use o dia chuvoso pra planejar a semana com calma, em família.
+- Aproveite pra montar uma pequena "biblioteca" com os livros espalhados pela casa.
+- Faça uma tarde de artesanato simples com quem estiver em casa.
+- Aproveite a chuva pra revisar e organizar o armário de remédios da casa.
+- Prepare um chocolate quente pra compartilhar com a família.
+- Aproveite pra ensinar um jogo antigo pra uma criança da casa.
+- Use o dia de chuva pra separar roupas ou itens para doação.
+- Aproveite pra escrever, em família, uma lista de coisas para fazer num dia de sol.
+- Termine um dia de chuva com uma atividade tranquila e em conjunto com a família.
+- Reorganize a despensa ou a geladeira aproveitando o dia em casa.
+- Aproveite pra ensinar uma criança a jogar um jogo de cartas simples.
+- Prepare uma refeição mais elaborada com a ajuda de alguém da família.
+- Aproveite o dia chuvoso pra fazer uma sessão de perguntas e respostas em família.
+- Use o tempo em casa pra consertar algo pequeno que estava pendente.
+- Aproveite pra montar um álbum simples com fotos recentes da família.
+- Faça uma tarde de música em família, cada um escolhendo uma canção.
+- Aproveite a chuva pra revisar as tarefas domésticas da semana com calma.
+- Prepare uma sobremesa simples com quem estiver em casa.
+- Termine o dia de chuva com a família contando o que cada um mais gostou de fazer.
+
+### Expansão — Clima: sol (15)
+
+- Aproveite o dia de sol pra levar a família pra um passeio curto.
+- Aproveite a luz do dia pra brincar ao ar livre com uma criança, com proteção.
+- Aproveite o sol da manhã pra tomar café da manhã com a família na varanda.
+- Leve a família pra aproveitar um espaço aberto com sombra disponível.
+- Aproveite o dia ensolarado pra tirar fotos em família.
+- Aproveite o sol pra estender roupas ou arejar a casa com a ajuda da família.
+- Leve as crianças pra um passeio curto com protetor solar e água.
+- Aproveite o dia de sol pra sentar num lugar arejado com a família.
+- Aproveite a manhã ensolarada pra fazer um pequeno passeio de bicicleta em família.
+- Aproveite o sol pra fazer uma atividade ao ar livre num horário mais ameno.
+- Aproveite o dia de sol pra visitar um parque com sombra disponível.
+- Leve a família pra uma área verde perto de casa, com proteção adequada.
+- Aproveite o dia ensolarado pra fazer um lanche num espaço aberto e com sombra.
+- Aproveite o sol da manhã pra fazer uma caminhada leve com quem você ama.
+- Termine um dia de sol com a família contando o que mais gostaram de fazer lá fora.
+
+### Expansão — Clima: tempestade (15)
+
+- Aproveite alguns minutos dentro de casa pra organizar uma área que passa despercebida.
+- Reúna a família num ambiente confortável enquanto a tempestade passa.
+- Aproveite pra jogar um jogo de tabuleiro em casa durante a tempestade.
+- Conte histórias em família enquanto esperam a tempestade passar com segurança.
+- Aproveite pra assistir algo tranquilo em família durante a tempestade.
+- Organize uma gaveta ou armário enquanto fica em casa por segurança.
+- Prepare uma atividade calma com as crianças enquanto chove forte lá fora.
+- Aproveite pra conversar com a família sobre os planos para quando o tempo melhorar.
+- Confira se está tudo seguro em casa durante a tempestade.
+- Aproveite o tempo dentro de casa pra fazer algo manual e tranquilo com a família.
+- Prepare uma refeição reconfortante para todos enquanto a tempestade passa.
+- Aproveite pra ensinar uma criança a fazer algo simples dentro de casa.
+- Reserve um momento pra tranquilizar alguém da família que fica ansioso com tempestades.
+- Aproveite pra fazer companhia a alguém da casa enquanto o tempo está ruim.
+- Termine o dia de tempestade com a família em segurança e tranquilidade.
+
+### Expansão — Clima: tempo agradável (20)
+
+- Aproveite o clima bom pra fazer um piquenique simples com a família.
+- Leve as crianças pra brincar ao ar livre enquanto o tempo ajuda.
+- Aproveite o dia agradável pra fazer uma caminhada com a família.
+- Proponha uma tarde ao ar livre com quem mora com você.
+- Aproveite o clima bom pra visitar uma praça ou parque perto de casa.
+- Leve a família pra andar de bicicleta, se for seguro e possível.
+- Aproveite o tempo bom pra almoçar ou lanchar do lado de fora com a família.
+- Proponha uma pequena aventura ao ar livre com os filhos.
+- Aproveite o clima agradável pra sentar no quintal ou na varanda com a família.
+- Leve alguém da família pra observar a natureza por alguns minutos.
+- Aproveite o dia bom pra brincar ao ar livre com uma criança da casa.
+- Proponha uma caminhada em família até um lugar que todos gostem.
+- Aproveite o clima pra tirar fotos espontâneas da família ao ar livre.
+- Leve a família pra conhecer um lugar novo perto de casa.
+- Aproveite o tempo bom pra fazer um lanche ao ar livre com quem você ama.
+- Proponha um jogo ao ar livre com a família, aproveitando o clima.
+- Aproveite o dia agradável pra visitar um familiar que mora por perto.
+- Leve as crianças pra uma pequena aventura no quintal ou na rua, com segurança.
+- Aproveite o clima bom pra fazer uma roda de conversa ao ar livre em família.
+- Termine o dia com uma caminhada em família, aproveitando o tempo bom.
+
+### Expansão — Datas comemorativas (64)
+
+- Reúna quem mora com você para uma refeição especial, mesmo simples.
+- Prepare algo diferente pra compartilhar com a família nesses dias.
+- Reserve um tempo pra refletir sobre um recomeço que você precisa fazer.
+- Pense em algo que você quer "renascer" na sua vida agora.
+- Agradeça por um recomeço ou uma segunda chance que você teve.
+- Reconecte-se com alguém da família nesses dias de pausa.
+- Reserve um momento de reflexão tranquila sobre esperança e recomeços.
+- Prepare uma sobremesa simples pra compartilhar com quem está por perto.
+- Pense em uma pessoa que merece uma segunda chance da sua parte.
+- Reserve um tempo pra agradecer pelas pessoas que estão ao seu redor nesses dias.
+- Aproveite esses dias de pausa pra descansar de verdade com a família.
+- Escreva sobre o que esperança significa pra você nesse momento da vida.
+- Ligue para {pessoa} e pergunte como ela está de verdade nesses dias.
+- Escreva pra {pessoa} um motivo específico do porquê você é grato(a) a ela.
+- Prepare ou envie algo simples que {pessoa} goste, mesmo sem grande ocasião.
+- Conte a {pessoa} uma lembrança feliz que você tem dela cuidando de você.
+- Pergunte a {pessoa} uma lembrança boa que ela tem de você quando criança.
+- Passe um tempo com {pessoa} hoje, mesmo que curto, só pra estar presente.
+- Envie uma mensagem contando a {pessoa} por que você tem orgulho de ser filho(a) dela.
+- Reserve um tempo ao telefone com {pessoa}, sem pressa, nesses dias.
+- Pergunte a {pessoa} como foi a experiência dela de cuidar de você.
+- Diga a {pessoa} uma coisa que você nunca teve a chance de agradecer antes.
+- Ligue para {pessoa} e pergunte como ele está de verdade nesses dias.
+- Escreva pra {pessoa} um motivo específico do porquê você é grato(a) a ele.
+- Pergunte a {pessoa} uma lembrança da juventude dele.
+- Diga a {pessoa} uma coisa que você aprendeu com ele.
+- Envie uma mensagem contando a {pessoa} por que você tem orgulho de ser filho(a) dele.
+- Pergunte a {pessoa} como foi a experiência dele de cuidar de você.
+- Pergunte a {pessoa} um conselho sobre algo que você está vivendo agora.
+- Dedique um tempo maior que o normal pra brincar com {pessoa} hoje.
+- Pergunte a {pessoa} qual é o sonho dela agora e leve a sério.
+- Deixe {pessoa} escolher toda a atividade de hoje, do início ao fim.
+- Prepare uma pequena surpresa simples pra {pessoa}.
+- Pergunte a {pessoa} o que a faria se sentir mais especial hoje.
+- Reserve um tempo maior de atenção total a {pessoa}, sem interrupções.
+- Diga a {pessoa} o quanto ela é importante pra você.
+- Faça hoje uma atividade que {pessoa} sempre pede e você costuma adiar.
+- Dedique um tempo maior que o normal pra alguém jovem importante pra você.
+- Pergunte a alguém jovem qual é o sonho dela agora e leve a sério.
+- Deixe alguém escolher toda a atividade de hoje, do início ao fim.
+- Prepare uma pequena surpresa simples pra alguém que você ama.
+- Pergunte a alguém o que a faria se sentir mais especial hoje.
+- Reserve um tempo maior de atenção total a alguém, sem interrupções.
+- Diga a alguém o quanto ela é importante pra você.
+- Reúna quem mora com você para um momento especial, mesmo que simples.
+- Escreva uma mensagem de gratidão para as pessoas mais importantes da sua vida.
+- Reserve um tempo pra refletir sobre o que esse ano te ensinou.
+- Prepare algo especial pra compartilhar com quem está por perto nesses dias.
+- Ligue para um familiar distante que você não vê há um tempo.
+- Agradeça por três coisas boas que você viveu esse ano.
+- Faça uma pequena gentileza para alguém que está sozinho nesses dias.
+- Reconecte-se com alguém importante antes que o ano termine.
+- Escreva uma carta de gratidão para alguém que fez diferença na sua vida esse ano.
+- Prepare um presente simples e afetivo pra alguém, sem precisar gastar muito.
+- Reserve um tempo pra celebrar as pequenas conquistas do ano com quem você ama.
+- Compartilhe uma boa lembrança do ano com a família.
+- Doe algo que você não usa mais para quem precisa nesses dias.
+- Reserve um momento de silêncio pra agradecer por tudo que você tem.
+- Convide alguém que passaria essa época sozinho pra estar com você, se possível.
+- Escreva sobre o que você quer levar desse ano pro próximo.
+- Reconheça o esforço de quem cuidou de você esse ano.
+- Prepare uma refeição especial com a ajuda de quem estiver em casa.
+- Reserve um tempo pra pensar em como você quer terminar esse ano em paz.
+- Termine o dia agradecendo pela sua família, do jeito que ela for.
+
+### Expansão — Família (geral) (150)
+
+- Prepare o café da manhã para todo mundo em casa.
+- Deixe uma mensagem escrita na geladeira para quem mora com você.
+- Pergunte quem em casa dormiu mal e ofereça uma pausa.
+- Convide alguém da casa para tomar um café com você.
+- Faça um pequeno ritual de "boa noite" com quem mora com você.
+- Escolha uma foto de família para colocar em um lugar visível.
+- Pergunte a alguém da casa qual é a parte mais difícil da semana dela.
+- Ofereça-se para fazer a tarefa doméstica que ninguém gosta de fazer.
+- Pergunte se alguém precisa de silêncio ou de companhia agora.
+- Prepare a mesa antes de todo mundo chegar para comer.
+- Pergunte a alguém da casa o que faria o dia dela mais leve.
+- Conte uma tradição da sua família que você quer manter viva.
+- Pergunte a alguém da casa qual comida a lembra de infância.
+- Escolha um dia da semana para ser "sem tela" em família.
+- Pergunte o que alguém da casa está com saudade de fazer.
+- Escreva um bilhete de agradecimento para alguém da casa.
+- Prepare a bolsa ou mochila de alguém para o dia seguinte.
+- Pergunte a alguém da casa como você pode ajudá-la amanhã de manhã.
+- Faça uma pequena reforma de humor: coloque uma música que todos gostam.
+- Pergunte qual é o sonho de viagem de alguém da sua família.
+- Ligue para um parente que você não vê há meses.
+- Pergunte a um avô ou avó uma lembrança de quando ele era jovem.
+- Peça a um familiar mais velho para contar uma história antiga.
+- Envie uma mensagem para um tio ou tia que você quase não fala.
+- Pergunte a um irmão ou irmã como ele está de verdade.
+- Reserve 10 minutos para conversar com um irmão sem falar de logística.
+- Escreva uma lembrança boa que você tem de um primo ou prima.
+- Pergunte a um sobrinho o que ele está aprendendo na escola.
+- Envie uma mensagem de bom dia para um familiar que mora sozinho.
+- Pergunte a alguém da família mais velha um conselho sobre algo real.
+- Escolha uma pessoa da família para visitar quando for possível.
+- Marque uma ligação de vídeo com um parente distante.
+- Pergunte a um familiar como ele conheceu seu cônjuge ou parceiro.
+- Pergunte qual foi a decisão mais difícil que um familiar já tomou.
+- Anote uma coisa que você admira em um familiar e diga a ele.
+- Agradeça a um familiar por algo que ele fez há muito tempo.
+- Pergunte a um familiar o que ele gostaria que você soubesse.
+- Reserve um tempo para organizar fotos antigas da família.
+- Escolha uma foto antiga e mande para a pessoa que aparece nela.
+- Pergunte a alguém da família qual música lembra a infância dela.
+- Grave um áudio contando uma lembrança boa para um familiar.
+- Pergunte a um familiar sobre um lugar onde ele cresceu.
+- Pergunte a alguém mais velho da família como era a vida antes.
+- Escreva uma pergunta que você nunca fez a um familiar e faça hoje.
+- Convide a família para uma refeição simples neste fim de semana.
+- Planeje uma atividade gratuita para fazer com a família.
+- Escolha um jogo de tabuleiro ou de carta para jogar em família.
+- Reserve uma noite para cozinhar juntos, mesmo que seja simples.
+- Escolha um filme ou série para assistir junto com alguém da casa.
+- Faça uma caminhada curta com quem mora com você.
+- Organize um piquenique simples com a família.
+- Proponha uma manhã sem compromissos para ficar em casa com a família.
+- Escolha uma atividade que toda a família goste e proponha para o fim de semana.
+- Convide a família para uma roda de conversa depois do jantar.
+- Ajude a organizar um quarto ou espaço comum sem ser pedido.
+- Guarde as roupas de alguém da casa sem que peçam.
+- Troque a roupa de cama de alguém da casa como gentileza.
+- Prepare o almoço de amanhã hoje, se fizer sentido.
+- Organize a geladeira ou despensa em conjunto com a família.
+- Assuma uma tarefa doméstica extra hoje sem reclamar.
+- Verifique se algo importante da casa precisa de manutenção e avise.
+- Conserte algo pequeno que está incomodando a família há dias.
+- Organize os documentos importantes da família em um lugar seguro.
+- Confira se as contas da casa estão em dia e avise se não.
+- Planeje com a família um pequeno objetivo para o mês.
+- Pergunte à família o que está funcionando bem na rotina de casa.
+- Pergunte à família o que poderia ser diferente na rotina de casa.
+- Reveja com a família as tarefas domésticas e ajuste o que for injusto.
+- Escolha, em conjunto, uma regra de casa para revisar.
+- Combine com a família um horário sem celular durante uma refeição.
+- Elogie sinceramente algo que um familiar fez recentemente.
+- Reconheça o esforço de alguém da casa em voz alta.
+- Diga a alguém da família por que você tem orgulho dela.
+- Comemore, mesmo que simples, uma conquista pequena de alguém da casa.
+- Diga "eu percebi o esforço que você fez" para alguém da família.
+- Diga a um familiar uma qualidade específica que você vê nele.
+- Escreva um bilhete dizendo o que você mais gosta em alguém da casa.
+- Diga a alguém da família algo que você nunca disse antes.
+- Agradeça a alguém da casa por algo que ela faz sem ser notada.
+- Reconheça publicamente uma conquista de um familiar, se fizer sentido.
+- Ofereça ajuda a alguém da família antes que ela peça.
+- Perceba se alguém da casa está sobrecarregado e assuma algo por ela.
+- Prepare um chá ou bebida para alguém que está cansado.
+- Cubra uma tarefa de alguém da casa hoje, se possível.
+- Ofereça-se para cuidar de algo enquanto alguém da família descansa.
+- Dê um tempo livre a alguém da casa hoje, mesmo que curto.
+- Ajude alguém da família com algo que ela vem adiando.
+- Pergunte a alguém da casa se ela precisa de um dia mais leve.
+- Faça companhia a alguém da família que está em um momento difícil.
+- Ofereça escuta, sem julgamento, para alguém da família hoje.
+- Guarde o celular durante uma refeição inteira em família.
+- Faça uma pergunta diferente durante o jantar hoje.
+- Proponha que cada um conte uma coisa boa do dia à mesa.
+- Proponha que cada um conte um desafio do dia à mesa.
+- Combine com a família uma pergunta fixa para o jantar de hoje.
+- Escute uma história de alguém da casa até o fim, sem interromper.
+- Deixe alguém da família terminar de falar antes de responder.
+- Evite corrigir alguém da família em público hoje.
+- Peça desculpas a um familiar se existir algo pendente entre vocês.
+- Resolva com respeito uma pequena mágoa dentro de casa.
+- Reconheça um erro seu com um familiar, sem se justificar demais.
+- Escute o ponto de vista de um familiar mesmo discordando.
+- Evite uma discussão desnecessária com alguém da família hoje.
+- Troque uma reclamação por um pedido claro com alguém da casa.
+- Diga "eu entendo" antes de dar sua opinião para um familiar.
+- Pergunte "você quer conselho ou só quer que eu escute?" a um familiar.
+- Confirme um compromisso importante da família para os próximos dias.
+- Adicione à agenda um evento familiar que ainda não está marcado.
+- Planeje com antecedência algo que a família precisa organizar.
+- Verifique se algum documento da família está perto de vencer.
+- Organize uma pasta com informações importantes da família.
+- Prepare com antecedência algo que vai facilitar a semana da família.
+- Combine com a família os planos para o próximo feriado.
+- Reserve um horário fixo na semana só para a família.
+- Proponha um pequeno ritual semanal para a família.
+- Escolha um dia do mês para uma atividade especial em família.
+- Guarde um bom momento de hoje em um diário ou álbum da família.
+- Fotografe um momento simples e espontâneo da família hoje.
+- Grave um vídeo curto de um momento bom em família.
+- Comece uma pequena coleção de memórias da família, mesmo que informal.
+- Escreva uma carta para ser lida por um familiar no futuro.
+- Peça a um familiar para escrever algo que você possa guardar.
+- Pergunte a alguém da família o que ela gostaria de ser lembrada por fazer.
+- Reserve um momento para relembrar uma viagem em família.
+- Reveja fotos antigas com alguém da família e conte as histórias.
+- Pergunte a alguém da casa qual é a lembrança mais feliz que ela tem.
+- Compartilhe com a família uma lembrança que você valoriza muito.
+- Pergunte a um familiar sobre um momento em que ele se sentiu orgulhoso.
+- Conte para a família uma coisa boa que aconteceu com você hoje.
+- Pergunte a um familiar sobre algo que ele gostaria de aprender.
+- Ofereça-se para ensinar algo simples a um familiar.
+- Aprenda algo novo com um familiar mais experiente.
+- Descubra uma habilidade escondida de alguém da sua família.
+- Pergunte a um familiar sobre um hobby que ele tem ou tinha.
+- Convide um familiar para fazer algo que ele gosta com você.
+- Apoie um familiar em um objetivo que ele está tentando alcançar.
+- Pergunte a um familiar como está indo um projeto pessoal dele.
+- Incentive um familiar que está enfrentando um momento difícil.
+- Diga a um familiar que você acredita na capacidade dele.
+- Ofereça-se para acompanhar um familiar em algo importante.
+- Pergunte a um familiar se ele precisa de ajuda com alguma decisão.
+- Compartilhe com um familiar uma preocupação sua, se fizer sentido.
+- Peça um conselho sincero a um familiar em quem você confia.
+- Divida com a família uma boa notícia assim que possível.
+- Convide a família para comemorar uma pequena vitória sua.
+- Diga à família como o apoio dela fez diferença para você.
+- Agradeça à sua família por algo que ela representa na sua vida.
+- Escreva uma frase que resuma o que sua família significa para você.
+- Faça hoje uma coisa simples que facilite a vida de toda a casa.
+- Termine o dia perguntando a cada pessoa da casa como ela está.
+
+### Expansão — Filhos (100)
+
+- Passe 10 minutos brincando com {pessoa} sem pegar no celular.
+- Pergunte a {pessoa} o que foi a melhor parte do dia dela.
+- Deixe {pessoa} escolher a brincadeira de hoje.
+- Ensine algo simples e novo para {pessoa}.
+- Peça para {pessoa} te ensinar algo que ela sabe fazer.
+- Leia uma história com {pessoa} antes de dormir.
+- Desenhe ou pinte algo simples junto com {pessoa}.
+- Pergunte a {pessoa} sobre o brinquedo ou jogo favorito dela agora.
+- Elogie algo específico que {pessoa} fez hoje.
+- Diga a {pessoa} uma coisa que você admira nela.
+- Faça uma pergunta boba e divertida para {pessoa} responder.
+- Dance uma música com {pessoa}.
+- Ajude {pessoa} com o dever de casa, se ela precisar.
+- Pergunte a {pessoa} o que ela está aprendendo na escola essa semana.
+- Prepare um lanche simples junto com {pessoa}.
+- Deixe {pessoa} ajudar você em uma tarefa simples da casa.
+- Conte para {pessoa} uma história da sua própria infância.
+- Pergunte a {pessoa} qual é o sonho dela para quando crescer.
+- Faça uma caminhada curta com {pessoa}.
+- Brinque de faz de conta com {pessoa} por alguns minutos.
+- Monte um quebra-cabeça ou jogo de tabuleiro com {pessoa}.
+- Pergunte a {pessoa} o que a deixou feliz hoje.
+- Pergunte a {pessoa} o que a deixou triste ou brava hoje.
+- Escute {pessoa} contar uma história sem interromper.
+- Tire uma foto espontânea com {pessoa} hoje.
+- Deixe {pessoa} escolher a música para ouvirem juntos.
+- Faça uma pequena surpresa simples para {pessoa}.
+- Pergunte a {pessoa} sobre um amigo importante da vida dela.
+- Dê atenção total a {pessoa} por 10 minutos, sem distrações.
+- Diga "eu te amo" para {pessoa} hoje, se ainda não disse.
+- Abrace {pessoa}, se ela topar.
+- Pergunte a {pessoa} o que ela gostaria de fazer no fim de semana.
+- Deixe {pessoa} contar uma piada ou uma história engraçada.
+- Pergunte a {pessoa} qual foi a coisa mais legal que ela viu hoje.
+- Ajude {pessoa} a organizar o quarto ou a mochila dela.
+- Cozinhe algo simples com a ajuda de {pessoa}.
+- Pergunte a {pessoa} sobre um desafio que ela está enfrentando.
+- Reconheça um esforço de {pessoa}, mesmo que o resultado não tenha sido perfeito.
+- Pergunte a {pessoa} o que ela precisa de você agora.
+- Faça um pequeno jogo de perguntas e respostas com {pessoa}.
+- Convide {pessoa} para uma atividade ao ar livre, se o tempo ajudar.
+- Escreva um bilhete carinhoso para {pessoa} encontrar depois.
+- Pergunte a {pessoa} sobre um professor ou amigo que ela gosta.
+- Deixe {pessoa} escolher o que vão fazer juntos por 15 minutos.
+- Pergunte a {pessoa} algo sobre o que ela está curiosa.
+- Comemore com {pessoa} uma pequena conquista dela.
+- Peça desculpas a {pessoa} se ficou impaciente com ela recentemente.
+- Pergunte a {pessoa} como foi a última vez que ela se sentiu orgulhosa.
+- Prepare o ambiente para {pessoa} dormir mais tranquila hoje.
+- Termine o dia dizendo a {pessoa} algo positivo sobre ela.
+- Passe 10 minutos com alguém importante pra você sem pegar no celular.
+- Pergunte a alguém jovem da sua vida o que foi a melhor parte do dia dela.
+- Deixe outra pessoa escolher a atividade de hoje.
+- Ensine algo simples e novo para alguém.
+- Peça para alguém te ensinar algo que ela sabe fazer.
+- Leia algumas páginas de um livro com alguém antes de dormir.
+- Desenhe ou faça algo criativo junto com alguém que você gosta.
+- Pergunte a alguém sobre o que a diverte agora.
+- Elogie algo específico que alguém fez hoje.
+- Diga a alguém uma coisa que você admira nela.
+- Faça uma pergunta boba e divertida para alguém responder.
+- Dance uma música com alguém.
+- Ajude alguém com uma tarefa que ela precisa fazer.
+- Pergunte a alguém o que ela está aprendendo essa semana.
+- Prepare um lanche simples para compartilhar com alguém.
+- Deixe alguém ajudar você em uma tarefa simples.
+- Conte para alguém uma história da sua própria infância.
+- Pergunte a alguém qual é um sonho dela para o futuro.
+- Faça uma caminhada curta com alguém.
+- Brinque ou jogue algo leve com alguém por alguns minutos.
+- Monte um quebra-cabeça ou jogo com alguém.
+- Pergunte a alguém o que a deixou feliz hoje.
+- Pergunte a alguém o que a deixou triste ou incomodada hoje.
+- Escute alguém contar uma história sem interromper.
+- Tire uma foto espontânea com alguém importante hoje.
+- Deixe alguém escolher a música para ouvirem juntos.
+- Faça uma pequena surpresa simples para alguém.
+- Pergunte a alguém sobre um amigo importante da vida dela.
+- Dê atenção total a alguém por 10 minutos, sem distrações.
+- Diga a alguém que você gosta dela, se ainda não disse hoje.
+- Ofereça um abraço a alguém, se fizer sentido.
+- Pergunte a alguém o que gostaria de fazer no fim de semana.
+- Deixe alguém contar uma piada ou uma história engraçada.
+- Pergunte a alguém qual foi a coisa mais legal que ela viu hoje.
+- Ajude alguém a organizar um espaço ou uma tarefa pendente.
+- Cozinhe algo simples com a ajuda de alguém.
+- Pergunte a alguém sobre um desafio que ela está enfrentando.
+- Reconheça um esforço de alguém, mesmo que o resultado não tenha sido perfeito.
+- Pergunte a alguém o que ela precisa de você agora.
+- Faça um pequeno jogo de perguntas e respostas com alguém.
+- Convide alguém para uma atividade ao ar livre, se o tempo ajudar.
+- Escreva um bilhete carinhoso para alguém encontrar depois.
+- Pergunte a alguém sobre uma pessoa que ela admira.
+- Deixe alguém escolher o que vão fazer juntos por 15 minutos.
+- Pergunte a alguém algo sobre o que ela está curiosa.
+- Comemore com alguém uma pequena conquista dela.
+- Peça desculpas a alguém se ficou impaciente recentemente.
+- Pergunte a alguém como foi a última vez que ela se sentiu orgulhosa.
+- Prepare algo simples para o dia de alguém ficar mais tranquilo.
+- Termine o dia dizendo a alguém algo positivo sobre ela.
+
+## Trabalho e produtividade (100)
+
+### Base oficial (900) (100)
+
+- Escolha a tarefa mais importante de hoje.
+- Trabalhe 10 minutos sem redes sociais.
+- Responda uma mensagem de trabalho pendente.
+- Resolva uma tarefa que leva menos de 2 minutos.
+- Organize sua área de trabalho.
+- Feche cinco abas desnecessárias.
+- Escreva as três prioridades do dia.
+- Escolha uma tarefa que pode ser delegada.
+- Anote uma ideia antes que esqueça.
+- Conclua uma pequena tarefa antes de abrir redes sociais.
+- Separe 10 minutos para uma tarefa adiada.
+- Revise sua agenda.
+- Verifique o que precisa ser entregue amanhã.
+- Separe os arquivos necessários para a próxima tarefa.
+- Renomeie um arquivo importante.
+- Organize uma pasta bagunçada.
+- Exclua cinco arquivos desnecessários.
+- Responda primeiro uma mensagem realmente urgente.
+- Marque uma tarefa já concluída.
+- Verifique se uma reunião ainda é necessária.
+- Confirme um compromisso importante.
+- Anote o próximo passo de um projeto parado.
+- Divida uma tarefa grande em três passos.
+- Comece o primeiro passo de uma tarefa difícil.
+- Faça 15 minutos de trabalho concentrado.
+- Coloque o celular fora do alcance.
+- Ative o modo não perturbe por 20 minutos.
+- Limpe sua caixa de entrada por 5 minutos.
+- Arquive mensagens que não exigem ação.
+- Responda uma mensagem com uma decisão clara.
+- Defina horário para verificar mensagens novamente.
+- Prepare a lista de amanhã.
+- Anote algo que aprendeu hoje.
+- Registre um problema recorrente.
+- Pense em uma melhoria para um processo.
+- Pergunte a um colega como melhorar uma tarefa.
+- Agradeça alguém que ajudou você.
+- Compartilhe uma informação útil com a equipe.
+- Documente uma solução que encontrou.
+- Crie um checklist para uma tarefa repetitiva.
+- Elimine uma etapa desnecessária de um processo.
+- Organize sua mesa antes de começar.
+- Limpe a área de trabalho do computador.
+- Faça backup de um arquivo importante.
+- Verifique um prazo próximo.
+- Separe os materiais para a próxima atividade.
+- Defina um horário para terminar o trabalho.
+- Faça uma pausa curta depois de concluir uma tarefa.
+- Volte para uma tarefa antes de abrir entretenimento.
+- Trabalhe em uma única tarefa durante 10 minutos.
+- Escreva o que está bloqueando uma tarefa.
+- Peça ajuda sobre um bloqueio real.
+- Tome uma decisão pequena que está adiando.
+- Escolha entre duas opções e avance.
+- Resolva uma pendência administrativa curta.
+- Agende uma tarefa importante.
+- Coloque um lembrete para uma obrigação.
+- Revise uma tarefa antes de enviá-la.
+- Corrija um pequeno erro que você já percebeu.
+- Faça primeiro a parte mais simples de uma tarefa difícil.
+- Defina o resultado esperado antes de começar.
+- Separe cinco minutos para planejar uma reunião.
+- Escreva três pontos antes de uma conversa importante.
+- Prepare uma pergunta para uma reunião.
+- Anote decisões tomadas em uma reunião.
+- Envie um resumo depois de uma reunião importante.
+- Organize os próximos passos de um projeto.
+- Dê retorno para alguém esperando sua resposta.
+- Revise uma meta profissional.
+- Escolha uma habilidade profissional para desenvolver.
+- Dedique 10 minutos a essa habilidade.
+- Pesquise uma solução para um problema recorrente.
+- Teste uma pequena melhoria no seu trabalho.
+- Pare uma tarefa quando o objetivo estiver alcançado.
+- Defina o próximo passo antes de encerrar uma tarefa.
+- Faça uma coisa que está procrastinando há dias.
+- Elimine uma notificação desnecessária.
+- Cancele um e-mail promocional que não lê.
+- Limpe cinco itens da sua lista de tarefas.
+- Separe uma tarefa para amanhã.
+- Anote algo que funcionou bem hoje.
+- Anote algo que poderia melhorar amanhã.
+- Termine o expediente deixando sua mesa organizada.
+- Prepare o ambiente para amanhã.
+- Escolha uma tarefa para fazer primeiro amanhã.
+- Defina uma pequena vitória para amanhã.
+- Reconheça uma tarefa que você concluiu.
+- Pergunte "qual é o próximo passo?" antes de parar.
+- Dedique 10 minutos à tarefa mais valiosa do dia.
+- Finalize uma pendência de menos de cinco minutos.
+- Comece uma tarefa sem esperar motivação.
+- Termine uma tarefa antes de abrir outra.
+- Remova uma distração do ambiente.
+- Organize uma informação que está espalhada.
+- Anote uma ideia de melhoria para sua empresa.
+- Faça uma pergunta que pode economizar tempo.
+- Agradeça um colega pelo trabalho realizado.
+- Dê um feedback positivo sincero.
+- Faça hoje uma tarefa que facilitará seu trabalho amanhã.
+- Termine o dia sabendo qual será sua primeira tarefa amanhã.
+
+## Saúde e energia (245)
+
+### Base oficial (900) (78)
+
+- Se você ainda não se hidratou hoje, beba água agora e deixe uma garrafa ao alcance para facilitar que você continue se hidratando ao longo do dia.
+- Levante-se e caminhe por 3 minutos.
+- Afaste o celular por 5 minutos enquanto realiza uma atividade que merece sua atenção. A ideia é interromper o hábito de checar a tela sem perceber.
+- Se a ligação permitir, aproveite parte dela para ficar em pé e mudar de posição. Use isso como uma pausa do tempo prolongado sentado.
+- Se você está há muito tempo diante de uma tela, pare por 2 minutos e desvie o olhar para uma distância confortável. Aproveite a pausa para relaxar os olhos antes de voltar ao trabalho.
+- Tome água antes da próxima refeição.
+- Deixe uma garrafa de água no local onde você passa mais tempo hoje. Tornar a água fácil de alcançar reduz a chance de esquecer de beber.
+- Na próxima vez que você escolher uma bebida, compare as opções e, se fizer sentido para você, escolha água em vez de uma bebida açucarada.
+- Prepare uma fruta para o próximo lanche.
+- Adicione um vegetal à próxima refeição.
+- Adicione uma fonte de proteína à próxima refeição.
+- Faça a próxima refeição sem vídeos ou redes sociais. Use esse momento para perceber melhor o sabor, o ritmo da refeição e os sinais de fome e saciedade.
+- Na próxima refeição, diminua conscientemente o ritmo e faça pequenas pausas entre as garfadas. A ideia é dar tempo para perceber melhor fome e saciedade.
+- Use um prato em vez de comer diretamente da embalagem.
+- Perceba seu nível de fome antes de comer.
+- Perceba sua saciedade depois de comer.
+- Faça uma caminhada curta depois de uma refeição.
+- Se você passou muito tempo parado hoje, faça 2 minutos de movimentos leves para as articulações antes do banho. O objetivo é interromper o tempo prolongado na mesma posição.
+- Ao acordar, faça 2 minutos de movimentos leves para acordar o corpo e perceber como ele está antes de começar as atividades do dia.
+- Antes de dormir, faça 2 minutos de alongamentos leves apenas até onde for confortável. Use esse momento para desacelerar e preparar a transição para o descanso.
+- Se você passou muito tempo sentado, faça por 2 minutos movimentos leves e confortáveis para quadris e pernas antes de voltar à rotina.
+- Se ficou muito tempo na mesma posição, faça por 2 minutos movimentos suaves de mobilidade da coluna, sem forçar, antes de continuar o dia.
+- Se passou muito tempo digitando ou usando o celular, faça 2 minutos de movimentos leves dos punhos e mãos para interromper a repetição e perceber qualquer tensão.
+- Se passou muito tempo sentado, faça 2 minutos de movimentos leves dos tornozelos e pernas para interromper o tempo prolongado na mesma posição.
+- Dance uma música inteira.
+- Faça 5 minutos de uma atividade física que você gosta.
+- Coloque uma roupa confortável para se movimentar.
+- Aproveite alguns minutos de luz natural pela manhã.
+- Faça uma pausa de movimento entre duas tarefas.
+- Ao terminar uma tarefa curta, use a transição como lembrete para levantar, mudar de posição e voltar ao trabalho apenas depois dessa pequena pausa.
+- Caminhe enquanto espera algo carregar.
+- Use escadas se for seguro e possível.
+- Se for seguro e viável, faça uma caminhada curta ao ar livre com um propósito: sair do ambiente em que você está, movimentar o corpo e voltar com a atenção renovada.
+- Antes de começar uma tarefa que costuma gerar estresse, faça uma pausa de 1 a 2 minutos e respire lentamente. Use esse momento para entrar na tarefa com mais calma e intenção.
+- Perceba se você está apertando a mandíbula. Relaxe conscientemente a musculatura por alguns segundos e observe se isso reduz a tensão do rosto.
+- Faça movimentos suaves de braços acima da cabeça.
+- Faça uma pausa visual durante o trabalho.
+- Reduza a luminosidade da tela à noite.
+- Deixe o celular longe da cama.
+- Prepare o ambiente para dormir 15 minutos mais cedo.
+- Evite uma tela nos últimos 10 minutos antes de dormir.
+- Faça cinco respirações lentas antes de deitar.
+- Organize o quarto para ficar mais confortável.
+- Ventile o quarto por alguns minutos.
+- Prepare sua garrafa de água para amanhã.
+- Deixe uma fruta visível.
+- Deixe uma opção saudável pronta.
+- Retire um alimento que está sobrando e organize para consumo.
+- Faça uma refeição sentado.
+- Evite comer diretamente em frente ao computador.
+- Faça uma pausa de 3 minutos depois de muito tempo sentado.
+- Faça 10 agachamentos enquanto espera algo, se for seguro.
+- Se estiver se sentindo bem, faça 15 agachamentos enquanto espera algo.
+- Se estiver se sentindo bem, faça 20 agachamentos enquanto espera algo.
+- Caminhe durante uma ligação curta.
+- Faça movimentos suaves de rotação do tronco.
+- Antes de responder uma mensagem que irritou você, afaste-se por alguns segundos e respire lentamente. Só responda depois de decidir conscientemente o que realmente precisa ser dito.
+- Beba água antes de abrir uma rede social.
+- Faça uma pequena caminhada antes de assistir televisão.
+- Faça uma atividade física curta que você realmente goste.
+- Prepare o que precisa para se exercitar amanhã.
+- Coloque um lembrete para uma pausa de movimento.
+- Passe alguns minutos em pé durante o dia.
+- Faça uma pausa para relaxar os olhos.
+- Pare por alguns segundos e perceba se está mantendo os ombros contraídos. Relaxe-os conscientemente e ajuste sua postura se necessário.
+- Se você está trabalhando sentado, faça uma pausa para ajustar a cadeira, apoiar os pés e encontrar uma posição confortável antes de continuar.
+- Durante o trabalho sentado, ajuste sua posição para que os pés fiquem apoiados de forma confortável. Use a mudança como um lembrete para sair do piloto automático.
+- Se você ficou muito tempo parado, faça alguns minutos de movimentos leves antes de voltar à tarefa. O objetivo é interromper o período prolongado na mesma posição.
+- Escolha uma bebida sem açúcar na próxima refeição.
+- Prepare água para levar quando sair.
+- Faça a próxima refeição sem celular.
+- Antes de repetir a comida, faça uma pausa curta e pergunte a si mesmo se ainda está com fome ou se está apenas seguindo o impulso de continuar.
+- Escolha uma opção menos processada na próxima refeição.
+- Antes de dormir, reserve 3 minutos para uma respiração lenta e consciente. Deixe o celular de lado e use a respiração como sinal de transição entre as atividades do dia e o descanso.
+- Prepare seu ambiente para uma noite mais tranquila.
+- Faça algo hoje que ajude seu corpo a se recuperar.
+- Escolha um movimento que você goste e faça por 5 minutos.
+- Termine o dia preparando seu corpo para descansar.
+
+### Combos por interesse/hobby (3)
+
+- Escolha uma música que costuma melhorar seu humor e escute-a inteira sem mexer no celular. Use esses minutos para estar presente em vez de consumir várias coisas ao mesmo tempo.
+- Faça 10 minutos de atividade física ligada ao esporte que você gosta — chutar bola, arremessar, o que fizer sentido.
+- Observe algo interessante na natureza que normalmente passaria despercebido e registre uma foto. Depois, pare alguns segundos para perceber por que aquilo chamou sua atenção.
+
+### Expansão — Atividades outdoor (20)
+
+- Faça uma caminhada ao ar livre por pelo menos 15 minutos.
+- Aproveite o dia livre pra fazer uma atividade física leve ao ar livre.
+- Faça um alongamento completo num espaço aberto.
+- Aproveite pra andar até um lugar em vez de usar transporte, se for seguro.
+- Faça uma caminhada num parque ou praça perto de você.
+- Aproveite o tempo livre pra sair pra tomar ar fresco.
+- Faça uma pausa ao ar livre entre duas tarefas do seu dia.
+- Aproveite pra andar de bicicleta, se você tiver e for seguro.
+- Faça uma caminhada rápida antes de começar o expediente, se for possível.
+- Aproveite um momento livre pra sair e observar a natureza ao redor.
+- Faça uma trilha curta e leve, se houver uma opção segura perto de você.
+- Aproveite pra caminhar escutando algo que você gosta, ao ar livre.
+- Faça uma sessão de alongamento na varanda, no quintal ou numa praça.
+- Aproveite o ar livre pra fazer uma pausa de respiração consciente.
+- Faça um pequeno percurso a pé como parte da sua rotina hoje.
+- Aproveite pra caminhar até um lugar que você nunca foi a pé.
+- Faça uma caminhada leve depois de uma refeição, se for seguro.
+- Aproveite o tempo livre pra sair e espairecer por alguns minutos.
+- Faça um momento de exercício leve ao ar livre, dentro do seu ritmo.
+- Termine o dia com uma caminhada curta ao ar livre.
+
+### Expansão — Clima: calor (24)
+
+- Como o calor aumenta a necessidade de atenção à hidratação, deixe água ao seu alcance e beba regularmente ao longo do dia, especialmente antes de atividades ao ar livre.
+- Prepare uma garrafa de água gelada pra manter por perto o dia todo.
+- Escolha um ambiente mais fresco da casa pra descansar um pouco.
+- Faça uma pausa na sombra ou num ambiente fresco antes de continuar o dia.
+- Prepare uma fruta gelada como lanche num dia quente.
+- Evite esforço físico intenso agora — prefira algo leve e tranquilo.
+- Molhe o rosto ou a nuca com água fresca pra se refrescar.
+- Use uma roupa leve e confortável pra aguentar melhor o calor.
+- Reserve as tarefas mais pesadas pra um horário mais fresco do dia.
+- Faça uma pausa mais longa à sombra se estiver precisando sair.
+- Em dias muito quentes, não espere ficar muito sedento para lembrar da água. Mantenha uma garrafa por perto e faça pausas regulares para se hidratar.
+- Prepare uma salada refrescante pra uma das refeições de hoje.
+- Aproveite um ambiente com ventilação pra descansar um pouco.
+- Evite ficar exposto ao sol forte no horário de pico do calor.
+- Faça alongamentos leves num ambiente fresco em vez de exercício intenso.
+- Prepare gelo ou uma compressa fria se estiver sentindo muito calor.
+- Reduza o ritmo das suas tarefas físicas nas horas mais quentes.
+- Beba água com mais frequência ao longo do dia hoje.
+- Descanse num ambiente fresco por alguns minutos antes de continuar.
+- Prepare um suco natural gelado como alternativa a bebidas açucaradas.
+- Use um leque, ventilador ou ambiente com sombra pra se refrescar.
+- Faça uma pausa pra se hidratar antes de qualquer atividade física leve.
+- Evite alimentos muito pesados numa refeição em dia de calor extremo.
+- Descanse mais um pouco hoje — o calor cansa mais do que parece.
+
+### Expansão — Clima: chuva (27)
+
+- Se estiver chovendo, use o som da chuva como fundo para 5 minutos de atenção plena. Sente-se confortavelmente, deixe o celular de lado e volte sua atenção para os sons sempre que sua mente se distrair.
+- Faça um alongamento completo dentro de casa enquanto chove lá fora.
+- Faça uma sequência de movimentos leves na sala, já que está chovendo.
+- Faça 10 minutos de alongamento ouvindo o barulho da chuva.
+- Tome um banho mais demorado e relaxante num dia chuvoso.
+- Prepare uma sopa ou algo quente para uma refeição de dia chuvoso.
+- Use o dia chuvoso para fazer alongamentos que você vem adiando.
+- Aproveite o clima mais fresco da chuva para dormir uma soneca curta.
+- Faça uma caminhada curta dentro de casa enquanto espera a chuva passar.
+- Prepare um chá e aproveite o clima para relaxar por alguns minutos.
+- Use a chuva como sinal para desacelerar o ritmo do seu dia.
+- Faça um automassagem nos ombros enquanto ouve a chuva.
+- Faça exercícios de respiração ao som da chuva antes de dormir.
+- Prepare uma refeição quentinha e aproveite sem pressa por causa da chuva.
+- Se estiver chovendo, use o som da chuva como apoio para uma meditação de 5 minutos. Concentre-se na respiração e, quando a mente se distrair, volte gentilmente aos sons ao redor.
+- Faça um ritual de autocuidado que você não costuma ter tempo pra fazer.
+- Aproveite o dia chuvoso pra cuidar da pele ou do cabelo com calma.
+- Faça uma pausa mais longa entre tarefas, aproveitando o clima mais calmo.
+- Use o dia de chuva pra ir com calma numa refeição, sem pressa.
+- Aproveite o clima pra fazer um alongamento de pescoço e ombros.
+- Faça um dia de cuidados simples: água, alongamento e descanso, sem sair de casa.
+- Prepare algo quente para tomar enquanto termina uma tarefa tranquila em casa.
+- Use o dia chuvoso pra reduzir o ritmo e prestar atenção em como você está.
+- Prepare um banho relaxante aproveitando que o dia está mais tranquilo.
+- Faça um alongamento das costas enquanto o dia de chuva passa.
+- Aproveite pra descansar os olhos das telas enquanto chove lá fora.
+- Termine o dia de chuva com um ritual calmo antes de dormir.
+
+### Expansão — Clima: frio (15)
+
+- Faça um alongamento completo pra aquecer o corpo antes de sair da cama.
+- Vista uma roupa confortável e quentinha pra trabalhar ou descansar.
+- Aproveite o frio pra dormir um pouco mais cedo hoje.
+- Faça movimentos leves pra aquecer o corpo em vez de ficar parado.
+- Prepare uma sopa ou caldo quente para uma refeição do dia.
+- Aproveite o frio pra tomar um banho morno e relaxante.
+- Faça uma bebida quente e aproveite um momento de pausa com calma.
+- Aproveite o frio pra fazer alongamentos das mãos e dos pés.
+- Prepare o quarto com antecedência pra dormir mais aquecido hoje.
+- Faça uma caminhada curta dentro de casa pra se aquecer.
+- Prepare uma refeição quente e nutritiva pra hoje.
+- Aproveite o frio pra fazer um automassagem nos ombros tensos.
+- Aproveite o clima frio pra ir com calma nas suas tarefas de hoje.
+- Faça uma pausa pra se aquecer antes de continuar uma atividade.
+- Faça alongamentos de pescoço e ombros pra aliviar a tensão do frio.
+
+### Expansão — Clima: sol (11)
+
+- Aproveite alguns minutos de sol da manhã, com moderação e proteção.
+- Faça uma pausa curta ao sol pela manhã, aproveitando a luz natural.
+- Aproveite o dia de sol pra abrir as janelas e deixar a luz entrar.
+- Faça uma caminhada curta pela manhã aproveitando o sol mais ameno.
+- Aproveite a luz natural do sol pra ajustar seu horário de dormir hoje.
+- Faça uma pausa ao ar livre com proteção solar adequada.
+- Aproveite o sol da manhã pra tomar seu café da manhã perto de uma janela.
+- Aproveite o dia ensolarado pra secar roupas ou arejar a casa.
+- Faça uma caminhada leve num horário de sol mais ameno, com proteção.
+- Aproveite o sol pra arejar os cômodos da casa hoje.
+- Termine a manhã de sol com uma caminhada curta e protegida.
+
+### Expansão — Clima: tempestade (7)
+
+- Faça um alongamento tranquilo dentro de casa enquanto chove forte.
+- Prepare um ambiente confortável dentro de casa pra relaxar hoje.
+- Faça uma pausa de respiração tranquila ouvindo a chuva forte.
+- Prepare uma refeição quente e reconfortante enquanto a tempestade passa.
+- Aproveite pra desligar as telas por um tempo enquanto chove forte.
+- Faça um automassagem relaxante enquanto espera a tempestade passar.
+- Faça uma pausa mais longa do que o normal, já que sair não é seguro agora.
+
+### Expansão — Clima: tempo agradável (20)
+
+- Aproveite o clima agradável pra fazer uma caminhada ao ar livre.
+- Faça um alongamento ao ar livre, aproveitando o dia bom.
+- Aproveite pra tomar um pouco de sol de manhã, com moderação.
+- Faça uma caminhada leve num parque ou praça perto de você.
+- Aproveite o dia agradável pra sair pra uma volta curta a pé.
+- Faça uma pausa ao ar livre entre duas tarefas, aproveitando o clima.
+- Aproveite pra respirar ar fresco por alguns minutos lá fora.
+- Faça sua próxima refeição perto de uma janela aberta ou na varanda.
+- Aproveite o clima bom pra fazer um alongamento na varanda ou no quintal.
+- Faça uma caminhada rápida antes ou depois do trabalho, já que o tempo ajuda.
+- Aproveite o dia agradável pra sair um pouco antes do previsto.
+- Faça uma pausa pra observar o céu e o clima por alguns minutos.
+- Aproveite pra caminhar até um lugar que normalmente você vai de carro.
+- Faça um pequeno percurso a pé em vez de usar transporte, se for seguro.
+- Aproveite o clima bom pra tomar seu café da manhã do lado de fora.
+- Faça uma caminhada de 15 minutos aproveitando que o tempo está bom.
+- Aproveite pra alongar o corpo ao ar livre antes de começar o dia.
+- Faça uma pausa lá fora pra sentir o vento e o sol moderado.
+- Aproveite o clima agradável pra caminhar até um lugar que você gosta.
+- Termine o dia com uma caminhada curta aproveitando o tempo bom.
+
+### Expansão — Estações do ano (40)
+
+- Aproveite a primavera pra abrir as janelas e arejar a casa.
+- Observe uma planta ou flor florescendo perto de você.
+- Aproveite a estação pra começar um pequeno hábito novo.
+- Faça uma pequena limpeza ou organização de renovação em casa.
+- Aproveite o clima da primavera pra fazer uma caminhada ao ar livre.
+- Escreva uma meta pequena pra essa nova estação.
+- Aproveite a primavera pra plantar ou cuidar de uma planta.
+- Observe as mudanças no clima e no ambiente ao seu redor.
+- Aproveite a estação pra retomar um hábito que você tinha abandonado.
+- Faça uma pausa pra notar como a luz do dia está diferente agora.
+- Aproveite a primavera pra renovar algo simples no seu espaço.
+- Doe ou organize roupas que você não usa mais, aproveitando a limpeza de estação.
+- Aproveite o clima ameno pra sair um pouco mais do que o normal.
+- Escreva sobre algo que você quer "florescer" nesse período da sua vida.
+- Aproveite a primavera pra reconectar com um amigo depois do inverno.
+- Faça uma caminhada notando as cores e cheiros típicos da estação.
+- Aproveite pra trocar a roupa de cama por algo mais leve.
+- Aproveite a estação pra recomeçar algo que você tinha pausado.
+- Observe um inseto, pássaro ou planta típica dessa época do ano.
+- Termine o dia reconhecendo uma coisa que está renovada na sua vida.
+- No calor do verão, deixe uma garrafa de água ao alcance e crie o hábito de beber regularmente ao longo do dia, sem esperar chegar ao ponto de muita sede.
+- Aproveite o verão pra fazer uma atividade leve ao ar livre pela manhã.
+- Use roupas leves e frescas pra aproveitar melhor o calor do verão.
+- Aproveite as tardes mais longas do verão pra uma caminhada após o trabalho.
+- Prepare uma fruta gelada típica do verão como lanche.
+- Aproveite o verão pra passar mais tempo com a família ao ar livre, com proteção.
+- Reserve um tempo pra descansar durante as horas mais quentes do dia.
+- Aproveite o verão pra reduzir o consumo de telas e ficar mais ao ar livre.
+- Prepare uma salada refrescante típica do verão.
+- Aproveite as noites de verão pra ficar um pouco mais ao ar livre com a família.
+- Use protetor solar antes de sair, aproveitando o verão com segurança.
+- Aproveite o verão pra experimentar uma fruta da estação que você não costuma comer.
+- Reserve um momento pra descansar à sombra durante o verão.
+- Aproveite as férias ou dias mais livres típicos do verão pra descansar de verdade.
+- Aproveite o verão pra fazer um piquenique leve com quem você gosta.
+- Antes de uma atividade ao ar livre no verão, hidrate-se e leve água com você. Planeje também pausas para beber durante a atividade.
+- Aproveite o verão pra tirar fotos de um pôr do sol.
+- Reserve um tempo pra simplesmente aproveitar o dia mais longo do verão.
+- Aproveite o verão pra experimentar uma atividade nova ao ar livre, com moderação.
+- Termine o dia de verão agradecendo por um momento leve que você teve.
+
+## Finanças e consumo (99)
+
+### Base oficial (900) (99)
+
+- Verifique seu saldo.
+- Veja quanto gastou hoje.
+- Confira suas compras das últimas 24 horas.
+- Anote uma despesa de hoje.
+- Identifique um gasto pequeno que se repete.
+- Escolha um gasto pequeno para reduzir.
+- Confira uma assinatura que você paga.
+- Cancele uma assinatura que não utiliza.
+- Confira se existe alguma cobrança recorrente esquecida.
+- Verifique uma conta que vence nesta semana.
+- Separe o dinheiro de uma conta importante.
+- Anote uma despesa fixa mensal.
+- Anote uma despesa variável recente.
+- Defina um pequeno valor para guardar.
+- Se puder, transfira esse valor para sua reserva.
+- Confira quanto já conseguiu economizar.
+- Anote uma compra que não valeu a pena.
+- Anote uma compra que realmente valeu a pena.
+- Identifique uma categoria que está consumindo muito dinheiro.
+- Observe essa categoria durante os próximos sete dias.
+- Evite uma compra por impulso hoje.
+- Espere 24 horas antes de comprar algo não essencial.
+- Coloque uma compra desejada em uma lista em vez de comprar.
+- Compare preços antes de comprar.
+- Não compre algo apenas porque está em promoção.
+- Pergunte se realmente precisa de um item.
+- Leve água de casa.
+- Prepare um lanche em casa para amanhã.
+- Evite pedir comida por impulso hoje.
+- Use primeiro algo que já possui em casa.
+- Faça uma lista antes de ir ao mercado.
+- Confira a despensa antes de comprar.
+- Separe alimentos que estão próximos do vencimento.
+- Compare o preço por quantidade de dois produtos.
+- Procure uma alternativa mais barata.
+- Pesquise se existe uma opção gratuita antes de pagar.
+- Conserte algo antes de comprar outro.
+- Reutilize algo que já possui.
+- Separe algo que pode ser vendido.
+- Fotografe um item que deseja vender.
+- Publique um item usado que está parado.
+- Separe uma roupa para doação.
+- Verifique uma compra parcelada.
+- Confira quantas parcelas ainda faltam.
+- Verifique uma dívida que precisa de atenção.
+- Anote o próximo passo para uma dívida.
+- Evite aumentar uma dívida hoje.
+- Pesquise uma alternativa antes de contratar um serviço.
+- Pergunte se existe desconto em uma compra planejada.
+- Confira benefícios ou pontos que você já possui.
+- Verifique se algum benefício está perto de expirar.
+- Espere 10 minutos antes de uma compra impulsiva.
+- Anote o motivo real de uma compra desejada.
+- Pergunte: "Eu realmente usaria isso?"
+- Pergunte: "Isso resolve um problema real?"
+- Pergunte: "Posso pagar sem comprometer uma conta?"
+- Faça uma refeição usando o que já existe em casa.
+- Planeje uma refeição econômica para amanhã.
+- Revise seu orçamento semanal.
+- Defina um limite de gasto para amanhã.
+- Verifique desperdícios de comida em casa.
+- Planeje como usar um alimento antes que vença.
+- Verifique uma tarifa bancária.
+- Veja se existe uma tarifa que pode ser reduzida.
+- Confira se algum serviço aumentou de preço.
+- Pesquise uma alternativa para um serviço caro.
+- Revise um contrato que está sendo pouco utilizado.
+- Organize um comprovante importante.
+- Guarde uma nota fiscal necessária.
+- Verifique uma garantia que está perto de vencer.
+- Anote uma despesa anual que costuma esquecer.
+- Divida uma despesa futura em pequenos objetivos.
+- Defina uma meta financeira para os próximos sete dias.
+- Faça um dia sem compras não essenciais.
+- Faça uma refeição sem pedir delivery.
+- Vá às compras com uma lista.
+- Evite comprar por influência de propaganda.
+- Remova um produto do carrinho antes de pagar.
+- Revise o carrinho antes de finalizar.
+- Compare duas opções antes de contratar algo.
+- Pesquise uma alternativa usada antes de comprar novo.
+- Anote uma lição aprendida com um gasto passado.
+- Guarde o dinheiro que economizou hoje.
+- Verifique quanto custa um hábito semanal.
+- Pense no custo mensal de um gasto recorrente.
+- Escolha uma economia para praticar amanhã.
+- Ensine alguém da família uma dica de economia.
+- Converse com a família sobre uma meta financeira.
+- Planeje uma atividade gratuita para o fim de semana.
+- Troque um entretenimento pago por uma opção gratuita.
+- Evite uma compra motivada por ansiedade.
+- Não abra uma loja online sem intenção de comprar.
+- Tire um produto desnecessário da lista de desejos.
+- Faça uma pequena organização financeira de 5 minutos.
+- Verifique se há uma conta esquecida.
+- Anote uma meta que gostaria de alcançar financeiramente.
+- Pense em uma habilidade que poderia aumentar sua renda.
+- Tome uma decisão financeira consciente hoje.
+- Termine o dia sem nenhuma compra impulsiva.
+
+## Aprendizado e curiosidade (126)
+
+### Base oficial (900) (96)
+
+- Pesquise a origem do seu nome.
+- Descubra algo sobre a cidade onde mora.
+- Aprenda uma curiosidade sobre seu país.
+- Pesquise como algo que você usa diariamente funciona.
+- Aprenda um atalho do computador.
+- Aprenda um atalho do celular.
+- Descubra uma função escondida de um aplicativo.
+- Leia algo sobre ciência.
+- Leia algo sobre economia.
+- Assista a uma aula curta.
+- Ouça 10 minutos de um podcast educativo.
+- Aprenda uma frase em outro idioma.
+- Aprenda cinco palavras de outro idioma.
+- Pesquise a origem de uma expressão.
+- Descubra quem inventou alguma coisa que você usa.
+- Pesquise como uma tecnologia funciona.
+- Aprenda uma curiosidade sobre o corpo humano.
+- Aprenda uma curiosidade sobre o espaço.
+- Aprenda uma curiosidade sobre animais.
+- Aprenda uma curiosidade histórica.
+- Aprenda uma curiosidade geográfica.
+- Aprenda uma curiosidade sobre música.
+- Aprenda uma curiosidade sobre cinema.
+- Aprenda uma curiosidade sobre culinária.
+- Aprenda uma curiosidade sobre comportamento.
+- Pesquise a história de uma invenção.
+- Pesquise a história de uma profissão.
+- Pesquise como uma empresa começou.
+- Pesquise como um produto é fabricado.
+- Descubra como funciona o GPS.
+- Descubra como funciona a internet.
+- Descubra como funciona uma bateria.
+- Descubra como funciona um motor.
+- Descubra como funciona uma câmera.
+- Pesquise o significado de uma expressão popular.
+- Descubra a origem de um ditado.
+- Conheça uma obra de arte famosa.
+- Conheça um artista que nunca estudou.
+- Ouça uma música de um gênero que não conhece.
+- Conheça um autor novo.
+- Pesquise um livro que talvez queira ler.
+- Pesquise uma invenção brasileira.
+- Pesquise uma personalidade importante da sua cidade.
+- Aprenda uma regra básica de etiqueta.
+- Aprenda uma técnica simples de memória.
+- Tente memorizar cinco itens sem anotar.
+- Resolva um pequeno enigma.
+- Resolva uma questão de lógica.
+- Aprenda uma palavra relacionada à sua profissão.
+- Aprenda um conceito importante da sua área.
+- Pesquise uma ferramenta que pode ajudar no trabalho.
+- Teste uma função nova de uma ferramenta que já usa.
+- Aprenda uma fórmula útil para o cotidiano.
+- Aprenda uma maneira melhor de organizar informações.
+- Aprenda uma técnica de pesquisa.
+- Descubra como verificar uma informação antes de compartilhá-la.
+- Aprenda a identificar uma fonte confiável.
+- Compare duas explicações sobre o mesmo assunto.
+- Faça uma pergunta sobre algo que não entende.
+- Pergunte a alguém sobre uma habilidade que domina.
+- Ensine alguém algo que acabou de aprender.
+- Explique para você mesmo o que aprendeu hoje.
+- Pesquise uma dúvida antiga.
+- Assista a um vídeo educativo curto.
+- Leia o resumo de um livro interessante.
+- Conheça um idioma que nunca estudou.
+- Pesquise como outra cultura faz algo cotidiano.
+- Descubra uma tradição de outro país.
+- Pesquise uma comida típica de outro lugar.
+- Conheça um lugar que gostaria de visitar.
+- Pesquise uma curiosidade sobre seu bairro.
+- Aprenda uma habilidade manual simples.
+- Descubra uma função nova de uma ferramenta doméstica.
+- Descubra uma maneira de economizar tempo.
+- Descubra uma maneira de organizar melhor uma tarefa.
+- Aprenda um conceito financeiro básico.
+- Aprenda uma técnica simples de comunicação.
+- Aprenda uma pergunta que melhora uma conversa.
+- Aprenda uma forma melhor de dar feedback.
+- Aprenda uma forma melhor de receber críticas.
+- Aprenda uma estratégia para reduzir distrações.
+- Aprenda uma técnica para lembrar compromissos.
+- Aprenda algo sobre um assunto que seu filho gosta.
+- Pergunte a alguém para ensinar algo novo.
+- Anote uma curiosidade para pesquisar depois.
+- Compartilhe uma descoberta interessante com alguém.
+- Pesquise por que uma tradição da sua família existe.
+- Descubra algo sobre a história da sua profissão.
+- Pesquise uma pessoa que admira.
+- Descubra uma coisa que aconteceu no mundo no dia em que nasceu.
+- Pesquise o significado de uma palavra que usa frequentemente.
+- Aprenda uma habilidade pequena em 10 minutos.
+- Procure uma explicação para algo que sempre considerou óbvio.
+- Faça uma pergunta para alguém que sabe mais do que você.
+- Conte para alguém uma coisa nova que aprendeu hoje.
+- Escolha uma coisa nova para aprender amanhã.
+
+### Expansão — Atividades indoor (30)
+
+- Aproveite um momento dentro de casa pra aprender algo novo online.
+- Leia algumas páginas de um livro num canto tranquilo de casa.
+- Assista a uma aula ou vídeo curto e educativo dentro de casa.
+- Aproveite pra organizar seus estudos ou leituras pendentes em casa.
+- Ouça um podcast educativo enquanto organiza algo dentro de casa.
+- Aproveite pra aprender uma palavra nova num momento tranquilo em casa.
+- Reserve um tempo dentro de casa pra pesquisar algo que te interessa.
+- Aproveite pra testar uma receita nova dentro de casa.
+- Aproveite um momento em casa pra aprender uma habilidade manual simples.
+- Reserve um tempo dentro de casa pra organizar suas anotações ou ideias.
+- Aproveite pra assistir um documentário curto dentro de casa.
+- Aproveite um momento tranquilo em casa pra escrever sobre algo que aprendeu.
+- Reserve um tempo dentro de casa pra revisar um projeto pessoal.
+- Aproveite pra aprender uma nova função de um aplicativo que você usa.
+- Aproveite um momento em casa pra organizar seus livros ou materiais de estudo.
+- Reserve um tempo dentro de casa pra praticar algo que você está aprendendo.
+- Aproveite pra pesquisar uma dúvida antiga num momento livre em casa.
+- Aproveite um momento tranquilo pra ensinar algo simples a alguém em casa.
+- Reserve um tempo dentro de casa pra planejar o que quer aprender esse mês.
+- Aproveite pra terminar um curso ou material que você começou e pausou.
+- Aproveite um dia em casa pra reorganizar seu ambiente de estudo.
+- Reserve um tempo pra aprender algo com um vídeo curto durante uma pausa.
+- Aproveite pra escrever um resumo de algo interessante que você leu.
+- Aproveite um momento em casa pra descobrir uma curiosidade nova.
+- Reserve um tempo dentro de casa pra organizar ideias para um projeto futuro.
+- Aproveite pra aprender uma técnica simples de organização pessoal.
+- Aproveite um momento tranquilo pra revisar algo que você aprendeu essa semana.
+- Reserve um tempo dentro de casa pra explorar um assunto novo por curiosidade.
+- Aproveite pra praticar uma habilidade que você quer desenvolver, mesmo por poucos minutos.
+- Termine o dia dentro de casa anotando algo novo que você descobriu hoje.
+
+## Bondade, comunidade e vida prática (140)
+
+### Base oficial (900) (99)
+
+- Segure a porta para alguém.
+- Dê passagem a alguém quando for seguro.
+- Agradeça um funcionário pelo atendimento.
+- Cumprimente alguém que costuma passar despercebido.
+- Recolha um pequeno lixo que encontrar no caminho.
+- Deixe um espaço público melhor do que encontrou.
+- Ofereça ajuda a alguém carregando algo.
+- Pergunte a um vizinho se precisa de alguma coisa.
+- Separe um alimento para doação.
+- Separe uma roupa em bom estado para doar.
+- Separe um livro que não usa para doar.
+- Compartilhe uma informação útil.
+- Indique um pequeno negócio local.
+- Deixe uma avaliação positiva quando o serviço merecer.
+- Agradeça publicamente alguém que fez um bom trabalho.
+- Elogie um trabalhador pelo atendimento.
+- Ofereça ajuda a alguém que parece estar com dificuldade.
+- Pergunte se uma pessoa idosa precisa de ajuda.
+- Ajude alguém com uma tarefa simples.
+- Ensine alguém a usar uma função do celular.
+- Compartilhe um recurso gratuito com alguém.
+- Envie uma oportunidade de trabalho para alguém adequado.
+- Indique um profissional competente.
+- Dê crédito a quem realizou o trabalho.
+- Seja paciente em uma fila.
+- Respeite uma regra de convivência mesmo sem fiscalização.
+- Não ocupe mais espaço do que precisa.
+- Devolva algo que encontrou.
+- Ajude alguém a encontrar um endereço.
+- Ofereça orientação a alguém perdido.
+- Faça uma gentileza para um colega.
+- Faça uma gentileza para um familiar.
+- Deixe alguém escolher primeiro em uma situação simples.
+- Compartilhe algo que você tem e não usa.
+- Ofereça uma carona quando for seguro e conveniente.
+- Compartilhe informação sobre um serviço público útil.
+- Ensine alguém a usar um recurso gratuito.
+- Ajude alguém com uma dúvida.
+- Faça companhia por alguns minutos a alguém sozinho.
+- Ligue para um familiar que mora sozinho.
+- Envie uma mensagem de apoio para alguém.
+- Reconheça o trabalho de alguém que costuma ser invisível.
+- Agradeça quem limpa seu ambiente.
+- Agradeça quem prepara sua comida.
+- Agradeça quem mantém seu ambiente funcionando.
+- Evite compartilhar uma notícia sem verificar.
+- Corrija uma informação falsa com respeito.
+- Informe alguém sobre um objeto perdido.
+- Faça uma gentileza sem esperar retorno.
+- Recolha lixo usando proteção adequada.
+- Separe corretamente materiais recicláveis.
+- Evite desperdiçar água hoje.
+- Apague uma luz desnecessária.
+- Reduza um desperdício de comida.
+- Reutilize uma embalagem útil.
+- Leve uma sacola reutilizável.
+- Escolha uma alternativa que produza menos desperdício.
+- Deixe um ambiente comum organizado.
+- Limpe imediatamente algo que você sujou.
+- Não deixe lixo para outra pessoa recolher.
+- Seja gentil com alguém que está atendendo você.
+- Seja paciente com alguém que está aprendendo.
+- Dê espaço para alguém cometer um pequeno erro.
+- Faça uma crítica de maneira construtiva.
+- Reconheça publicamente uma boa atitude.
+- Compartilhe a conquista de outra pessoa.
+- Faça uma recomendação profissional para alguém.
+- Ajude alguém a encontrar uma informação.
+- Responda uma pergunta que você sabe responder.
+- Ofereça orientação sem impor sua decisão.
+- Pergunte antes de ajudar em algo pessoal.
+- Respeite quando alguém disser não.
+- Seja gentil com alguém que está tendo um dia ruim.
+- Agradeça alguém que normalmente ninguém agradece.
+- Cumprimente um profissional de limpeza.
+- Cumprimente um profissional de segurança.
+- Agradeça um motorista pelo trabalho.
+- Agradeça alguém que presta um serviço para você.
+- Dê espaço para alguém passar.
+- Evite uma discussão desnecessária hoje.
+- Escolha uma resposta educada em uma situação irritante.
+- Faça uma pequena gentileza para um desconhecido.
+- Ajude alguém sem esperar reconhecimento.
+- Compartilhe uma informação que pode facilitar o dia de alguém.
+- Ofereça seu lugar quando fizer sentido.
+- Ajude alguém a carregar algo, se a pessoa aceitar.
+- Pergunte a alguém se precisa de orientação.
+- Faça algo para melhorar o ambiente ao seu redor.
+- Recolha um objeto que está atrapalhando a passagem.
+- Organize algo que todos utilizam.
+- Deixe uma avaliação positiva para alguém que merece.
+- Recomende alguém para uma oportunidade.
+- Compartilhe uma habilidade gratuitamente.
+- Faça algo que facilite o trabalho de outra pessoa.
+- Escolha uma pessoa para ajudar hoje.
+- Faça uma gentileza sem contar para ninguém.
+- Observe quem ao seu redor poderia precisar de ajuda.
+- Faça uma ação que torne o dia de alguém melhor.
+- Termine o dia pensando em uma pessoa cujo dia você melhorou.
+
+### Datas comemorativas (combos originais) (1)
+
+- Mande uma mensagem para {pessoa}, só pra lembrar dessa amizade.
+
+### Expansão — Atividades outdoor (20)
+
+- Aproveite uma saída ao ar livre pra cumprimentar um vizinho.
+- Aproveite o tempo livre pra visitar um espaço público perto de casa.
+- Aproveite uma caminhada pra recolher um lixo que encontrar no caminho.
+- Aproveite pra visitar um pequeno comércio local durante uma saída ao ar livre.
+- Aproveite uma saída pra conhecer um canto novo do seu bairro.
+- Aproveite o ar livre pra oferecer ajuda a alguém que precise no caminho.
+- Aproveite uma caminhada pra observar e valorizar o espaço público ao seu redor.
+- Aproveite o tempo livre pra levar alguém que você gosta pra um passeio simples.
+- Aproveite uma saída ao ar livre pra visitar um familiar que mora por perto.
+- Aproveite pra conhecer uma praça ou parque que você nunca visitou.
+- Aproveite uma caminhada pra notar e agradecer pelo espaço onde você vive.
+- Aproveite o ar livre pra convidar um amigo pra uma volta curta.
+- Aproveite uma saída pra fazer uma gentileza simples com alguém que encontrar.
+- Aproveite o tempo livre pra observar a vizinhança com mais atenção.
+- Aproveite uma caminhada pra levar as crianças pra brincar num espaço público.
+- Aproveite o ar livre pra conversar com alguém que você encontra sempre e nunca parou.
+- Aproveite uma saída pra visitar um projeto ou espaço comunitário perto de você.
+- Aproveite o tempo livre pra dar uma volta com um vizinho ou amigo.
+- Aproveite uma caminhada pra notar algo bonito no seu bairro que passa despercebido.
+- Termine uma saída ao ar livre reconhecendo uma coisa boa do seu entorno.
+
+### Expansão — Clima: tempo agradável (20)
+
+- Aproveite o dia bom pra cumprimentar vizinhos que você encontrar na rua.
+- Aproveite o clima agradável pra ajudar um vizinho com algo do lado de fora.
+- Aproveite o tempo bom pra caminhar até um lugar e conhecer alguém novo.
+- Aproveite o clima pra levar um vizinho idoso pra dar uma volta curta.
+- Aproveite o dia agradável pra visitar um pequeno comércio local.
+- Aproveite pra cumprimentar alguém que você encontra sempre no seu bairro.
+- Aproveite o clima bom pra oferecer companhia a alguém que está sozinho.
+- Aproveite o tempo agradável pra fazer uma gentileza ao ar livre para um desconhecido.
+- Aproveite o dia bom pra conhecer um espaço público perto de casa.
+- Aproveite o clima pra levar algo útil a um vizinho que precise.
+- Aproveite o dia agradável pra caminhar por um bairro que você não conhece bem.
+- Aproveite o clima bom pra recolher um lixo que encontrar no caminho.
+- Aproveite o tempo bom pra sentar num banco de praça e observar ao redor.
+- Aproveite o dia agradável pra conversar com alguém que você encontra sempre e nunca parou pra falar.
+- Aproveite o clima pra visitar uma feira ou mercado local perto de casa.
+- Aproveite o tempo bom pra oferecer ajuda a alguém carregando algo pesado.
+- Aproveite o dia agradável pra levar uma planta ou flor pra alguém.
+- Aproveite o clima bom pra fazer uma caminhada solidária: leve um saco pra recolher lixo do caminho.
+- Aproveite o tempo bom pra conhecer um projeto comunitário perto de você.
+- Termine um dia agradável fazendo uma última gentileza a alguém do seu bairro.
+
+## Fé e espiritualidade (100)
+
+### Base oficial (900) — Fé e espiritualidade (100)
+
+- Leia o Salmo 23 antes de dormir.
+- Leia o Salmo 91 e reflita por alguns minutos.
+- Leia Provérbios 3:5–6.
+- Leia Filipenses 4:6–7.
+- Leia João 15:12.
+- Leia Romanos 12:2.
+- Leia Tiago 1:19.
+- Leia Efésios 4:32.
+- Leia Mateus 5:9.
+- Leia um capítulo curto do Evangelho de Marcos.
+- Leia um Salmo que você nunca leu.
+- Leia um trecho bíblico sobre esperança.
+- Leia um trecho sobre perdão.
+- Leia um trecho sobre amor ao próximo.
+- Leia um trecho sobre gratidão.
+- Leia um trecho sobre sabedoria.
+- Leia um trecho sobre coragem.
+- Leia um trecho sobre paciência.
+- Leia um trecho sobre compaixão.
+- Leia um trecho sobre servir ao próximo.
+- Escolha um versículo para levar com você durante o dia.
+- Leia novamente um trecho que já trouxe conforto para você.
+- Leia uma passagem e anote uma frase que chamou sua atenção.
+- Leia um Salmo e fique alguns minutos em silêncio.
+- Antes de dormir, leia um pequeno trecho da Bíblia.
+- Faça uma oração de dois minutos agradecendo pelo seu dia.
+- Ore por alguém da sua família.
+- Ore por um amigo que esteja passando por dificuldades.
+- Ore por sabedoria antes de tomar uma decisão.
+- Ore por alguém que você não vê há algum tempo.
+- Ore por alguém que esteja enfrentando uma dificuldade.
+- Reserve três minutos para falar com Deus sem distrações.
+- Comece sua manhã com uma oração simples.
+- Antes de dormir, entregue suas preocupações a Deus.
+- Ore por alguém com quem você teve um desentendimento.
+- Ore por alguém que precisa de esperança.
+- Ore agradecendo por uma conquista recente.
+- Faça uma oração antes de uma tarefa importante.
+- Ore por sua família.
+- Ore por alguém que está começando algo novo.
+- Ore por alguém que está procurando emprego.
+- Ore por alguém que está estudando para alcançar um objetivo.
+- Ore por alguém que você sabe que está cansado.
+- Ore por uma pessoa que você não sabe como ajudar.
+- Faça uma oração silenciosa por alguém que cruzar seu caminho.
+- Escreva três coisas pelas quais você agradece a Deus hoje.
+- Agradeça a Deus por uma pessoa importante na sua vida.
+- Pare por um minuto e reconheça algo bom que aconteceu hoje.
+- Agradeça por uma oportunidade que recebeu.
+- Agradeça por algo simples que normalmente passa despercebido.
+- Pense em uma dificuldade que você já conseguiu superar.
+- Lembre-se de um momento em que recebeu ajuda.
+- Agradeça por uma pequena conquista de hoje.
+- Compartilhe com alguém algo pelo qual você é grato.
+- Mande uma mensagem agradecendo alguém que fez diferença na sua vida.
+- Agradeça a alguém que costuma cuidar de você.
+- Agradeça a Deus por algo que você tem hoje e antes desejava.
+- Antes de dormir, lembre de três coisas boas do dia.
+- Observe algo bonito na natureza e agradeça.
+- Faça uma pausa e reconheça que pequenas coisas também são motivos de gratidão.
+- Faça uma gentileza sem esperar reconhecimento.
+- Ajude alguém que esteja precisando.
+- Envie uma mensagem de esperança para alguém.
+- Diga a alguém: "Estou orando por você."
+- Incentive alguém que esteja desanimado.
+- Perdoe uma pequena ofensa, se estiver preparado para isso.
+- Procure uma oportunidade de servir alguém hoje.
+- Faça uma tarefa para aliviar o dia de outra pessoa.
+- Visite ou ligue para alguém que esteja sozinho.
+- Compartilhe uma palavra de esperança com alguém.
+- Reconheça publicamente uma atitude boa de alguém.
+- Ofereça ajuda sem esperar que peçam.
+- Seja paciente com alguém que está tendo um dia difícil.
+- Escolha responder com gentileza em uma situação irritante.
+- Evite uma discussão que não levará a nada.
+- Peça desculpas por algo específico, se for apropriado.
+- Procure reconciliar uma pequena pendência.
+- Faça algo bom por alguém sem contar que foi você.
+- Dê atenção a alguém que normalmente passa despercebido.
+- Pergunte a alguém como você pode ajudar.
+- Reserve cinco minutos para ficar em silêncio e refletir.
+- Pergunte a si mesmo o que precisa entregar a Deus hoje.
+- Pense em uma área da sua vida em que precisa de sabedoria.
+- Reflita sobre uma atitude sua que gostaria de melhorar.
+- Pense em alguém que precisa do seu perdão.
+- Pense em alguém para quem você precisa pedir perdão.
+- Reflita sobre como suas palavras afetam as pessoas.
+- Pense em uma atitude de amor que você pode praticar hoje.
+- Reflita sobre uma preocupação que você precisa colocar em oração.
+- Pense em uma situação em que poderia ter demonstrado mais paciência.
+- Escolha uma atitude que represente aquilo em que você acredita.
+- Reflita sobre uma pequena mudança que faria bem à sua vida.
+- Antes de dormir, pense em como você tratou as pessoas hoje.
+- Escolha uma palavra para guiar seu comportamento amanhã.
+- Escreva uma frase de esperança para lembrar durante o dia.
+- Releia um versículo que marcou algum momento da sua vida.
+- Compartilhe um versículo que possa trazer esperança a alguém.
+- Mande uma mensagem dizendo a alguém que você está orando por ela.
+- Termine o dia com uma oração de gratidão.
+- Antes de dormir, leia o Salmo 23 e reflita por dois minutos.

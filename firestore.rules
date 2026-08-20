@@ -1,0 +1,29 @@
+rules_version = '2';
+
+// Regras do Firestore pro projeto Daliz. O app não tem login de usuário — nenhuma escrita aqui
+// é autenticada — então cada coleção precisa validar a FORMA exata do documento em vez de
+// depender de `request.auth`, e nunca permitir leitura (evita que qualquer pessoa com o app
+// instalado, que já embute as credenciais do projeto, leia o feedback de todo mundo).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Texto livre digitado no interesse "✨ Outro" do cadastro (ver
+    // src/services/otherInterestFeedbackService.ts) — write-only: o app nunca lê essa coleção de
+    // volta, só o console do Firebase. `create` apenas, nunca `update`/`delete` (histórico
+    // imutável, sem ninguém conseguir apagar o feedback de outra pessoa).
+    match /otherInterests/{docId} {
+      allow read, update, delete: if false;
+      allow create: if request.resource.data.keys().hasOnly(['text', 'platform', 'createdAt'])
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 300
+        && request.resource.data.platform is string
+        && request.resource.data.createdAt == request.time;
+    }
+
+    // Nega tudo que não bater em nenhuma regra acima — explícito em vez de depender só do
+    // padrão do "modo produção" (que já nega por padrão, mas fica claro aqui pra quem ler).
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

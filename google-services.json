@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "564751409122",
+    "project_id": "melhorqueontem-83e95",
+    "storage_bucket": "melhorqueontem-83e95.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564751409122:android:67067ee62836e64472a3bb",
+        "android_client_info": {
+          "package_name": "com.melhorqueontem.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_mjRhqyn2YwoZG_X4oguTq1ZSXr7Wpcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

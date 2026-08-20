@@ -1,0 +1,1845 @@
+Total: 1686 itens após curadoria: 1603 ações executáveis e 83 dicas contextuais.
+
+> **Legenda:** `[AÇÃO]` = pode ter botão/estado de conclusão. `[DICA]` = orientação contextual; não exige conclusão.
+
+## Desenvolvimento pessoal (126)
+
+### Base oficial (86)
+
+- [AÇÃO] Escreva uma coisa que você gostaria de melhorar em si mesmo.
+- [AÇÃO] Anote uma coisa que você fez bem hoje.
+- [AÇÃO] Reserve 5 minutos sem celular para desacelerar e perceber como você está se sentindo. Não tente resolver nada nesse intervalo; apenas observe seus pensamentos e retome o dia depois.
+- [AÇÃO] Escreva uma preocupação e uma possível ação sobre ela.
+- [AÇÃO] Faça algo pequeno que você vem adiando.
+- [AÇÃO] Escreva uma meta para os próximos 7 dias.
+- [AÇÃO] Escolha uma ação de hoje que aproxime você dessa meta.
+- [AÇÃO] Anote uma coisa que aprendeu esta semana.
+- [AÇÃO] Pense em um erro recente e escreva o que ele ensinou.
+- [DICA] Se perceber que está se comparando com outras pessoas hoje, volte sua atenção para o que você está fazendo e para o seu próprio progresso.
+- [AÇÃO] Faça algo sozinho que normalmente faria acompanhado.
+- [AÇÃO] Experimente uma maneira diferente de realizar uma tarefa comum.
+- [AÇÃO] Pergunte a alguém em quem confia qual qualidade mais admira em você.
+- [AÇÃO] Pergunte a alguém em quem confia o que você poderia melhorar.
+- [AÇÃO] Caso haja alguma coisa que você normalmente evita por insegurança, escolha uma delas e faça hoje.
+- [AÇÃO] Admita para alguém que você não sabe alguma coisa.
+- [AÇÃO] Peça ajuda em algo que está tentando resolver sozinho.
+- [AÇÃO] Diga "não" a uma solicitação que realmente não pode assumir.
+- [AÇÃO] Quando receber um elogio hoje, agradeça sem se diminuir ou justificar.
+- [AÇÃO] Faça algo criativo durante 10 minutos.
+- [AÇÃO] Escreva livremente durante 5 minutos.
+- [AÇÃO] Fotografe alguma coisa bonita que você normalmente ignora.
+- [AÇÃO] Escreva três coisas pelas quais você é grato.
+- [AÇÃO] Pense em alguém que mudou sua vida positivamente e envie uma mensagem agradecendo essa pessoa.
+- [AÇÃO] Mande uma mensagem agradecendo essa pessoa.
+- [AÇÃO] Anote uma conquista que você quase esqueceu e registre por que ela foi importante para você.
+- [AÇÃO] Escreva como você gostaria de estar daqui a um ano.
+- [AÇÃO] Escolha uma pequena ação que seu "eu do futuro" agradeceria.
+- [AÇÃO] Faça hoje uma coisa que você prometeu a si mesmo.
+- [AÇÃO] Termine algo que começou e abandonou.
+- [AÇÃO] Recomece algo importante que abandonou.
+- [AÇÃO] Durante a próxima hora, se perceber que vai reclamar de algo pequeno, pare por alguns segundos e veja se existe alguma ação que você pode tomar em vez da reclamação.
+- [DICA] Quando surgir uma reclamação, tente transformá-la em uma ação.
+- [AÇÃO] Antes de responder algo que irritou você, faça uma pausa e respire lentamente. Use esse intervalo para escolher sua resposta em vez de reagir no impulso.
+- [AÇÃO] Antes de responder a algo que irritou você, faça uma pausa de 30 segundos e escolha conscientemente o que vai dizer.
+- [AÇÃO] Escreva em uma palavra como você está se sentindo agora.
+- [AÇÃO] Pergunte a si mesmo o que pode ter provocado esse sentimento.
+- [AÇÃO] Faça uma tarefa difícil antes de uma tarefa fácil.
+- [AÇÃO] Escolha uma pequena decisão e tome-a imediatamente.
+- [AÇÃO] Se você já tem informação suficiente para decidir algo, tome a decisão hoje.
+- [AÇÃO] Faça hoje uma pequena decisão que você normalmente adiaria por medo da opinião de outras pessoas.
+- [AÇÃO] Dê sua opinião de forma honesta e respeitosa.
+- [AÇÃO] Passe 30 minutos sem redes sociais.
+- [AÇÃO] Desative uma notificação que não acrescenta nada à sua vida.
+- [AÇÃO] Retire um aplicativo que você não usa.
+- [AÇÃO] Organize a tela inicial do celular.
+- [AÇÃO] Deixe o celular longe durante uma atividade importante.
+- [AÇÃO] Faça uma refeição sem olhar para uma tela.
+- [AÇÃO] Reserve 10 minutos sem celular, notificações ou outras telas para dar uma pausa real à sua atenção. Use o tempo para descansar ou fazer algo que exija presença.
+- [AÇÃO] Faça uma atividade inteira sem multitarefa.
+- [AÇÃO] Termine uma tarefa antes de começar outra.
+- [AÇÃO] Pergunte "qual é o próximo passo?" quando se sentir perdido.
+- [AÇÃO] Escreva uma pergunta que você gostaria de responder.
+- [AÇÃO] Pesquise a resposta para essa pergunta.
+- [AÇÃO] Aprenda uma palavra nova.
+- [AÇÃO] Leia duas páginas de um livro.
+- [AÇÃO] Leia cinco páginas de um livro.
+- [AÇÃO] Ouça 10 minutos de conteúdo educativo.
+- [AÇÃO] Aprenda algo com uma pessoa mais experiente.
+- [AÇÃO] Ensine alguém algo que você sabe.
+- [AÇÃO] Explique uma ideia difícil usando palavras simples.
+- [AÇÃO] Faça uma pergunta que normalmente teria vergonha de fazer.
+- [AÇÃO] Experimente algo novo hoje.
+- [AÇÃO] Anote uma pequena vitória que você teve hoje.
+- [AÇÃO] Celebre uma conquista de outra pessoa.
+- [AÇÃO] Pare por um minuto e observe sua respiração.
+- [AÇÃO] Faça cinco respirações lentas antes de uma decisão.
+- [AÇÃO] Faça uma pausa antes de responder uma mensagem importante.
+- [AÇÃO] Escreva uma coisa que você gostaria de deixar para trás.
+- [AÇÃO] Escreva uma coisa que gostaria de levar para o futuro.
+- [AÇÃO] Se for apropriado, peça desculpas por algo específico.
+- [AÇÃO] Vista-se de uma maneira que faça você se sentir bem.
+- [AÇÃO] Organize um pequeno espaço que esteja incomodando você.
+- [AÇÃO] Faça uma tarefa imediatamente em vez de colocá-la na lista.
+- [AÇÃO] Reserve 10 minutos para descansar de verdade.
+- [AÇÃO] Faça algo divertido sem transformar isso em produtividade.
+- [AÇÃO] Dê um pequeno passo para aprender essa coisa.
+- [AÇÃO] Escreva uma frase que gostaria de lembrar amanhã.
+- [AÇÃO] Anote algo que deu certo hoje.
+- [AÇÃO] Anote algo que faria diferente hoje.
+- [AÇÃO] Faça hoje uma coisa que seu futuro eu agradecerá.
+- [AÇÃO] Anote uma pequena coisa que você conseguiu melhorar hoje.
+- [AÇÃO] Termine o dia escrevendo: "Hoje eu avancei em..."
+- [AÇÃO] Celebre seu aniversário 🎂
+
+### Combos por interesse/hobby (0)
+
+- [AÇÃO] Separe 10 minutos para aprender algo novo sobre música — um artista, um estilo ou a história de uma canção.
+- [AÇÃO] Resolva um desafio de lógica ou um quebra-cabeça — só pelo prazer de pensar, sem pressa.
+- [AÇÃO] Observe seu ambiente com atenção e fotografe algo bonito que normalmente passaria despercebido.
+- [AÇÃO] Aprenda uma técnica simples de cozinha que você nunca tinha experimentado antes.
+
+### Datas comemorativas (0)
+
+- [AÇÃO] O ano está terminando. Anote uma coisa boa que aconteceu nos últimos meses.
+
+### Expansão — Atividades indoor (0)
+
+- [AÇÃO] Aproveite um momento em casa pra fazer um alongamento tranquilo.
+- [AÇÃO] Aproveite pra reorganizar seu quarto de um jeito que te deixe mais confortável.
+- [AÇÃO] Termine um dia dentro de casa reconhecendo algo que você organizou ou resolveu.
+
+### Expansão — Clima: frio (0)
+
+- [DICA] Termine um dia frio escrevendo uma coisa boa que aconteceu, mesmo pequena.
+
+### Expansão — Datas comemorativas (0)
+
+- [AÇÃO] Escreva uma palavra que você quer que guie o seu próximo ano.
+- [AÇÃO] Escreva três coisas boas que aconteceram nesse ano que está terminando.
+- [AÇÃO] Escreva uma coisa que você quer deixar para trás nesse novo ciclo.
+- [AÇÃO] Escreva uma meta pequena e realista para os próximos meses.
+- [AÇÃO] Agradeça por uma conquista desse ano, mesmo que pequena.
+- [AÇÃO] Pense em uma pessoa que fez diferença na sua vida nesse ano e agradeça a ela.
+- [AÇÃO] Escreva uma coisa que você aprendeu esse ano sobre você mesmo.
+- [AÇÃO] Escreva uma carta para o seu "eu" do ano que vem.
+- [AÇÃO] Anote um progresso que você fez este ano e o que mudou depois dele.
+- [AÇÃO] Agradeça por algo simples que você teve esse ano e talvez nunca tenha reconhecido.
+- [AÇÃO] Escolha uma pequena atitude que represente como você quer começar esse novo ciclo.
+- [AÇÃO] Escolha uma música alegre e dance por alguns minutos, só por diversão.
+- [AÇÃO] Faça algo divertido hoje sem transformar isso em produtividade.
+- [AÇÃO] Convide alguém para curtir um momento leve e descontraído com você.
+- [AÇÃO] Escute uma playlist animada enquanto faz alguma tarefa do dia.
+- [DICA] Permita-se um momento de leveza e diversão, mesmo que simples.
+- [AÇÃO] Faça algo criativo e divertido que você não faz há tempos.
+- [AÇÃO] Reserve cinco minutos pra checar como você realmente está se sentindo hoje.
+- [AÇÃO] Escreva sobre uma preocupação que está pesando e uma ação possível sobre ela.
+- [AÇÃO] Pergunte a alguém importante como a saúde mental dela está esses dias.
+- [AÇÃO] Escreva uma mudança emocional positiva que você percebeu em si recentemente.
+- [AÇÃO] Pratique cinco minutos de respiração consciente, sem pressa.
+- [AÇÃO] Escreva sobre um limite que você precisa colocar pra se cuidar melhor.
+- [AÇÃO] Pergunte a alguém se ela está precisando de apoio ultimamente.
+- [AÇÃO] Perdoe a si mesmo por uma pequena falha recente.
+
+### Expansão — Estações do ano (0)
+
+- [AÇÃO] Observe as folhas ou mudanças de cor típicas do outono, se houver perto de você.
+- [AÇÃO] Escreva sobre uma coisa que você colheu (aprendeu ou conquistou) nos últimos meses.
+- [AÇÃO] Escreva sobre algo que está em transição na sua vida agora.
+- [AÇÃO] Escreva sobre uma mudança que você percebeu em você mesmo recentemente.
+- [AÇÃO] Termine o dia de outono reconhecendo algo que amadureceu em você esse ano.
+- [AÇÃO] Prepare uma refeição reconfortante típica do inverno.
+- [AÇÃO] Prepare um chá ou chocolate quente pra compartilhar com alguém.
+- [AÇÃO] Termine um dia de inverno reconhecendo o aconchego de estar em casa.
+
+## Relacionamentos (403)
+
+### Base oficial (86)
+
+- [AÇÃO] Ligue para alguém com quem você não fala há algum tempo.
+- [AÇÃO] Envie uma mensagem dizendo que sente saudade.
+- [AÇÃO] Diga "eu te amo" para alguém importante.
+- [AÇÃO] Pergunte a alguém como foi realmente o dia dela.
+- [AÇÃO] Faça um elogio sincero.
+- [AÇÃO] Agradeça alguém por algo específico.
+- [AÇÃO] Diga a alguém uma qualidade que você admira nela.
+- [AÇÃO] Mande uma mensagem de bom dia para alguém especial.
+- [AÇÃO] Mande uma mensagem de boa noite para alguém especial.
+- [AÇÃO] Pergunte a alguém o que está fazendo essa pessoa feliz.
+- [AÇÃO] Pergunte a alguém o que está preocupando essa pessoa.
+- [AÇÃO] Ouça alguém por cinco minutos sem interromper.
+- [AÇÃO] Durante uma conversa, deixe o celular de lado.
+- [AÇÃO] Pergunte antes de oferecer uma solução para um problema.
+- [AÇÃO] Parabenize alguém por uma pequena conquista.
+- [AÇÃO] Envie uma mensagem de incentivo para alguém.
+- [AÇÃO] Pergunte a alguém qual é seu sonho atual.
+- [AÇÃO] Pergunte a alguém qual lugar gostaria de conhecer.
+- [AÇÃO] Pergunte qual foi a melhor parte da semana de alguém.
+- [AÇÃO] Pergunte o que alguém gostaria de aprender.
+- [AÇÃO] Compartilhe uma memória boa com alguém.
+- [AÇÃO] Envie uma foto que lembre um momento feliz.
+- [AÇÃO] Envie uma música para alguém.
+- [AÇÃO] Envie uma frase que fez você lembrar de alguém.
+- [AÇÃO] Ligue para um amigo antigo.
+- [AÇÃO] Mande mensagem para um parente distante.
+- [AÇÃO] Responda uma mensagem que você está adiando.
+- [AÇÃO] Faça uma chamada de vídeo curta com alguém.
+- [AÇÃO] Envie um áudio em vez de apenas escrever.
+- [AÇÃO] Pergunte a alguém se precisa de ajuda.
+- [AÇÃO] Ofereça ajuda em uma tarefa.
+- [AÇÃO] Faça uma pequena gentileza sem avisar.
+- [AÇÃO] Faça uma tarefa que normalmente outra pessoa faz.
+- [AÇÃO] Dê atenção exclusiva a alguém durante 10 minutos.
+- [AÇÃO] Faça uma refeição com alguém sem celular.
+- [AÇÃO] Convide alguém para conversar.
+- [AÇÃO] Pergunte a alguém se quer conversar.
+- [AÇÃO] Se uma conversa começar a virar disputa, faça uma pausa e retome apenas quando puder falar com calma.
+- [AÇÃO] Faça uma pergunta antes de dar sua opinião.
+- [AÇÃO] Antes de fazer uma crítica hoje, pergunte a si mesmo se ela realmente precisa ser dita.
+- [AÇÃO] Troque uma reclamação por um pedido claro.
+- [AÇÃO] Dê crédito a alguém por uma ideia.
+- [AÇÃO] Agradeça alguém que costuma ajudar você.
+- [AÇÃO] Agradeça alguém cujo trabalho normalmente passa despercebido.
+- [AÇÃO] Recomende o trabalho de alguém.
+- [AÇÃO] Indique um pequeno negócio de alguém conhecido.
+- [AÇÃO] Compartilhe uma oportunidade com alguém.
+- [AÇÃO] Pergunte a um colega como está sua semana.
+- [AÇÃO] Cumprimente pelo nome alguém que você encontra frequentemente.
+- [AÇÃO] Dê bom dia a alguém que costuma passar despercebido.
+- [AÇÃO] Pergunte a uma pessoa mais velha sobre uma lembrança da juventude.
+- [AÇÃO] Pergunte a uma criança o que ela está aprendendo.
+- [AÇÃO] Brinque com uma criança durante 10 minutos.
+- [AÇÃO] Pergunte ao seu parceiro como você pode tornar o dia melhor.
+- [AÇÃO] Pergunte aos seus filhos qual foi a melhor parte do dia.
+- [AÇÃO] Faça uma brincadeira espontânea com sua família.
+- [AÇÃO] Guarde o celular durante uma conversa importante.
+- [AÇÃO] Ouça uma história sem tentar contar uma história melhor.
+- [AÇÃO] Pergunte: "Como posso estar mais presente para você?"
+- [AÇÃO] Faça uma gentileza para um vizinho.
+- [AÇÃO] Dê feedback positivo a um colega.
+- [AÇÃO] Envie uma mensagem para alguém que está começando algo novo.
+- [AÇÃO] Pergunte como foi algo importante que aconteceu ontem.
+- [AÇÃO] Comemore a vitória de outra pessoa.
+- [AÇÃO] Pergunte a alguém sobre um sonho antigo.
+- [AÇÃO] Pergunte qual foi a viagem favorita de alguém.
+- [AÇÃO] Pergunte qual comida lembra a infância de alguém.
+- [AÇÃO] Pergunte qual música sempre melhora o humor de alguém.
+- [AÇÃO] Descubra algo novo sobre uma pessoa que você conhece há anos.
+- [AÇÃO] Faça uma pergunta que nunca fez a um familiar.
+- [AÇÃO] Relembre uma história engraçada da família.
+- [AÇÃO] Envie uma foto antiga para alguém.
+- [AÇÃO] Ligue para alguém em vez de mandar mensagem.
+- [AÇÃO] Peça desculpas se existe uma conversa pendente.
+- [AÇÃO] Resolva uma pequena mágoa com respeito.
+- [AÇÃO] Diga "eu entendo" antes de explicar seu ponto.
+- [AÇÃO] Deixe alguém terminar de falar.
+- [AÇÃO] Pergunte "você quer conselho ou só quer que eu escute?"
+- [AÇÃO] Diga obrigado sem acrescentar "mas".
+- [AÇÃO] Diga a alguém que você acredita nela.
+- [AÇÃO] Incentive alguém que está desanimado.
+- [AÇÃO] Pergunte a um amigo como você pode ajudá-lo.
+- [AÇÃO] Faça companhia a alguém que esteja sozinho.
+- [AÇÃO] Visite alguém próximo, se for conveniente.
+- [AÇÃO] Faça uma surpresa simples para alguém.
+- [AÇÃO] Deixe um bilhete carinhoso.
+- [AÇÃO] Faça uma tarefa para aliviar alguém.
+- [AÇÃO] Compartilhe uma lembrança que você valoriza.
+- [AÇÃO] Conte para alguém por que essa pessoa é importante.
+- [AÇÃO] Diga a alguém algo que você deveria ter dito há muito tempo.
+- [AÇÃO] Agradeça alguém por ter entrado na sua vida.
+- [AÇÃO] Pergunte a alguém o que gostaria de fazer juntos.
+- [AÇÃO] Marque um momento para vocês se encontrarem.
+- [AÇÃO] Faça hoje uma demonstração de carinho que normalmente você só pensa.
+- [AÇÃO] Demonstre carinho hoje por alguém importante para você, sem esperar uma ocasião especial.
+- [AÇÃO] Escolha uma pessoa para receber sua atenção completa hoje.
+- [AÇÃO] Termine o dia dizendo a alguém: "Fico feliz que você faça parte da minha vida."
+
+### Combos por interesse/hobby (0)
+
+- [AÇÃO] Envie uma música para alguém que você gosta, contando por que ela te lembrou dessa pessoa.
+- [AÇÃO] Convide alguém para assistir a um jogo com você — mesmo que só por uma parte dele.
+
+### Combos por pessoa importante (0)
+
+- [AÇÃO] Envie uma música para {pessoa} que lembre um momento especial de vocês.
+- [AÇÃO] Mande uma mensagem para {pessoa}, com quem você costumava curtir esporte junto.
+- [AÇÃO] Pergunte a {pessoa} como foi o dia dela e escute sem mexer no celular.
+- [AÇÃO] Pergunte a {pessoa} sobre algo que ele(a) realmente gosta, só pra escutar de verdade.
+- [AÇÃO] Mande uma mensagem para {pessoa} dizendo que você está pensando nele(a).
+- [AÇÃO] Se {pessoa} não estiver por perto hoje, ligue para ela por alguns minutos só para saber como ela está.
+
+### Datas comemorativas (0)
+
+- [AÇÃO] Hoje é um dia de gratidão por quem cuidou de você. Entre em contato com alguém importante para você.
+- [AÇÃO] Aproveite este dia especial e pense em alguém que exerce um papel importante na sua vida.
+- [AÇÃO] Faça algo especial para {pessoa} hoje — mesmo que simples.
+- [AÇÃO] Separe alguns minutos hoje para fazer algo especial por alguém que você ama, mesmo que simples.
+
+### Expansão — Amigos (0)
+
+- [AÇÃO] Mande uma mensagem para um amigo que você não fala há tempos.
+- [AÇÃO] Pergunte a um amigo como ele está de verdade, além do "tudo bem".
+- [AÇÃO] Ligue para um amigo antigo, mesmo que rápido.
+- [AÇÃO] Marque um encontro com um amigo, mesmo que simples.
+- [AÇÃO] Agradeça a um amigo por algo específico que ele fez por você.
+- [AÇÃO] Envie uma mensagem contando que você está pensando em um amigo.
+- [AÇÃO] Pergunte a um amigo sobre um projeto ou sonho que ele está buscando.
+- [AÇÃO] Compartilhe uma boa notícia com um amigo.
+- [AÇÃO] Pergunte a um amigo se ele precisa de ajuda com alguma coisa.
+- [AÇÃO] Ofereça ajuda a um amigo em algo que ele está enfrentando.
+- [AÇÃO] Envie uma foto ou lembrança que lembre um momento com um amigo.
+- [AÇÃO] Pergunte a um amigo qual foi a melhor parte da semana dele.
+- [AÇÃO] Parabenize um amigo por uma conquista, mesmo pequena.
+- [AÇÃO] Reconecte-se com um amigo de uma fase antiga da sua vida.
+- [AÇÃO] Convide um amigo para fazer algo simples juntos.
+- [AÇÃO] Pergunte a um amigo o que o deixaria mais animado essa semana.
+- [AÇÃO] Diga a um amigo por que a amizade dele importa pra você.
+- [AÇÃO] Envie um áudio em vez de só texto para um amigo.
+- [AÇÃO] Pergunte a um amigo como ele está lidando com algo difícil.
+- [AÇÃO] Escute um amigo contar uma história sem tentar resolver o problema dele.
+- [AÇÃO] Recomende algo que você gostou para um amigo que combina com o gosto dele.
+- [AÇÃO] Pergunte a um amigo sobre um lugar que ele quer conhecer.
+- [AÇÃO] Envie uma mensagem de apoio para um amigo em um momento difícil.
+- [AÇÃO] Pergunte a um amigo o que faria a semana dele mais leve.
+- [AÇÃO] Convide um amigo para uma chamada de vídeo curta.
+- [AÇÃO] Pergunte a um amigo sobre uma memória boa que vocês compartilham.
+- [AÇÃO] Compartilhe uma memória boa com um amigo.
+- [AÇÃO] Pergunte a um amigo se ele quer só desabafar ou quer conselho.
+- [AÇÃO] Faça companhia a um amigo que está sozinho, mesmo que à distância.
+- [AÇÃO] Convide um amigo para uma atividade que vocês faziam antes e pararam.
+- [AÇÃO] Pergunte a um amigo qual foi a última vez que ele riu muito.
+- [AÇÃO] Envie uma mensagem de bom dia para um amigo especial.
+- [AÇÃO] Pergunte a um amigo sobre um hobby novo que ele começou.
+- [AÇÃO] Peça desculpas a um amigo, se existir algo pendente entre vocês.
+- [AÇÃO] Resolva com respeito uma pequena mágoa com um amigo.
+- [AÇÃO] Diga a um amigo que você sente falta dele.
+- [AÇÃO] Pergunte a um amigo o que ele está achando difícil ultimamente.
+- [AÇÃO] Faça uma pergunta que você nunca fez a um amigo antigo.
+- [AÇÃO] Convide um amigo para conhecer algo novo junto.
+- [AÇÃO] Pergunte a um amigo qual foi o conselho mais importante que já recebeu.
+- [AÇÃO] Ofereça um lugar pra ficar ou ajuda prática a um amigo, se puder.
+- [AÇÃO] Compartilhe com um amigo algo que você aprendeu recentemente.
+- [AÇÃO] Pergunte a um amigo se ele tem tempo pra conversar essa semana.
+- [AÇÃO] Pergunte a um amigo como está a família dele.
+- [AÇÃO] Envie para um amigo uma música que lembre a amizade de vocês.
+- [AÇÃO] Pergunte a um amigo o que ele gostaria de fazer que nunca fez.
+- [AÇÃO] Marque uma data futura para reencontrar um amigo distante.
+- [AÇÃO] Pergunte a um amigo qual foi um momento em que ele se sentiu apoiado por você.
+- [AÇÃO] Diga a um amigo algo que você admira nele.
+- [AÇÃO] Pergunte a um colega de trabalho como está sua semana.
+- [AÇÃO] Cumprimente pelo nome alguém que você encontra com frequência.
+- [AÇÃO] Dê bom dia a alguém que costuma passar despercebido no seu dia.
+- [AÇÃO] Faça uma pergunta genuína a um vizinho sobre a vida dele.
+- [AÇÃO] Ofereça ajuda a um vizinho com alguma coisa simples.
+- [AÇÃO] Reconecte-se com alguém de uma fase antiga que você perdeu contato.
+- [AÇÃO] Pergunte a alguém como foi um evento importante que aconteceu ontem.
+- [AÇÃO] Compartilhe uma oportunidade que pode ajudar um amigo.
+- [AÇÃO] Indique o trabalho de um amigo pra quem possa se interessar.
+- [AÇÃO] Faça uma pergunta a um amigo sobre um sonho antigo dele.
+- [AÇÃO] Pergunte a um amigo qual foi a viagem favorita da vida dele.
+- [AÇÃO] Pergunte a um amigo qual comida lembra a infância dele.
+- [AÇÃO] Pergunte a um amigo qual música sempre melhora o humor dele.
+- [AÇÃO] Descubra algo novo sobre um amigo que você conhece há anos.
+- [AÇÃO] Convide um amigo para uma refeição simples, mesmo que em casa.
+- [AÇÃO] Envie um convite espontâneo para um amigo fazer algo hoje.
+- [AÇÃO] Pergunte a um amigo o que ele gostaria de comemorar essa semana.
+- [AÇÃO] Faça uma surpresa pequena para um amigo.
+- [AÇÃO] Deixe um bilhete ou mensagem carinhosa para um amigo.
+- [AÇÃO] Pergunte a um amigo se ele topa criar um hábito juntos.
+- [AÇÃO] Combine um horário fixo pra falar com um amigo mais vezes.
+- [AÇÃO] Pergunte a um amigo qual foi a última vez que ele pediu ajuda.
+- [AÇÃO] Ofereça-se para ouvir um amigo sem interromper.
+- [AÇÃO] Pergunte a um amigo o que costuma tirar o sono dele.
+- [AÇÃO] Convide um amigo para desabafar, se ele quiser.
+- [AÇÃO] Diga a um amigo algo que você nunca disse, mas sente.
+- [AÇÃO] Escolha uma pessoa para fortalecer a amizade essa semana.
+- [AÇÃO] Pergunte a um amigo distante como ele está se adaptando à rotina atual.
+- [AÇÃO] Envie uma mensagem de incentivo para um amigo que está desanimado.
+- [AÇÃO] Comemore com um amigo uma vitória dele, mesmo pequena.
+- [AÇÃO] Pergunte a um amigo sobre um livro, filme ou série que ele recomendaria.
+- [AÇÃO] Ofereça-se para apresentar um amigo a alguém que possa ajudá-lo.
+- [AÇÃO] Pergunte a um amigo como ele está cuidando de si mesmo ultimamente.
+- [AÇÃO] Pergunte a um amigo se ele quer companhia para algo hoje.
+- [AÇÃO] Escreva pra um amigo por que ele é importante na sua vida.
+- [AÇÃO] Pergunte a um amigo o que mudou na vida dele recentemente.
+- [AÇÃO] Convide um amigo para participar de algo que você está fazendo.
+- [AÇÃO] Pergunte a um amigo qual foi um erro que ele aprendeu bastante.
+- [AÇÃO] Faça uma gentileza por um amigo sem avisar que foi você.
+- [AÇÃO] Pergunte a um amigo o que ele espera dos próximos meses.
+- [AÇÃO] Compartilhe com um amigo uma dificuldade sua, se você confiar nele.
+- [AÇÃO] Pergunte a um amigo se ele sente que está tendo tempo pra ele mesmo.
+- [AÇÃO] Convide um amigo pra experimentar algo novo com você.
+- [AÇÃO] Pergunte a um amigo o que o faz sentir que a amizade vale a pena.
+- [AÇÃO] Reconecte um grupo de amigos que não se fala há tempos.
+- [AÇÃO] Organize, mesmo que informalmente, um encontro entre amigos.
+- [AÇÃO] Agradeça a um amigo por estar presente em um momento difícil.
+- [AÇÃO] Termine o dia mandando uma mensagem simples pra um amigo: "pensando em você".
+
+### Expansão — Datas comemorativas (0)
+
+- [AÇÃO] Reconheça e agradeça a uma mulher que foi importante na sua formação.
+- [AÇÃO] Envie uma mensagem de admiração para uma mulher que você respeita.
+- [AÇÃO] Elogie sinceramente uma conquista de uma mulher importante na sua vida.
+- [AÇÃO] Pergunte a uma mulher importante pra você como ela está se sentindo hoje.
+- [AÇÃO] Pense em uma mulher que abriu caminho pra você e agradeça a ela.
+- [AÇÃO] Ofereça apoio a uma mulher que esteja enfrentando um momento difícil.
+- [AÇÃO] Compartilhe uma conquista de uma mulher importante pra você.
+- [AÇÃO] Diga a uma mulher da sua vida uma qualidade que você admira nela.
+- [AÇÃO] Reconheça, com alguém importante, o esforço das mulheres da sua família.
+- [AÇÃO] Pense em alguém que teve um papel materno na sua vida e agradeça a ela.
+- [AÇÃO] Envie uma mensagem carinhosa para uma mulher que cuidou de você em algum momento.
+- [AÇÃO] Agradeça a alguém que exerceu cuidado maternal com você, mesmo sem ser sua mãe biológica.
+- [AÇÃO] Envie uma mensagem de carinho a alguém que você considera uma figura materna.
+- [AÇÃO] Agradeça a alguém que sempre esteve presente cuidando de você.
+- [AÇÃO] Reconheça, mesmo à distância, alguém que exerceu um papel de cuidado importante.
+- [DICA] Pense numa forma simples de honrar quem cuidou de você ao longo da vida.
+- [AÇÃO] Planeje um momento simples e especial pra passar com {pessoa}.
+- [AÇÃO] Diga a {pessoa} um motivo específico pelo qual você a escolhe todos os dias.
+- [AÇÃO] Prepare algo que {pessoa} goste, sem esperar uma data maior.
+- [AÇÃO] Envie pra {pessoa} uma mensagem que descreva o que essa data significa pra vocês.
+- [AÇÃO] Relembre com {pessoa} um momento marcante do começo da relação de vocês.
+- [AÇÃO] Ofereça 20 minutos de atenção total a {pessoa}, sem celular por perto.
+- [AÇÃO] Escreva pra {pessoa} três coisas que você ama nela.
+- [AÇÃO] Pergunte a {pessoa} como ela gostaria de comemorar esse dia com você.
+- [AÇÃO] Prepare uma surpresa pequena e simples pra {pessoa}.
+- [AÇÃO] Diga a {pessoa} algo que você nunca teve coragem de dizer.
+- [AÇÃO] Planeje um momento simples e especial com alguém importante pra você.
+- [AÇÃO] Diga a alguém um motivo específico pelo qual ela é especial na sua vida.
+- [AÇÃO] Prepare algo que alguém importante goste, sem esperar uma data maior.
+- [AÇÃO] Envie pra alguém importante uma mensagem que descreva o que essa data significa pra vocês.
+- [AÇÃO] Relembre com alguém um momento marcante do começo da relação de vocês.
+- [AÇÃO] Ofereça 20 minutos de atenção total a alguém, sem celular por perto.
+- [AÇÃO] Escreva sobre três coisas que você ama em alguém importante e diga a ela.
+- [AÇÃO] Pergunte a alguém importante como ela gostaria de passar esse dia com você.
+- [AÇÃO] Prepare uma surpresa pequena e simples pra alguém que você ama.
+- [AÇÃO] Diga a alguém importante algo que você nunca teve coragem de dizer.
+- [AÇÃO] Ligue para {pessoa} só pra dizer que a amizade dela importa pra você.
+- [AÇÃO] Relembre com {pessoa} um momento engraçado que vocês viveram juntos.
+- [AÇÃO] Envie uma mensagem contando a {pessoa} um motivo pelo qual você é grato por ela.
+- [AÇÃO] Convide {pessoa} para um encontro simples nesses dias.
+- [AÇÃO] Diga a {pessoa} uma qualidade dela que você sempre admirou.
+- [AÇÃO] Reconecte-se com {pessoa}, mesmo que tenham perdido contato por um tempo.
+- [AÇÃO] Ligue para um amigo só pra dizer que a amizade dele importa pra você.
+- [AÇÃO] Relembre com um amigo um momento engraçado que vocês viveram juntos.
+- [AÇÃO] Envie uma mensagem contando a um amigo um motivo pelo qual você é grato por ele.
+- [AÇÃO] Convide um amigo para um encontro simples nesses dias.
+- [AÇÃO] Pense em alguém que teve um papel paterno na sua vida e agradeça a ela.
+- [AÇÃO] Envie uma mensagem carinhosa para alguém que cuidou de você em algum momento.
+- [AÇÃO] Agradeça a alguém que exerceu cuidado paternal com você, mesmo sem ser seu pai biológico.
+- [AÇÃO] Envie uma mensagem de carinho a alguém que você considera uma figura paterna.
+- [AÇÃO] Escreva sobre uma lição de vida que alguém importante te ensinou.
+
+### Expansão — Pais / figuras importantes (0)
+
+- [AÇÃO] Ligue para {pessoa} só para saber como ela está.
+- [AÇÃO] Pergunte a {pessoa} uma lembrança da juventude dela.
+- [AÇÃO] Agradeça a {pessoa} por algo específico que ela fez por você.
+- [AÇÃO] Pergunte a {pessoa} um conselho sobre algo que você está vivendo.
+- [AÇÃO] Diga a {pessoa} uma coisa que você aprendeu com ela.
+- [AÇÃO] Pergunte a {pessoa} como era a vida dela na sua idade.
+- [AÇÃO] Envie uma mensagem contando algo bom que aconteceu com você hoje.
+- [AÇÃO] Pergunte a {pessoa} sobre um sonho que ela teve e não realizou.
+- [AÇÃO] Pergunte a {pessoa} qual foi a decisão mais difícil que ela já tomou.
+- [AÇÃO] Diga a {pessoa} que você tem orgulho de quem ela é.
+- [AÇÃO] Pergunte a {pessoa} sobre uma tradição de família que ela quer manter.
+- [AÇÃO] Ofereça ajuda a {pessoa} com algo que ela tem adiado.
+- [AÇÃO] Pergunte a {pessoa} como ela está de saúde, com atenção de verdade.
+- [AÇÃO] Peça a {pessoa} para contar uma história que você nunca ouviu.
+- [AÇÃO] Envie uma foto antiga para {pessoa} e pergunte sobre o momento.
+- [AÇÃO] Pergunte a {pessoa} o que ela gostaria de fazer mais vezes com você.
+- [AÇÃO] Diga a {pessoa} algo que você nunca agradeceu antes.
+- [AÇÃO] Visite {pessoa}, se for possível e conveniente.
+- [AÇÃO] Pergunte a {pessoa} sobre os pais ou avós dela.
+- [AÇÃO] Pergunte a {pessoa} o que ela sente falta de fazer com você.
+- [AÇÃO] Diga a {pessoa} uma qualidade dela que moldou quem você é.
+- [AÇÃO] Pergunte a {pessoa} como ela lidava com dificuldades quando você era criança.
+- [AÇÃO] Peça perdão a {pessoa} por algo, se fizer sentido.
+- [AÇÃO] Pergunte a {pessoa} qual conselho ela daria pro você de hoje.
+- [AÇÃO] Compartilhe com {pessoa} uma preocupação sua, se você se sentir à vontade.
+- [AÇÃO] Pergunte a {pessoa} sobre um momento em que ela se sentiu orgulhosa de você.
+- [AÇÃO] Ofereça companhia a {pessoa} por alguns minutos hoje.
+- [AÇÃO] Pergunte a {pessoa} o que ela gostaria que você soubesse sobre a vida dela.
+- [AÇÃO] Termine o dia mandando uma mensagem carinhosa para {pessoa}.
+- [AÇÃO] Ligue para alguém que teve um papel importante na sua formação.
+- [AÇÃO] Agradeça a alguém que foi importante na sua criação ou formação.
+- [AÇÃO] Peça um conselho a alguém mais velho em quem você confia.
+- [AÇÃO] Diga a alguém uma coisa que você aprendeu com ela.
+- [AÇÃO] Pergunte a alguém mais velho como era a vida dela na sua idade.
+- [AÇÃO] Pergunte a alguém sobre a decisão mais difícil que ela já tomou.
+- [AÇÃO] Diga a alguém que você tem orgulho de quem ela é.
+- [AÇÃO] Ofereça ajuda a alguém mais velho com algo que ela tem adiado.
+- [AÇÃO] Pergunte a alguém importante como ela está de saúde, com atenção de verdade.
+- [AÇÃO] Peça a alguém para contar uma história que você nunca ouviu.
+- [AÇÃO] Reveja uma foto antiga e lembre de um momento importante.
+- [DICA] Pense no que você gostaria de fazer mais vezes com alguém que te formou.
+- [AÇÃO] Diga a alguém algo que você nunca agradeceu antes.
+- [AÇÃO] Visite alguém importante, se for possível e conveniente.
+- [AÇÃO] Pergunte a um familiar mais velho sobre os pais ou avós dele.
+- [DICA] Pense no que você sente falta de fazer com alguém que te formou.
+- [AÇÃO] Peça perdão a alguém, se fizer sentido.
+- [AÇÃO] Compartilhe com alguém de confiança uma preocupação sua.
+- [AÇÃO] Ofereça companhia a alguém mais velho por alguns minutos hoje.
+- [DICA] Pense no que alguém importante gostaria que você soubesse sobre a vida dela.
+- [AÇÃO] Termine o dia mandando uma mensagem carinhosa para alguém que te formou.
+
+### Expansão — Parceiro(a) (0)
+
+- [AÇÃO] Pergunte a {pessoa} como ela realmente está, sem pressa para responder.
+- [AÇÃO] Prepare algo simples que {pessoa} gosta, sem ocasião especial.
+- [AÇÃO] Deixe um bilhete carinhoso para {pessoa} encontrar durante o dia.
+- [AÇÃO] Elogie algo específico em {pessoa} hoje, não só "você é ótimo(a)".
+- [AÇÃO] Pergunte a {pessoa} o que faria a semana dela mais leve.
+- [AÇÃO] Ofereça 15 minutos de atenção total a {pessoa}, sem celular.
+- [AÇÃO] Pergunte a {pessoa} qual é um sonho que ela ainda não realizou.
+- [AÇÃO] Assuma uma tarefa que normalmente é de {pessoa}, sem avisar antes.
+- [AÇÃO] Diga a {pessoa} um motivo específico pelo qual você é grato(a) por ela.
+- [AÇÃO] Planeje uma surpresa pequena e simples para {pessoa}.
+- [AÇÃO] Pergunte a {pessoa} como você pode apoiá-la em algo que ela está enfrentando.
+- [AÇÃO] Envie uma mensagem carinhosa para {pessoa} no meio do dia.
+- [AÇÃO] Prepare um momento a dois, mesmo que seja curto.
+- [AÇÃO] Pergunte a {pessoa} qual foi a parte mais difícil da semana dela.
+- [AÇÃO] Escute {pessoa} contar sobre o dia sem tentar resolver nada, só ouvindo.
+- [AÇÃO] Toque em {pessoa} com carinho — segurar a mão já basta.
+- [AÇÃO] Diga a {pessoa} algo que você nunca disse antes.
+- [AÇÃO] Pergunte a {pessoa} o que ela sente que está faltando na rotina de vocês.
+- [AÇÃO] Faça um elogio sincero sobre como {pessoa} lida com algo difícil.
+- [AÇÃO] Proponha um encontro simples com {pessoa}, mesmo que seja em casa.
+- [AÇÃO] Pergunte a {pessoa} qual memória de vocês ela mais gosta de lembrar.
+- [AÇÃO] Cozinhe ou prepare algo especial para {pessoa} hoje.
+- [AÇÃO] Pergunte a {pessoa} se ela precisa de mais espaço ou mais presença hoje.
+- [AÇÃO] Pergunte a {pessoa} o que a faria se sentir mais amada esta semana.
+- [AÇÃO] Convide {pessoa} para fazer algo que ela gosta e você nem tanto.
+- [AÇÃO] Diga a {pessoa} uma qualidade dela que você admira profundamente.
+- [AÇÃO] Combine com {pessoa} uma pausa sem celular durante uma refeição.
+- [AÇÃO] Pergunte a {pessoa} sobre um objetivo pessoal que ela está buscando.
+- [AÇÃO] Apoie {pessoa} em uma decisão que ela está tentando tomar.
+- [AÇÃO] Pergunte a {pessoa} o que a deixou desconfortável recentemente, com abertura.
+- [AÇÃO] Peça desculpas a {pessoa} se existir alguma coisa pendente entre vocês.
+- [AÇÃO] Pergunte a {pessoa} como foi conhecer você, do ponto de vista dela.
+- [AÇÃO] Relembre com {pessoa} um momento bom do início da relação de vocês.
+- [AÇÃO] Envie uma música para {pessoa} que descreva como você se sente hoje.
+- [AÇÃO] Pergunte a {pessoa} o que ela gostaria de fazer juntos este mês.
+- [AÇÃO] Marque um momento no calendário só para vocês dois.
+- [AÇÃO] Pergunte a {pessoa} se ela sente que está sendo ouvida ultimamente.
+- [AÇÃO] Ofereça-se para cuidar de algo que sobrecarrega {pessoa}.
+- [AÇÃO] Diga a {pessoa} "eu escolho você" de alguma forma hoje.
+- [AÇÃO] Pergunte a {pessoa} o que mudou nela nos últimos anos que você admira.
+- [AÇÃO] Faça uma pergunta sobre os planos futuros de vocês juntos.
+- [AÇÃO] Pergunte a {pessoa} qual foi o gesto mais gentil que você já teve com ela.
+- [AÇÃO] Reconheça, em voz alta, o parceiro ou parceira que {pessoa} é.
+- [AÇÃO] Pergunte a {pessoa} algo sobre a família dela que você nunca perguntou.
+- [AÇÃO] Escreva três coisas que você admira em {pessoa} e compartilhe uma delas.
+- [AÇÃO] Pergunte a {pessoa} o que ela precisa hoje: conversa, silêncio ou colo.
+- [AÇÃO] Convide {pessoa} para uma caminhada curta só para conversar.
+- [AÇÃO] Termine o dia dizendo a {pessoa} algo que você é grato(a) nela.
+- [AÇÃO] Pergunte a alguém importante pra você como ela realmente está, sem pressa para responder.
+- [AÇÃO] Prepare algo simples que alguém gosta, sem ocasião especial.
+- [AÇÃO] Deixe um bilhete carinhoso para alguém encontrar durante o dia.
+- [AÇÃO] Elogie algo específico em alguém hoje, não só "você é ótimo(a)".
+- [AÇÃO] Pergunte a alguém o que faria a semana dela mais leve.
+- [AÇÃO] Ofereça 15 minutos de atenção total a alguém, sem celular.
+- [AÇÃO] Pergunte a alguém qual é um sonho que ela ainda não realizou.
+- [AÇÃO] Assuma uma tarefa que normalmente é de outra pessoa, sem avisar antes.
+- [AÇÃO] Diga a alguém um motivo específico pelo qual você é grato(a) por ela.
+- [AÇÃO] Planeje uma surpresa pequena e simples para alguém importante.
+- [AÇÃO] Pergunte a alguém como você pode apoiá-la em algo que ela está enfrentando.
+- [AÇÃO] Envie uma mensagem carinhosa para alguém no meio do dia.
+- [AÇÃO] Prepare um momento a sós com alguém, mesmo que seja curto.
+- [AÇÃO] Pergunte a alguém qual foi a parte mais difícil da semana dela.
+- [AÇÃO] Escute alguém contar sobre o dia sem tentar resolver nada, só ouvindo.
+- [AÇÃO] Ofereça um gesto de carinho simples a alguém, se fizer sentido.
+- [AÇÃO] Diga a alguém algo que você nunca disse antes.
+- [AÇÃO] Pergunte a alguém o que ela sente que está faltando na rotina de vocês.
+- [AÇÃO] Faça um elogio sincero sobre como alguém lida com algo difícil.
+- [AÇÃO] Proponha um encontro simples com alguém, mesmo que seja em casa.
+- [AÇÃO] Pergunte a alguém qual memória de vocês ela mais gosta de lembrar.
+- [AÇÃO] Prepare algo especial para alguém importante hoje.
+- [AÇÃO] Pergunte a alguém se ela precisa de mais espaço ou mais presença hoje.
+- [AÇÃO] Pergunte a alguém o que a faria se sentir mais valorizada esta semana.
+- [AÇÃO] Convide alguém para fazer algo que ela gosta e você nem tanto.
+- [AÇÃO] Diga a alguém uma qualidade dela que você admira profundamente.
+- [AÇÃO] Combine com alguém uma pausa sem celular durante uma refeição.
+- [AÇÃO] Pergunte a alguém sobre um objetivo pessoal que ela está buscando.
+- [AÇÃO] Apoie alguém em uma decisão que ela está tentando tomar.
+- [AÇÃO] Pergunte a alguém o que a deixou desconfortável recentemente, com abertura.
+- [AÇÃO] Peça desculpas a alguém se existir alguma coisa pendente entre vocês.
+- [AÇÃO] Pergunte a alguém como foi conhecer você, do ponto de vista dela.
+- [AÇÃO] Relembre com alguém um momento bom do início da amizade ou relação de vocês.
+- [AÇÃO] Envie uma música para alguém que descreva como você se sente hoje.
+- [AÇÃO] Pergunte a alguém o que ela gostaria de fazer juntos este mês.
+- [AÇÃO] Marque um momento no calendário só para vocês.
+- [AÇÃO] Pergunte a alguém se ela sente que está sendo ouvida ultimamente.
+- [AÇÃO] Ofereça-se para cuidar de algo que sobrecarrega alguém importante.
+- [AÇÃO] Diga a alguém, de alguma forma, que você escolhe tê-la na sua vida.
+- [AÇÃO] Pergunte a alguém o que mudou nela nos últimos anos que você admira.
+- [AÇÃO] Faça uma pergunta sobre os planos futuros de alguém.
+- [AÇÃO] Pergunte a alguém qual foi o gesto mais gentil que você já teve com ela.
+- [AÇÃO] Reconheça, em voz alta, o que alguém importante representa pra você.
+- [AÇÃO] Pergunte a alguém algo sobre a família dela que você nunca perguntou.
+- [AÇÃO] Escreva três coisas que você admira em alguém e compartilhe uma delas.
+- [AÇÃO] Pergunte a alguém o que ela precisa hoje: conversa, silêncio ou companhia.
+- [AÇÃO] Convide alguém para uma caminhada curta só para conversar.
+- [AÇÃO] Termine o dia dizendo a alguém algo que você é grato(a) nela.
+
+## Família e presença (465)
+
+### Base oficial (86)
+
+- [AÇÃO] Faça uma refeição com a família sem celular.
+- [AÇÃO] Pergunte como foi o dia de cada pessoa da casa.
+- [AÇÃO] Brinque 10 minutos com uma criança.
+- [AÇÃO] Ajude espontaneamente em uma tarefa doméstica.
+- [AÇÃO] Guarde algo que outra pessoa deixou fora do lugar.
+- [AÇÃO] Prepare um lanche simples para alguém.
+- [AÇÃO] Pergunte ao seu parceiro como foi o dia.
+- [AÇÃO] Pergunte aos seus filhos o que mais gostaram hoje.
+- [AÇÃO] Ouça uma história de alguém da família.
+- [AÇÃO] Conte uma lembrança da sua infância.
+- [AÇÃO] Mostre uma foto antiga para alguém.
+- [AÇÃO] Relembre uma viagem em família.
+- [AÇÃO] Escolha uma música para ouvir juntos.
+- [AÇÃO] Faça uma brincadeira em família.
+- [AÇÃO] Assistam a algo curto juntos sem celulares.
+- [AÇÃO] Faça uma caminhada curta com alguém da família.
+- [AÇÃO] Convide alguém da casa para conversar.
+- [AÇÃO] Ajude uma criança em uma pequena tarefa.
+- [AÇÃO] Pergunte o que alguém gostaria de fazer no fim de semana.
+- [AÇÃO] Pergunte qual foi a melhor coisa do dia.
+- [AÇÃO] Pergunte se alguém precisa de ajuda amanhã.
+- [AÇÃO] Prepare alguma coisa para facilitar a manhã de alguém.
+- [AÇÃO] Organize a mochila de uma criança.
+- [AÇÃO] Confira se algo importante da família está preparado.
+- [AÇÃO] Organize um espaço comum da casa.
+- [AÇÃO] Limpe uma área usada por todos.
+- [AÇÃO] Guarde objetos espalhados pela casa.
+- [AÇÃO] Faça uma tarefa doméstica sem ser solicitado.
+- [AÇÃO] Troque uma reclamação por uma ação prática.
+- [AÇÃO] Agradeça alguém da família por uma tarefa.
+- [AÇÃO] Elogie uma atitude positiva de alguém.
+- [AÇÃO] Diga algo carinhoso para alguém.
+- [AÇÃO] Diga "eu te amo".
+- [AÇÃO] Diga "estou feliz por ter você".
+- [AÇÃO] Dê um abraço, se houver consentimento.
+- [AÇÃO] Pergunte se alguém quer companhia.
+- [AÇÃO] Deixe outra pessoa escolher o filme.
+- [AÇÃO] Deixe outra pessoa escolher a música.
+- [AÇÃO] Faça uma pequena surpresa.
+- [AÇÃO] Envie uma mensagem carinhosa para alguém da casa.
+- [AÇÃO] Guarde o celular durante uma conversa.
+- [AÇÃO] Ouça sem interromper.
+- [AÇÃO] Pergunte antes de dar conselhos.
+- [AÇÃO] Ofereça uma pausa para alguém sobrecarregado.
+- [AÇÃO] Assuma uma tarefa que aliviará outra pessoa.
+- [AÇÃO] Prepare alguma coisa para amanhã.
+- [AÇÃO] Pergunte se alguém precisa de alguma coisa antes de sair.
+- [AÇÃO] Pergunte a uma criança o que gostaria de aprender.
+- [AÇÃO] Ensine algo simples a uma criança.
+- [AÇÃO] Deixe uma criança ensinar algo a você.
+- [AÇÃO] Pergunte sobre o desenho, jogo ou interesse de uma criança.
+- [AÇÃO] Passe 10 minutos brincando sem celular.
+- [AÇÃO] Leia algumas páginas com uma criança.
+- [AÇÃO] Pergunte a um adolescente como estão as coisas.
+- [AÇÃO] Escute sem transformar a conversa em sermão.
+- [AÇÃO] Ligue para um familiar que mora longe.
+- [AÇÃO] Envie uma foto do seu dia para alguém da família.
+- [AÇÃO] Compartilhe uma pequena conquista com sua família.
+- [AÇÃO] Pergunte sobre um sonho antigo.
+- [AÇÃO] Pergunte sobre um lugar que alguém gostaria de conhecer.
+- [AÇÃO] Pergunte sobre uma comida favorita.
+- [AÇÃO] Prepare uma comida que alguém gosta.
+- [AÇÃO] Organize um pequeno lanche em família.
+- [AÇÃO] Faça uma tarefa chata acompanhado.
+- [AÇÃO] Arrume uma área enquanto conversa com alguém.
+- [AÇÃO] Guarde as compras sem esperar alguém pedir.
+- [AÇÃO] Verifique se há lixo para retirar.
+- [AÇÃO] Deixe a cozinha organizada para a próxima pessoa.
+- [AÇÃO] Deixe o banheiro organizado depois de usar.
+- [AÇÃO] Coloque alguma coisa de volta no lugar.
+- [AÇÃO] Resolva uma pequena pendência familiar.
+- [AÇÃO] Confirme um compromisso da família.
+- [AÇÃO] Adicione um compromisso importante à agenda.
+- [AÇÃO] Planeje uma atividade simples para o fim de semana.
+- [AÇÃO] Escolha uma atividade gratuita para fazer juntos.
+- [AÇÃO] Passe 15 minutos sem televisão conversando.
+- [AÇÃO] Faça uma pergunta diferente durante o jantar.
+- [AÇÃO] Pergunte o que alguém aprendeu hoje.
+- [AÇÃO] Pergunte o que deixou alguém feliz hoje.
+- [AÇÃO] Pergunte o que deixou alguém frustrado.
+- [AÇÃO] Pergunte como você pode ajudar amanhã.
+- [AÇÃO] Comemore uma pequena vitória da família.
+- [AÇÃO] Faça uma gentileza sem contar que foi você.
+- [AÇÃO] Ajude alguém antes que peça.
+- [AÇÃO] Tire alguns minutos para brincar com seu filho.
+- [AÇÃO] Pergunte a alguém da casa como está se sentindo.
+- [AÇÃO] Diga algo positivo durante o jantar.
+- [AÇÃO] Faça uma foto espontânea em família.
+- [AÇÃO] Conte uma história da sua infância.
+- [AÇÃO] Pergunte aos filhos qual é o sonho deles.
+- [AÇÃO] Pergunte ao parceiro qual é um objetivo atual.
+- [AÇÃO] Escolha uma noite para ficarem sem celulares por 30 minutos.
+- [AÇÃO] Faça algo hoje que torne a vida da sua família um pouco mais fácil.
+- [AÇÃO] Termine o dia com uma palavra positiva para cada pessoa da casa.
+
+### Combos por interesse/hobby (0)
+
+- [AÇÃO] Convide alguém da sua família para jogar algo com você por 15 minutos — vale videogame, carta ou tabuleiro.
+- [AÇÃO] Prepare algo simples de comer que alguém da sua casa gosta bastante.
+
+### Combos por pessoa importante (0)
+
+- [AÇÃO] Convide {pessoa} para jogar algo com você por 15 minutos.
+- [AÇÃO] Registre uma pequena lembrança do dia com {pessoa}.
+- [AÇÃO] Prepare algo simples que {pessoa} gosta bastante.
+- [AÇÃO] Brinque com {pessoa} por 10 minutos sem celular.
+
+### Datas comemorativas (0)
+
+- [AÇÃO] Hoje é um dia especial. Faça algo que demonstre gratidão a {pessoa}.
+- [AÇÃO] Convide {pessoa} para brincar ou jogar algo simples hoje.
+
+### Expansão — Clima: calor (0)
+
+- [AÇÃO] Prepare uma bebida gelada pra compartilhar com quem estiver em casa.
+- [AÇÃO] Prepare uma fruta gelada pra compartilhar com a família no calor.
+- [AÇÃO] Escolha uma atividade tranquila dentro de casa pra fazer com a família hoje.
+- [DICA] Prepare uma salada de frutas gelada pra família num dia quente.
+- [AÇÃO] Reserve um horário mais fresco do dia pra sair com a família, se for sair.
+- [AÇÃO] Prepare uma limonada ou suco natural pra compartilhar em casa.
+- [AÇÃO] Escolha um jogo tranquilo pra jogar em ambiente fresco com a família.
+- [AÇÃO] Prepare um lanche leve e fresco pra compartilhar com a família.
+- [AÇÃO] Prepare uma sobremesa gelada simples pra fazer com uma criança da casa.
+- [AÇÃO] Escolha uma atividade leve e tranquila pra fazer com os filhos no calor.
+- [AÇÃO] Reserve o horário mais fresco do fim de tarde pra um momento em família.
+- [AÇÃO] Prepare água aromatizada com frutas pra deixar por perto da família.
+- [DICA] Termine o dia quente com a família num ambiente fresco, conversando com calma.
+
+### Expansão — Clima: chuva (0)
+
+- [AÇÃO] Organize um armário ou gaveta que você vem adiando, já que é dia de ficar em casa.
+- [DICA] Assista a um filme com a família enquanto chove lá fora.
+- [DICA] Prepare uma receita nova em casa aproveitando o dia chuvoso.
+- [AÇÃO] Conte histórias em família ao som da chuva.
+- [DICA] Organize fotos antigas da família num dia chuvoso.
+- [AÇÃO] Aproveite a chuva pra fazer uma faxina leve e organizar a casa.
+- [AÇÃO] Monte um quebra-cabeça com quem estiver em casa.
+- [AÇÃO] Cozinhe algo em família que exija mais tempo, já que ninguém vai sair.
+- [AÇÃO] Faça uma tarde de jogos com a família por causa da chuva.
+- [DICA] Prepare uma pipoca e assista algo em família num dia chuvoso.
+- [AÇÃO] Organize uma gaveta de papéis ou documentos importantes da casa.
+- [AÇÃO] Aproveite a chuva pra brincar dentro de casa com uma criança.
+- [AÇÃO] Faça uma limpeza organizada de um cômodo, aproveitando o dia em casa.
+- [AÇÃO] Prepare uma receita que a família toda gosta, já que estão todos em casa.
+- [AÇÃO] Organize as roupas de inverno ou de chuva da família.
+- [AÇÃO] Faça uma tarde de artesanato simples com quem estiver em casa.
+- [AÇÃO] Aproveite a chuva pra revisar e organizar o armário de remédios da casa.
+- [AÇÃO] Prepare um chocolate quente pra compartilhar com a família.
+- [DICA] Termine um dia de chuva com uma atividade tranquila e em conjunto com a família.
+- [AÇÃO] Reorganize a despensa ou a geladeira aproveitando o dia em casa.
+- [AÇÃO] Prepare uma refeição mais elaborada com a ajuda de alguém da família.
+- [AÇÃO] Use o tempo em casa pra consertar algo pequeno que estava pendente.
+- [AÇÃO] Faça uma tarde de música em família, cada um escolhendo uma canção.
+- [AÇÃO] Aproveite a chuva pra revisar as tarefas domésticas da semana com calma.
+- [AÇÃO] Prepare uma sobremesa simples com quem estiver em casa.
+- [DICA] Termine o dia de chuva com a família contando o que cada um mais gostou de fazer.
+
+### Expansão — Clima: sol (0)
+
+- [AÇÃO] Aproveite a luz do dia pra brincar ao ar livre com uma criança, com proteção.
+- [DICA] Aproveite o sol da manhã pra tomar café da manhã com a família na varanda.
+- [AÇÃO] Leve a família pra aproveitar um espaço aberto com sombra disponível.
+- [DICA] Aproveite o sol pra estender roupas ou arejar a casa com a ajuda da família.
+- [AÇÃO] Leve as crianças pra um passeio curto com protetor solar e água.
+- [AÇÃO] Aproveite a manhã ensolarada pra fazer um pequeno passeio de bicicleta em família.
+- [DICA] Aproveite o sol pra fazer uma atividade ao ar livre num horário mais ameno.
+- [AÇÃO] Leve a família pra uma área verde perto de casa, com proteção adequada.
+- [DICA] Aproveite o sol da manhã pra fazer uma caminhada leve com quem você ama.
+- [DICA] Termine um dia de sol com a família contando o que mais gostaram de fazer lá fora.
+
+### Expansão — Clima: tempestade (0)
+
+- [AÇÃO] Aproveite alguns minutos dentro de casa pra organizar uma área que passa despercebida.
+- [DICA] Reúna a família num ambiente confortável enquanto a tempestade passa.
+- [DICA] Conte histórias em família enquanto esperam a tempestade passar com segurança.
+- [AÇÃO] Organize uma gaveta ou armário enquanto fica em casa por segurança.
+- [DICA] Prepare uma atividade calma com as crianças enquanto chove forte lá fora.
+- [DICA] Confira se está tudo seguro em casa durante a tempestade.
+- [DICA] Prepare uma refeição reconfortante para todos enquanto a tempestade passa.
+- [DICA] Termine o dia de tempestade com a família em segurança e tranquilidade.
+
+### Expansão — Clima: tempo agradável (0)
+
+- [AÇÃO] Leve as crianças pra brincar ao ar livre enquanto o tempo ajuda.
+- [AÇÃO] Proponha uma tarde ao ar livre com quem mora com você.
+- [AÇÃO] Leve a família pra andar de bicicleta, se for seguro e possível.
+- [AÇÃO] Proponha uma pequena aventura ao ar livre com os filhos.
+- [AÇÃO] Leve alguém da família pra observar a natureza por alguns minutos.
+- [AÇÃO] Proponha uma caminhada em família até um lugar que todos gostem.
+- [AÇÃO] Leve a família pra conhecer um lugar novo perto de casa.
+- [AÇÃO] Proponha um jogo ao ar livre com a família, aproveitando o clima.
+- [AÇÃO] Leve as crianças pra uma pequena aventura no quintal ou na rua, com segurança.
+- [DICA] Termine o dia com uma caminhada em família, aproveitando o tempo bom.
+
+### Expansão — Datas comemorativas (0)
+
+- [AÇÃO] Reúna quem mora com você para uma refeição especial, mesmo simples.
+- [AÇÃO] Prepare algo diferente pra compartilhar com a família nesses dias.
+- [AÇÃO] Agradeça por um recomeço ou uma segunda chance que você teve.
+- [AÇÃO] Reconecte-se com alguém da família nesses dias de pausa.
+- [AÇÃO] Prepare uma sobremesa simples pra compartilhar com quem está por perto.
+- [AÇÃO] Aproveite esses dias de pausa pra descansar de verdade com a família.
+- [AÇÃO] Escreva sobre o que esperança significa pra você nesse momento da vida.
+- [AÇÃO] Ligue para {pessoa} e pergunte como ela está de verdade nesses dias.
+- [AÇÃO] Escreva pra {pessoa} um motivo específico do porquê você é grato(a) a ela.
+- [AÇÃO] Prepare ou envie algo simples que {pessoa} goste, mesmo sem grande ocasião.
+- [AÇÃO] Conte a {pessoa} uma lembrança feliz que você tem dela cuidando de você.
+- [AÇÃO] Pergunte a {pessoa} uma lembrança boa que ela tem de você quando criança.
+- [AÇÃO] Passe um tempo com {pessoa} hoje, mesmo que curto, só pra estar presente.
+- [AÇÃO] Envie uma mensagem contando a {pessoa} por que você tem orgulho de ser filho(a) dela.
+- [AÇÃO] Pergunte a {pessoa} como foi a experiência dela de cuidar de você.
+- [AÇÃO] Diga a {pessoa} uma coisa que você nunca teve a chance de agradecer antes.
+- [AÇÃO] Ligue para {pessoa} e pergunte como ele está de verdade nesses dias.
+- [AÇÃO] Escreva pra {pessoa} um motivo específico do porquê você é grato(a) a ele.
+- [AÇÃO] Pergunte a {pessoa} uma lembrança da juventude dele.
+- [AÇÃO] Diga a {pessoa} uma coisa que você aprendeu com ele.
+- [AÇÃO] Envie uma mensagem contando a {pessoa} por que você tem orgulho de ser filho(a) dele.
+- [AÇÃO] Pergunte a {pessoa} como foi a experiência dele de cuidar de você.
+- [AÇÃO] Pergunte a {pessoa} um conselho sobre algo que você está vivendo agora.
+- [AÇÃO] Dedique um tempo maior que o normal pra brincar com {pessoa} hoje.
+- [AÇÃO] Pergunte a {pessoa} qual é o sonho dela agora e leve a sério.
+- [AÇÃO] Deixe {pessoa} escolher toda a atividade de hoje, do início ao fim.
+- [AÇÃO] Prepare uma pequena surpresa simples pra {pessoa}.
+- [AÇÃO] Pergunte a {pessoa} o que a faria se sentir mais especial hoje.
+- [AÇÃO] Diga a {pessoa} o quanto ela é importante pra você.
+- [AÇÃO] Faça hoje uma atividade que {pessoa} sempre pede e você costuma adiar.
+- [AÇÃO] Dedique um tempo maior que o normal pra alguém jovem importante pra você.
+- [AÇÃO] Pergunte a alguém jovem qual é o sonho dela agora e leve a sério.
+- [AÇÃO] Deixe alguém escolher toda a atividade de hoje, do início ao fim.
+- [AÇÃO] Prepare uma pequena surpresa simples pra alguém que você ama.
+- [AÇÃO] Pergunte a alguém o que a faria se sentir mais especial hoje.
+- [AÇÃO] Diga a alguém o quanto ela é importante pra você.
+- [AÇÃO] Reúna quem mora com você para um momento especial, mesmo que simples.
+- [AÇÃO] Escreva uma mensagem de gratidão para as pessoas mais importantes da sua vida.
+- [AÇÃO] Prepare algo especial pra compartilhar com quem está por perto nesses dias.
+- [AÇÃO] Ligue para um familiar distante que você não vê há um tempo.
+- [AÇÃO] Agradeça por três coisas boas que você viveu esse ano.
+- [AÇÃO] Faça uma pequena gentileza para alguém que está sozinho nesses dias.
+- [AÇÃO] Reconecte-se com alguém importante antes que o ano termine.
+- [AÇÃO] Escreva uma carta de gratidão para alguém que fez diferença na sua vida esse ano.
+- [AÇÃO] Prepare um presente simples e afetivo pra alguém, sem precisar gastar muito.
+- [AÇÃO] Compartilhe uma boa lembrança do ano com a família.
+- [AÇÃO] Doe algo que você não usa mais para quem precisa nesses dias.
+- [AÇÃO] Convide alguém que passaria essa época sozinho pra estar com você, se possível.
+- [AÇÃO] Escreva sobre o que você quer levar desse ano pro próximo.
+- [AÇÃO] Agradeça diretamente a alguém que cuidou de você este ano.
+- [AÇÃO] Prepare uma refeição especial com a ajuda de quem estiver em casa.
+- [AÇÃO] Termine o dia agradecendo pela sua família, do jeito que ela for.
+
+### Expansão — Família (0)
+
+- [AÇÃO] Prepare o café da manhã para todo mundo em casa.
+- [AÇÃO] Deixe uma mensagem escrita na geladeira para quem mora com você.
+- [AÇÃO] Pergunte quem em casa dormiu mal e ofereça uma pausa.
+- [AÇÃO] Convide alguém da casa para tomar um café com você.
+- [AÇÃO] Faça um pequeno ritual de "boa noite" com quem mora com você.
+- [AÇÃO] Escolha uma foto de família para colocar em um lugar visível.
+- [AÇÃO] Pergunte a alguém da casa qual é a parte mais difícil da semana dela.
+- [AÇÃO] Ofereça-se para fazer a tarefa doméstica que ninguém gosta de fazer.
+- [AÇÃO] Pergunte se alguém precisa de silêncio ou de companhia agora.
+- [AÇÃO] Prepare a mesa antes de todo mundo chegar para comer.
+- [AÇÃO] Pergunte a alguém da casa o que faria o dia dela mais leve.
+- [AÇÃO] Conte uma tradição da sua família que você quer manter viva.
+- [AÇÃO] Pergunte a alguém da casa qual comida a lembra de infância.
+- [AÇÃO] Escolha um dia da semana para ser "sem tela" em família.
+- [AÇÃO] Pergunte o que alguém da casa está com saudade de fazer.
+- [AÇÃO] Escreva um bilhete de agradecimento para alguém da casa.
+- [AÇÃO] Prepare a bolsa ou mochila de alguém para o dia seguinte.
+- [AÇÃO] Pergunte a alguém da casa como você pode ajudá-la amanhã de manhã.
+- [AÇÃO] Faça uma pequena reforma de humor: coloque uma música que todos gostam.
+- [AÇÃO] Pergunte qual é o sonho de viagem de alguém da sua família.
+- [AÇÃO] Ligue para um parente que você não vê há meses.
+- [AÇÃO] Pergunte a um avô ou avó uma lembrança de quando ele era jovem.
+- [AÇÃO] Peça a um familiar mais velho para contar uma história antiga.
+- [AÇÃO] Envie uma mensagem para um tio ou tia que você quase não fala.
+- [AÇÃO] Pergunte a um irmão ou irmã como ele está de verdade.
+- [AÇÃO] Reserve 10 minutos para conversar com um irmão sem falar de logística.
+- [AÇÃO] Escreva uma lembrança boa que você tem de um primo ou prima.
+- [AÇÃO] Pergunte a um sobrinho o que ele está aprendendo na escola.
+- [AÇÃO] Envie uma mensagem de bom dia para um familiar que mora sozinho.
+- [AÇÃO] Pergunte a alguém da família mais velha um conselho sobre algo real.
+- [AÇÃO] Escolha uma pessoa da família para visitar quando for possível.
+- [AÇÃO] Marque uma ligação de vídeo com um parente distante.
+- [AÇÃO] Pergunte a um familiar como ele conheceu seu cônjuge ou parceiro.
+- [AÇÃO] Pergunte qual foi a decisão mais difícil que um familiar já tomou.
+- [AÇÃO] Anote uma coisa que você admira em um familiar e diga a ele.
+- [AÇÃO] Agradeça a um familiar por algo que ele fez há muito tempo.
+- [AÇÃO] Pergunte a um familiar o que ele gostaria que você soubesse.
+- [AÇÃO] Escolha uma foto antiga e mande para a pessoa que aparece nela.
+- [AÇÃO] Pergunte a alguém da família qual música lembra a infância dela.
+- [AÇÃO] Grave um áudio contando uma lembrança boa para um familiar.
+- [AÇÃO] Pergunte a um familiar sobre um lugar onde ele cresceu.
+- [AÇÃO] Pergunte a alguém mais velho da família como era a vida antes.
+- [AÇÃO] Escreva uma pergunta que você nunca fez a um familiar e faça hoje.
+- [AÇÃO] Convide a família para uma refeição simples neste fim de semana.
+- [AÇÃO] Planeje uma atividade gratuita para fazer com a família.
+- [AÇÃO] Escolha um jogo de tabuleiro ou de carta para jogar em família.
+- [AÇÃO] Reserve uma noite para cozinhar juntos, mesmo que seja simples.
+- [AÇÃO] Escolha um filme ou série para assistir junto com alguém da casa.
+- [AÇÃO] Faça uma caminhada curta com quem mora com você.
+- [AÇÃO] Organize um piquenique simples com a família.
+- [AÇÃO] Proponha uma manhã sem compromissos para ficar em casa com a família.
+- [AÇÃO] Escolha uma atividade que toda a família goste e proponha para o fim de semana.
+- [AÇÃO] Convide a família para uma roda de conversa depois do jantar.
+- [AÇÃO] Ajude a organizar um quarto ou espaço comum sem ser pedido.
+- [AÇÃO] Guarde as roupas de alguém da casa sem que peçam.
+- [AÇÃO] Troque a roupa de cama de alguém da casa como gentileza.
+- [AÇÃO] Prepare o almoço de amanhã hoje, se fizer sentido.
+- [AÇÃO] Organize a geladeira ou despensa em conjunto com a família.
+- [AÇÃO] Assuma uma tarefa doméstica extra hoje sem reclamar.
+- [AÇÃO] Verifique se algo importante da casa precisa de manutenção e avise.
+- [AÇÃO] Conserte algo pequeno que está incomodando a família há dias.
+- [AÇÃO] Organize os documentos importantes da família em um lugar seguro.
+- [AÇÃO] Confira se as contas da casa estão em dia e avise se não.
+- [AÇÃO] Planeje com a família um pequeno objetivo para o mês.
+- [AÇÃO] Pergunte à família o que está funcionando bem na rotina de casa.
+- [AÇÃO] Pergunte à família o que poderia ser diferente na rotina de casa.
+- [AÇÃO] Reveja com a família as tarefas domésticas e ajuste o que for injusto.
+- [AÇÃO] Escolha, em conjunto, uma regra de casa para revisar.
+- [AÇÃO] Combine com a família um horário sem celular durante uma refeição.
+- [AÇÃO] Elogie sinceramente algo que um familiar fez recentemente.
+- [AÇÃO] Diga em voz alta a alguém da casa que você percebeu o esforço que ela fez.
+- [AÇÃO] Diga a alguém da família por que você tem orgulho dela.
+- [AÇÃO] Comemore, mesmo que simples, uma conquista pequena de alguém da casa.
+- [AÇÃO] Diga "eu percebi o esforço que você fez" para alguém da família.
+- [AÇÃO] Diga a um familiar uma qualidade específica que você vê nele.
+- [AÇÃO] Escreva um bilhete dizendo o que você mais gosta em alguém da casa.
+- [AÇÃO] Diga a alguém da família algo que você nunca disse antes.
+- [AÇÃO] Agradeça a alguém da casa por algo que ela faz sem ser notada.
+- [AÇÃO] Ofereça ajuda a alguém da família antes que ela peça.
+- [AÇÃO] Perceba se alguém da casa está sobrecarregado e assuma algo por ela.
+- [AÇÃO] Prepare um chá ou bebida para alguém que está cansado.
+- [AÇÃO] Cubra uma tarefa de alguém da casa hoje, se possível.
+- [AÇÃO] Ofereça-se para cuidar de algo enquanto alguém da família descansa.
+- [AÇÃO] Dê um tempo livre a alguém da casa hoje, mesmo que curto.
+- [AÇÃO] Ajude alguém da família com algo que ela vem adiando.
+- [AÇÃO] Pergunte a alguém da casa se ela precisa de um dia mais leve.
+- [AÇÃO] Faça companhia a alguém da família que está em um momento difícil.
+- [AÇÃO] Ofereça escuta, sem julgamento, para alguém da família hoje.
+- [AÇÃO] Guarde o celular durante uma refeição inteira em família.
+- [AÇÃO] Faça uma pergunta diferente durante o jantar hoje.
+- [AÇÃO] Proponha que cada um conte uma coisa boa do dia à mesa.
+- [AÇÃO] Proponha que cada um conte um desafio do dia à mesa.
+- [AÇÃO] Combine com a família uma pergunta fixa para o jantar de hoje.
+- [AÇÃO] Escute uma história de alguém da casa até o fim, sem interromper.
+- [AÇÃO] Deixe alguém da família terminar de falar antes de responder.
+- [DICA] Evite corrigir alguém da família em público hoje.
+- [AÇÃO] Peça desculpas a um familiar se existir algo pendente entre vocês.
+- [AÇÃO] Resolva com respeito uma pequena mágoa dentro de casa.
+- [AÇÃO] Escute o ponto de vista de um familiar mesmo discordando.
+- [DICA] Evite uma discussão desnecessária com alguém da família hoje.
+- [AÇÃO] Troque uma reclamação por um pedido claro com alguém da casa.
+- [AÇÃO] Diga "eu entendo" antes de dar sua opinião para um familiar.
+- [AÇÃO] Pergunte "você quer conselho ou só quer que eu escute?" a um familiar.
+- [AÇÃO] Confirme um compromisso importante da família para os próximos dias.
+- [AÇÃO] Adicione à agenda um evento familiar que ainda não está marcado.
+- [AÇÃO] Planeje com antecedência algo que a família precisa organizar.
+- [AÇÃO] Verifique se algum documento da família está perto de vencer.
+- [AÇÃO] Organize uma pasta com informações importantes da família.
+- [AÇÃO] Prepare com antecedência algo que vai facilitar a semana da família.
+- [AÇÃO] Combine com a família os planos para o próximo feriado.
+- [AÇÃO] Reserve um horário fixo na semana só para a família.
+- [AÇÃO] Proponha um pequeno ritual semanal para a família.
+- [AÇÃO] Escolha um dia do mês para uma atividade especial em família.
+- [AÇÃO] Guarde um bom momento de hoje em um diário ou álbum da família.
+- [AÇÃO] Fotografe um momento simples e espontâneo da família hoje.
+- [AÇÃO] Grave um vídeo curto de um momento bom em família.
+- [AÇÃO] Comece uma pequena coleção de memórias da família, mesmo que informal.
+- [AÇÃO] Escreva uma carta para ser lida por um familiar no futuro.
+- [AÇÃO] Peça a um familiar para escrever algo que você possa guardar.
+- [AÇÃO] Pergunte a alguém da família o que ela gostaria de ser lembrada por fazer.
+- [AÇÃO] Reveja fotos antigas com alguém da família e conte as histórias.
+- [AÇÃO] Pergunte a alguém da casa qual é a lembrança mais feliz que ela tem.
+- [AÇÃO] Compartilhe com a família uma lembrança que você valoriza muito.
+- [AÇÃO] Pergunte a um familiar sobre um momento em que ele se sentiu orgulhoso.
+- [AÇÃO] Conte para a família uma coisa boa que aconteceu com você hoje.
+- [AÇÃO] Pergunte a um familiar sobre algo que ele gostaria de aprender.
+- [AÇÃO] Ofereça-se para ensinar algo simples a um familiar.
+- [AÇÃO] Aprenda algo novo com um familiar mais experiente.
+- [AÇÃO] Descubra uma habilidade escondida de alguém da sua família.
+- [AÇÃO] Pergunte a um familiar sobre um hobby que ele tem ou tinha.
+- [AÇÃO] Convide um familiar para fazer algo que ele gosta com você.
+- [AÇÃO] Apoie um familiar em um objetivo que ele está tentando alcançar.
+- [AÇÃO] Pergunte a um familiar como está indo um projeto pessoal dele.
+- [AÇÃO] Incentive um familiar que está enfrentando um momento difícil.
+- [AÇÃO] Diga a um familiar que você acredita na capacidade dele.
+- [AÇÃO] Ofereça-se para acompanhar um familiar em algo importante.
+- [AÇÃO] Pergunte a um familiar se ele precisa de ajuda com alguma decisão.
+- [AÇÃO] Compartilhe com um familiar uma preocupação sua, se fizer sentido.
+- [AÇÃO] Peça um conselho sincero a um familiar em quem você confia.
+- [AÇÃO] Divida com a família uma boa notícia assim que possível.
+- [AÇÃO] Convide a família para comemorar uma pequena vitória sua.
+- [AÇÃO] Diga à família como o apoio dela fez diferença para você.
+- [AÇÃO] Agradeça à sua família por algo que ela representa na sua vida.
+- [AÇÃO] Escreva uma frase que resuma o que sua família significa para você.
+- [AÇÃO] Faça hoje uma coisa simples que facilite a vida de toda a casa.
+- [AÇÃO] Termine o dia perguntando a cada pessoa da casa como ela está.
+
+### Expansão — Filhos (0)
+
+- [AÇÃO] Passe 10 minutos brincando com {pessoa} sem pegar no celular.
+- [AÇÃO] Pergunte a {pessoa} o que foi a melhor parte do dia dela.
+- [AÇÃO] Deixe {pessoa} escolher a brincadeira de hoje.
+- [AÇÃO] Ensine algo simples e novo para {pessoa}.
+- [AÇÃO] Peça para {pessoa} te ensinar algo que ela sabe fazer.
+- [AÇÃO] Leia uma história com {pessoa} antes de dormir.
+- [AÇÃO] Desenhe ou pinte algo simples junto com {pessoa}.
+- [AÇÃO] Pergunte a {pessoa} sobre o brinquedo ou jogo favorito dela agora.
+- [AÇÃO] Elogie algo específico que {pessoa} fez hoje.
+- [AÇÃO] Diga a {pessoa} uma coisa que você admira nela.
+- [AÇÃO] Faça uma pergunta boba e divertida para {pessoa} responder.
+- [AÇÃO] Dance uma música com {pessoa}.
+- [AÇÃO] Ajude {pessoa} com o dever de casa, se ela precisar.
+- [AÇÃO] Pergunte a {pessoa} o que ela está aprendendo na escola essa semana.
+- [AÇÃO] Prepare um lanche simples junto com {pessoa}.
+- [AÇÃO] Deixe {pessoa} ajudar você em uma tarefa simples da casa.
+- [AÇÃO] Conte para {pessoa} uma história da sua própria infância.
+- [AÇÃO] Pergunte a {pessoa} qual é o sonho dela para quando crescer.
+- [AÇÃO] Faça uma caminhada curta com {pessoa}.
+- [AÇÃO] Brinque de faz de conta com {pessoa} por alguns minutos.
+- [AÇÃO] Monte um quebra-cabeça ou jogo de tabuleiro com {pessoa}.
+- [AÇÃO] Pergunte a {pessoa} o que a deixou feliz hoje.
+- [AÇÃO] Pergunte a {pessoa} o que a deixou triste ou brava hoje.
+- [AÇÃO] Escute {pessoa} contar uma história sem interromper.
+- [AÇÃO] Tire uma foto espontânea com {pessoa} hoje.
+- [AÇÃO] Deixe {pessoa} escolher a música para ouvirem juntos.
+- [AÇÃO] Faça uma pequena surpresa simples para {pessoa}.
+- [AÇÃO] Pergunte a {pessoa} sobre um amigo importante da vida dela.
+- [AÇÃO] Dê atenção total a {pessoa} por 10 minutos, sem distrações.
+- [AÇÃO] Diga "eu te amo" para {pessoa} hoje, se ainda não disse.
+- [AÇÃO] Abrace {pessoa}, se ela topar.
+- [AÇÃO] Pergunte a {pessoa} o que ela gostaria de fazer no fim de semana.
+- [AÇÃO] Deixe {pessoa} contar uma piada ou uma história engraçada.
+- [AÇÃO] Pergunte a {pessoa} qual foi a coisa mais legal que ela viu hoje.
+- [AÇÃO] Ajude {pessoa} a organizar o quarto ou a mochila dela.
+- [AÇÃO] Cozinhe algo simples com a ajuda de {pessoa}.
+- [AÇÃO] Pergunte a {pessoa} sobre um desafio que ela está enfrentando.
+- [AÇÃO] Pergunte a {pessoa} o que ela precisa de você agora.
+- [AÇÃO] Faça um pequeno jogo de perguntas e respostas com {pessoa}.
+- [AÇÃO] Convide {pessoa} para uma atividade ao ar livre, se o tempo ajudar.
+- [AÇÃO] Escreva um bilhete carinhoso para {pessoa} encontrar depois.
+- [AÇÃO] Pergunte a {pessoa} sobre um professor ou amigo que ela gosta.
+- [AÇÃO] Deixe {pessoa} escolher o que vão fazer juntos por 15 minutos.
+- [AÇÃO] Pergunte a {pessoa} algo sobre o que ela está curiosa.
+- [AÇÃO] Comemore com {pessoa} uma pequena conquista dela.
+- [AÇÃO] Peça desculpas a {pessoa} se ficou impaciente com ela recentemente.
+- [AÇÃO] Pergunte a {pessoa} como foi a última vez que ela se sentiu orgulhosa.
+- [AÇÃO] Prepare o ambiente para {pessoa} dormir mais tranquila hoje.
+- [AÇÃO] Termine o dia dizendo a {pessoa} algo positivo sobre ela.
+- [AÇÃO] Passe 10 minutos com alguém importante pra você sem pegar no celular.
+- [AÇÃO] Pergunte a alguém jovem da sua vida o que foi a melhor parte do dia dela.
+- [AÇÃO] Deixe outra pessoa escolher a atividade de hoje.
+- [AÇÃO] Ensine algo simples e novo para alguém.
+- [AÇÃO] Peça para alguém te ensinar algo que ela sabe fazer.
+- [AÇÃO] Leia algumas páginas de um livro com alguém antes de dormir.
+- [AÇÃO] Desenhe ou faça algo criativo junto com alguém que você gosta.
+- [AÇÃO] Pergunte a alguém sobre o que a diverte agora.
+- [AÇÃO] Elogie algo específico que alguém fez hoje.
+- [AÇÃO] Diga a alguém uma coisa que você admira nela.
+- [AÇÃO] Faça uma pergunta boba e divertida para alguém responder.
+- [AÇÃO] Dance uma música com alguém.
+- [AÇÃO] Ajude alguém com uma tarefa que ela precisa fazer.
+- [AÇÃO] Pergunte a alguém o que ela está aprendendo essa semana.
+- [AÇÃO] Prepare um lanche simples para compartilhar com alguém.
+- [AÇÃO] Deixe alguém ajudar você em uma tarefa simples.
+- [AÇÃO] Conte para alguém uma história da sua própria infância.
+- [AÇÃO] Pergunte a alguém qual é um sonho dela para o futuro.
+- [AÇÃO] Faça uma caminhada curta com alguém.
+- [AÇÃO] Brinque ou jogue algo leve com alguém por alguns minutos.
+- [AÇÃO] Monte um quebra-cabeça ou jogo com alguém.
+- [AÇÃO] Pergunte a alguém o que a deixou feliz hoje.
+- [AÇÃO] Pergunte a alguém o que a deixou triste ou incomodada hoje.
+- [AÇÃO] Escute alguém contar uma história sem interromper.
+- [AÇÃO] Tire uma foto espontânea com alguém importante hoje.
+- [AÇÃO] Deixe alguém escolher a música para ouvirem juntos.
+- [AÇÃO] Faça uma pequena surpresa simples para alguém.
+- [AÇÃO] Pergunte a alguém sobre um amigo importante da vida dela.
+- [AÇÃO] Dê atenção total a alguém por 10 minutos, sem distrações.
+- [AÇÃO] Diga a alguém que você gosta dela, se ainda não disse hoje.
+- [AÇÃO] Ofereça um abraço a alguém, se fizer sentido.
+- [AÇÃO] Pergunte a alguém o que gostaria de fazer no fim de semana.
+- [AÇÃO] Deixe alguém contar uma piada ou uma história engraçada.
+- [AÇÃO] Pergunte a alguém qual foi a coisa mais legal que ela viu hoje.
+- [AÇÃO] Ajude alguém a organizar um espaço ou uma tarefa pendente.
+- [AÇÃO] Cozinhe algo simples com a ajuda de alguém.
+- [AÇÃO] Pergunte a alguém sobre um desafio que ela está enfrentando.
+- [AÇÃO] Pergunte a alguém o que ela precisa de você agora.
+- [AÇÃO] Faça um pequeno jogo de perguntas e respostas com alguém.
+- [AÇÃO] Convide alguém para uma atividade ao ar livre, se o tempo ajudar.
+- [AÇÃO] Escreva um bilhete carinhoso para alguém encontrar depois.
+- [AÇÃO] Pergunte a alguém sobre uma pessoa que ela admira.
+- [AÇÃO] Deixe alguém escolher o que vão fazer juntos por 15 minutos.
+- [AÇÃO] Pergunte a alguém algo sobre o que ela está curiosa.
+- [AÇÃO] Comemore com alguém uma pequena conquista dela.
+- [AÇÃO] Peça desculpas a alguém se ficou impaciente recentemente.
+- [AÇÃO] Pergunte a alguém como foi a última vez que ela se sentiu orgulhosa.
+- [AÇÃO] Prepare algo simples para o dia de alguém ficar mais tranquilo.
+- [AÇÃO] Termine o dia dizendo a alguém algo positivo sobre ela.
+
+## Trabalho e produtividade (98)
+
+### Base oficial (86)
+
+- [AÇÃO] Escolha a tarefa mais importante de hoje.
+- [AÇÃO] Trabalhe 10 minutos sem redes sociais.
+- [AÇÃO] Responda uma mensagem de trabalho pendente.
+- [AÇÃO] Resolva uma tarefa que leva menos de 2 minutos.
+- [AÇÃO] Organize sua área de trabalho.
+- [AÇÃO] Feche cinco abas desnecessárias.
+- [AÇÃO] Escreva as três prioridades do dia.
+- [AÇÃO] Escolha uma tarefa que pode ser delegada.
+- [AÇÃO] Anote uma ideia antes que esqueça.
+- [AÇÃO] Conclua uma pequena tarefa antes de abrir redes sociais.
+- [AÇÃO] Separe 10 minutos para uma tarefa adiada.
+- [AÇÃO] Revise sua agenda.
+- [AÇÃO] Verifique o que precisa ser entregue amanhã.
+- [AÇÃO] Separe os arquivos necessários para a próxima tarefa.
+- [AÇÃO] Renomeie um arquivo importante.
+- [AÇÃO] Organize uma pasta bagunçada.
+- [AÇÃO] Exclua cinco arquivos desnecessários.
+- [AÇÃO] Responda primeiro uma mensagem realmente urgente.
+- [AÇÃO] Marque uma tarefa já concluída.
+- [AÇÃO] Verifique se uma reunião ainda é necessária.
+- [AÇÃO] Confirme um compromisso importante.
+- [AÇÃO] Anote o próximo passo de um projeto parado.
+- [AÇÃO] Divida uma tarefa grande em três passos.
+- [AÇÃO] Comece o primeiro passo de uma tarefa difícil.
+- [AÇÃO] Faça 15 minutos de trabalho concentrado.
+- [AÇÃO] Coloque o celular fora do alcance.
+- [AÇÃO] Ative o modo não perturbe por 20 minutos.
+- [AÇÃO] Limpe sua caixa de entrada por 5 minutos.
+- [AÇÃO] Arquive mensagens que não exigem ação.
+- [AÇÃO] Responda uma mensagem com uma decisão clara.
+- [AÇÃO] Defina horário para verificar mensagens novamente.
+- [AÇÃO] Prepare a lista de amanhã.
+- [AÇÃO] Anote algo que aprendeu hoje.
+- [AÇÃO] Registre um problema recorrente.
+- [AÇÃO] Pergunte a um colega como melhorar uma tarefa.
+- [AÇÃO] Agradeça alguém que ajudou você.
+- [AÇÃO] Compartilhe uma informação útil com a equipe.
+- [AÇÃO] Documente uma solução que encontrou.
+- [AÇÃO] Crie um checklist para uma tarefa repetitiva.
+- [AÇÃO] Elimine uma etapa desnecessária de um processo.
+- [AÇÃO] Organize sua mesa antes de começar.
+- [AÇÃO] Limpe a área de trabalho do computador.
+- [AÇÃO] Faça backup de um arquivo importante.
+- [AÇÃO] Verifique um prazo próximo.
+- [AÇÃO] Separe os materiais para a próxima atividade.
+- [AÇÃO] Defina um horário para terminar o trabalho.
+- [AÇÃO] Faça uma pausa curta depois de concluir uma tarefa.
+- [AÇÃO] Volte para uma tarefa antes de abrir entretenimento.
+- [AÇÃO] Trabalhe em uma única tarefa durante 10 minutos.
+- [AÇÃO] Escreva o que está bloqueando uma tarefa.
+- [AÇÃO] Peça ajuda sobre um bloqueio real.
+- [AÇÃO] Tome uma decisão pequena que está adiando.
+- [AÇÃO] Escolha entre duas opções e avance.
+- [AÇÃO] Resolva uma pendência administrativa curta.
+- [AÇÃO] Agende uma tarefa importante.
+- [AÇÃO] Coloque um lembrete para uma obrigação.
+- [AÇÃO] Revise uma tarefa antes de enviá-la.
+- [AÇÃO] Corrija um pequeno erro que você já percebeu.
+- [AÇÃO] Faça primeiro a parte mais simples de uma tarefa difícil.
+- [AÇÃO] Defina o resultado esperado antes de começar.
+- [AÇÃO] Separe cinco minutos para planejar uma reunião.
+- [AÇÃO] Escreva três pontos antes de uma conversa importante.
+- [AÇÃO] Prepare uma pergunta para uma reunião.
+- [AÇÃO] Anote decisões tomadas em uma reunião.
+- [AÇÃO] Envie um resumo depois de uma reunião importante.
+- [AÇÃO] Organize os próximos passos de um projeto.
+- [AÇÃO] Dê retorno para alguém esperando sua resposta.
+- [AÇÃO] Revise uma meta profissional.
+- [AÇÃO] Escolha uma habilidade profissional para desenvolver.
+- [AÇÃO] Dedique 10 minutos a essa habilidade.
+- [AÇÃO] Pesquise uma solução para um problema recorrente.
+- [AÇÃO] Teste uma pequena melhoria no seu trabalho.
+- [AÇÃO] Pare uma tarefa quando o objetivo estiver alcançado.
+- [AÇÃO] Defina o próximo passo antes de encerrar uma tarefa.
+- [AÇÃO] Faça uma coisa que está procrastinando há dias.
+- [AÇÃO] Elimine uma notificação desnecessária.
+- [AÇÃO] Cancele um e-mail promocional que não lê.
+- [AÇÃO] Limpe cinco itens da sua lista de tarefas.
+- [AÇÃO] Separe uma tarefa para amanhã.
+- [AÇÃO] Anote algo que funcionou bem hoje.
+- [AÇÃO] Anote algo que poderia melhorar amanhã.
+- [AÇÃO] Termine o expediente deixando sua mesa organizada.
+- [AÇÃO] Prepare o ambiente para amanhã.
+- [AÇÃO] Escolha uma tarefa para fazer primeiro amanhã.
+- [AÇÃO] Defina uma pequena vitória para amanhã.
+- [AÇÃO] Pergunte "qual é o próximo passo?" antes de parar.
+- [AÇÃO] Dedique 10 minutos à tarefa mais valiosa do dia.
+- [AÇÃO] Finalize uma pendência de menos de cinco minutos.
+- [AÇÃO] Comece uma tarefa sem esperar motivação.
+- [AÇÃO] Termine uma tarefa antes de abrir outra.
+- [AÇÃO] Remova uma distração do ambiente.
+- [AÇÃO] Organize uma informação que está espalhada.
+- [AÇÃO] Anote uma ideia de melhoria para sua empresa.
+- [AÇÃO] Faça uma pergunta que pode economizar tempo.
+- [AÇÃO] Agradeça um colega pelo trabalho realizado.
+- [AÇÃO] Dê um feedback positivo sincero.
+- [AÇÃO] Faça hoje uma tarefa que facilitará seu trabalho amanhã.
+- [AÇÃO] Termine o dia sabendo qual será sua primeira tarefa amanhã.
+
+## Saúde e energia (196)
+
+### Base oficial (86)
+
+- [AÇÃO] Se você ainda não se hidratou hoje, beba água agora e deixe uma garrafa ao alcance para facilitar que você continue se hidratando ao longo do dia.
+- [AÇÃO] Levante-se e caminhe por 3 minutos.
+- [AÇÃO] Afaste o celular por 5 minutos enquanto realiza uma atividade que merece sua atenção. A ideia é interromper o hábito de checar a tela sem perceber.
+- [AÇÃO] Se a ligação permitir, aproveite parte dela para ficar em pé e mudar de posição. Use isso como uma pausa do tempo prolongado sentado.
+- [AÇÃO] Se você está há muito tempo diante de uma tela, pare por 2 minutos e desvie o olhar para uma distância confortável. Aproveite a pausa para relaxar os olhos antes de voltar ao trabalho.
+- [AÇÃO] Tome água antes da próxima refeição.
+- [AÇÃO] Deixe uma garrafa de água no local onde você passa mais tempo hoje. Tornar a água fácil de alcançar reduz a chance de esquecer de beber.
+- [AÇÃO] Na próxima vez que você escolher uma bebida, compare as opções e, se fizer sentido para você, escolha água em vez de uma bebida açucarada.
+- [AÇÃO] Prepare uma fruta para o próximo lanche.
+- [AÇÃO] Adicione um vegetal à próxima refeição.
+- [AÇÃO] Adicione uma fonte de proteína à próxima refeição.
+- [AÇÃO] Faça a próxima refeição sem vídeos ou redes sociais. Use esse momento para perceber melhor o sabor, o ritmo da refeição e os sinais de fome e saciedade.
+- [AÇÃO] Na próxima refeição, diminua conscientemente o ritmo e faça pequenas pausas entre as garfadas. A ideia é dar tempo para perceber melhor fome e saciedade.
+- [AÇÃO] Use um prato em vez de comer diretamente da embalagem.
+- [AÇÃO] Faça uma caminhada curta depois de uma refeição.
+- [AÇÃO] Se você passou muito tempo parado hoje, faça 2 minutos de movimentos leves para as articulações antes do banho. O objetivo é interromper o tempo prolongado na mesma posição.
+- [AÇÃO] Ao acordar, faça 2 minutos de movimentos leves para acordar o corpo e perceber como ele está antes de começar as atividades do dia.
+- [AÇÃO] Antes de dormir, faça 2 minutos de alongamentos leves apenas até onde for confortável. Use esse momento para desacelerar e preparar a transição para o descanso.
+- [AÇÃO] Se você passou muito tempo sentado, faça por 2 minutos movimentos leves e confortáveis para quadris e pernas antes de voltar à rotina.
+- [AÇÃO] Se ficou muito tempo na mesma posição, faça por 2 minutos movimentos suaves de mobilidade da coluna, sem forçar, antes de continuar o dia.
+- [AÇÃO] Se passou muito tempo digitando ou usando o celular, faça 2 minutos de movimentos leves dos punhos e mãos para interromper a repetição e perceber qualquer tensão.
+- [AÇÃO] Se passou muito tempo sentado, faça 2 minutos de movimentos leves dos tornozelos e pernas para interromper o tempo prolongado na mesma posição.
+- [AÇÃO] Dance uma música inteira.
+- [AÇÃO] Faça 5 minutos de uma atividade física que você gosta.
+- [AÇÃO] Coloque uma roupa confortável para se movimentar.
+- [AÇÃO] Aproveite alguns minutos de luz natural pela manhã.
+- [AÇÃO] Faça uma pausa de movimento entre duas tarefas.
+- [AÇÃO] Ao terminar uma tarefa curta, use a transição como lembrete para levantar, mudar de posição e voltar ao trabalho apenas depois dessa pequena pausa.
+- [AÇÃO] Caminhe enquanto espera algo carregar.
+- [AÇÃO] Use escadas se for seguro e possível.
+- [AÇÃO] Se for seguro e viável, faça uma caminhada curta ao ar livre com um propósito: sair do ambiente em que você está, movimentar o corpo e voltar com a atenção renovada.
+- [AÇÃO] Antes de começar uma tarefa que costuma gerar estresse, faça uma pausa de 1 a 2 minutos e respire lentamente. Use esse momento para entrar na tarefa com mais calma e intenção.
+- [AÇÃO] Faça movimentos suaves de braços acima da cabeça.
+- [AÇÃO] Faça uma pausa visual durante o trabalho.
+- [AÇÃO] Reduza a luminosidade da tela à noite.
+- [AÇÃO] Deixe o celular longe da cama.
+- [AÇÃO] Prepare o ambiente para dormir 15 minutos mais cedo.
+- [AÇÃO] Evite uma tela nos últimos 10 minutos antes de dormir.
+- [AÇÃO] Faça cinco respirações lentas antes de deitar.
+- [AÇÃO] Organize o quarto para ficar mais confortável.
+- [AÇÃO] Ventile o quarto por alguns minutos.
+- [AÇÃO] Prepare sua garrafa de água para amanhã.
+- [AÇÃO] Deixe uma fruta visível.
+- [AÇÃO] Deixe uma opção saudável pronta.
+- [AÇÃO] Retire um alimento que está sobrando e organize para consumo.
+- [AÇÃO] Faça uma refeição sentado.
+- [AÇÃO] Evite comer diretamente em frente ao computador.
+- [AÇÃO] Faça uma pausa de 3 minutos depois de muito tempo sentado.
+- [AÇÃO] Faça 10 agachamentos enquanto espera algo, se for seguro.
+- [AÇÃO] Se estiver se sentindo bem, faça 15 agachamentos enquanto espera algo.
+- [AÇÃO] Se estiver se sentindo bem, faça 20 agachamentos enquanto espera algo.
+- [AÇÃO] Caminhe durante uma ligação curta.
+- [AÇÃO] Faça movimentos suaves de rotação do tronco.
+- [AÇÃO] Antes de responder uma mensagem que irritou você, afaste-se por alguns segundos e respire lentamente. Só responda depois de decidir conscientemente o que realmente precisa ser dito.
+- [AÇÃO] Beba água antes de abrir uma rede social.
+- [AÇÃO] Faça uma pequena caminhada antes de assistir televisão.
+- [AÇÃO] Faça uma atividade física curta que você realmente goste.
+- [AÇÃO] Prepare o que precisa para se exercitar amanhã.
+- [AÇÃO] Coloque um lembrete para uma pausa de movimento.
+- [AÇÃO] Fique em pé por 3 minutos durante o próximo intervalo.
+- [AÇÃO] Afaste o olhar da tela por 2 minutos e olhe para uma distância confortável.
+- [AÇÃO] Pare por alguns segundos e perceba se está mantendo os ombros contraídos. Relaxe-os conscientemente e ajuste sua postura se necessário.
+- [AÇÃO] Se você está trabalhando sentado, faça uma pausa para ajustar a cadeira, apoiar os pés e encontrar uma posição confortável antes de continuar.
+- [AÇÃO] Durante o trabalho sentado, ajuste sua posição para que os pés fiquem apoiados de forma confortável. Use a mudança como um lembrete para sair do piloto automático.
+- [AÇÃO] Se você ficou muito tempo parado, faça alguns minutos de movimentos leves antes de voltar à tarefa. O objetivo é interromper o período prolongado na mesma posição.
+- [AÇÃO] Na próxima refeição, escolha uma bebida sem açúcar.
+- [AÇÃO] Prepare água para levar quando sair.
+- [AÇÃO] Faça a próxima refeição sem celular.
+- [AÇÃO] Antes de repetir a comida, faça uma pausa curta e pergunte a si mesmo se ainda está com fome ou se está apenas seguindo o impulso de continuar.
+- [AÇÃO] Escolha uma opção menos processada na próxima refeição.
+- [AÇÃO] Antes de dormir, reserve 3 minutos para uma respiração lenta e consciente. Deixe o celular de lado e use a respiração como sinal de transição entre as atividades do dia e o descanso.
+- [AÇÃO] Prepare seu ambiente para uma noite mais tranquila.
+- [AÇÃO] Faça hoje uma atividade leve que ajude você a descansar ou recuperar energia.
+- [AÇÃO] Escolha um movimento que você goste e faça por 5 minutos.
+- [AÇÃO] Termine o dia preparando seu corpo para descansar.
+
+### Combos por interesse/hobby (0)
+
+- [AÇÃO] Escolha uma música que costuma melhorar seu humor e escute-a inteira sem mexer no celular. Use esses minutos para estar presente em vez de consumir várias coisas ao mesmo tempo.
+- [AÇÃO] Faça 10 minutos de atividade física ligada ao esporte que você gosta — chutar bola, arremessar, o que fizer sentido.
+- [AÇÃO] Observe algo interessante na natureza que normalmente passaria despercebido e registre uma foto. Depois, pare alguns segundos para perceber por que aquilo chamou sua atenção.
+
+### Expansão — Atividades outdoor (0)
+
+- [AÇÃO] Faça uma caminhada ao ar livre por pelo menos 15 minutos.
+- [AÇÃO] Aproveite o dia livre pra fazer uma atividade física leve ao ar livre.
+- [AÇÃO] Faça um alongamento completo num espaço aberto.
+- [AÇÃO] Faça uma caminhada num parque ou praça perto de você.
+- [AÇÃO] Faça uma pausa ao ar livre entre duas tarefas do seu dia.
+- [AÇÃO] Faça uma caminhada rápida antes de começar o expediente, se for possível.
+- [AÇÃO] Faça uma trilha curta e leve, se houver uma opção segura perto de você.
+- [AÇÃO] Faça uma sessão de alongamento na varanda, no quintal ou numa praça.
+- [DICA] Se o tempo estiver agradável aí, aproveite o ar livre pra fazer uma pausa de respiração consciente.
+- [AÇÃO] Faça um pequeno percurso a pé como parte da sua rotina hoje.
+- [AÇÃO] Faça uma caminhada leve depois de uma refeição, se for seguro.
+- [AÇÃO] Faça um momento de exercício leve ao ar livre, dentro do seu ritmo.
+- [AÇÃO] Termine o dia com uma caminhada curta ao ar livre.
+
+### Expansão — Clima: calor (0)
+
+- [DICA] Como o calor aumenta a necessidade de atenção à hidratação, deixe água ao seu alcance e beba regularmente ao longo do dia, especialmente antes de atividades ao ar livre.
+- [AÇÃO] Prepare uma garrafa de água gelada pra manter por perto o dia todo.
+- [AÇÃO] Escolha um ambiente mais fresco da casa pra descansar um pouco.
+- [AÇÃO] Faça uma pausa na sombra ou num ambiente fresco antes de continuar o dia.
+- [DICA] Prepare uma fruta gelada como lanche num dia quente.
+- [DICA] Evite esforço físico intenso agora — prefira algo leve e tranquilo.
+- [AÇÃO] Molhe o rosto ou a nuca com água fresca pra se refrescar.
+- [AÇÃO] Use uma roupa leve e confortável pra aguentar melhor o calor.
+- [AÇÃO] Reserve as tarefas mais pesadas pra um horário mais fresco do dia.
+- [AÇÃO] Faça uma pausa mais longa à sombra se estiver precisando sair.
+- [AÇÃO] Em dias muito quentes, não espere ficar muito sedento para lembrar da água. Mantenha uma garrafa por perto e faça pausas regulares para se hidratar.
+- [AÇÃO] Prepare uma salada refrescante pra uma das refeições de hoje.
+- [DICA] Evite ficar exposto ao sol forte no horário de pico do calor.
+- [AÇÃO] Faça alongamentos leves num ambiente fresco em vez de exercício intenso.
+- [AÇÃO] Prepare gelo ou uma compressa fria se estiver sentindo muito calor.
+- [AÇÃO] Reduza o ritmo das suas tarefas físicas nas horas mais quentes.
+- [AÇÃO] Beba água com mais frequência ao longo do dia hoje.
+- [AÇÃO] Descanse num ambiente fresco por alguns minutos antes de continuar.
+- [AÇÃO] Prepare um suco natural gelado como alternativa a bebidas açucaradas.
+- [AÇÃO] Use um leque, ventilador ou ambiente com sombra pra se refrescar.
+- [AÇÃO] Faça uma pausa pra se hidratar antes de qualquer atividade física leve.
+- [DICA] Evite alimentos muito pesados numa refeição em dia de calor extremo.
+- [AÇÃO] Descanse mais um pouco hoje — o calor cansa mais do que parece.
+
+### Expansão — Clima: chuva (0)
+
+- [DICA] Se estiver chovendo, use o som da chuva como fundo para 5 minutos de atenção plena. Sente-se confortavelmente, deixe o celular de lado e volte sua atenção para os sons sempre que sua mente se distrair.
+- [DICA] Faça um alongamento completo dentro de casa enquanto chove lá fora.
+- [DICA] Faça uma sequência de movimentos leves na sala, já que está chovendo.
+- [AÇÃO] Faça 10 minutos de alongamento ouvindo o barulho da chuva.
+- [DICA] Tome um banho mais demorado e relaxante num dia chuvoso.
+- [DICA] Prepare uma sopa ou algo quente para uma refeição de dia chuvoso.
+- [DICA] Use o dia chuvoso para fazer alongamentos que você vem adiando.
+- [DICA] Faça uma caminhada curta dentro de casa enquanto espera a chuva passar.
+- [DICA] Se estiver chovendo aí, prepare um chá e aproveite para relaxar por alguns minutos.
+- [AÇÃO] Use a chuva como sinal para desacelerar o ritmo do seu dia.
+- [AÇÃO] Faça um automassagem nos ombros enquanto ouve a chuva.
+- [AÇÃO] Faça exercícios de respiração ao som da chuva antes de dormir.
+- [AÇÃO] Prepare uma refeição quentinha e aproveite sem pressa por causa da chuva.
+- [DICA] Se estiver chovendo, use o som da chuva como apoio para uma meditação de 5 minutos. Concentre-se na respiração e, quando a mente se distrair, volte gentilmente aos sons ao redor.
+- [AÇÃO] Faça um ritual de autocuidado que você não costuma ter tempo pra fazer.
+- [AÇÃO] Faça uma pausa mais longa entre tarefas, aproveitando o clima mais calmo.
+- [DICA] Se o clima estiver agradável aí, aproveite pra fazer um alongamento de pescoço e ombros.
+- [AÇÃO] Faça um dia de cuidados simples: água, alongamento e descanso, sem sair de casa.
+- [AÇÃO] Prepare algo quente para tomar enquanto termina uma tarefa tranquila em casa.
+- [AÇÃO] Prepare um banho relaxante aproveitando que o dia está mais tranquilo.
+- [DICA] Faça um alongamento das costas enquanto o dia de chuva passa.
+- [DICA] Termine o dia de chuva com um ritual calmo antes de dormir.
+
+### Expansão — Clima: frio (0)
+
+- [AÇÃO] Faça um alongamento completo pra aquecer o corpo antes de sair da cama.
+- [AÇÃO] Vista uma roupa confortável e quentinha pra trabalhar ou descansar.
+- [AÇÃO] Faça movimentos leves pra aquecer o corpo em vez de ficar parado.
+- [AÇÃO] Prepare uma sopa ou caldo quente para uma refeição do dia.
+- [AÇÃO] Faça uma bebida quente e aproveite um momento de pausa com calma.
+- [DICA] Aproveite o frio pra fazer alongamentos das mãos e dos pés.
+- [AÇÃO] Prepare o quarto com antecedência pra dormir mais aquecido hoje.
+- [AÇÃO] Faça uma caminhada curta dentro de casa pra se aquecer.
+- [AÇÃO] Prepare uma refeição quente e nutritiva pra hoje.
+- [AÇÃO] Faça uma pausa pra se aquecer antes de continuar uma atividade.
+- [AÇÃO] Faça alongamentos de pescoço e ombros pra aliviar a tensão do frio.
+
+### Expansão — Clima: sol (0)
+
+- [AÇÃO] Aproveite alguns minutos de sol da manhã, com moderação e proteção.
+- [AÇÃO] Faça uma pausa curta ao sol pela manhã, aproveitando a luz natural.
+- [AÇÃO] Faça uma caminhada curta pela manhã aproveitando o sol mais ameno.
+- [DICA] Aproveite a luz natural do sol pra ajustar seu horário de dormir hoje.
+- [AÇÃO] Faça uma pausa ao ar livre com proteção solar adequada.
+- [DICA] Aproveite o sol da manhã pra tomar seu café da manhã perto de uma janela.
+- [AÇÃO] Faça uma caminhada leve num horário de sol mais ameno, com proteção.
+- [DICA] Aproveite o sol pra arejar os cômodos da casa hoje.
+- [AÇÃO] Termine a manhã de sol com uma caminhada curta e protegida.
+
+### Expansão — Clima: tempestade (0)
+
+- [DICA] Faça um alongamento tranquilo dentro de casa enquanto chove forte.
+- [AÇÃO] Prepare um ambiente confortável dentro de casa pra relaxar hoje.
+- [AÇÃO] Faça uma pausa de respiração tranquila ouvindo a chuva forte.
+- [DICA] Prepare uma refeição quente e reconfortante enquanto a tempestade passa.
+- [DICA] Faça um automassagem relaxante enquanto espera a tempestade passar.
+- [AÇÃO] Faça uma pausa mais longa do que o normal, já que sair não é seguro agora.
+
+### Expansão — Clima: tempo agradável (0)
+
+- [DICA] Faça um alongamento ao ar livre, aproveitando o dia bom.
+- [AÇÃO] Faça uma caminhada leve num parque ou praça perto de você.
+- [AÇÃO] Faça uma pausa ao ar livre entre duas tarefas, aproveitando o clima.
+- [AÇÃO] Faça sua próxima refeição perto de uma janela aberta ou na varanda.
+- [DICA] Se o clima estiver bom aí, aproveite pra fazer um alongamento na varanda ou no quintal.
+- [AÇÃO] Faça uma caminhada rápida antes ou depois do trabalho, já que o tempo ajuda.
+- [AÇÃO] Faça uma pausa pra observar o céu e o clima por alguns minutos.
+- [AÇÃO] Faça um pequeno percurso a pé em vez de usar transporte, se for seguro.
+- [AÇÃO] Faça uma caminhada de 15 minutos aproveitando que o tempo está bom.
+- [AÇÃO] Aproveite pra alongar o corpo ao ar livre antes de começar o dia.
+- [AÇÃO] Faça uma pausa lá fora pra sentir o vento e o sol moderado.
+- [DICA] Termine o dia com uma caminhada curta aproveitando o tempo bom.
+
+### Expansão — Estações do ano (0)
+
+- [AÇÃO] Observe uma planta ou flor florescendo perto de você.
+- [AÇÃO] Faça uma pequena limpeza ou organização de renovação em casa.
+- [AÇÃO] Escreva uma meta pequena pra essa nova estação.
+- [AÇÃO] Observe as mudanças no clima e no ambiente ao seu redor.
+- [AÇÃO] Faça uma pausa pra notar como a luz do dia está diferente agora.
+- [AÇÃO] Doe ou organize roupas que você não usa mais, aproveitando a limpeza de estação.
+- [AÇÃO] Escreva sobre algo que você quer "florescer" nesse período da sua vida.
+- [AÇÃO] Faça uma caminhada notando as cores e cheiros típicos da estação.
+- [AÇÃO] Aproveite pra trocar a roupa de cama por algo mais leve.
+- [AÇÃO] Observe um inseto, pássaro ou planta típica dessa época do ano.
+- [AÇÃO] Termine o dia reconhecendo uma coisa que está renovada na sua vida.
+- [AÇÃO] No calor do verão, deixe uma garrafa de água ao alcance e crie o hábito de beber regularmente ao longo do dia, sem esperar chegar ao ponto de muita sede.
+- [AÇÃO] Aproveite o verão pra fazer uma atividade leve ao ar livre pela manhã.
+- [AÇÃO] Use roupas leves e frescas pra aproveitar melhor o calor do verão.
+- [AÇÃO] Aproveite as tardes mais longas do verão pra uma caminhada após o trabalho.
+- [AÇÃO] Prepare uma fruta gelada típica do verão como lanche.
+- [AÇÃO] Prepare uma salada refrescante típica do verão.
+- [AÇÃO] Use protetor solar antes de sair, aproveitando o verão com segurança.
+- [AÇÃO] Aproveite as férias ou dias mais livres típicos do verão pra descansar de verdade.
+- [AÇÃO] Aproveite o verão pra fazer um piquenique leve com quem você gosta.
+- [AÇÃO] Antes de uma atividade ao ar livre no verão, hidrate-se e leve água com você. Planeje também pausas para beber durante a atividade.
+- [AÇÃO] Termine o dia de verão agradecendo por um momento leve que você teve.
+
+## Finanças e consumo (98)
+
+### Base oficial (86)
+
+- [AÇÃO] Verifique seu saldo.
+- [AÇÃO] Veja quanto gastou hoje.
+- [AÇÃO] Confira suas compras das últimas 24 horas.
+- [AÇÃO] Anote uma despesa de hoje.
+- [DICA] Identifique um gasto pequeno que se repete.
+- [AÇÃO] Escolha um gasto pequeno para reduzir.
+- [AÇÃO] Confira uma assinatura que você paga.
+- [AÇÃO] Cancele uma assinatura que não utiliza.
+- [AÇÃO] Confira se existe alguma cobrança recorrente esquecida.
+- [AÇÃO] Verifique uma conta que vence nesta semana.
+- [AÇÃO] Separe o dinheiro de uma conta importante.
+- [AÇÃO] Anote uma despesa fixa mensal.
+- [AÇÃO] Anote uma despesa variável recente.
+- [AÇÃO] Defina um pequeno valor para guardar.
+- [AÇÃO] Se puder, transfira esse valor para sua reserva.
+- [AÇÃO] Confira quanto já conseguiu economizar.
+- [AÇÃO] Anote uma compra que não valeu a pena.
+- [AÇÃO] Anote uma compra que realmente valeu a pena.
+- [DICA] Identifique uma categoria que está consumindo muito dinheiro.
+- [AÇÃO] Observe essa categoria durante os próximos sete dias.
+- [DICA] Evite uma compra por impulso hoje.
+- [AÇÃO] Espere 24 horas antes de comprar algo não essencial.
+- [AÇÃO] Coloque uma compra desejada em uma lista em vez de comprar.
+- [AÇÃO] Compare preços antes de comprar.
+- [DICA] Não compre algo apenas porque está em promoção.
+- [AÇÃO] Pergunte se realmente precisa de um item.
+- [AÇÃO] Leve água de casa.
+- [AÇÃO] Prepare um lanche em casa para amanhã.
+- [DICA] Evite pedir comida por impulso hoje.
+- [AÇÃO] Use primeiro algo que já possui em casa.
+- [AÇÃO] Faça uma lista antes de ir ao mercado.
+- [AÇÃO] Confira a despensa antes de comprar.
+- [AÇÃO] Separe alimentos que estão próximos do vencimento.
+- [AÇÃO] Compare o preço por quantidade de dois produtos.
+- [AÇÃO] Procure uma alternativa mais barata.
+- [AÇÃO] Pesquise se existe uma opção gratuita antes de pagar.
+- [AÇÃO] Conserte algo antes de comprar outro.
+- [AÇÃO] Reutilize algo que já possui.
+- [AÇÃO] Separe algo que pode ser vendido.
+- [AÇÃO] Fotografe um item que deseja vender.
+- [AÇÃO] Publique um item usado que está parado.
+- [AÇÃO] Separe uma roupa para doação.
+- [AÇÃO] Verifique uma compra parcelada.
+- [AÇÃO] Confira quantas parcelas ainda faltam.
+- [AÇÃO] Verifique uma dívida que precisa de atenção.
+- [AÇÃO] Anote o próximo passo para uma dívida.
+- [DICA] Evite aumentar uma dívida hoje.
+- [AÇÃO] Pesquise uma alternativa antes de contratar um serviço.
+- [AÇÃO] Pergunte se existe desconto em uma compra planejada.
+- [AÇÃO] Confira benefícios ou pontos que você já possui.
+- [AÇÃO] Verifique se algum benefício está perto de expirar.
+- [AÇÃO] Espere 10 minutos antes de uma compra impulsiva.
+- [AÇÃO] Anote o motivo real de uma compra desejada.
+- [AÇÃO] Pergunte: "Eu realmente usaria isso?"
+- [AÇÃO] Pergunte: "Isso resolve um problema real?"
+- [AÇÃO] Pergunte: "Posso pagar sem comprometer uma conta?"
+- [AÇÃO] Faça uma refeição usando o que já existe em casa.
+- [AÇÃO] Planeje uma refeição econômica para amanhã.
+- [AÇÃO] Revise seu orçamento semanal.
+- [AÇÃO] Defina um limite de gasto para amanhã.
+- [AÇÃO] Verifique desperdícios de comida em casa.
+- [AÇÃO] Planeje como usar um alimento antes que vença.
+- [AÇÃO] Verifique uma tarifa bancária.
+- [AÇÃO] Veja se existe uma tarifa que pode ser reduzida.
+- [AÇÃO] Confira se algum serviço aumentou de preço.
+- [AÇÃO] Pesquise uma alternativa para um serviço caro.
+- [AÇÃO] Revise um contrato que está sendo pouco utilizado.
+- [AÇÃO] Organize um comprovante importante.
+- [AÇÃO] Guarde uma nota fiscal necessária.
+- [AÇÃO] Verifique uma garantia que está perto de vencer.
+- [AÇÃO] Anote uma despesa anual que costuma esquecer.
+- [AÇÃO] Divida uma despesa futura em pequenos objetivos.
+- [AÇÃO] Defina uma meta financeira para os próximos sete dias.
+- [AÇÃO] Faça um dia sem compras não essenciais.
+- [AÇÃO] Faça uma refeição sem pedir delivery.
+- [AÇÃO] Vá às compras com uma lista.
+- [AÇÃO] Evite comprar por influência de propaganda.
+- [AÇÃO] Remova um produto do carrinho antes de pagar.
+- [AÇÃO] Revise o carrinho antes de finalizar.
+- [AÇÃO] Compare duas opções antes de contratar algo.
+- [AÇÃO] Pesquise uma alternativa usada antes de comprar novo.
+- [AÇÃO] Anote uma lição aprendida com um gasto passado.
+- [AÇÃO] Guarde o dinheiro que economizou hoje.
+- [AÇÃO] Verifique quanto custa um hábito semanal.
+- [DICA] Pense no custo mensal de um gasto recorrente.
+- [AÇÃO] Escolha uma economia para praticar amanhã.
+- [AÇÃO] Ensine alguém da família uma dica de economia.
+- [AÇÃO] Converse com a família sobre uma meta financeira.
+- [AÇÃO] Planeje uma atividade gratuita para o fim de semana.
+- [AÇÃO] Troque um entretenimento pago por uma opção gratuita.
+- [DICA] Evite uma compra motivada por ansiedade.
+- [AÇÃO] Antes de abrir uma loja online, escreva o que você pretende comprar.
+- [AÇÃO] Tire um produto desnecessário da lista de desejos.
+- [AÇÃO] Faça uma pequena organização financeira de 5 minutos.
+- [AÇÃO] Verifique se há uma conta esquecida.
+- [AÇÃO] Anote uma meta que gostaria de alcançar financeiramente.
+- [AÇÃO] Tome hoje uma decisão financeira pequena e registre por que escolheu fazê-la.
+- [AÇÃO] Antes de encerrar o dia, confira se fez alguma compra por impulso e anote o que a motivou.
+
+## Aprendizado e curiosidade (100)
+
+### Base oficial (86)
+
+- [AÇÃO] Pesquise a origem do seu nome.
+- [AÇÃO] Descubra algo sobre a cidade onde mora.
+- [AÇÃO] Aprenda uma curiosidade sobre seu país.
+- [AÇÃO] Pesquise como algo que você usa diariamente funciona.
+- [AÇÃO] Aprenda um atalho do computador.
+- [AÇÃO] Aprenda um atalho do celular.
+- [AÇÃO] Descubra uma função escondida de um aplicativo.
+- [AÇÃO] Leia algo sobre ciência.
+- [AÇÃO] Leia algo sobre economia.
+- [AÇÃO] Assista a uma aula curta.
+- [AÇÃO] Ouça 10 minutos de um podcast educativo.
+- [AÇÃO] Aprenda uma frase em outro idioma.
+- [AÇÃO] Aprenda cinco palavras de outro idioma.
+- [AÇÃO] Pesquise a origem de uma expressão.
+- [AÇÃO] Descubra quem inventou alguma coisa que você usa.
+- [AÇÃO] Pesquise como uma tecnologia funciona.
+- [AÇÃO] Aprenda uma curiosidade sobre o corpo humano.
+- [AÇÃO] Aprenda uma curiosidade sobre o espaço.
+- [AÇÃO] Aprenda uma curiosidade sobre animais.
+- [AÇÃO] Aprenda uma curiosidade histórica.
+- [AÇÃO] Aprenda uma curiosidade geográfica.
+- [AÇÃO] Aprenda uma curiosidade sobre música.
+- [AÇÃO] Aprenda uma curiosidade sobre cinema.
+- [AÇÃO] Aprenda uma curiosidade sobre culinária.
+- [AÇÃO] Aprenda uma curiosidade sobre comportamento.
+- [AÇÃO] Pesquise a história de uma invenção.
+- [AÇÃO] Pesquise a história de uma profissão.
+- [AÇÃO] Pesquise como uma empresa começou.
+- [AÇÃO] Pesquise como um produto é fabricado.
+- [AÇÃO] Descubra como funciona o GPS.
+- [AÇÃO] Descubra como funciona a internet.
+- [AÇÃO] Descubra como funciona uma bateria.
+- [AÇÃO] Descubra como funciona um motor.
+- [AÇÃO] Descubra como funciona uma câmera.
+- [AÇÃO] Pesquise o significado de uma expressão popular.
+- [AÇÃO] Descubra a origem de um ditado.
+- [AÇÃO] Conheça uma obra de arte famosa.
+- [AÇÃO] Conheça um artista que nunca estudou.
+- [AÇÃO] Ouça uma música de um gênero que não conhece.
+- [AÇÃO] Conheça um autor novo.
+- [AÇÃO] Pesquise um livro que talvez queira ler.
+- [AÇÃO] Pesquise uma invenção brasileira.
+- [AÇÃO] Pesquise uma personalidade importante da sua cidade.
+- [AÇÃO] Aprenda uma regra básica de etiqueta.
+- [AÇÃO] Aprenda uma técnica simples de memória.
+- [AÇÃO] Tente memorizar cinco itens sem anotar.
+- [AÇÃO] Resolva um pequeno enigma.
+- [AÇÃO] Resolva uma questão de lógica.
+- [AÇÃO] Aprenda uma palavra relacionada à sua profissão.
+- [AÇÃO] Aprenda um conceito importante da sua área.
+- [AÇÃO] Pesquise uma ferramenta que pode ajudar no trabalho.
+- [AÇÃO] Teste uma função nova de uma ferramenta que já usa.
+- [AÇÃO] Aprenda uma fórmula útil para o cotidiano.
+- [AÇÃO] Aprenda uma maneira melhor de organizar informações.
+- [AÇÃO] Aprenda uma técnica de pesquisa.
+- [AÇÃO] Descubra como verificar uma informação antes de compartilhá-la.
+- [AÇÃO] Aprenda a identificar uma fonte confiável.
+- [AÇÃO] Compare duas explicações sobre o mesmo assunto.
+- [AÇÃO] Faça uma pergunta sobre algo que não entende.
+- [AÇÃO] Pergunte a alguém sobre uma habilidade que domina.
+- [AÇÃO] Ensine alguém algo que acabou de aprender.
+- [AÇÃO] Explique para você mesmo o que aprendeu hoje.
+- [AÇÃO] Pesquise uma dúvida antiga.
+- [AÇÃO] Assista a um vídeo educativo curto.
+- [AÇÃO] Leia o resumo de um livro interessante.
+- [AÇÃO] Conheça um idioma que nunca estudou.
+- [AÇÃO] Pesquise como outra cultura faz algo cotidiano.
+- [AÇÃO] Descubra uma tradição de outro país.
+- [AÇÃO] Pesquise uma comida típica de outro lugar.
+- [AÇÃO] Conheça um lugar que gostaria de visitar.
+- [AÇÃO] Pesquise uma curiosidade sobre seu bairro.
+- [AÇÃO] Aprenda uma habilidade manual simples.
+- [AÇÃO] Descubra uma função nova de uma ferramenta doméstica.
+- [AÇÃO] Descubra uma maneira de economizar tempo.
+- [AÇÃO] Descubra uma maneira de organizar melhor uma tarefa.
+- [AÇÃO] Aprenda um conceito financeiro básico.
+- [AÇÃO] Aprenda uma técnica simples de comunicação.
+- [AÇÃO] Aprenda uma pergunta que melhora uma conversa.
+- [AÇÃO] Aprenda uma forma melhor de dar feedback.
+- [AÇÃO] Aprenda uma forma melhor de receber críticas.
+- [AÇÃO] Aprenda uma estratégia para reduzir distrações.
+- [AÇÃO] Aprenda uma técnica para lembrar compromissos.
+- [AÇÃO] Aprenda algo sobre um assunto que seu filho gosta.
+- [AÇÃO] Pergunte a alguém para ensinar algo novo.
+- [AÇÃO] Anote uma curiosidade para pesquisar depois.
+- [AÇÃO] Compartilhe uma descoberta interessante com alguém.
+- [AÇÃO] Pesquise por que uma tradição da sua família existe.
+- [AÇÃO] Descubra algo sobre a história da sua profissão.
+- [AÇÃO] Pesquise uma pessoa que admira.
+- [AÇÃO] Descubra uma coisa que aconteceu no mundo no dia em que nasceu.
+- [AÇÃO] Pesquise o significado de uma palavra que usa frequentemente.
+- [AÇÃO] Aprenda uma habilidade pequena em 10 minutos.
+- [AÇÃO] Procure uma explicação para algo que sempre considerou óbvio.
+- [AÇÃO] Faça uma pergunta para alguém que sabe mais do que você.
+- [AÇÃO] Conte para alguém uma coisa nova que aprendeu hoje.
+- [AÇÃO] Escolha uma coisa nova para aprender amanhã.
+
+### Expansão — Atividades indoor (0)
+
+- [AÇÃO] Leia algumas páginas de um livro num canto tranquilo de casa.
+- [AÇÃO] Assista a uma aula ou vídeo curto e educativo dentro de casa.
+- [AÇÃO] Ouça um podcast educativo enquanto organiza algo dentro de casa.
+- [AÇÃO] Termine o dia dentro de casa anotando algo novo que você descobriu hoje.
+
+## Bondade, comunidade e vida prática (114)
+
+### Base oficial (86)
+
+- [AÇÃO] Segure a porta para alguém.
+- [AÇÃO] Dê passagem a alguém quando for seguro.
+- [AÇÃO] Agradeça um funcionário pelo atendimento.
+- [AÇÃO] Cumprimente alguém que costuma passar despercebido.
+- [AÇÃO] Recolha um pequeno lixo que encontrar no caminho.
+- [AÇÃO] Deixe um espaço público melhor do que encontrou.
+- [AÇÃO] Ofereça ajuda a alguém carregando algo.
+- [AÇÃO] Pergunte a um vizinho se precisa de alguma coisa.
+- [AÇÃO] Separe um alimento para doação.
+- [AÇÃO] Separe uma roupa em bom estado para doar.
+- [AÇÃO] Separe um livro que não usa para doar.
+- [AÇÃO] Compartilhe uma informação útil.
+- [AÇÃO] Indique um pequeno negócio local.
+- [AÇÃO] Deixe uma avaliação positiva quando o serviço merecer.
+- [AÇÃO] Agradeça publicamente alguém que fez um bom trabalho.
+- [AÇÃO] Elogie um trabalhador pelo atendimento.
+- [AÇÃO] Ofereça ajuda a alguém que parece estar com dificuldade.
+- [AÇÃO] Pergunte se uma pessoa idosa precisa de ajuda.
+- [AÇÃO] Ajude alguém com uma tarefa simples.
+- [AÇÃO] Ensine alguém a usar uma função do celular.
+- [AÇÃO] Compartilhe um recurso gratuito com alguém.
+- [AÇÃO] Envie uma oportunidade de trabalho para alguém adequado.
+- [AÇÃO] Indique um profissional competente.
+- [AÇÃO] Dê crédito a quem realizou o trabalho.
+- [DICA] Seja paciente em uma fila.
+- [AÇÃO] Respeite uma regra de convivência mesmo sem fiscalização.
+- [DICA] Não ocupe mais espaço do que precisa.
+- [AÇÃO] Devolva algo que encontrou.
+- [AÇÃO] Ajude alguém a encontrar um endereço.
+- [AÇÃO] Ofereça orientação a alguém perdido.
+- [AÇÃO] Faça uma gentileza para um colega.
+- [AÇÃO] Faça uma gentileza para um familiar.
+- [AÇÃO] Deixe alguém escolher primeiro em uma situação simples.
+- [AÇÃO] Compartilhe algo que você tem e não usa.
+- [AÇÃO] Ofereça uma carona quando for seguro e conveniente.
+- [AÇÃO] Compartilhe informação sobre um serviço público útil.
+- [AÇÃO] Ensine alguém a usar um recurso gratuito.
+- [AÇÃO] Ajude alguém com uma dúvida.
+- [AÇÃO] Faça companhia por alguns minutos a alguém sozinho.
+- [AÇÃO] Ligue para um familiar que mora sozinho.
+- [AÇÃO] Envie uma mensagem de apoio para alguém.
+- [AÇÃO] Agradeça quem limpa seu ambiente.
+- [AÇÃO] Agradeça quem prepara sua comida.
+- [AÇÃO] Agradeça quem mantém seu ambiente funcionando.
+- [DICA] Evite compartilhar uma notícia sem verificar.
+- [AÇÃO] Corrija uma informação falsa com respeito.
+- [AÇÃO] Informe alguém sobre um objeto perdido.
+- [AÇÃO] Faça uma gentileza sem esperar retorno.
+- [AÇÃO] Recolha lixo usando proteção adequada.
+- [AÇÃO] Separe corretamente materiais recicláveis.
+- [AÇÃO] Evite desperdiçar água hoje.
+- [AÇÃO] Apague uma luz desnecessária.
+- [AÇÃO] Reduza um desperdício de comida.
+- [AÇÃO] Reutilize uma embalagem útil.
+- [AÇÃO] Leve uma sacola reutilizável.
+- [AÇÃO] Escolha uma alternativa que produza menos desperdício.
+- [AÇÃO] Deixe um ambiente comum organizado.
+- [AÇÃO] Limpe imediatamente algo que você sujou.
+- [DICA] Não deixe lixo para outra pessoa recolher.
+- [DICA] Seja gentil com alguém que está atendendo você.
+- [DICA] Seja paciente com alguém que está aprendendo.
+- [AÇÃO] Dê espaço para alguém cometer um pequeno erro.
+- [AÇÃO] Faça uma crítica de maneira construtiva.
+- [AÇÃO] Compartilhe a conquista de outra pessoa.
+- [AÇÃO] Faça uma recomendação profissional para alguém.
+- [AÇÃO] Ajude alguém a encontrar uma informação.
+- [AÇÃO] Responda uma pergunta que você sabe responder.
+- [AÇÃO] Ofereça orientação sem impor sua decisão.
+- [AÇÃO] Pergunte antes de ajudar em algo pessoal.
+- [AÇÃO] Respeite quando alguém disser não.
+- [DICA] Seja gentil com alguém que está tendo um dia ruim.
+- [AÇÃO] Agradeça alguém que normalmente ninguém agradece.
+- [AÇÃO] Cumprimente um profissional de limpeza.
+- [AÇÃO] Cumprimente um profissional de segurança.
+- [AÇÃO] Agradeça um motorista pelo trabalho.
+- [AÇÃO] Agradeça alguém que presta um serviço para você.
+- [AÇÃO] Dê espaço para alguém passar.
+- [DICA] Evite uma discussão desnecessária hoje.
+- [AÇÃO] Escolha uma resposta educada em uma situação irritante.
+- [AÇÃO] Faça uma pequena gentileza para um desconhecido.
+- [AÇÃO] Ajude alguém sem esperar reconhecimento.
+- [AÇÃO] Compartilhe uma informação que pode facilitar o dia de alguém.
+- [AÇÃO] Ofereça seu lugar quando fizer sentido.
+- [AÇÃO] Ajude alguém a carregar algo, se a pessoa aceitar.
+- [AÇÃO] Pergunte a alguém se precisa de orientação.
+- [AÇÃO] Faça algo para melhorar o ambiente ao seu redor.
+- [AÇÃO] Recolha um objeto que está atrapalhando a passagem.
+- [AÇÃO] Organize algo que todos utilizam.
+- [AÇÃO] Deixe uma avaliação positiva para alguém que merece.
+- [AÇÃO] Recomende alguém para uma oportunidade.
+- [AÇÃO] Compartilhe uma habilidade gratuitamente.
+- [AÇÃO] Faça algo que facilite o trabalho de outra pessoa.
+- [AÇÃO] Escolha uma pessoa para ajudar hoje.
+- [AÇÃO] Faça uma gentileza sem contar para ninguém.
+- [AÇÃO] Observe quem ao seu redor poderia precisar de ajuda.
+- [AÇÃO] Faça uma ação que torne o dia de alguém melhor.
+- [AÇÃO] Termine o dia pensando em uma pessoa cujo dia você melhorou.
+
+### Datas comemorativas (0)
+
+- [AÇÃO] Mande uma mensagem para {pessoa}, só pra lembrar dessa amizade.
+
+### Expansão — Atividades outdoor (0)
+
+- [AÇÃO] Aproveite uma saída ao ar livre pra cumprimentar um vizinho.
+- [AÇÃO] Aproveite uma caminhada pra recolher um lixo que encontrar no caminho.
+- [AÇÃO] Aproveite uma saída pra conhecer um canto novo do seu bairro.
+- [DICA] Se o tempo estiver agradável aí, aproveite o ar livre pra oferecer ajuda a alguém que precise no caminho.
+- [AÇÃO] Aproveite uma caminhada pra observar e valorizar o espaço público ao seu redor.
+- [AÇÃO] Aproveite uma saída ao ar livre pra visitar um familiar que mora por perto.
+- [AÇÃO] Aproveite uma caminhada pra notar e agradecer pelo espaço onde você vive.
+- [DICA] Se o tempo estiver agradável aí, aproveite o ar livre pra convidar um amigo pra uma volta curta.
+- [AÇÃO] Aproveite uma saída pra fazer uma gentileza simples com alguém que encontrar.
+- [AÇÃO] Aproveite uma caminhada pra levar as crianças pra brincar num espaço público.
+- [DICA] Se o tempo estiver agradável aí, aproveite o ar livre pra conversar com alguém que você encontra sempre e nunca parou.
+- [AÇÃO] Aproveite uma saída pra visitar um projeto ou espaço comunitário perto de você.
+- [AÇÃO] Aproveite uma caminhada pra notar algo bonito no seu bairro que passa despercebido.
+- [AÇÃO] Termine uma saída ao ar livre reconhecendo uma coisa boa do seu entorno.
+
+### Expansão — Clima: tempo agradável (0)
+
+- [DICA] Se o clima estiver bom aí, aproveite pra fazer uma caminhada solidária: leve um saco pra recolher lixo do caminho.
+- [DICA] Termine um dia agradável fazendo uma última gentileza a alguém do seu bairro.
+
+## Fé e espiritualidade (86)
+
+### Base oficial (86)
+
+- [AÇÃO] Leia o Salmo 23 antes de dormir.
+- [AÇÃO] Leia o Salmo 91 e reflita por alguns minutos.
+- [AÇÃO] Leia Provérbios 3:5–6.
+- [AÇÃO] Leia Filipenses 4:6–7.
+- [AÇÃO] Leia João 15:12.
+- [AÇÃO] Leia Romanos 12:2.
+- [AÇÃO] Leia Tiago 1:19.
+- [AÇÃO] Leia Efésios 4:32.
+- [AÇÃO] Leia Mateus 5:9.
+- [AÇÃO] Leia um capítulo curto do Evangelho de Marcos.
+- [AÇÃO] Leia um Salmo que você nunca leu.
+- [AÇÃO] Leia um trecho bíblico sobre esperança.
+- [AÇÃO] Leia um trecho sobre perdão.
+- [AÇÃO] Leia um trecho sobre amor ao próximo.
+- [AÇÃO] Leia um trecho sobre gratidão.
+- [AÇÃO] Leia um trecho sobre sabedoria.
+- [AÇÃO] Leia um trecho sobre coragem.
+- [AÇÃO] Leia um trecho sobre paciência.
+- [AÇÃO] Leia um trecho sobre compaixão.
+- [AÇÃO] Leia um trecho sobre servir ao próximo.
+- [AÇÃO] Escolha um versículo para levar com você durante o dia.
+- [AÇÃO] Leia novamente um trecho que já trouxe conforto para você.
+- [AÇÃO] Leia uma passagem e anote uma frase que chamou sua atenção.
+- [AÇÃO] Leia um Salmo e fique alguns minutos em silêncio.
+- [AÇÃO] Antes de dormir, leia um pequeno trecho da Bíblia.
+- [AÇÃO] Faça uma oração de dois minutos agradecendo pelo seu dia.
+- [AÇÃO] Ore por alguém da sua família.
+- [AÇÃO] Ore por um amigo que esteja passando por dificuldades.
+- [AÇÃO] Ore por sabedoria antes de tomar uma decisão.
+- [AÇÃO] Ore por alguém que você não vê há algum tempo.
+- [AÇÃO] Ore por alguém que esteja enfrentando uma dificuldade.
+- [AÇÃO] Reserve três minutos para falar com Deus sem distrações.
+- [AÇÃO] Comece sua manhã com uma oração simples.
+- [AÇÃO] Antes de dormir, entregue suas preocupações a Deus.
+- [AÇÃO] Ore por alguém com quem você teve um desentendimento.
+- [AÇÃO] Ore por alguém que precisa de esperança.
+- [AÇÃO] Ore agradecendo por uma conquista recente.
+- [AÇÃO] Faça uma oração antes de uma tarefa importante.
+- [AÇÃO] Ore por sua família.
+- [AÇÃO] Ore por alguém que está começando algo novo.
+- [AÇÃO] Ore por alguém que está procurando emprego.
+- [AÇÃO] Ore por alguém que está estudando para alcançar um objetivo.
+- [AÇÃO] Ore por alguém que você sabe que está cansado.
+- [AÇÃO] Ore por uma pessoa que você não sabe como ajudar.
+- [AÇÃO] Faça uma oração silenciosa por alguém que cruzar seu caminho.
+- [AÇÃO] Escreva três coisas pelas quais você agradece a Deus hoje.
+- [AÇÃO] Agradeça a Deus por uma pessoa importante na sua vida.
+- [AÇÃO] Agradeça por uma oportunidade que recebeu.
+- [AÇÃO] Agradeça por algo simples que normalmente passa despercebido.
+- [AÇÃO] Agradeça por uma pequena conquista de hoje.
+- [AÇÃO] Compartilhe com alguém algo pelo qual você é grato.
+- [AÇÃO] Mande uma mensagem agradecendo alguém que fez diferença na sua vida.
+- [AÇÃO] Agradeça a alguém que costuma cuidar de você.
+- [AÇÃO] Agradeça a Deus por algo que você tem hoje e antes desejava.
+- [AÇÃO] Antes de dormir, lembre de três coisas boas do dia.
+- [AÇÃO] Observe algo bonito na natureza e agradeça.
+- [AÇÃO] Faça uma pausa e reconheça que pequenas coisas também são motivos de gratidão.
+- [AÇÃO] Faça uma gentileza sem esperar reconhecimento.
+- [AÇÃO] Ajude alguém que esteja precisando.
+- [AÇÃO] Envie uma mensagem de esperança para alguém.
+- [AÇÃO] Diga a alguém: "Estou orando por você."
+- [AÇÃO] Incentive alguém que esteja desanimado.
+- [DICA] Procure uma oportunidade de servir alguém hoje.
+- [AÇÃO] Faça uma tarefa para aliviar o dia de outra pessoa.
+- [AÇÃO] Visite ou ligue para alguém que esteja sozinho.
+- [AÇÃO] Compartilhe uma palavra de esperança com alguém.
+- [AÇÃO] Ofereça ajuda sem esperar que peçam.
+- [DICA] Seja paciente com alguém que está tendo um dia difícil.
+- [AÇÃO] Escolha responder com gentileza em uma situação irritante.
+- [DICA] Evite uma discussão que não levará a nada.
+- [AÇÃO] Peça desculpas por algo específico, se for apropriado.
+- [DICA] Procure reconciliar uma pequena pendência.
+- [AÇÃO] Faça algo bom por alguém sem contar que foi você.
+- [AÇÃO] Dê atenção a alguém que normalmente passa despercebido.
+- [AÇÃO] Pergunte a alguém como você pode ajudar.
+- [AÇÃO] Reserve cinco minutos para ficar em silêncio e refletir.
+- [AÇÃO] Pergunte a si mesmo o que precisa entregar a Deus hoje.
+- [AÇÃO] Escolha uma atitude que represente aquilo em que você acredita.
+- [AÇÃO] Antes de dormir, pense em como você tratou as pessoas hoje.
+- [AÇÃO] Escolha uma palavra para guiar seu comportamento amanhã.
+- [AÇÃO] Escreva uma frase de esperança para lembrar durante o dia.
+- [AÇÃO] Releia um versículo que marcou algum momento da sua vida.
+- [AÇÃO] Compartilhe um versículo que possa trazer esperança a alguém.
+- [AÇÃO] Mande uma mensagem dizendo a alguém que você está orando por ela.
+- [AÇÃO] Termine o dia com uma oração de gratidão.
+- [AÇÃO] Antes de dormir, leia o Salmo 23 e reflita por dois minutos.

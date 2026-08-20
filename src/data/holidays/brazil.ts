@@ -1,0 +1,151 @@
+import type { Holiday } from '@/types/holiday';
+
+/**
+ * Datas comemorativas relevantes pro Brasil — a lista inicial pedida (não exaustiva de
+ * propósito, ver seção 6: "priorize inicialmente datas relevantes pro Brasil"). Cada uma
+ * com sua própria janela de influência (seção 7): quanto mais importante/pessoal a data,
+ * maior a janela de preparação.
+ */
+export const brazilHolidays: Holiday[] = [
+  {
+    id: 'br_ano_novo',
+    name: 'Ano Novo',
+    country: 'BR',
+    category: 'reflection',
+    importance: 'high',
+    dateRule: { type: 'fixed', month: 1, day: 1 },
+    preparationWindowDays: 3,
+    nearWindowDays: 1,
+    influenceWindowDaysAfter: 2,
+    // 'ano_novo' é uma tag exclusiva desse feriado — evita que conteúdo genérico de
+    // reflexão/gratidão de OUTRO feriado (ex: Natal, que também tem esses tags)
+    // apareça pra esse evento só por causa de tags amplas compartilhadas (ver nota
+    // abaixo em br_dia_maes/br_dia_pais, onde isso causava um bug real).
+    tags: ['reflection', 'gratitude', 'celebration', 'ano_novo'],
+  },
+  {
+    id: 'br_dia_mulher',
+    name: 'Dia Internacional da Mulher',
+    country: 'BR',
+    category: 'celebration',
+    importance: 'medium',
+    dateRule: { type: 'fixed', month: 3, day: 8 },
+    preparationWindowDays: 3,
+    nearWindowDays: 1,
+    influenceWindowDaysAfter: 1,
+    tags: ['gratitude', 'celebration', 'relationship', 'dia_mulher'],
+  },
+  {
+    id: 'br_carnaval',
+    name: 'Carnaval',
+    country: 'BR',
+    category: 'celebration',
+    importance: 'medium',
+    dateRule: { type: 'easter-offset', offsetDays: -47 },
+    preparationWindowDays: 3,
+    nearWindowDays: 1,
+    influenceWindowDaysAfter: 1,
+    tags: ['celebration', 'carnaval'],
+  },
+  {
+    id: 'br_pascoa',
+    name: 'Páscoa',
+    country: 'BR',
+    category: 'family',
+    importance: 'medium',
+    dateRule: { type: 'easter-offset', offsetDays: 0 },
+    preparationWindowDays: 5,
+    nearWindowDays: 2,
+    influenceWindowDaysAfter: 1,
+    tags: ['family', 'gratitude', 'reflection', 'pascoa'],
+  },
+  {
+    id: 'br_dia_maes',
+    name: 'Dia das Mães',
+    country: 'BR',
+    category: 'family',
+    importance: 'high',
+    dateRule: { type: 'nth-weekday', month: 5, weekday: 0, nth: 2 },
+    preparationWindowDays: 7,
+    nearWindowDays: 3,
+    influenceWindowDaysAfter: 2,
+    // 'maternal' é exclusiva — Dia das Mães e Dia dos Pais compartilhavam os mesmos 3
+    // tags genéricos (family/gratitude/relationship), então um desafio de mãe podia
+    // ser selecionado num contexto de Dia dos Pais só por sobreposição de tag (bug
+    // real, encontrado testando o Cenário C da expansão). Conteúdo novo específico de
+    // mãe/pai usa só o tag exclusivo pra casar exatamente com o feriado certo.
+    tags: ['family', 'gratitude', 'relationship', 'maternal'],
+  },
+  {
+    id: 'br_dia_namorados',
+    name: 'Dia dos Namorados',
+    country: 'BR',
+    category: 'romantic',
+    importance: 'high',
+    dateRule: { type: 'fixed', month: 6, day: 12 },
+    preparationWindowDays: 7,
+    nearWindowDays: 3,
+    influenceWindowDaysAfter: 1,
+    tags: ['romantic', 'relationship', 'gratitude', 'namorados'],
+  },
+  {
+    id: 'br_dia_amigo',
+    name: 'Dia do Amigo',
+    country: 'BR',
+    category: 'celebration',
+    importance: 'medium',
+    dateRule: { type: 'fixed', month: 7, day: 20 },
+    preparationWindowDays: 4,
+    nearWindowDays: 2,
+    influenceWindowDaysAfter: 1,
+    tags: ['relationship', 'celebration', 'dia_amigo'],
+  },
+  {
+    id: 'br_dia_pais',
+    name: 'Dia dos Pais',
+    country: 'BR',
+    category: 'family',
+    importance: 'high',
+    dateRule: { type: 'nth-weekday', month: 8, weekday: 0, nth: 2 },
+    preparationWindowDays: 7,
+    nearWindowDays: 3,
+    influenceWindowDaysAfter: 2,
+    tags: ['family', 'gratitude', 'relationship', 'paternal'],
+  },
+  {
+    id: 'br_saude_mental',
+    name: 'Dia Mundial da Saúde Mental',
+    country: 'BR',
+    category: 'reflection',
+    importance: 'medium',
+    dateRule: { type: 'fixed', month: 10, day: 10 },
+    preparationWindowDays: 3,
+    nearWindowDays: 1,
+    influenceWindowDaysAfter: 1,
+    tags: ['reflection', 'wellbeing', 'saude_mental'],
+  },
+  {
+    id: 'br_dia_criancas',
+    name: 'Dia das Crianças',
+    country: 'BR',
+    category: 'family',
+    importance: 'medium',
+    dateRule: { type: 'fixed', month: 10, day: 12 },
+    preparationWindowDays: 5,
+    nearWindowDays: 2,
+    influenceWindowDaysAfter: 1,
+    tags: ['family', 'celebration', 'dia_criancas'],
+  },
+  {
+    id: 'br_natal',
+    name: 'Natal',
+    country: 'BR',
+    category: 'family',
+    importance: 'high',
+    dateRule: { type: 'fixed', month: 12, day: 25 },
+    preparationWindowDays: 10,
+    nearWindowDays: 4,
+    influenceWindowDaysAfter: 2,
+    tags: ['family', 'gratitude', 'celebration', 'reflection', 'natal'],
+  },
+];
