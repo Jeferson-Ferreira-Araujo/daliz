@@ -41,14 +41,15 @@ export const waveTints = {
 // sentido semântico e completa com tons vizinhos e harmônicos pras categorias restantes,
 // sempre nessa mesma ordem.
 export const CATEGORY_CHART_COLORS: Record<ChallengeCategory, string> = {
-  desenvolvimento_pessoal: brand.balance,
   relacionamentos: brand.energy,
-  familia_presenca: '#E8927C',
-  trabalho_produtividade: '#3E5C89',
-  saude_energia: brand.calm,
-  financas_consumo: brand.optimism,
-  aprendizado_curiosidade: brand.action,
-  bondade_comunidade: '#6FBF73',
+  familia: '#E8927C',
+  aprendizado_desenvolvimento: brand.action,
+  saude_bemestar: brand.calm,
+  rotina_organizacao: '#3E5C89',
+  trabalho_financas: brand.optimism,
+  criatividade_cultura: brand.balance,
+  experiencias_lazer: '#6FBF73',
+  casa_ambiente: '#C97B4A',
   fe_espiritualidade: '#8E6BAF',
 };
 

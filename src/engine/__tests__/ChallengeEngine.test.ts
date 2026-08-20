@@ -122,9 +122,9 @@ describe('filterCandidatesForSlot (via explainNextChallenge)', () => {
   });
 
   it('não seleciona candidato fora da categoria escolhida pelo perfil', () => {
-    const challenge = makeChallenge({ categoria: 'financas_consumo' });
+    const challenge = makeChallenge({ categoria: 'trabalho_financas' });
     setCatalog([challenge]);
-    const profile = makeProfile({ selectedCategories: ['saude_energia'] });
+    const profile = makeProfile({ selectedCategories: ['saude_bemestar'] });
     expect(explainNextChallenge(profile, [], NOW).instance).toBeNull();
   });
 });

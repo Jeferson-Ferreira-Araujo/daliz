@@ -2,15 +2,21 @@ import type { Interest } from './interests';
 import type { RelationshipType } from './importantPeople';
 import type { Season } from '@/utils/season';
 
+// Taxonomia oficial (ver plano de migração/nova curadoria) — substitui as 9 categorias antigas
+// por completo, seguindo os 10 grupos da base curada anexada pelo usuário. `trabalho_financas`
+// funde os dois eixos antigos `trabalho_produtividade`/`financas_consumo` num só grupo, igual o
+// documento original já apresentava ("Trabalho & Finanças"). Não existe mais `bondade_comunidade`
+// — sem grupo correspondente na nova base.
 export type ChallengeCategory =
-  | 'desenvolvimento_pessoal'
   | 'relacionamentos'
-  | 'familia_presenca'
-  | 'trabalho_produtividade'
-  | 'saude_energia'
-  | 'financas_consumo'
-  | 'aprendizado_curiosidade'
-  | 'bondade_comunidade'
+  | 'familia'
+  | 'aprendizado_desenvolvimento'
+  | 'saude_bemestar'
+  | 'rotina_organizacao'
+  | 'trabalho_financas'
+  | 'criatividade_cultura'
+  | 'experiencias_lazer'
+  | 'casa_ambiente'
   | 'fe_espiritualidade';
 
 export type ChallengeLevel = 'facil' | 'medio' | 'desafiador';
@@ -312,39 +318,42 @@ export interface ChallengeProgression {
 export type WeatherTag = 'outdoor' | 'indoor' | 'rain' | 'sunny' | 'cold' | 'hot' | 'comfortable';
 
 export const CHALLENGE_CATEGORY_LABELS: Record<ChallengeCategory, string> = {
-  desenvolvimento_pessoal: 'Desenvolvimento pessoal',
   relacionamentos: 'Relacionamentos',
-  familia_presenca: 'Família e presença',
-  trabalho_produtividade: 'Trabalho e produtividade',
-  saude_energia: 'Saúde e energia',
-  financas_consumo: 'Finanças e consumo',
-  aprendizado_curiosidade: 'Aprendizado e curiosidade',
-  bondade_comunidade: 'Bondade, comunidade e vida prática',
+  familia: 'Família',
+  aprendizado_desenvolvimento: 'Aprendizado e desenvolvimento',
+  saude_bemestar: 'Saúde e bem-estar',
+  rotina_organizacao: 'Rotina e organização',
+  trabalho_financas: 'Trabalho e finanças',
+  criatividade_cultura: 'Criatividade e cultura',
+  experiencias_lazer: 'Experiências e lazer',
+  casa_ambiente: 'Casa e ambiente',
   fe_espiritualidade: 'Fé e espiritualidade',
 };
 
 export const CHALLENGE_CATEGORY_ICONS: Record<ChallengeCategory, string> = {
-  desenvolvimento_pessoal: '🧠',
   relacionamentos: '❤️',
-  familia_presenca: '👨‍👩‍👧',
-  trabalho_produtividade: '💼',
-  saude_energia: '🏃',
-  financas_consumo: '💰',
-  aprendizado_curiosidade: '📚',
-  bondade_comunidade: '🌎',
-  fe_espiritualidade: '🌿',
+  familia: '👨‍👩‍👧',
+  aprendizado_desenvolvimento: '🧠',
+  saude_bemestar: '💪',
+  rotina_organizacao: '⏰',
+  trabalho_financas: '💼',
+  criatividade_cultura: '🎨',
+  experiencias_lazer: '🌍',
+  casa_ambiente: '🏠',
+  fe_espiritualidade: '🙏',
 };
 
 // Resumo exibido na escolha de categorias no cadastro — dá exemplos concretos do
 // que a pessoa vai receber escolhendo aquela opção, pra decisão ser informada.
 export const CHALLENGE_CATEGORY_DESCRIPTIONS: Record<ChallengeCategory, string> = {
-  desenvolvimento_pessoal: 'Autoconhecimento, metas pequenas, superar inseguranças e sair da zona de conforto.',
   relacionamentos: 'Ligar ou mandar mensagem pra alguém, elogios sinceros, ouvir de verdade, fortalecer laços.',
-  familia_presenca: 'Momentos com quem mora com você — brincar, ajudar em casa, conversar sem celular na mesa.',
-  trabalho_produtividade: 'Organizar tarefas, priorizar o dia, reduzir distração e destravar pendências no trabalho.',
-  saude_energia: 'Exercícios físicos leves, alongamento, água, alimentação e pausas pra mexer o corpo.',
-  financas_consumo: 'Olhar gastos, cortar assinaturas paradas, guardar um valor pequeno, consumir com mais consciência.',
-  aprendizado_curiosidade: 'Aprender uma palavra, ler algo curto, descobrir uma curiosidade em poucos minutos.',
-  bondade_comunidade: 'Gentilezas com estranhos, ajudar um vizinho, doar algo parado, deixar um lugar melhor.',
-  fe_espiritualidade: 'Leitura bíblica curta e reflexão espiritual — só aparece se você escolher esta categoria.',
+  familia: 'Momentos com quem mora com você — brincar, ajudar em casa, conversar sem celular na mesa.',
+  aprendizado_desenvolvimento: 'Pesquisar curiosidades, aprender algo novo, descobrir lugares e ideias, autoconhecimento.',
+  saude_bemestar: 'Exercícios físicos leves, alongamento, água, alimentação, sono e pausas pra mexer o corpo.',
+  rotina_organizacao: 'Organizar tarefas, priorizar o dia, arrumar o que está pendente, simplificar a rotina.',
+  trabalho_financas: 'Organizar pendências do trabalho, olhar gastos, cortar assinaturas paradas, guardar um valor pequeno.',
+  criatividade_cultura: 'Escrever, criar, pesquisar arte e cultura, ouvir música nova, explorar algo criativo.',
+  experiencias_lazer: 'Conhecer um lugar novo, sair da rotina, fazer algo só por prazer, pequenos passeios.',
+  casa_ambiente: 'Organizar e limpar espaços, cuidar do ambiente onde você vive, pequenos consertos.',
+  fe_espiritualidade: 'Leitura, oração e reflexão espiritual — só aparece se você escolher esta categoria.',
 };

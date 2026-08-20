@@ -131,10 +131,9 @@ const SOCIAL_SHARE_PENALTY = 40;
 // escolher entre categorias discretas e compatíveis com estar no trabalho — nunca
 // exercício, família ou algo que a exponha ou atrapalhe o que ela está fazendo.
 const WORK_SAFE_CATEGORIES: ChallengeCategory[] = [
-  'trabalho_produtividade',
-  'desenvolvimento_pessoal',
-  'aprendizado_curiosidade',
-  'financas_consumo',
+  'trabalho_financas',
+  'rotina_organizacao',
+  'aprendizado_desenvolvimento',
 ];
 
 // Interesses/hobbies são só MAIS UM sinal de pontuação — nunca podem dominar a escolha

@@ -13,7 +13,7 @@ import type { Challenge } from '@/types';
  */
 export const FIRST_ACTION_CHALLENGE: Challenge = {
   id: 'first_action_fixed',
-  categoria: 'desenvolvimento_pessoal',
+  categoria: 'aprendizado_desenvolvimento',
   titulo: 'Escreva como você está se sentindo agora, sem julgar — só nomear já ajuda.',
   descricao: 'Escreva como você está se sentindo agora, sem julgar — só nomear já ajuda.',
   tempoEstimado: 3,
