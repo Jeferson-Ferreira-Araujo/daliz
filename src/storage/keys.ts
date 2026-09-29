@@ -5,4 +5,5 @@ export const STORAGE_KEYS = {
   journal: '@1pct/journal',
   actionPerformance: '@1pct/actionPerformance',
   weatherCache: '@1pct/weatherCache',
+  occupationsCache: '@1pct/occupationsCache',
 } as const;

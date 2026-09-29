@@ -1,4 +1,4 @@
-import type { ChallengeCategory, DayOfWeek } from './challenge';
+import type { ChallengeCategory, DayOfWeek, WorkContext } from './challenge';
 import type { Interest } from './interests';
 import type { ImportantPerson } from './importantPeople';
 import type { UserLocation } from './location';
@@ -65,6 +65,11 @@ export interface UserProfile {
   name: string;
   birthDate: string; // "YYYY-MM-DD"
   occupation: string;
+  // Derivado automaticamente da profissão escolhida no OccupationPicker (ver
+  // src/services/occupationService.ts) — nunca perguntado à parte. null = profissão digitada
+  // livre/não reconhecida, ou perfil salvo antes dessa feature existir; nesse caso o expediente
+  // continua com o comportamento de sempre (só WORK_SAFE_CATEGORIES).
+  workContext: WorkContext | null;
   photoUri: string | null;
   isWorking: boolean;
   workStartTime: string | null; // "HH:mm" — null quando isWorking é false
@@ -113,6 +118,11 @@ export interface UserProfile {
   notificationsEnabled: boolean;
   onboardingCompletedAt: string; // ISO datetime
   createdAt: string; // ISO datetime
+  // Quando a pessoa marcou a checkbox "Li e aceito os Termos de Uso e a Política de Privacidade"
+  // na tela de boas-vindas (ver app/onboarding/welcome.tsx) — gravado só ao concluir o cadastro de
+  // verdade (profileService.completeOnboarding), já que ninguém chega lá sem ter marcado a
+  // checkbox. Perfis salvos antes dessa tela existir recebem um fallback em normalizeProfile.
+  termsAcceptedAt: string; // ISO datetime
   // Estado do fluxo de primeira ação (ver app/onboarding/first-action.tsx). Opcional pra não
   // quebrar perfis salvos antes dessa feature existir — `normalizeProfile` (profileRepository.ts)
   // trata a ausência do campo como `'completed'`, nunca redirecionando quem já usa o app.

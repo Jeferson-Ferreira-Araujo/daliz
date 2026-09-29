@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Animated, { FadeIn, FadeInDown, FadeInUp } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { AppText } from '@/components/ui/AppText';
@@ -36,16 +37,24 @@ export function FirstActionCompletedScreen({ completed, nextActionPreview, onCon
     <LinearGradient colors={[brand.calm, brand.confidence]} style={styles.gradient}>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.content}>
-          <AppText variant="hero" color={WHITE} style={styles.title}>
-            {completed ? '✨ Passo dado!' : 'Tudo bem, valeu por tentar!'}
-          </AppText>
-          <AppText variant="body" color={WHITE_MUTED} style={styles.subtitle}>
-            {completed
-              ? 'Obrigado por compartilhar isso com a gente. Nosso algoritmo já está preparando tudo para que as próximas ações te ajudem a evoluir todos os dias.'
-              : 'Nosso algoritmo já está preparando tudo para que as próximas ações te ajudem a evoluir todos os dias.'}
-          </AppText>
+          <Animated.View entering={FadeInDown.duration(350)}>
+            <AppText variant="hero" color={WHITE} style={styles.title}>
+              {completed ? '✨ Passo dado!' : 'Tudo bem, valeu por tentar!'}
+            </AppText>
+            <AppText variant="body" color={WHITE_MUTED} style={styles.subtitle}>
+              {completed
+                ? 'Obrigado por compartilhar isso com a gente. Nosso algoritmo já está preparando tudo para que as próximas ações te ajudem a evoluir todos os dias.'
+                : 'Nosso algoritmo já está preparando tudo para que as próximas ações te ajudem a evoluir todos os dias.'}
+            </AppText>
+          </Animated.View>
 
-          <View style={[styles.card, { backgroundColor: WHITE }]}>
+          {/* Entra um pouco depois do título/subtítulo (delay), pra dar a sensação de sequência
+              em vez de tudo aparecer de uma vez — é o elemento mais importante da tela (a
+              expectativa concreta do que vem a seguir), então ganha o próprio momento. */}
+          <Animated.View
+            entering={FadeInUp.duration(350).delay(150)}
+            style={[styles.card, { backgroundColor: WHITE }]}
+          >
             <View style={styles.cardHeader}>
               <Ionicons name="notifications-outline" size={20} color={brand.confidence} style={styles.cardIcon} />
               <AppText variant="bodyStrong">O que acontece agora?</AppText>
@@ -61,12 +70,12 @@ export function FirstActionCompletedScreen({ completed, nextActionPreview, onCon
                 {nextActionPreview.text}
               </AppText>
             </View>
-          </View>
+          </Animated.View>
         </View>
 
-        <View style={styles.footer}>
+        <Animated.View entering={FadeIn.duration(400).delay(300)} style={styles.footer}>
           <Button label="Continuar" onPress={onContinue} tone="primary" />
-        </View>
+        </Animated.View>
       </SafeAreaView>
     </LinearGradient>
   );

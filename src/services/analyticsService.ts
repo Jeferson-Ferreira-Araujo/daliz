@@ -49,7 +49,15 @@ export const analyticsService = {
     }
     const analytics = getAnalyticsInstance();
     if (!analytics) return;
-    analyticsModule.logEvent(analytics, event, sanitizeParams(params)).catch(() => {});
+    // Crash real visto num build de teste: `logEvent` pode lançar SÍNCRONO (não só rejeitar a
+    // Promise) — o `.catch()` sozinho não protege disso. Analytics nunca pode derrubar o app (é
+    // exatamente o motivo de todo o guard de `require`/Expo Go acima já existir), então o try/catch
+    // aqui é a mesma garantia, só que pro lado da CHAMADA, não só do carregamento do módulo.
+    try {
+      analyticsModule.logEvent(analytics, event, sanitizeParams(params)).catch(() => {});
+    } catch {
+      // silencioso de propósito — ver comentário acima.
+    }
   },
 
   logScreenView(screenName: string): void {
@@ -59,7 +67,11 @@ export const analyticsService = {
     }
     const analytics = getAnalyticsInstance();
     if (!analytics) return;
-    analyticsModule.logScreenView(analytics, { screen_name: screenName, screen_class: screenName }).catch(() => {});
+    try {
+      analyticsModule.logScreenView(analytics, { screen_name: screenName, screen_class: screenName }).catch(() => {});
+    } catch {
+      // silencioso de propósito — ver comentário em log().
+    }
   },
 
   // Propriedades persistentes do usuário — diferente de log(), que é "isso aconteceu agora",
@@ -73,6 +85,10 @@ export const analyticsService = {
     const analytics = getAnalyticsInstance();
     if (!analytics) return;
     const stringified = Object.fromEntries(Object.entries(properties).map(([key, value]) => [key, value == null ? null : String(value)]));
-    analyticsModule.setUserProperties(analytics, stringified).catch(() => {});
+    try {
+      analyticsModule.setUserProperties(analytics, stringified).catch(() => {});
+    } catch {
+      // silencioso de propósito — ver comentário em log().
+    }
   },
 };

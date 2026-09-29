@@ -1,29 +1,28 @@
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
 import { getCurrentDate } from '@/utils/now';
-import { getInstanceActionKind, getInstanceTiming } from '@/data/challenges';
-import { TIMING_NOTIFICATION_TITLE, pickNotificationTeaser, pickSuggestionNotificationTeaser } from '@/engine/challengeTiming';
+import { getInstanceTiming } from '@/data/challenges';
+import { TIMING_NOTIFICATION_TITLE, pickNotificationTeaser } from '@/engine/challengeTiming';
 import type { ChallengeInstance } from '@/types';
 
 // Usado só pelas notificações genéricas, não ligadas a uma ação específica (teste, lembrete de
 // diário) — a notificação de uma ação usa TIMING_NOTIFICATION_TITLE (ver notificationTitleFor).
 export const NOTIFICATION_TITLE = 'Sua ação de hoje 🌱';
 
+// Corpo do convite de "Seu resumo semanal" (ver scheduleWeeklyRecap/sendWeeklyRecapNow) —
+// descreve só o que a aba Insights de fato mostra hoje (presença + como a pessoa se sentiu, ver
+// statsService.getPresenceSummary), nunca afirma resultado ("melhorou", "cuidou de si mesmo"):
+// entregar uma ação não garante nada sobre como ela foi feita.
+const WEEKLY_RECAP_BODY = 'Veja quantas ações chegaram até você essa semana, os temas mais presentes e como você tem se sentido.';
+
 /** Título e corpo da notificação de uma ação: o tipo (AGORA/HOJE/QUANDO FIZER SENTIDO) fica
  * explícito no título, mas o conteúdo real da ação (instance.descricao) nunca aparece — o corpo é
  * só um gancho de curiosidade, pra incentivar a pessoa a abrir o app pra descobrir. */
 function notificationTitleFor(instance: ChallengeInstance): string {
-  // Sugestão nunca deve parecer uma tarefa cobrando conclusão — título próprio, fora do
-  // esquema AGORA/HOJE/QUANDO FIZER SENTIDO (ver ChallengeActionKind).
-  if (getInstanceActionKind(instance) === 'sugestao') return '💡 Uma orientação pra agora';
   return TIMING_NOTIFICATION_TITLE[getInstanceTiming(instance)];
 }
 
 function notificationBodyFor(instance: ChallengeInstance): string {
-  // Mesmo princípio das ações (ver pickNotificationTeaser): nunca revelar o conteúdo real na tela
-  // de bloqueio, só um gancho pra abrir o app. Sugestão só aparece de verdade dentro do app (ver
-  // banner na Home) — mostrar o texto direto aqui tornaria abrir o app opcional.
-  if (getInstanceActionKind(instance) === 'sugestao') return pickSuggestionNotificationTeaser();
   return pickNotificationTeaser(getInstanceTiming(instance));
 }
 
@@ -118,19 +117,23 @@ export const notificationService = {
   },
 
   /**
-   * Notificação de "Lembrar mais tarde" (ver reminderService.ts) — mesmo mecanismo de
-   * `scheduleForInstances`/`sendNow` (`Notifications.scheduleNotificationAsync`), e o mesmo título
-   * por timing (a ação não mudou de tipo só porque a pessoa pediu pra ser avisada de novo). O
-   * corpo mantém o texto real da ação: a pessoa já viu essa ação no app antes de pedir o lembrete,
-   * então esconder o conteúdo aqui não geraria curiosidade — só confusão.
+   * Notificação de "Lembrar mais tarde" (ver reminderService.ts). Título próprio — diferente do
+   * título por timing das notificações normais (`notificationTitleFor`) — deixando claro que essa
+   * notificação é o lembrete de uma ação que a própria pessoa pediu pra reagendar, não uma ação
+   * nova chegando; sem isso, ficava indistinguível de uma notificação normal e confundia quem já
+   * tinha visto essa ação antes. O corpo mantém o texto real da ação: a pessoa já viu essa ação no
+   * app antes de pedir o lembrete, então esconder o conteúdo aqui não geraria curiosidade — só
+   * confusão.
    */
   async scheduleReminder(instance: ChallengeInstance, scheduledFor: Date): Promise<string | null> {
     if (Platform.OS === 'web') return null;
     return Notifications.scheduleNotificationAsync({
       content: {
-        title: notificationTitleFor(instance),
+        title: '⏰ Lembrete: você pediu pra rever essa ação',
         body: instance.descricao,
-        data: { instanceId: instance.id },
+        // `isReminder` (não só `instanceId`) — deixa app/_layout.tsx destacar esse card de um
+        // jeito diferente de "ação mais recente" ao abrir pela notificação (ver home.tsx).
+        data: { instanceId: instance.id, isReminder: true },
       },
       trigger: {
         type: Notifications.SchedulableTriggerInputTypes.DATE,
@@ -143,13 +146,21 @@ export const notificationService = {
    * Dispara a notificação de um desafio imediatamente (trigger nulo), com o
    * mesmo título/corpo/dados das notificações normais. Usado pelo Modo
    * Desenvolvedor para testar o formato/entrega sem esperar o horário real.
+   *
+   * `isFirstNotification` marca a notificação da toda primeira ação da pessoa (ver
+   * dayCycleService.requestFirstAction) — título e corpo diferentes só dessa vez, avisando que é a
+   * primeira, pra ela reconhecer o formato ("curto, sem revelar tudo") quando as próximas
+   * chegarem sem esse aviso. Dev Mode nunca passa essa flag: lá o objetivo é testar o formato
+   * normal de entrega, não o aviso único de estreia.
    */
-  async sendNow(instance: ChallengeInstance): Promise<string | null> {
+  async sendNow(instance: ChallengeInstance, options?: { isFirstNotification?: boolean }): Promise<string | null> {
     if (Platform.OS === 'web') return null;
     return Notifications.scheduleNotificationAsync({
       content: {
-        title: notificationTitleFor(instance),
-        body: notificationBodyFor(instance),
+        title: options?.isFirstNotification ? '🌱 Sua primeira notificação chegou!' : notificationTitleFor(instance),
+        body: options?.isFirstNotification
+          ? `${notificationBodyFor(instance)} É assim que o Daliz vai te avisar diariamente — rapidinho, sem revelar tudo, só um gancho pra você abrir e descobrir.`
+          : notificationBodyFor(instance),
         data: { instanceId: instance.id },
       },
       trigger: null,
@@ -169,19 +180,40 @@ export const notificationService = {
   },
 
   /**
-   * "O que você melhorou?" ficou pronto (ver weeklyRecapService.ts) — mesmo espírito de um recap
-   * estilo Spotify Wrapped: dispara assim que detectamos que a semana virou, não é agendada pra
-   * um horário futuro (o app só consegue calcular o resumo quando é reaberto — ver seção sobre
-   * limitações do reminderService pra notificações que dependem do app rodar). `data.screen`
-   * segue o mesmo padrão de `data.instanceId` já usado pelas outras notificações (ver
-   * app/_layout.tsx), só que apontando pra uma tela em vez de uma instância específica.
+   * "Seu resumo semanal" (ver weeklyRecapService.ts) — convite genérico, sem nenhuma contagem
+   * embutida no corpo: agendada com dias de antecedência (domingo ao meio-dia), a semana ainda
+   * não fechou nesse momento, então não há como calcular nada de verdade ainda. Os números reais
+   * (quantas ações chegaram, temas mais presentes, como a pessoa se sentiu) só existem quando o
+   * app abre e lê o histórico — por isso ficam na aba Insights (pra onde `data.screen` leva ao
+   * tocar), nunca no corpo da notificação. `data.screen` segue o mesmo padrão de `data.instanceId`
+   * já usado pelas outras notificações (ver app/_layout.tsx), só que aponta pra uma tela em vez de
+   * uma instância específica.
    */
-  async sendWeeklyRecap(body: string): Promise<string | null> {
+  async scheduleWeeklyRecap(scheduledFor: Date, now: Date): Promise<string | null> {
+    if (Platform.OS === 'web') return null;
+    if (scheduledFor.getTime() <= now.getTime()) return null;
+
+    return Notifications.scheduleNotificationAsync({
+      content: {
+        title: '✨ Seu resumo semanal está pronto!',
+        body: WEEKLY_RECAP_BODY,
+        data: { screen: 'insights' },
+      },
+      trigger: {
+        type: Notifications.SchedulableTriggerInputTypes.DATE,
+        date: scheduledFor,
+      },
+    });
+  },
+
+  /** Dispara o mesmo convite acima na hora (trigger nulo) — só pro Modo Desenvolvedor testar
+   * formato/entrega sem esperar o domingo real (ver weeklyRecapService.scheduleIfNeeded). */
+  async sendWeeklyRecapNow(): Promise<string | null> {
     if (Platform.OS === 'web') return null;
     return Notifications.scheduleNotificationAsync({
       content: {
         title: '✨ Seu resumo semanal está pronto!',
-        body,
+        body: WEEKLY_RECAP_BODY,
         data: { screen: 'insights' },
       },
       trigger: null,
@@ -201,7 +233,11 @@ export const notificationService = {
       content: {
         title: 'Como foi seu dia hoje? 📝',
         body: 'Registre em poucas palavras como você se sentiu — é rapidinho e fica guardado no seu histórico.',
-        data: { type: 'day_reflection' },
+        // `screen`/`focusToday`, não `type` — antes usava um formato próprio que
+        // handleNotificationData (app/_layout.tsx) nunca reconhecia, e a notificação não levava a
+        // lugar nenhum ao tocar. Reaproveita o mesmo mecanismo de `data.screen` já usado pelo
+        // resumo semanal.
+        data: { screen: 'history', focusToday: true },
       },
       trigger: {
         type: Notifications.SchedulableTriggerInputTypes.DATE,

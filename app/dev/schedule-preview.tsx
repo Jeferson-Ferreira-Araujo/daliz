@@ -5,6 +5,7 @@ import { DevScreen, DevSection, DevBanner, DevChipButton } from '@/dev/DevUI';
 import { AppText } from '@/components/ui/AppText';
 import { Chip } from '@/components/ui/Chip';
 import { TextField } from '@/components/ui/TextField';
+import { OccupationPicker } from '@/components/OccupationPicker';
 import { TimeField } from '@/components/ui/TimeField';
 import { DateField } from '@/components/ui/DateField';
 import { ImportantPeopleEditor } from '@/components/ImportantPeopleEditor';
@@ -12,10 +13,11 @@ import { CurrentLocationField } from '@/components/CurrentLocationField';
 import { radius, spacing, useTheme } from '@/theme';
 import { profileService, type OnboardingProfileInput } from '@/services/profileService';
 import { DEV_ONBOARDING_TEST_DATA } from '@/dev/onboardingAutofill';
-import { buildPreviewProfile, computeSchedulePreview, type SchedulePreviewEntry } from '@/dev/schedulePreview';
+import { buildPreviewProfile, computeSchedulePreviewForDate, type SchedulePreviewEntry } from '@/dev/schedulePreview';
 import { useDevClockState } from '@/dev/devClock';
 import { getCurrentDate } from '@/utils/now';
-import { getInstanceActionKind, getInstanceTiming } from '@/data/challenges';
+import { addDays, parseISODate, toISODate } from '@/utils/date';
+import { getInstanceTiming } from '@/data/challenges';
 import { TIMING_LABELS } from '@/engine/challengeTiming';
 import {
   CHALLENGE_CATEGORY_ICONS,
@@ -46,7 +48,11 @@ const SOCIAL_USAGE_OPTIONS = Object.entries(SOCIAL_MEDIA_USAGE_LABELS) as [Socia
 const SOCIAL_INTEREST_OPTIONS = Object.entries(SOCIAL_CHALLENGES_INTEREST_LABELS) as [SocialChallengesInterest, string][];
 const SOCIAL_NETWORK_OPTIONS = Object.entries(SOCIAL_NETWORK_LABELS) as [SocialNetwork, string][];
 const RECOMPUTE_DEBOUNCE_MS = 400;
-const MAX_ALTERNATIVES_SHOWN = 4;
+// Teto de quantos dias à frente dá pra simular de uma vez — cada dia entre hoje e a data
+// escolhida precisa ser gerado em memória pra alimentar o histórico do próximo (ver
+// computeSchedulePreviewForDate), então um teto generoso evita rodar o motor centenas de vezes à
+// toa se alguém escolher uma data muito distante sem querer.
+const MAX_PREVIEW_DAYS_AHEAD = 30;
 
 const today = new Date();
 const MAX_BIRTH_DATE = today;
@@ -59,6 +65,10 @@ export default function DevSchedulePreviewScreen() {
   const [entries, setEntries] = useState<SchedulePreviewEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [runToken, setRunToken] = useState(0);
+  // Dia sendo simulado — default "hoje" (a data do relógio simulado). Escolher outra data
+  // simula, em memória, cada dia entre hoje e ela (ver computeSchedulePreviewForDate), pra ver a
+  // lista de ações de qualquer dia futuro, não só "a partir de agora".
+  const [previewDate, setPreviewDate] = useState(() => toISODate(getCurrentDate()));
 
   useEffect(() => {
     profileService.getProfile().then((profile) => {
@@ -68,11 +78,19 @@ export default function DevSchedulePreviewScreen() {
 
   const simulatedAtMs = clock.simulatedAt.getTime();
 
+  // Se o relógio simulado mudar de dia (ex: "+1 dia" no /dev/clock) e a data escolhida aqui
+  // ficar pra trás de "hoje", volta pra hoje — simular um dia que já passou não faz sentido.
+  useEffect(() => {
+    const todayISO = toISODate(getCurrentDate());
+    if (previewDate < todayISO) setPreviewDate(todayISO);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- só reage a mudança de dia do relógio
+  }, [simulatedAtMs, clock.enabled]);
+
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
       const profile = buildPreviewProfile(draft);
-      computeSchedulePreview(profile, getCurrentDate()).then((result) => {
+      computeSchedulePreviewForDate(profile, previewDate, getCurrentDate()).then((result) => {
         setEntries(result);
         setLoading(false);
       });
@@ -81,7 +99,7 @@ export default function DevSchedulePreviewScreen() {
     return () => clearTimeout(timer);
     // simulatedAtMs (não clock.simulatedAt): useDevClockState devolve um novo objeto Date a cada
     // render, então usar o objeto direto na dependência recalculava em loop infinito.
-  }, [draft, simulatedAtMs, clock.enabled, runToken]);
+  }, [draft, previewDate, simulatedAtMs, clock.enabled, runToken]);
 
   function update<K extends keyof OnboardingProfileInput>(key: K, value: OnboardingProfileInput[K]) {
     setDraft((prev) => ({ ...prev, [key]: value }));
@@ -113,25 +131,40 @@ export default function DevSchedulePreviewScreen() {
   }
 
   const nowLabel = useMemo(() => formatDateTime(getCurrentDate()), [simulatedAtMs, clock.enabled]);
-
-  // Sugestões (actionKind 'sugestao') usam o mesmo pipeline de filtro/pontuação das ações, mas
-  // disputam numa raia própria — só contra outras sugestões, com sua própria faixa diária pequena
-  // (DAILY_SUGGESTION_RANGE em ChallengeEngine), nunca competindo pelo slot/orçamento das ações
-  // (ver ChallengeEngine.selectDailyChallenges). Na Home real elas nunca viram card — aparecem
-  // como banner avulso, sem botão de conclusão (ver app/(main)/(tabs)/home.tsx). Separadas aqui
-  // pelo mesmo motivo: pra não confundir com o que teria botão Concluir/Não consegui de verdade.
-  const actionEntries = entries.filter(({ instance }) => getInstanceActionKind(instance) === 'acao');
-  const suggestionEntries = entries.filter(({ instance }) => getInstanceActionKind(instance) === 'sugestao');
+  const isPreviewToday = previewDate === toISODate(getCurrentDate());
 
   return (
     <DevScreen title="🗓️ Prévia do cadastro">
-      <DevBanner text="Edite o perfil abaixo (cadastro completo) e veja, ao vivo, quais ações e em que horário seriam enviadas a partir de agora — usando o motor de seleção de verdade, sem salvar nada." />
+      <DevBanner text="Edite o perfil abaixo (cadastro completo) e veja, ao vivo, quais ações e em que horário seriam enviadas — usando o motor de seleção de verdade, sem salvar nada." />
 
       <DevSection title="Agora (relógio simulado)">
         <View style={styles.nowRow}>
           <AppText variant="body">{nowLabel}</AppText>
           <DevChipButton label="Ajustar relógio" tone="primary" onPress={() => router.push('/dev/clock')} />
         </View>
+      </DevSection>
+
+      <DevSection title="Ferramentas">
+        <View style={styles.nowRow}>
+          <AppText variant="body">🔔 Disparar/testar notificações</AppText>
+          <DevChipButton label="Abrir" tone="primary" onPress={() => router.push('/dev/notification-tester')} />
+        </View>
+      </DevSection>
+
+      <DevSection title="Simular dia">
+        <View style={styles.fieldBlock}>
+          <DateField
+            label="Ver as ações deste dia"
+            value={previewDate}
+            onChange={setPreviewDate}
+            minimumDate={getCurrentDate()}
+            maximumDate={parseISODate(addDays(toISODate(getCurrentDate()), MAX_PREVIEW_DAYS_AHEAD))}
+          />
+        </View>
+        <AppText variant="caption" color={colors.textMuted} style={styles.fieldLabel}>
+          Padrão é hoje. Escolher outro dia simula, em memória, cada dia entre hoje e ele (pra não
+          repetir ação recente à toa) e mostra a lista daquele dia específico.
+        </AppText>
       </DevSection>
 
       <DevSection title="Sobre você">
@@ -148,7 +181,13 @@ export default function DevSchedulePreviewScreen() {
           />
         </View>
         <View style={styles.fieldBlock}>
-          <TextField label="Profissão" value={draft.occupation} onChangeText={(v) => update('occupation', v)} />
+          <OccupationPicker
+            value={draft.occupation}
+            onChange={(nextOccupation, nextWorkContext) => {
+              update('occupation', nextOccupation);
+              update('workContext', nextWorkContext);
+            }}
+          />
         </View>
         <View style={styles.fieldBlock}>
           <AppText variant="caption" color={colors.textMuted} style={styles.fieldLabel}>
@@ -296,26 +335,31 @@ export default function DevSchedulePreviewScreen() {
       </DevSection>
 
       <View style={styles.resultHeader}>
-        <AppText variant="bodyStrong">{loading ? 'Calculando…' : `${actionEntries.length} ação(ões) a partir de agora`}</AppText>
+        <AppText variant="bodyStrong">
+          {loading ? 'Calculando…' : `${entries.length} ação(ões) ${isPreviewToday ? 'a partir de agora' : `em ${formatDate(previewDate)}`}`}
+        </AppText>
         <DevChipButton label="🔄 Sortear de novo" onPress={() => setRunToken((n) => n + 1)} />
       </View>
       <AppText variant="caption" color={colors.textMuted} style={styles.resultHint}>
         Pra um mesmo perfil e horário exatos, o motor sempre escolhe a mesma ação (é assim de
         verdade — sem isso, duas pessoas no mesmo contexto receberiam coisas diferentes ao acaso).
-        "Sortear de novo" só varia quantas ações e em que instante dentro de cada período —
-        pra ver combinações diferentes de verdade, mude o perfil acima (categorias, interesses,
-        pessoas, localização, horário). Cada ação abaixo mostra as alternativas que concorreram e
-        perderam.
+        "Sortear de novo" só varia quantas ações e em que instante dentro de cada período — pra ver
+        combinações diferentes de verdade, mude o perfil acima (categorias, interesses, pessoas,
+        localização, horário) ou o dia simulado.
       </AppText>
 
-      {!loading && actionEntries.length === 0 && (
+      {!loading && entries.length === 0 && (
         <DevBanner
           tone="warning"
-          text="Nenhuma ação seria enviada agora com esse perfil — pode ser que 'agora' esteja fora da janela acordado, ou dentro do expediente sem receber notificações."
+          text={
+            isPreviewToday
+              ? "Nenhuma ação seria enviada agora com esse perfil — pode ser que 'agora' esteja fora da janela acordado, ou dentro do expediente sem receber notificações."
+              : 'Nenhuma ação seria enviada nesse dia com esse perfil — pode ser um dia de folga sem categoria compatível, ou o expediente sem receber notificações.'
+          }
         />
       )}
 
-      {actionEntries.map(({ instance, alternatives }) => (
+      {entries.map(({ instance }) => (
         <View key={instance.id} style={[styles.instanceCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <View style={styles.instanceHeader}>
             <View style={styles.instanceTimeCol}>
@@ -329,67 +373,12 @@ export default function DevSchedulePreviewScreen() {
                 {CHALLENGE_CATEGORY_ICONS[instance.categoria]} {instance.titulo}
               </AppText>
               <AppText variant="caption" color={colors.textMuted}>
-                {CHALLENGE_CATEGORY_LABELS[instance.categoria]} · {instance.tempoEstimado} min · pontuação{' '}
-                {alternatives[0]?.score.toFixed(0) ?? '—'}
+                {CHALLENGE_CATEGORY_LABELS[instance.categoria]} · {instance.tempoEstimado} min
               </AppText>
             </View>
           </View>
-          {alternatives.length > 1 && (
-            <View style={[styles.alternativesBlock, { borderTopColor: colors.border }]}>
-              <AppText variant="caption" color={colors.textMuted}>
-                Também concorreram ({alternatives.length - 1}):
-              </AppText>
-              {alternatives.slice(1, 1 + MAX_ALTERNATIVES_SHOWN).map(({ challenge, score }) => (
-                <AppText key={challenge.id} variant="caption" color={colors.textMuted} style={styles.alternativeRow}>
-                  {CHALLENGE_CATEGORY_ICONS[challenge.categoria]} {challenge.titulo} · {score.toFixed(0)}
-                </AppText>
-              ))}
-            </View>
-          )}
         </View>
       ))}
-
-      {!loading && (
-        <>
-          <View style={styles.resultHeader}>
-            <AppText variant="bodyStrong">
-              💡 {suggestionEntries.length} sugestão(ões) a partir de agora
-            </AppText>
-          </View>
-          <AppText variant="caption" color={colors.textMuted} style={styles.resultHint}>
-            Sugestões (actionKind 'sugestao') usam o mesmo motor/filtros das ações, mas disputam à
-            parte — só contra outras sugestões, numa faixa diária própria e pequena — e na tela
-            Hoje de verdade nunca viram card, só um banner simples, sem botão de conclusão.
-            Listadas aqui separado só pra você conferir quais e quando apareceriam pra esse perfil.
-          </AppText>
-          {suggestionEntries.length === 0 ? (
-            <AppText variant="caption" color={colors.textMuted} style={styles.resultHint}>
-              Nenhuma sugestão seria enviada agora com esse perfil.
-            </AppText>
-          ) : (
-            suggestionEntries.map(({ instance }) => (
-              <View key={instance.id} style={[styles.instanceCard, { backgroundColor: colors.warningBg, borderColor: colors.border }]}>
-                <View style={styles.instanceHeader}>
-                  <View style={styles.instanceTimeCol}>
-                    <AppText variant="bodyStrong">{formatTime(instance.scheduledFor)}</AppText>
-                    <AppText variant="caption" color={colors.textMuted}>
-                      💡 Sugestão
-                    </AppText>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <AppText variant="body">
-                      {CHALLENGE_CATEGORY_ICONS[instance.categoria]} {instance.titulo}
-                    </AppText>
-                    <AppText variant="caption" color={colors.textMuted}>
-                      {CHALLENGE_CATEGORY_LABELS[instance.categoria]}
-                    </AppText>
-                  </View>
-                </View>
-              </View>
-            ))
-          )}
-        </>
-      )}
     </DevScreen>
   );
 }
@@ -403,6 +392,12 @@ function formatDateTime(date: Date): string {
   const d = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}`;
   const t = `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
   return `${d} ${t}`;
+}
+
+/** "YYYY-MM-DD" -> "dd/mm", pro cabeçalho da lista quando o dia simulado não é hoje. */
+function formatDate(dateISO: string): string {
+  const [, month, day] = dateISO.split('-');
+  return `${day}/${month}`;
 }
 
 const styles = StyleSheet.create({
@@ -457,13 +452,5 @@ const styles = StyleSheet.create({
   },
   instanceTimeCol: {
     width: 72,
-  },
-  alternativesBlock: {
-    marginTop: spacing.sm,
-    paddingTop: spacing.sm,
-    borderTopWidth: 1,
-  },
-  alternativeRow: {
-    marginTop: 2,
   },
 });

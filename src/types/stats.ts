@@ -1,66 +1,54 @@
 import type { ChallengeCategory } from './challenge';
+import type { ChallengeReaction } from './challengeInstance';
 
-export interface DailyActivity {
+// Sem Concluir/Não consegui obrigatório (ver plano de migração "Novo modelo de ações"), a base
+// principal dos tipos abaixo é PRESENÇA: quantas ações chegaram, com que frequência, em quais
+// categorias. `reactionBreakdown`/`completedCount` são a exceção deliberada: desde que o
+// ReactionPicker voltou, marcar uma reação (qualquer uma) É o sinal de "feito" — não finge medir
+// desempenho, só reflete o que a pessoa marcou voluntariamente sobre como se sentiu.
+
+export interface DailyPresence {
   date: string; // "YYYY-MM-DD"
-  completed: number;
-  total: number; // total de desafios resolvidos (concluído + não concluído + ignorado)
+  total: number; // ações entregues (deliveredAt) naquele dia
 }
 
-export interface CategoryBreakdownEntry {
-  categoria: ChallengeCategory;
-  completionRate: number; // 0..1
-  totalCompleted: number;
-  totalResolved: number;
-}
-
-export interface AggregatedStats {
-  totalReceived: number;
-  totalCompleted: number;
-  completionRate: number; // 0..1
-  averageTimeToCompleteMs: number | null;
-  bestCategories: { categoria: ChallengeCategory; completionRate: number }[];
-  worstCategories: { categoria: ChallengeCategory; completionRate: number }[];
-  // titulo vem da própria instância (já resolvido, com {pessoa} substituído se aplicável) — nunca
-  // de um lookup no catálogo estático, porque nem toda instância corresponde a um Challenge do
-  // catálogo (ex: a ação fixa de primeira ação, ver src/data/firstActionChallenge.ts).
-  bestRatedChallengeIds: { challengeId: string; titulo: string }[];
-  mostIgnoredChallengeIds: { challengeId: string; titulo: string }[];
-  bestCompletionHours: number[]; // horas do dia (0-23) com maior taxa de conclusão
-  // Últimos 7 dias (incluindo hoje), em ordem cronológica, sempre com 7 entradas
-  // mesmo em dias sem nenhum desafio — alimenta o gráfico de atividade semanal.
-  dailyActivity: DailyActivity[];
-  currentStreak: number; // dias seguidos (até hoje ou ontem) com pelo menos 1 desafio concluído
-  bestStreak: number; // maior sequência já alcançada
-  // Todas as categorias com pelo menos 1 desafio resolvido, ordenadas por taxa de
-  // conclusão — não só top/bottom 3 (ver bestCategories/worstCategories acima).
-  categoryBreakdown: CategoryBreakdownEntry[];
-  // Contagem de conclusões por hora do dia (índice 0-23) — alimenta o mapa de calor.
-  hourlyDistribution: number[];
-}
-
-// "O que você melhorou?" — resumo semanal (ver src/data/weeklyHighlightCopy.ts pra tradução
-// categoria → linguagem humana, e statsService.getWeeklyInsight pro cálculo).
-export interface WeeklyHighlight {
+export interface CategoryCount {
   categoria: ChallengeCategory;
   count: number;
 }
 
-export interface WeeklyInsightWeek {
-  weekStart: string; // "YYYY-MM-DD", segunda-feira
-  weekEnd: string; // "YYYY-MM-DD", domingo (mesmo a semana ainda não ter terminado)
-  totalCompleted: number;
-  // Categorias com mais de 1 ação concluída na semana, ordenadas por contagem (desempate: ação
-  // mais recente primeiro) — até 3, ver seção 7 do pedido ("não mostrar tudo obrigatoriamente").
-  highlights: WeeklyHighlight[];
-  // Categoria com mais ações concluídas na semana ("mudança que mais se destacou", seção 8/9) —
-  // null só quando não há nenhuma ação concluída ainda. Sem filtro de >1: mesmo uma única ação
-  // pode ser o destaque de uma semana que está só começando (ver seção 13).
-  topHighlight: WeeklyHighlight | null;
+export interface RecentNote {
+  instanceId: string;
+  titulo: string;
+  note: string;
+  date: string; // "YYYY-MM-DD"
 }
 
-export interface WeeklyInsight {
-  currentWeek: WeeklyInsightWeek;
-  // Reservado pra comparação com a semana anterior (seção 15 do pedido) — deliberadamente não
-  // implementado nesta versão, só a forma já preparada pra não exigir reescrever o componente.
-  previousWeek?: WeeklyInsightWeek;
+export interface ReactionCount {
+  reaction: ChallengeReaction;
+  count: number;
+}
+
+export interface PresenceSummary {
+  totalDelivered: number; // todas as ações já entregues, desde sempre
+  deliveredThisWeek: number;
+  daysActiveThisWeek: number; // dias distintos desta semana (seg-dom) com pelo menos 1 ação entregue
+  // Dias seguidos (até hoje ou ontem) com pelo menos 1 ação entregue — mede presença/uso
+  // contínuo, não desempenho: nada aqui pressupõe que a pessoa "completou" nada.
+  currentStreak: number;
+  bestStreak: number;
+  // Últimos 30 dias, ordenado por contagem — quais categorias mais apareceram pra essa pessoa.
+  categoryBreakdown: CategoryCount[];
+  // Últimos 7 dias (incluindo hoje), sempre com 7 entradas mesmo em dias sem nenhuma ação.
+  dailyActivity: DailyPresence[];
+  // Distribuição por hora do dia (índice 0-23) de quando as ações costumam chegar.
+  hourlyDistribution: number[];
+  // Anotações mais recentes primeiro (ver ChallengeCard/NoteField).
+  recentNotes: RecentNote[];
+  // Quantas ações entregues já têm uma reação marcada (completedAt != null) — ver
+  // challengeActionsService.setReaction. Voluntário: nunca cobrado, só contado quando existe.
+  completedCount: number;
+  // Contagem por tipo de reação entre as ações com reação marcada, ordenada da mais comum pra
+  // menos comum — omite tipos com zero ocorrências (mesmo padrão de categoryBreakdown).
+  reactionBreakdown: ReactionCount[];
 }

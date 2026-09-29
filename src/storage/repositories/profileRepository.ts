@@ -19,6 +19,9 @@ function normalizeProfile(raw: any): UserProfile {
 
   return {
     ...raw,
+    // Perfis salvos antes do OccupationPicker existir só tinham texto livre — sem contexto de
+    // trabalho derivado, mesmo comportamento de hoje (expediente só libera WORK_SAFE_CATEGORIES).
+    workContext: raw.workContext ?? null,
     workSchedule: raw.workSchedule ?? 'fixa',
     workDays: raw.workDays ?? DEFAULT_WORK_DAYS,
     shiftPattern: raw.shiftPattern ?? null,
@@ -41,6 +44,9 @@ function normalizeProfile(raw: any): UserProfile {
     // tratamos como já resolvido, igual todo outro campo legado aqui (ver src/types/profile.ts).
     firstActionState: raw.firstActionState ?? 'completed',
     firstActionInstanceId: raw.firstActionInstanceId ?? null,
+    // Perfis salvos antes da checkbox de aceite existir — usa a data do próprio cadastro como
+    // aproximação razoável (não é uma reconstrução de consentimento real, só evita undefined).
+    termsAcceptedAt: raw.termsAcceptedAt ?? raw.onboardingCompletedAt ?? raw.createdAt,
   };
 }
 

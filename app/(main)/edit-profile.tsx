@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Screen } from '@/components/ui/Screen';
 import { AppText } from '@/components/ui/AppText';
 import { Button } from '@/components/ui/Button';
 import { TextField } from '@/components/ui/TextField';
+import { OccupationPicker } from '@/components/OccupationPicker';
 import { TimeField } from '@/components/ui/TimeField';
 import { DateField } from '@/components/ui/DateField';
 import { Chip } from '@/components/ui/Chip';
@@ -38,6 +39,7 @@ import {
   type SocialNetwork,
   type UserLocation,
   type UserProfile,
+  type WorkContext,
   type WorkSchedule,
 } from '@/types';
 
@@ -56,12 +58,20 @@ const MIN_BIRTH_DATE = new Date(today.getFullYear() - 120, today.getMonth(), tod
 
 export default function EditProfileScreen() {
   const { colors } = useTheme();
+  // `focusSection` vem do CTA "Quer adicionar?" no bloco vazio de Pessoas Importantes (ver
+  // app/(main)/(tabs)/profile.tsx) — pula direto pra essa parte do formulário, já com o "Adicionar
+  // pessoa" aberto, em vez de deixar a pessoa rolar a tela inteira achando a seção.
+  const { focusSection } = useLocalSearchParams<{ focusSection?: string }>();
+  const scrollViewRef = useRef<ScrollView>(null);
+  const importantPeopleOffsetRef = useRef(0);
+  const hasScrolledToFocusRef = useRef(false);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
   const [name, setName] = useState('');
   const [birthDate, setBirthDate] = useState('');
   const [occupation, setOccupation] = useState('');
+  const [workContext, setWorkContext] = useState<WorkContext | null>(null);
   const [isWorking, setIsWorking] = useState<boolean | null>(null);
   const [workStartTime, setWorkStartTime] = useState('09:00');
   const [workEndTime, setWorkEndTime] = useState('18:00');
@@ -100,6 +110,7 @@ export default function EditProfileScreen() {
     setName(profile.name);
     setBirthDate(profile.birthDate);
     setOccupation(profile.occupation);
+    setWorkContext(profile.workContext);
     setIsWorking(profile.isWorking);
     setWorkStartTime(profile.workStartTime ?? '09:00');
     setWorkEndTime(profile.workEndTime ?? '18:00');
@@ -154,6 +165,15 @@ export default function EditProfileScreen() {
     selectedCategories,
   ]);
 
+  // Salva na hora, sem esperar "Salvar alterações" lá embaixo (ver profileService.
+  // updateImportantPeople) — o formulário de "Adicionar pessoa" tem seu próprio botão de commit,
+  // que parece uma ação concluída; sem isso, dava pra adicionar alguém e sair da tela sem perceber
+  // que não tinha sido salvo de verdade.
+  async function handleImportantPeopleChange(people: ImportantPerson[]) {
+    setImportantPeople(people);
+    await profileService.updateImportantPeople(people);
+  }
+
   function toggleCategory(category: ChallengeCategory) {
     setSelectedCategories((prev) => (prev.includes(category) ? prev.filter((c) => c !== category) : [...prev, category]));
   }
@@ -198,6 +218,7 @@ export default function EditProfileScreen() {
         name: name.trim(),
         birthDate,
         occupation: occupation.trim(),
+        workContext,
         isWorking,
         workStartTime: isWorking ? workStartTime : null,
         workEndTime: isWorking ? workEndTime : null,
@@ -242,7 +263,7 @@ export default function EditProfileScreen() {
         <View style={{ width: 22 }} />
       </View>
 
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <ScrollView ref={scrollViewRef} contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <TextField label="Nome" value={name} onChangeText={setName} placeholder="Como podemos te chamar?" />
         <DateField
           label="Data de nascimento"
@@ -251,7 +272,13 @@ export default function EditProfileScreen() {
           minimumDate={MIN_BIRTH_DATE}
           maximumDate={MAX_BIRTH_DATE}
         />
-        <TextField label="Profissão" value={occupation} onChangeText={setOccupation} placeholder="Ex: Designer" />
+        <OccupationPicker
+          value={occupation}
+          onChange={(nextOccupation, nextWorkContext) => {
+            setOccupation(nextOccupation);
+            setWorkContext(nextWorkContext);
+          }}
+        />
 
         <AppText variant="caption" color={colors.textMuted} style={styles.fieldLabel}>
           Você está trabalhando atualmente?
@@ -405,14 +432,30 @@ export default function EditProfileScreen() {
           />
         </View>
 
-        <AppText variant="caption" color={colors.textMuted} style={styles.fieldLabel}>
-          ❤️ Pessoas importantes
-        </AppText>
-        <AppText variant="caption" color={colors.textMuted} style={styles.hint}>
-          Algumas pessoas fazem parte daquilo que torna seu dia melhor. Conhecê-las ajuda o Daliz a criar
-          ações mais pessoais para você.
-        </AppText>
-        <ImportantPeopleEditor people={importantPeople} onChange={setImportantPeople} />
+        <View
+          onLayout={(event) => {
+            importantPeopleOffsetRef.current = event.nativeEvent.layout.y;
+            // Só rola uma vez — sem essa guarda, qualquer re-layout (ex: abrir/fechar o formulário
+            // de adicionar) dispararia o scroll de novo, atrapalhando quem já está mexendo na tela.
+            if (focusSection === 'importantPeople' && !hasScrolledToFocusRef.current) {
+              hasScrolledToFocusRef.current = true;
+              scrollViewRef.current?.scrollTo({ y: Math.max(0, importantPeopleOffsetRef.current - spacing.lg), animated: true });
+            }
+          }}
+        >
+          <AppText variant="caption" color={colors.textMuted} style={styles.fieldLabel}>
+            ❤️ Pessoas importantes
+          </AppText>
+          <AppText variant="caption" color={colors.textMuted} style={styles.hint}>
+            Algumas pessoas fazem parte daquilo que torna seu dia melhor. Conhecê-las ajuda o Daliz a criar
+            ações mais pessoais para você.
+          </AppText>
+          <ImportantPeopleEditor
+            people={importantPeople}
+            onChange={handleImportantPeopleChange}
+            autoOpenAdd={focusSection === 'importantPeople'}
+          />
+        </View>
 
         <AppText variant="caption" color={colors.textMuted} style={styles.fieldLabel}>
           📍 Onde você mora?

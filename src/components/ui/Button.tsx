@@ -1,6 +1,7 @@
 import React from 'react';
-import { Pressable, StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 import { AppText } from './AppText';
+import { AnimatedPressable } from './AnimatedPressable';
 import { radius, spacing, useTheme } from '@/theme';
 
 type Tone = 'primary' | 'success' | 'warning' | 'danger' | 'neutral';
@@ -58,22 +59,16 @@ export function Button({
   const textColor = variant === 'solid' ? (tone === 'primary' ? colors.onPrimary : colors.textInverse) : main;
 
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={onPress}
       disabled={disabled}
-      style={({ pressed }) => [
-        styles.base,
-        size === 'sm' ? styles.sm : styles.md,
-        variantStyle,
-        disabled && styles.disabled,
-        pressed && !disabled && styles.pressed,
-        style,
-      ]}
+      scaleTo={0.97}
+      style={[styles.base, size === 'sm' ? styles.sm : styles.md, variantStyle, disabled && styles.disabled, style]}
     >
       <AppText variant={size === 'sm' ? 'pillLabel' : 'bodyStrong'} color={textColor}>
         {label}
       </AppText>
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 
@@ -93,8 +88,5 @@ const styles = StyleSheet.create({
   },
   disabled: {
     opacity: 0.5,
-  },
-  pressed: {
-    opacity: 0.85,
   },
 });

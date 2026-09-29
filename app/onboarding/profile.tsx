@@ -6,6 +6,7 @@ import { Screen } from '@/components/ui/Screen';
 import { AppText } from '@/components/ui/AppText';
 import { Button } from '@/components/ui/Button';
 import { TextField } from '@/components/ui/TextField';
+import { OccupationPicker } from '@/components/OccupationPicker';
 import { TimeField } from '@/components/ui/TimeField';
 import { DateField } from '@/components/ui/DateField';
 import { Chip } from '@/components/ui/Chip';
@@ -15,7 +16,6 @@ import { CurrentLocationField } from '@/components/CurrentLocationField';
 import { radius, spacing, useTheme } from '@/theme';
 import { onboardingDraft } from '@/services/onboardingDraft';
 import { analyticsService } from '@/services/analyticsService';
-import { devOnboardingAutofill } from '@/dev/onboardingAutofill';
 import { toISODate } from '@/utils/date';
 import { getCurrentDate } from '@/utils/now';
 import {
@@ -36,6 +36,7 @@ import {
   type Interest,
   type ShiftPattern,
   type UserLocation,
+  type WorkContext,
   type SocialChallengesInterest,
   type SocialMediaUsage,
   type SocialNetwork,
@@ -89,6 +90,7 @@ export default function ProfileScreen() {
   const [name, setName] = useState('');
   const [birthDate, setBirthDate] = useState(DEFAULT_BIRTH_DATE);
   const [occupation, setOccupation] = useState('');
+  const [workContext, setWorkContext] = useState<WorkContext | null>(null);
   const [isWorking, setIsWorking] = useState<boolean | null>(null);
   const [workStartTime, setWorkStartTime] = useState('09:00');
   const [workEndTime, setWorkEndTime] = useState('18:00');
@@ -110,41 +112,6 @@ export default function ProfileScreen() {
   const [socialMediaUsage, setSocialMediaUsage] = useState<SocialMediaUsage>('as_vezes');
   const [socialChallengesInterest, setSocialChallengesInterest] = useState<SocialChallengesInterest>('as_vezes');
   const [socialNetworks, setSocialNetworks] = useState<SocialNetwork[]>([]);
-
-  // Modo Dev: "Testar cadastro (pré-preenchido)" arma esses dados antes de navegar pra cá (ver
-  // app/dev/scenarios.tsx) — consumido uma única vez no mount, nunca em produção.
-  useEffect(() => {
-    if (!__DEV__) return;
-    const draft = devOnboardingAutofill.consume();
-    if (!draft) return;
-    setName(draft.name);
-    setBirthDate(draft.birthDate);
-    setOccupation(draft.occupation);
-    setIsWorking(draft.isWorking);
-    setWorkStartTime(draft.workStartTime ?? '09:00');
-    setWorkEndTime(draft.workEndTime ?? '18:00');
-    setWorkSchedule(draft.workSchedule);
-    setWorkDays(draft.workDays.length > 0 ? draft.workDays : DEFAULT_WORK_DAYS);
-    if (draft.shiftPattern) {
-      setShiftWorkDays(String(draft.shiftPattern.workDays));
-      setShiftRestDays(String(draft.shiftPattern.restDays));
-      setShiftAnchorIsWorkday(draft.shiftPattern.anchorIsWorkday);
-    }
-    setReceiveDuringWorkHours(draft.receiveDuringWorkHours);
-    setWakeTime(draft.wakeTime);
-    setSleepTime(draft.sleepTime);
-    setSelectedCategories(draft.selectedCategories);
-    setInterests(draft.interests);
-    setOtherInterestText(draft.otherInterestText ?? '');
-    setStillDiscoveringInterests(draft.stillDiscoveringInterests);
-    setImportantPeople(draft.importantPeople);
-    setLocation(draft.location);
-    setChallengeIntensity(draft.challengeIntensity);
-    setSocialMediaUsage(draft.socialMediaUsage);
-    setSocialChallengesInterest(draft.socialChallengesInterest);
-    setSocialNetworks(draft.socialNetworks);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- só deve rodar uma vez, no mount
-  }, []);
 
   const isStepValid = useMemo(() => {
     switch (step) {
@@ -249,6 +216,7 @@ export default function ProfileScreen() {
       name: name.trim(),
       birthDate,
       occupation: occupation.trim(),
+      workContext,
       isWorking: isWorking === true,
       workStartTime: isWorking ? workStartTime : null,
       workEndTime: isWorking ? workEndTime : null,
@@ -327,7 +295,13 @@ export default function ProfileScreen() {
 
         {step === 1 && (
           <>
-            <TextField label="Profissão" value={occupation} onChangeText={setOccupation} placeholder="Ex: Designer" />
+            <OccupationPicker
+              value={occupation}
+              onChange={(nextOccupation, nextWorkContext) => {
+                setOccupation(nextOccupation);
+                setWorkContext(nextWorkContext);
+              }}
+            />
             <AppText variant="caption" color={colors.textMuted} style={styles.fieldLabel}>
               Você está trabalhando atualmente?
             </AppText>

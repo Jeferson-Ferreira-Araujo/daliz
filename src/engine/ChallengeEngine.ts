@@ -24,13 +24,13 @@ import {
 } from '@/types';
 import { allChallenges, challengeById } from '@/data/challenges';
 import { scoreChallenge, type ScoringContext } from './scoring';
-import { computeDaySlots, remainingDayRatio, type DaySlot } from './dayModel';
+import { computeDaySlots, isWorkdayToday, remainingDayRatio, type DaySlot } from './dayModel';
 import { isSupersededByProgression } from './progression';
 import { getChallengeTiming } from './challengeTiming';
 import { computeProfileTags } from './profileTags';
 import { ALGORITHM_RULES } from './algorithmRules';
 import { generateId } from '@/utils/id';
-import { dayOfWeekFor, daysBetween, isBirthdayToday, logicalDateFor } from '@/utils/date';
+import { dayOfWeekFor, daysBetween, isBirthdayToday, logicalDateFor, resolvePersonAge } from '@/utils/date';
 import { getCurrentDate } from '@/utils/now';
 import { SEASON_LABELS } from '@/utils/season';
 
@@ -77,46 +77,31 @@ const SAME_INTEREST_PENALTY = 6; // mesma ideia, por interesse repetido (ver ALG
 // de apetite/frequência também, em vez de criar uma pergunta nova. Como um período do dia pode
 // receber mais de 1 ação (ver spreadTimesWithinSlot), a faixa não fica mais presa ao teto de ~5
 // "momentos" nomeados do dia.
-const DAILY_ACTION_RANGE: Record<ChallengeIntensity, [number, number]> = {
-  leve: [2, 3],
-  equilibrado: [5, 7],
-  desafiador: [7, 10],
+//
+// Duas faixas por intensidade: `full` pro dia inteiro disponível (não trabalha, ou trabalha mas
+// recebe ações no expediente — ver UserProfile.receiveDuringWorkHours) e `reduced` pra quem
+// trabalha e NÃO recebe ações no expediente — perde de fato um pedaço grande do dia (o slot
+// `durante_dia` some inteiro, ver dayModel.buildWorkdaySegments), então o total sorteado também
+// precisa ser menor, em vez de espremer a mesma quantidade do dia inteiro só nas horas de fora do
+// expediente (ver isReducedDay/pickActionCountsPerSlot).
+const DAILY_ACTION_RANGE: Record<ChallengeIntensity, { full: [number, number]; reduced: [number, number] }> = {
+  leve: { full: [5, 8], reduced: [3, 6] },
+  equilibrado: { full: [8, 12], reduced: [6, 9] },
+  desafiador: { full: [9, 15], reduced: [8, 11] },
 };
 
 // Orçamento diário de tempo (minutos) — escala junto com a intensidade, senão o teto de tempo
-// filtraria a maioria das ações antes de a quantidade sorteada acima ser alcançável de verdade.
+// filtraria a maioria das ações antes de a quantidade sorteada acima ser alcançável de verdade
+// (a maior parte do catálogo gira em torno de ~10min por ação).
 const DAILY_MINUTE_BUDGET: Record<ChallengeIntensity, number> = {
-  leve: 45,
-  equilibrado: 65,
-  desafiador: 90,
+  leve: 90,
+  equilibrado: 130,
+  desafiador: 160,
 };
 
 // Espaçamento mínimo entre ações dentro do mesmo período do dia — evita amontoar notificações a
 // poucos minutos de distância (pareceria spam, não "dinâmico").
 const MIN_GAP_MINUTES = 30;
-
-// Sugestões (actionKind 'sugestao') são só ~5% do catálogo (83 de ~1686) — competir por
-// pontuação no MESMO pool das ações (DAILY_ACTION_RANGE) as deixaria praticamente inelegíveis
-// pra sempre, já que `pickBest`/`rankCandidates` escolhe sempre o de maior pontuação, nunca por
-// sorteio ponderado (ver ChallengeEngine.selectDailyChallenges). Em vez de dar bônus de pontuação
-// (mudaria o "funciona igual" pedido — mesma fórmula, mesmos filtros), sugestões disputam numa
-// raia própria: só contra outras sugestões elegíveis daquele momento, com sua própria faixa
-// diária pequena. Escala com intensidade, igual DAILY_ACTION_RANGE.
-const DAILY_SUGGESTION_RANGE: Record<ChallengeIntensity, [number, number]> = {
-  leve: [0, 1],
-  equilibrado: [0, 1],
-  desafiador: [0, 2],
-};
-
-// Orçamento de minutos só das sugestões — independente de DAILY_MINUTE_BUDGET (não deve
-// competir pelo nem ser inflado pelo orçamento de tempo das ações). Sugestões reais no catálogo
-// hoje vão de 3 a 10 min (média ~4) — folga suficiente pra até 2 no mesmo dia sem forçar nada.
-const SUGGESTION_MINUTE_BUDGET = 20;
-
-// Máximo de ações `today`/`contextual` mostradas de uma vez na seção "Em aberto" da Home (ver
-// app/(main)/(tabs)/home.tsx) — reaproveitada em vez de espalhar o número pelo código. Ações
-// `now` nunca entram nessa seção (ver seção 5 do pedido de timing), então esse teto não as afeta.
-export const MAX_OPEN_ACTIONS = 3;
 
 // Redes sociais são ferramenta, não vício a eliminar — mas também não podem virar
 // o assunto principal do app. O motor mantém a fatia de desafios 📱 pequena
@@ -205,6 +190,9 @@ const EVENT_SPECIFIC_PHASES = new Set(['near', 'today', 'after']);
  * vez a partir do histórico, reaproveitado pra cada momento (ver buildSelectionContext).
  */
 interface SelectionContext {
+  // Usado só pra recalcular a idade de pessoas importantes a partir de `birthDate` (ver
+  // resolvePersonAge/personMatchesChallenge) — nunca pra decidir slot/horário, isso já é `slot`.
+  now: Date;
   scoringContext: ScoringContext;
   interestAffinity: Partial<Record<Interest, number>>;
   socialBlocked: boolean;
@@ -241,11 +229,6 @@ export interface SelectDailyChallengesOptions {
   // função é síncrona. Ausente/{} = ninguém participa de nenhuma progressão, zero mudança de
   // comportamento pros call sites que não passam essa opção.
   performanceByConcept?: Record<string, UserActionPerformance>;
-  // Dev-only: chamado a cada escolha real (não a fixa de `fixedFirstChallenge`) com todos os
-  // candidatos já pontuados e ordenados daquele momento — usado só por
-  // `app/dev/schedule-preview.tsx` pra mostrar as alternativas consideradas, não só a vencedora.
-  // Nunca chamado pelo fluxo real de geração (dayCycleService não passa essa opção).
-  onCandidatesScored?: (scheduledFor: Date, ranked: ScoredCandidate[]) => void;
 }
 
 export function selectDailyChallenges(
@@ -257,11 +240,11 @@ export function selectDailyChallenges(
 ): ChallengeInstance[] {
   const today = logicalDateFor(now);
   const todayWeekday = dayOfWeekFor(now);
-  const ctx = buildSelectionContext(profile, history, today, todayWeekday, context, options.performanceByConcept ?? {});
+  const ctx = buildSelectionContext(profile, history, today, todayWeekday, context, options.performanceByConcept ?? {}, now);
   const minuteBudget = DAILY_MINUTE_BUDGET[profile.challengeIntensity];
 
   const slots = computeDaySlots(profile, now);
-  const countsPerSlot = pickActionCountsPerSlot(slots, profile.challengeIntensity, remainingDayRatio(profile, now));
+  const countsPerSlot = pickActionCountsPerSlot(slots, profile.challengeIntensity, remainingDayRatio(profile, now), isReducedDay(profile, now));
   const usedTodayIds = new Set<string>();
   const usedCategoriesToday = new Map<ChallengeCategory, number>();
   const usedInterestsToday = new Map<Interest, number>();
@@ -291,7 +274,6 @@ export function selectDailyChallenges(
 
         const ranked = rankCandidates(candidates, virtualSlot, profile, ctx, usedCategoriesToday, usedPersonIds, usedInterestsToday);
         best = ranked[0].challenge;
-        options.onCandidatesScored?.(scheduledFor, ranked);
         person = selectPersonForChallenge(best, profile, ctx)?.person ?? null;
       }
 
@@ -303,35 +285,6 @@ export function selectDailyChallenges(
       if (person) usedPersonIds.set(person.id, (usedPersonIds.get(person.id) ?? 0) + 1);
       totalMinutes += resolveTempoEstimado(best);
       picks.push({ challenge: best, scheduledFor, person });
-    }
-  }
-
-  // Sugestões (actionKind 'sugestao') disputam à parte, numa raia própria (ver
-  // DAILY_SUGGESTION_RANGE) — mesmos filtros/pontuação de sempre (filterCandidatesForSlot/
-  // rankCandidates, reaproveitados sem duplicar lógica), só que só contra outras sugestões, com
-  // sua própria faixa diária e orçamento de minutos, nunca disputando o slot/orçamento das ações.
-  const suggestionRange = DAILY_SUGGESTION_RANGE[profile.challengeIntensity];
-  const suggestionCount = randomBetween(suggestionRange[0], suggestionRange[1]);
-  if (suggestionCount > 0) {
-    let suggestionMinutes = 0;
-    for (const slotIndex of pickDistinctSlotIndexes(slots.length, suggestionCount)) {
-      const virtualSlot: DaySlot = { ...slots[slotIndex], start: suggestionTimeWithinSlot(slots[slotIndex]) };
-      const candidates = filterCandidatesForSlot(
-        virtualSlot,
-        profile,
-        ctx,
-        usedTodayIds,
-        suggestionMinutes,
-        true,
-        SUGGESTION_MINUTE_BUDGET,
-        'sugestao',
-      );
-      if (candidates.length === 0) continue; // nenhuma sugestão combina bem o suficiente agora — não força nada
-      const best = rankCandidates(candidates, virtualSlot, profile, ctx, usedCategoriesToday, usedPersonIds, usedInterestsToday)[0].challenge;
-      usedTodayIds.add(best.id);
-      usedCategoriesToday.set(best.categoria, (usedCategoriesToday.get(best.categoria) ?? 0) + 1);
-      suggestionMinutes += resolveTempoEstimado(best);
-      picks.push({ challenge: best, scheduledFor: virtualSlot.start, person: null });
     }
   }
 
@@ -359,20 +312,31 @@ function slotCapacity(slot: DaySlot): number {
 /**
  * Decide quantas ações cada período do dia tenta receber hoje — sorteado de novo a cada chamada,
  * dentro da faixa de `profile.challengeIntensity` (DAILY_ACTION_RANGE), pra ninguém conseguir
- * prever quantas ações vai receber. Essa faixa é calibrada pro dia INTEIRO (acordar→dormir); se só
- * parte do dia ainda resta (ex: pessoa se cadastra às 19h com sono à 00h — só ~30% do dia pela
- * frente), a faixa é escalada por `dayRatio` (ver dayModel.remainingDayRatio) antes de sortear —
- * senão o motor tentava encaixar a quantidade do dia inteiro nas poucas horas restantes, virando
- * uma enxurrada de ações até a hora de dormir. O período mais próximo de "agora" (`slots[0]`)
- * sempre recebe pelo menos 1 — garante que nunca fica sem nenhuma chance de ação por horas, e é o
- * que sustenta `dayCycleService.requestFirstAction` (a primeira ação precisa aparecer na hora). O
- * resto é sorteado entre os períodos com capacidade sobrando — nunca enche sempre "os primeiros
- * períodos primeiro", senão o padrão viraria previsível de novo (ex: sempre manhã+tarde lotadas).
+ * prever quantas ações vai receber. `reducedDay` escolhe entre a faixa `full`/`reduced` — quem
+ * trabalha e não recebe ações no expediente perde o slot `durante_dia` inteiro (ver
+ * isReducedDay), então parte de um teto menor, em vez do mesmo teto do dia inteiro espremido só
+ * nas horas de fora do expediente. Essa faixa é calibrada pro dia INTEIRO (acordar→dormir) dentro
+ * dessa categoria; se só parte do dia ainda resta (ex: pessoa se cadastra às 19h com sono à 00h —
+ * só ~30% do dia pela frente), a faixa é escalada por `dayRatio` (ver dayModel.remainingDayRatio)
+ * antes de sortear — senão o motor tentava encaixar a quantidade do dia inteiro nas poucas horas
+ * restantes, virando uma enxurrada de ações até a hora de dormir. O período mais próximo de
+ * "agora" (`slots[0]`) sempre recebe pelo menos 1 — garante que nunca fica sem nenhuma chance de
+ * ação por horas, e é o que sustenta `dayCycleService.requestFirstAction` (a primeira ação
+ * precisa aparecer na hora). O resto é sorteado entre os períodos com capacidade sobrando — nunca
+ * enche sempre "os primeiros períodos primeiro", senão o padrão viraria previsível de novo (ex:
+ * sempre manhã+tarde lotadas).
  */
-function pickActionCountsPerSlot(slots: DaySlot[], intensity: ChallengeIntensity, dayRatio: number): number[] {
+/** true quando hoje é dia de trabalho e a pessoa pediu pra não receber ações no expediente — o
+ * slot `durante_dia` some inteiro (ver dayModel.buildWorkdaySegments), perdendo de fato um pedaço
+ * grande do dia disponível. Usado só pra escolher a faixa `full`/`reduced` de DAILY_ACTION_RANGE. */
+function isReducedDay(profile: UserProfile, now: Date): boolean {
+  return profile.isWorking && !profile.receiveDuringWorkHours && isWorkdayToday(profile, now) === true;
+}
+
+function pickActionCountsPerSlot(slots: DaySlot[], intensity: ChallengeIntensity, dayRatio: number, reducedDay: boolean): number[] {
   if (slots.length === 0) return [];
   const capacities = slots.map(slotCapacity);
-  const [rawMin, rawMax] = DAILY_ACTION_RANGE[intensity];
+  const [rawMin, rawMax] = DAILY_ACTION_RANGE[intensity][reducedDay ? 'reduced' : 'full'];
   const min = Math.max(1, Math.round(rawMin * dayRatio));
   const max = Math.max(min, Math.round(rawMax * dayRatio));
   let remaining = clamp(randomBetween(min, max), 1, capacities.reduce((a, b) => a + b, 0));
@@ -418,29 +382,6 @@ function spreadTimesWithinSlot(slot: DaySlot, count: number): Date[] {
   return times;
 }
 
-/** Sorteia até `count` índices distintos dentro de `[0, length)`, em ordem crescente — usado pra
- * escolher em quais períodos do dia as sugestões vão cair (nunca mais de 1 sugestão por período,
- * espalhadas em vez de amontoadas). */
-function pickDistinctSlotIndexes(length: number, count: number): number[] {
-  const pool = Array.from({ length }, (_, i) => i);
-  const chosen: number[] = [];
-  const n = Math.min(count, length);
-  for (let i = 0; i < n; i += 1) {
-    const pickIndex = Math.floor(Math.random() * pool.length);
-    chosen.push(pool.splice(pickIndex, 1)[0]);
-  }
-  return chosen.sort((a, b) => a - b);
-}
-
-/** Horário de uma sugestão dentro do período — nunca exatamente em `slot.start` (onde a primeira
- * ação do período já costuma cair, ver spreadTimesWithinSlot) pra não notificar as duas no mesmo
- * instante; sorteado na "faixa do meio" do período (15%–75%), nunca colado no fim. */
-function suggestionTimeWithinSlot(slot: DaySlot): Date {
-  const span = slot.end.getTime() - slot.start.getTime();
-  const offset = span * (0.15 + Math.random() * 0.6);
-  return new Date(slot.start.getTime() + offset);
-}
-
 function randomBetween(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -460,8 +401,10 @@ export interface ChallengeExplanation {
  * Versão "modo desenvolvedor" da mesma seleção acima, só que pra um único momento
  * (o próximo a partir de `now`) e devolvendo o raciocínio por trás da escolha, em vez
  * de aplicar de fato. Reaproveita exatamente os mesmos filtros/pontuação — não é uma
- * segunda lógica paralela, só uma sonda de leitura sobre o mesmo pipeline (ver
- * app/dev/interests.tsx).
+ * segunda lógica paralela, só uma sonda de leitura sobre o mesmo pipeline. Sem
+ * consumidor de UI hoje (a ferramenta de dev que a usava foi simplificada, ver
+ * app/dev/schedule-preview.tsx), mantida por ter cobertura de teste própria (ver
+ * src/engine/__tests__/ChallengeEngine.test.ts).
  */
 export function explainNextChallenge(
   profile: UserProfile,
@@ -472,7 +415,7 @@ export function explainNextChallenge(
 ): ChallengeExplanation {
   const today = logicalDateFor(now);
   const todayWeekday = dayOfWeekFor(now);
-  const ctx = buildSelectionContext(profile, history, today, todayWeekday, context, performanceByConcept);
+  const ctx = buildSelectionContext(profile, history, today, todayWeekday, context, performanceByConcept, now);
 
   const slots = computeDaySlots(profile, now);
   const slot = slots[0] ?? null;
@@ -507,6 +450,7 @@ function buildSelectionContext(
   todayWeekday: DayOfWeek,
   context: AppContext,
   performanceByConcept: Record<string, UserActionPerformance>,
+  now: Date,
 ): SelectionContext {
   const daysSinceLastUse = computeDaysSinceLastUse(history, today);
   const conceptDaysSinceLastUse = computeConceptDaysSinceLastUse(history, today);
@@ -524,6 +468,7 @@ function buildSelectionContext(
   const socialShareCap = SOCIAL_SHARE_CAP[profile.socialChallengesInterest as 'sim' | 'as_vezes'] ?? SOCIAL_SHARE_CAP.as_vezes;
 
   return {
+    now,
     scoringContext: {
       categoryCompletionRate: categoryRates,
       bestRatedChallengeIds: bestRatedIds,
@@ -639,7 +584,12 @@ function filterCandidatesForSlot(
     // trabalho", então qualquer desafio que amarra a uma pessoa específica é, por definição, vida
     // pessoal, nunca coisa de expediente/trajeto.
     if (challenge.relationships && challenge.relationships.length > 0 && isWorkOrCommuteSlot) return false;
-    if (isWorkHoursSlot && !WORK_SAFE_CATEGORIES.includes(challenge.categoria)) return false;
+    // Categoria fora de WORK_SAFE_CATEGORIES ainda passa se o desafio foi curado especificamente
+    // pro contexto de trabalho da pessoa (ver Challenge.workHoursContexts) — deliberadamente
+    // separado de `profile.required`: só vale AQUI, dentro do slot de expediente, sem restringir
+    // o desafio o resto do dia pra quem não tem esse contexto (ver comentário no tipo).
+    const hasWorkContextClearance = profile.workContext != null && (challenge.workHoursContexts ?? []).includes(profile.workContext);
+    if (isWorkHoursSlot && !WORK_SAFE_CATEGORIES.includes(challenge.categoria) && !hasWorkContextClearance) return false;
     // `contexto` também era um campo morto — o comentário no tipo já dizia "eixo de filtro duro",
     // mas nada lia. Só aplicamos o lado 'em_casa' (309 desafios): só faz sentido depois que a
     // pessoa chega em casa, nunca durante o expediente nem no trajeto de volta (ex: "Termine um
@@ -656,7 +606,7 @@ function filterCandidatesForSlot(
     // existir alguém cadastrado que bate com esses critérios (ver seção 8: "brinque com
     // seu filho" não faz sentido pra quem não tem filho cadastrado).
     if (challenge.relationships && challenge.relationships.length > 0) {
-      const hasMatchingPerson = profile.importantPeople.some((person) => personMatchesChallenge(challenge, person));
+      const hasMatchingPerson = profile.importantPeople.some((person) => personMatchesChallenge(challenge, person, ctx.now));
       if (!hasMatchingPerson) return false;
     }
 
@@ -909,10 +859,15 @@ function interestDiversityPenalty(challenge: Challenge, usedInterestsToday: Map<
   return maxUsed >= ALGORITHM_RULES.maxSameInterestInSequence ? -SAME_INTEREST_PENALTY : 0;
 }
 
-function personMatchesChallenge(challenge: Challenge, person: ImportantPerson): boolean {
+function personMatchesChallenge(challenge: Challenge, person: ImportantPerson, now: Date): boolean {
   if (!challenge.relationships?.includes(person.relationship)) return false;
-  if (challenge.minAge != null && person.age != null && person.age < challenge.minAge) return false;
-  if (challenge.maxAge != null && person.age != null && person.age > challenge.maxAge) return false;
+  // Recalculada a partir de `birthDate` quando existir (ver resolvePersonAge) — sem isso, uma
+  // criança cadastrada com "3 anos" continuava "3 anos" pro motor pra sempre, mesmo depois de
+  // fazer aniversário, podendo receber (ou deixar de receber) ações que não fazem mais sentido
+  // pra idade real dela.
+  const age = resolvePersonAge(person, now);
+  if (challenge.minAge != null && age != null && age < challenge.minAge) return false;
+  if (challenge.maxAge != null && age != null && age > challenge.maxAge) return false;
   if (challenge.requiresPresence && person.livesWithUser !== true) return false;
   return true;
 }
@@ -931,7 +886,7 @@ function selectPersonForChallenge(
   ctx: SelectionContext,
 ): { person: ImportantPerson; bonus: number } | null {
   if (!challenge.relationships || challenge.relationships.length === 0) return null;
-  const candidates = profile.importantPeople.filter((person) => personMatchesChallenge(challenge, person));
+  const candidates = profile.importantPeople.filter((person) => personMatchesChallenge(challenge, person, ctx.now));
   if (candidates.length === 0) return null;
 
   const ranked = candidates
@@ -1007,7 +962,8 @@ function buildReasons(challenge: Challenge, slot: DaySlot, profile: UserProfile,
     // Propositalmente sem o nome aqui (só a relação) — a razão é sobre a lógica do
     // motor, não uma vitrine de dado pessoal (ver seção 19: privacidade no modo dev).
     reasons.push(`Pessoa cadastrada compatível: ${RELATIONSHIP_LABELS[person.relationship]}`);
-    if (person.age != null) reasons.push(`${RELATIONSHIP_LABELS[person.relationship]} tem ${person.age} anos`);
+    const personAge = resolvePersonAge(person, ctx.now);
+    if (personAge != null) reasons.push(`${RELATIONSHIP_LABELS[person.relationship]} tem ${personAge} anos`);
     if (person.livesWithUser === true) reasons.push(`${RELATIONSHIP_LABELS[person.relationship]} mora com você`);
     else if (person.livesWithUser === false) reasons.push(`${RELATIONSHIP_LABELS[person.relationship]} não mora com você`);
     const affinity = ctx.relationshipAffinity[person.relationship];

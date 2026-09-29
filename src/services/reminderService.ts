@@ -53,9 +53,9 @@ export const reminderService = {
   },
 
   /**
-   * Só cancela a notificação nativa, sem persistir — usado por challengeActionsService.complete/
-   * abandon, que já vão salvar o próprio objeto atualizado (com `reminder: null` incluído) numa
-   * única escrita (seção 14: concluir/rejeitar cancela qualquer lembrete pendente).
+   * Só cancela a notificação nativa, sem persistir — usado por challengeActionsService.setReaction,
+   * que já vai salvar o próprio objeto atualizado (com `reminder: null` incluído) numa única
+   * escrita (reagir cancela qualquer lembrete pendente, ver comentário lá).
    */
   async cancelNotificationOnly(instance: ChallengeInstance): Promise<void> {
     if (instance.reminder?.notificationId) {

@@ -121,9 +121,11 @@ function buildChallenge(titulo, categoryDef, index) {
     challenge.supportType = 'maps';
     challenge.supportData = { query };
   } else if (isMusic) {
+    // Só supportType/supportData (ActionSupport.tsx) — nunca também `musicQuery`: os dois juntos
+    // no mesmo desafio faziam o botão do Spotify aparecer duplicado no ChallengeCard (campo
+    // legado, removido do tipo Challenge; ver histórico do bug).
     const query = pickByRules(titulo, MUSIC_QUERY_RULES, 'descobertas');
     challenge.resources.optional = [...new Set([...challenge.resources.optional, 'spotify'])];
-    challenge.musicQuery = query;
     challenge.supportType = 'spotify';
     challenge.supportData = { query };
   }
@@ -175,7 +177,6 @@ function serializeChallenge(c) {
   lines.push(`    effort: ${JSON.stringify(c.effort)},`);
   lines.push(`    priority: ${c.priority},`);
   lines.push(`    variants: ${JSON.stringify(c.variants)},`);
-  if (c.musicQuery) lines.push(`    musicQuery: ${JSON.stringify(c.musicQuery)},`);
   if (c.supportType) lines.push(`    supportType: ${JSON.stringify(c.supportType)},`);
   if (c.supportData) lines.push(`    supportData: ${JSON.stringify(c.supportData)},`);
   lines.push(`  },`);

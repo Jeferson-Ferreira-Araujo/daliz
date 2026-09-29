@@ -17,8 +17,7 @@ export const progressResetService = {
     const prefs = await preferencesRepository.get();
     await preferencesRepository.save({
       ...prefs,
-      hasSeenInsightsIntro: false,
-      lastWeeklyRecapNotifiedWeekStart: null,
+      lastWeeklyRecapScheduledFor: null,
     });
   },
 };

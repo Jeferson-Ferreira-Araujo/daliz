@@ -33,7 +33,7 @@ function DevTapTriggerActive({ children }: DevTapTriggerProps) {
 
     if (tapCount.current >= TAPS_REQUIRED) {
       tapCount.current = 0;
-      router.push('/dev');
+      router.push('/dev/schedule-preview');
     }
   }
 

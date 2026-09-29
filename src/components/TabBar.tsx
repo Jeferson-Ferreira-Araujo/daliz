@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Animated, { Easing, FadeIn, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { AppText } from '@/components/ui/AppText';
-// Placeholder do banner AdMob — trocar por
-// `import { AdBannerNative as AdBanner } from '@/components/AdBannerNative'` só na hora do build
-// final de produção (ver comentário em AdBanner.tsx pro porquê).
-import { AdBanner } from '@/components/AdBanner';
+// Único import necessário pro banner — AdBannerSlot decide sozinho entre o anúncio real e o
+// placeholder dependendo do ambiente (build EAS, Expo Go ou web), ver comentário lá.
+import { AdBannerSlot } from '@/components/AdBannerSlot';
 import { spacing, useTheme } from '@/theme';
 
 const ICONS: Record<string, { active: keyof typeof Ionicons.glyphMap; inactive: keyof typeof Ionicons.glyphMap }> = {
@@ -24,13 +24,33 @@ const LABELS: Record<string, string> = {
   profile: 'Perfil',
 };
 
+// Componente próprio (não inline dentro do .map de TabBar) só porque hooks (useSharedValue etc.)
+// não podem ser chamados dentro de um callback de array — precisa ser uma função-componente de
+// verdade. Escala discreta ao focar a aba (sem spring — nada de balançar/ultrapassar o tamanho
+// final), só o suficiente pra dar um toque de resposta em vez da troca seca de ícone/cor de antes.
+function TabIcon({ name, focused, color }: { name: keyof typeof Ionicons.glyphMap; focused: boolean; color: string }) {
+  const scale = useSharedValue(1);
+
+  useEffect(() => {
+    scale.value = withTiming(focused ? 1.05 : 1, { duration: 140, easing: Easing.out(Easing.quad) });
+  }, [focused, scale]);
+
+  const animatedStyle = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
+
+  return (
+    <Animated.View style={animatedStyle}>
+      <Ionicons name={name} size={22} color={color} />
+    </Animated.View>
+  );
+}
+
 export function TabBar({ state, navigation }: BottomTabBarProps) {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
 
   return (
     <View style={{ backgroundColor: colors.surface, paddingBottom: Math.max(insets.bottom, spacing.sm) }}>
-      <AdBanner />
+      <AdBannerSlot />
       <View
         style={[
           styles.container,
@@ -54,11 +74,7 @@ export function TabBar({ state, navigation }: BottomTabBarProps) {
 
           return (
             <Pressable key={route.key} onPress={handlePress} style={styles.tab} hitSlop={8}>
-              <Ionicons
-                name={focused ? icon.active : icon.inactive}
-                size={22}
-                color={focused ? colors.text : colors.tabInactive}
-              />
+              <TabIcon name={focused ? icon.active : icon.inactive} focused={focused} color={focused ? colors.text : colors.tabInactive} />
               <AppText
                 variant="caption"
                 color={focused ? colors.text : colors.tabInactive}
@@ -66,7 +82,13 @@ export function TabBar({ state, navigation }: BottomTabBarProps) {
               >
                 {label}
               </AppText>
-              <View style={[styles.indicator, { backgroundColor: focused ? colors.tabIndicator : 'transparent' }]} />
+              {focused && (
+                <Animated.View
+                  entering={FadeIn.duration(150)}
+                  style={[styles.indicator, { backgroundColor: colors.tabIndicator }]}
+                />
+              )}
+              {!focused && <View style={styles.indicator} />}
             </Pressable>
           );
         })}

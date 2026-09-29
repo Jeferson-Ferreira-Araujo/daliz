@@ -19,6 +19,7 @@ export default function MainLayout() {
       <Stack.Screen name="settings" options={{ animation: 'slide_from_bottom' }} />
       <Stack.Screen name="edit-profile" options={{ animation: 'slide_from_bottom' }} />
       <Stack.Screen name="privacy-policy" options={{ animation: 'slide_from_bottom' }} />
+      <Stack.Screen name="terms-of-use" options={{ animation: 'slide_from_bottom' }} />
     </Stack>
   );
 }

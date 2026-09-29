@@ -46,20 +46,6 @@ export function pickNotificationTeaser(timing: ChallengeTiming): string {
   return options[Math.floor(Math.random() * options.length)];
 }
 
-// Corpo da notificação de sugestão (actionKind 'sugestao', ver notificationService.ts) — mesmo
-// espírito de TIMING_NOTIFICATION_TEASERS: nunca revela o texto da sugestão na tela de bloqueio,
-// só um gancho pra abrir o app. Diferente da ação, aqui não existe "timing" pra variar o gancho
-// por (sugestão não tem AGORA/HOJE/QUANDO FIZER SENTIDO) — uma lista única.
-const SUGGESTION_NOTIFICATION_TEASERS = [
-  'Temos uma orientação pra este momento. Abra o app para ver qual é.',
-  'Uma sugestão pra agora está esperando por você no app.',
-  'Preparamos algo pra você pensar agora. Toque para ver.',
-];
-
-export function pickSuggestionNotificationTeaser(): string {
-  return SUGGESTION_NOTIFICATION_TEASERS[Math.floor(Math.random() * SUGGESTION_NOTIFICATION_TEASERS.length)];
-}
-
 // Gatilhos situacionais explícitos ("quando X acontecer, faça Y") — checados primeiro por serem
 // o padrão mais específico e menos ambíguo dos três timings.
 const CONTEXTUAL_PREFIXES = [

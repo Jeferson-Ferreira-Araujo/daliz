@@ -1,6 +1,7 @@
 import React from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { AppText } from './AppText';
+import { AnimatedPressable } from './AnimatedPressable';
 import { radius, spacing, useTheme } from '@/theme';
 
 interface ChipProps {
@@ -12,7 +13,7 @@ interface ChipProps {
 export function Chip({ label, selected, onPress }: ChipProps) {
   const { colors } = useTheme();
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={onPress}
       style={[
         styles.base,
@@ -25,7 +26,7 @@ export function Chip({ label, selected, onPress }: ChipProps) {
       <AppText variant="body" color={selected ? colors.onPrimary : colors.text}>
         {label}
       </AppText>
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 

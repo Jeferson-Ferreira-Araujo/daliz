@@ -10,14 +10,24 @@ interface DevScreenProps {
   title: string;
   children: React.ReactNode;
   onClose?: () => void;
+  // Trava o botão de voltar/fechar enquanto uma operação assíncrona sensível a race condition
+  // está em andamento (ex: "Limpar ações de hoje" em schedule-preview.tsx) — sem isso, sair rápido
+  // demais podia fazer a Home reler o storage antes da limpeza terminar de verdade e mostrar dado
+  // velho (bug real já visto: "não limpou a ação em destaque").
+  closeDisabled?: boolean;
 }
 
-export function DevScreen({ title, children, onClose }: DevScreenProps) {
+export function DevScreen({ title, children, onClose, closeDisabled }: DevScreenProps) {
   const { colors } = useTheme();
   return (
     <Screen padded={false} edges={['top']}>
       <View style={styles.header}>
-        <Pressable onPress={onClose ?? (() => router.back())} hitSlop={12}>
+        <Pressable
+          onPress={onClose ?? (() => router.back())}
+          disabled={closeDisabled}
+          hitSlop={12}
+          style={closeDisabled && { opacity: 0.3 }}
+        >
           <Ionicons name={onClose ? 'close' : 'chevron-back'} size={22} color={colors.text} />
         </Pressable>
         <AppText variant="title">{title}</AppText>
@@ -87,12 +97,22 @@ export function DevKeyValue({ label, value, last }: { label: string; value: stri
   );
 }
 
-export function DevChipButton({ label, onPress, tone = 'default' }: { label: string; onPress: () => void; tone?: 'default' | 'primary' | 'danger' }) {
+export function DevChipButton({
+  label,
+  onPress,
+  tone = 'default',
+  disabled,
+}: {
+  label: string;
+  onPress: () => void;
+  tone?: 'default' | 'primary' | 'danger';
+  disabled?: boolean;
+}) {
   const { colors } = useTheme();
   const bg = tone === 'primary' ? colors.primaryMuted : tone === 'danger' ? colors.dangerBg : colors.surfaceMuted;
   const fg = tone === 'primary' ? colors.primary : tone === 'danger' ? colors.danger : colors.text;
   return (
-    <Pressable onPress={onPress} style={[styles.chip, { backgroundColor: bg }]}>
+    <Pressable onPress={onPress} disabled={disabled} style={[styles.chip, { backgroundColor: bg }, disabled && { opacity: 0.4 }]}>
       <AppText variant="pillLabel" color={fg}>
         {label}
       </AppText>

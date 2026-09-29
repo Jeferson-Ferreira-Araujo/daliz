@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import Animated, { FadeIn } from 'react-native-reanimated';
 import { AppText } from '@/components/ui/AppText';
 import { radius, spacing, useTheme } from '@/theme';
 
@@ -16,7 +17,11 @@ export function StreakBanner({ currentStreak, bestStreak }: StreakBannerProps) {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.warningBg }]}>
-      <AppText style={styles.emoji}>🔥</AppText>
+      {/* Único elemento animado aqui de propósito — é "o número-herói" (ver comentário acima), o
+          resto da tela de Insights fica estático. Fade simples, sem bounce — discreto. */}
+      <Animated.View entering={FadeIn.duration(300)}>
+        <AppText style={styles.emoji}>🔥</AppText>
+      </Animated.View>
       <View style={styles.textBlock}>
         <AppText variant="statNumber" color={colors.text}>
           {currentStreak} {currentStreak === 1 ? 'dia seguido' : 'dias seguidos'}
@@ -41,6 +46,10 @@ const styles = StyleSheet.create({
   },
   emoji: {
     fontSize: 32,
+    // `lineHeight` explícito — sem isso, herda o da variante padrão ('body', 22), bem menor que
+    // o `fontSize` de 32, e o 🔥 fica cortado em cima/embaixo (a caixa de linha do texto é menor
+    // que o glifo colorido do emoji).
+    lineHeight: 40,
     marginRight: spacing.md,
   },
   textBlock: {

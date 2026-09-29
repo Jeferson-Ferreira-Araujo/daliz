@@ -38,9 +38,22 @@ npm install
 npx expo start          # abre no Expo Go / preview web — ver "Limite do Expo Go" abaixo
 ```
 
-Modo Dev (relógio simulado, cenários de teste, inspeção de dados) fica em `/dev/*`,
-acessível só em `__DEV__` via 7 toques num ponto specific da tela de perfil (ver
-`src/dev/DevTapTrigger.tsx`). Nunca compila em produção — guard em `app/dev/_layout.tsx`.
+Modo Dev tem duas telas, separadas porque cada uma serve um propósito diferente (juntas numa
+tela só ficavam compridas demais pra escanear):
+
+- **`/dev/schedule-preview`** ("Prévia do cadastro") — editar um perfil de teste ao vivo e ver a
+  lista completa de ações/horários que o motor real enviaria naquele dia (sem pontuação/
+  alternativas — só o resultado final), escolher qualquer dia futuro pra simular (ver
+  `computeSchedulePreviewForDate` em `src/dev/schedulePreview.ts`, que gera cada dia entre hoje e
+  o escolhido em memória, encadeando o histórico, pra respeitar cooldown/repetição igual o app
+  faria de verdade), e ajustar o relógio simulado (atalho pra `/dev/clock`).
+- **`/dev/notification-tester`** ("Testar notificações") — dispara a notificação real de uma
+  ação específica do catálogo por categoria pro perfil salvo (não o rascunho da tela acima), e
+  limpa a lista "Suas ações de hoje" da Home pra testar várias seguidas sem acumular cards.
+
+Acessível só em `__DEV__` via 7 toques num ponto específico da tela de perfil (ver
+`src/dev/DevTapTrigger.tsx`), que leva pra `/dev/schedule-preview`. Nunca compila em produção —
+guard em `app/dev/_layout.tsx`.
 
 ## Limite do Expo Go — módulos nativos "preparados, mas inertes"
 
@@ -108,15 +121,16 @@ app/                              # Expo Router — cada arquivo é uma rota
     settings.tsx
     privacy-policy.tsx
   dev/                            # Modo Dev — 100% fora do build de produção
-    index.tsx, clock.tsx, scenarios.tsx, challenges.tsx, context.tsx,
-    interests.tsx, people.tsx, notifications.tsx, memory.tsx, data.tsx
+    schedule-preview.tsx          # "Prévia do cadastro" (ver seção acima)
+    notification-tester.tsx       # "Testar notificações" (ver seção acima)
+    clock.tsx                     # ajustar o relógio simulado
+    clock.tsx                     # relógio simulado, aberto a partir da tela acima
 
 src/
   components/
     ChallengeCard/                # card de ação — o componente mais usado do app
       ChallengeCard.tsx
-      ReactionPicker.tsx          # "como foi?" ao concluir
-      AbandonReasonPicker.tsx     # motivo ao marcar "não consegui fazer"
+      ReactionPicker.tsx          # "como você se sentiu?" — opcional, a qualquer momento (sem Concluir/Não consegui)
       ReminderPicker.tsx          # "lembrar mais tarde"
       NoteField.tsx               # campo de anotação (ações que pedem escrita)
       MovieGenrePicker.tsx        # suporte de ação: escolher gênero de filme
@@ -187,7 +201,7 @@ src/
     holidays/brazil.ts            # datas comemorativas + tags
     firstActionChallenge.ts       # ação fixa da tela de primeira ação (fora do catálogo)
     motivationalPhrases.ts, encouragementMessages.ts, weatherPhrases.ts,
-    weeklyHighlightCopy.ts, shareableMomentCopy.ts, movieGenres.ts
+    shareableMomentCopy.ts, movieGenres.ts
 
   types/                          # só tipos + labels/constantes derivadas — sem lógica
     profile.ts, challenge.ts, challengeInstance.ts, context.ts, importantPeople.ts,
@@ -195,9 +209,10 @@ src/
     stats.ts, weather.ts, index.ts (barrel)
 
   dev/                            # infra do Modo Dev (não confundir com app/dev/*)
-    devService.ts                 # ações de simulação (reaproveita services/repos reais)
+    devService.ts                 # dispara notificação de uma ação específica (reaproveita services/repos reais)
     devClock.ts                   # relógio "falso" — getCurrentDate() lê daqui se setado
-    devContext.ts, devNotificationTester.ts, DevUI.tsx, DevTapTrigger.tsx
+    schedulePreview.ts            # motor real rodado sobre um perfil em edição, sem persistir
+    onboardingAutofill.ts, DevUI.tsx, DevTapTrigger.tsx
 
   theme/                          # ThemeContext, palette (light/dark), tokens de tipografia
   utils/                          # date.ts, time.ts, id.ts, now.ts (getCurrentDate), season.ts
@@ -243,6 +258,12 @@ lógica de seleção.
   `requerFamilia`/`requerTempoLivre` (filtros duros que tiram o desafio do expediente e do
   trajeto logo depois, momento `transicao` — ver `WORK_SAFE_CATEGORIES`/
   `isWorkOrCommuteSlot` em `ChallengeEngine.filterCandidatesForSlot`),
+  `workHoursContexts` (o inverso: LIBERA o desafio no expediente mesmo com `categoria` fora de
+  `WORK_SAFE_CATEGORIES`, só pra quem tem aquele `UserProfile.workContext` — ver
+  `src/services/occupationService.ts`, que deriva o contexto de trabalho da profissão
+  escolhida no `OccupationPicker`, nunca perguntado à parte. Deliberadamente fora de
+  `profile.required`: só vale dentro do slot de expediente, não restringe o desafio no resto
+  do dia pra quem não tem esse contexto),
   `weatherTags`/`seasonTags`/`eventTags` (bônus de contexto, não filtro),
   `relationships` (filtro duro — só aparece se a pessoa tem esse tipo de relação
   cadastrado, e também tira o desafio do expediente/trajeto: nenhum tipo de relação é "colega
@@ -254,7 +275,9 @@ lógica de seleção.
   `concept`, `difficulty`) — histórico não muda se o catálogo mudar depois.
 - **`UserProfile`** (`src/types/profile.ts`) — cadastro completo: rotina (acordar/dormir/
   trabalho), categorias escolhidas, intensidade, interesses, pessoas importantes,
-  localização, preferências de rede social, estado do fluxo de primeira ação.
+  localização, preferências de rede social, estado do fluxo de primeira ação, `occupation` +
+  `workContext` (profissão escolhida no `OccupationPicker` e o contexto de trabalho derivado
+  dela — ver `Challenge.workHoursContexts` acima).
 - **`ImportantPerson`** (`src/types/importantPeople.ts`) — nome opcional, tipo de relação,
   idade opcional, data de nascimento opcional, se mora com o usuário.
 - **`AppContext`** (`src/types/context.ts`) — clima, estação, evento/data comemorativa do
@@ -346,8 +369,8 @@ faz sentido fazer":
 - **`now`** — pausas/autorregulação, só faz sentido no momento da notificação. Único
   timing que pode ficar "Atrasado" na Home (calculado, nunca persistido em `status`).
   Some da tela quando outra ação vira a atual — mas continua no Histórico.
-- **`today`** — qualquer hora até o fim do dia. Aparece na seção "Em aberto" da Home
-  (até `MAX_OPEN_ACTIONS = 3` por vez) até ser resolvida.
+- **`today`** — qualquer hora até o fim do dia. Fica na lista de "Suas ações de hoje" da
+  Home, mais recente primeiro, junto de todas as outras já entregues no dia.
 - **`contextual`** — espera uma situação específica ("quando perceber que...") — pode
   nem acontecer no dia. Mesmo tratamento visual de `today`.
 
@@ -499,3 +522,27 @@ Kotlin via `expo-build-properties` não resolve (o módulo declara seu próprio
 `buildscript`, ignora o override, e ainda quebra o KSP de outras libs). **Fix real:**
 manter `react-native-google-mobile-ads` fixado em `16.3.4` (usa `play-services-ads@25.0.0`,
 compatível). Reavaliar antes de atualizar essa dependência no futuro.
+
+### Pegadinha resolvida: notificações agendadas chegando com horas de atraso (ou só ao abrir o app)
+
+`Notifications.scheduleNotificationAsync` (usado por `notificationService.
+scheduleForInstances`/`scheduleReminder`) depende do `AlarmManager` do Android por baixo
+dos panos. No Android 12+ (`ExpoSchedulingDelegate.kt`, dentro do próprio
+`expo-notifications`), ele só usa o alarme **exato** (`setExactAndAllowWhileIdle`) se
+`AlarmManager.canScheduleExactAlarms()` for `true` — que exige a permissão
+`SCHEDULE_EXACT_ALARM` **declarada no AndroidManifest.xml** (não é algo que
+`expo-notifications` adiciona sozinho; confirmado no changelog da própria lib). Sem essa
+permissão, todo agendamento cai silenciosamente no alarme **inexato**
+(`setAndAllowWhileIdle`), que o Doze/battery manager do Android pode adiar por horas —
+pior ainda em fabricantes com gerenciamento de bateria mais agressivo (Motorola, Xiaomi,
+Samsung...). Sintoma real visto em teste: ações só apareciam quando a pessoa abria o app
+manualmente, não no horário agendado. **Fix:** `app.json` → `android.permissions:
+["SCHEDULE_EXACT_ALARM"]` (vira `<uses-permission
+android:name="android.permission.SCHEDULE_EXACT_ALARM">` via Expo Config Plugins —
+prefixo automático, não precisa escrever o nome completo). Exige gerar um novo build EAS
+pra valer (é mudança de manifest nativo, não passa por Expo Go/preview web). Em Android
+13+ o sistema pode ainda assim exigir que a pessoa confirme manualmente em Configurações
+→ Apps → Daliz → Permissões especiais → Alarmes e lembretes — a permissão no manifest só
+torna essa opção **visível**, não a concede automaticamente em todo aparelho. Vale também
+orientar quem tiver o problema a desativar a otimização de bateria do app (Configurações
+→ Bateria → Daliz → Sem restrições), independente da permissão de alarme exato.

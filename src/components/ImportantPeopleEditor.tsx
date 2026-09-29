@@ -8,7 +8,8 @@ import { Chip } from '@/components/ui/Chip';
 import { Button } from '@/components/ui/Button';
 import { generateId } from '@/utils/id';
 import { radius, spacing, useTheme } from '@/theme';
-import { toISODate } from '@/utils/date';
+import { resolvePersonAge, toISODate } from '@/utils/date';
+import { getCurrentDate } from '@/utils/now';
 import { RELATIONSHIP_LABELS, type ImportantPerson, type LivesWithUser, type RelationshipType } from '@/types';
 
 function formatDisplayDate(value: string): string {
@@ -32,6 +33,10 @@ const LIVES_WITH_OPTIONS: { value: LivesWithUser; label: string }[] = [
 interface ImportantPeopleEditorProps {
   people: ImportantPerson[];
   onChange: (people: ImportantPerson[]) => void;
+  // Abre o formulário de "Adicionar pessoa" já expandido — usado quando a pessoa chega aqui pelo
+  // CTA "Quer adicionar?" da tela de Perfil (ver app/(main)/(tabs)/profile.tsx), pra economizar o
+  // toque extra de abrir o formulário de novo.
+  autoOpenAdd?: boolean;
 }
 
 /**
@@ -41,9 +46,9 @@ interface ImportantPeopleEditorProps {
  * único em vez de duplicar em cada tela (ver app/onboarding/profile.tsx e
  * app/(main)/edit-profile.tsx).
  */
-export function ImportantPeopleEditor({ people, onChange }: ImportantPeopleEditorProps) {
+export function ImportantPeopleEditor({ people, onChange, autoOpenAdd }: ImportantPeopleEditorProps) {
   const { colors } = useTheme();
-  const [adding, setAdding] = useState(false);
+  const [adding, setAdding] = useState(() => autoOpenAdd ?? false);
   const [name, setName] = useState('');
   const [relationship, setRelationship] = useState<RelationshipType | null>(null);
   const [age, setAge] = useState('');
@@ -104,7 +109,13 @@ export function ImportantPeopleEditor({ people, onChange }: ImportantPeopleEdito
             <AppText variant="bodyStrong">{person.name ?? RELATIONSHIP_LABELS[person.relationship]}</AppText>
             <AppText variant="caption" color={colors.textMuted}>
               {RELATIONSHIP_LABELS[person.relationship]}
-              {person.age != null ? ` · ${person.age} anos` : ''}
+              {/* Recalculada a partir de birthDate quando existir (ver resolvePersonAge) — sem
+                  isso, essa lista mostraria pra sempre a idade digitada no cadastro, mesmo
+                  depois da pessoa fazer aniversário. */}
+              {(() => {
+                const age = resolvePersonAge(person, getCurrentDate());
+                return age != null ? ` · ${age} anos` : '';
+              })()}
               {person.birthDate ? ` · nascimento em ${formatDisplayDate(person.birthDate)}` : ''}
               {person.livesWithUser === true ? ' · mora com você' : person.livesWithUser === false ? ' · não mora com você' : ''}
             </AppText>

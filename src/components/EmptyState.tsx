@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import Animated, { FadeIn } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 import { AppText } from '@/components/ui/AppText';
 import { Button } from '@/components/ui/Button';
@@ -17,7 +18,7 @@ interface EmptyStateProps {
 export function EmptyState({ emoji, icon, title, description, actionLabel, onAction }: EmptyStateProps) {
   const { colors } = useTheme();
   return (
-    <View style={styles.container}>
+    <Animated.View entering={FadeIn.duration(300)} style={styles.container}>
       {emoji && <AppText style={styles.emoji}>{emoji}</AppText>}
       {icon && <Ionicons name={icon} size={36} color={colors.primary} style={styles.icon} />}
       <AppText variant="subtitle" style={styles.title}>
@@ -31,7 +32,7 @@ export function EmptyState({ emoji, icon, title, description, actionLabel, onAct
       {actionLabel && onAction && (
         <Button label={actionLabel} variant="outline" size="sm" onPress={onAction} style={styles.action} />
       )}
-    </View>
+    </Animated.View>
   );
 }
 
@@ -42,6 +43,10 @@ const styles = StyleSheet.create({
   },
   emoji: {
     fontSize: 40,
+    // `lineHeight` explícito — sem isso, herda o da variante padrão ('body', 22), bem menor que
+    // o `fontSize` de 40, e o emoji fica cortado em cima/embaixo (a caixa de linha do texto é
+    // menor que o glifo colorido do emoji).
+    lineHeight: 48,
     marginBottom: spacing.md,
   },
   icon: {

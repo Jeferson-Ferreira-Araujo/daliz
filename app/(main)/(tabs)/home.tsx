@@ -9,6 +9,8 @@ import { AppText } from '@/components/ui/AppText';
 import { CurrentWeatherWidget } from '@/components/CurrentWeatherWidget';
 import { EmptyState } from '@/components/EmptyState';
 import { ChallengeCard } from '@/components/ChallengeCard/ChallengeCard';
+import { ShareableMomentCard } from '@/components/ShareableMomentCard';
+import { FirstActionCompletedScreen, type NextActionPreview } from '@/components/FirstActionCompletedScreen';
 import { radius, spacing, useTheme } from '@/theme';
 import { profileService } from '@/services/profileService';
 import { dayCycleService } from '@/services/dayCycleService';
@@ -17,18 +19,18 @@ import { notificationService } from '@/services/notificationService';
 import { reminderService } from '@/services/reminderService';
 import { TabHeaderIcons } from '@/components/TabHeaderIcons';
 import { motivationalPhraseForDate } from '@/data/motivationalPhrases';
-import { getInstanceActionKind, getInstanceTiming } from '@/data/challenges';
-import { MAX_OPEN_ACTIONS } from '@/engine/ChallengeEngine';
+import { getInstanceTiming } from '@/data/challenges';
+import { isShareableMoment } from '@/data/shareableMomentCopy';
 import { isWorkdayToday, sleepDeadlineFor } from '@/engine/dayModel';
 import { resolveActiveDate } from '@/services/dayCycleService';
 import { logicalDateFor } from '@/utils/date';
 import { getCurrentDate } from '@/utils/now';
 import { timeToMinutes } from '@/utils/time';
-import type { ChallengeInstance, ReminderType, UserProfile } from '@/types';
+import type { ChallengeInstance, ChallengeReaction, ReminderType, UserProfile } from '@/types';
 
 export default function HomeScreen() {
   const { colors } = useTheme();
-  const { instanceId } = useLocalSearchParams<{ instanceId?: string }>();
+  const { instanceId, reminded } = useLocalSearchParams<{ instanceId?: string; reminded?: string }>();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [instances, setInstances] = useState<ChallengeInstance[]>([]);
   const [loading, setLoading] = useState(true);
@@ -37,6 +39,10 @@ export default function HomeScreen() {
   // "Recuperação/recomeço" — dias desde a última abertura, só quando ultrapassa
   // RECOVERY_THRESHOLD_DAYS (ver dayCycleService.ensureUpcomingActions). null = nada a mostrar.
   const [welcomeBackGapDays, setWelcomeBackGapDays] = useState<number | null>(null);
+  // Estado C da Home (ver profileService.markFirstActionResolved): tela de transição de um
+  // instante mostrada uma única vez, logo depois que a pessoa reage à primeira ação. null =
+  // não mostrar; presente = sobrepõe a tela inteira até "Continuar".
+  const [firstActionCompletedPreview, setFirstActionCompletedPreview] = useState<NextActionPreview | null>(null);
 
   // Vibra e prepara o banner de boas-vindas quando a pessoa volta depois de muitos dias — sem
   // culpa, sem cobrança (ver seção "Nunca usar linguagem de cobrança" já estabelecida pro resumo
@@ -122,6 +128,25 @@ export default function HomeScreen() {
     setInstances((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
   }
 
+  async function handleSetReaction(instance: ChallengeInstance, reaction: ChallengeReaction) {
+    const updated = await challengeActionsService.setReaction(instance, reaction);
+    setInstances((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
+
+    // Reagir à primeira ação é o próprio sinal de conclusão dela (não existe mais Concluir/Não
+    // consegui) — dispara a tela de transição (Estado C) uma única vez. `firstActionState`
+    // continua 'available' até aqui de propósito: só vira 'completed' agora, junto do disparo,
+    // senão um refresh no meio do caminho perderia a chance de mostrar essa tela.
+    if (profile?.firstActionState === 'available' && instance.id === profile.firstActionInstanceId) {
+      const resolvedProfile = await profileService.markFirstActionResolved(true);
+      setProfile(resolvedProfile);
+      setFirstActionCompletedPreview(computeNextActionPreview(instances, getCurrentDate()));
+    }
+  }
+
+  function handleFirstActionCompletedContinue() {
+    setFirstActionCompletedPreview(null);
+  }
+
   async function handleScheduleReminder(instance: ChallengeInstance, scheduledFor: Date, reminderType: ReminderType) {
     const updated = await reminderService.schedule(instance, scheduledFor, reminderType);
     setInstances((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
@@ -140,40 +165,45 @@ export default function HomeScreen() {
     );
   }
 
+  if (firstActionCompletedPreview) {
+    return (
+      <FirstActionCompletedScreen
+        completed
+        nextActionPreview={firstActionCompletedPreview}
+        onContinue={handleFirstActionCompletedContinue}
+      />
+    );
+  }
+
   const today = logicalDateFor(now);
   // Só revela um desafio no app quando seu horário de notificação chega —
   // o usuário não deve ver a lista completa do dia de antemão.
   const visibleInstances = instances.filter((i) => new Date(i.scheduledFor).getTime() <= now.getTime());
-  // Sugestões (actionKind 'sugestao') nunca competem com ações de verdade nem entram em
-  // estatísticas/histórico — só a ação-only list alimenta empty state/agrupamentos abaixo.
-  // `actionInstances` (não `visibleInstances`) pra manter o mesmo comportamento de sempre do
-  // describeEmptyState: ele já espia a PRÓXIMA pendente ainda não revelada pra decidir a mensagem
-  // (ex: "chegam durante o dia" vs "começam amanhã"), então precisa do array completo, só sem
-  // sugestões — nunca só o que já está visível.
-  const actionInstances = instances.filter((i) => getInstanceActionKind(i) === 'acao');
-  const actionInstancesVisible = visibleInstances.filter((i) => getInstanceActionKind(i) === 'acao');
-  const suggestionInstancesVisible = visibleInstances.filter((i) => getInstanceActionKind(i) === 'sugestao');
-  const emptyState = describeEmptyState(actionInstances, now, profile);
+  const emptyState = describeEmptyState(instances, now, profile);
   const firstActionInstance =
     profile.firstActionState === 'available' ? instances.find((i) => i.id === profile.firstActionInstanceId) : undefined;
 
-  // Sistema de timing: separa a ação mais recente ("ação atual", em destaque) das demais ações
-  // `today`/`contextual` ainda por aí ("Em aberto" — ver seção 4 do pedido). Sem Concluir/Não
-  // consegui (ver plano de migração seção 4), toda ação entregue conta aqui — não há mais uma
-  // distinção "resolvida vs pendente". `now` que não é mais a atual simplesmente some da tela
-  // (seção 5) — continua em storage/histórico, só não acumula na seção "Em aberto".
-  const pendingVisible = actionInstancesVisible; // já ordenado por scheduledFor (ascendente)
-  const currentAction = pendingVisible[pendingVisible.length - 1] ?? null;
-  const openActions = pendingVisible
-    .filter((i) => i.id !== currentAction?.id && getInstanceTiming(i) !== 'now')
-    .sort((a, b) => b.scheduledFor.localeCompare(a.scheduledFor))
-    .slice(0, MAX_OPEN_ACTIONS);
-  // Sugestões do dia: banners avulsos, sem card/botões, sem entrar em "Em aberto"/estatísticas
-  // (ver ChallengeActionKind). Diferente de `currentAction` (uma ação em destaque de cada vez),
-  // uma sugestão fica visível o dia inteiro depois de notificada — ela nunca muda de status (não
-  // tem Concluir/Não consegui), então não faz sentido "substituir" a anterior; todas as reveladas
-  // hoje continuam na tela, mais antiga primeiro (mesma ordem de `visibleInstances`).
-  const suggestionsToday = suggestionInstancesVisible;
+  // Sem Concluir/Não consegui (a reação é opcional e não representa conclusão de verdade — ver
+  // ChallengeCard/ReactionPicker), não faz sentido distinguir "resolvida" de "em aberto": toda
+  // ação entregue fica na tela junto das outras, mais recente primeiro — só ela ganha destaque
+  // visual (cor, ver ChallengeCard), as demais ficam neutras independente de já terem reação ou
+  // não. `now` que não é mais a mais recente simplesmente some da tela (continua em
+  // storage/histórico) — é a única exceção, porque esse tipo de ação nasceu pra ser vista na
+  // hora, não pra ficar acumulando na lista do dia.
+  const pendingVisible = visibleInstances; // ordenado por scheduledFor (ascendente)
+  const mostRecentAction = pendingVisible[pendingVisible.length - 1] ?? null;
+  const timelineActions = pendingVisible
+    .filter((i) => i.id === mostRecentAction?.id || getInstanceTiming(i) !== 'now')
+    .reverse(); // mais recente primeiro
+
+  // "Cards compartilháveis" — derivados do próprio dia, sem nada persistido à parte (ver
+  // src/data/shareableMomentCopy.ts): `visibleInstances` já é só o ciclo de hoje já revelado,
+  // então a lista naturalmente "limpa e recomeça em branco" a cada novo dia, sem nenhuma limpeza
+  // manual. Mais recente primeiro, pra sentir como um feed alimentado ao longo do dia (usa
+  // `completedAt`, que agora é gravado junto da reação — ver ChallengeCard).
+  const shareableMoments = visibleInstances
+    .filter(isShareableMoment)
+    .sort((a, b) => (b.completedAt ?? '').localeCompare(a.completedAt ?? ''));
 
   return (
     <Screen padded={false} edges={['top']}>
@@ -230,15 +260,6 @@ export default function HomeScreen() {
           {motivationalPhraseForDate(today)}
         </AppText>
 
-        {suggestionsToday.map((suggestion) => (
-          <View key={suggestion.id} style={[styles.suggestionBanner, { backgroundColor: colors.warningBg }]}>
-            <AppText style={styles.suggestionIcon}>💡</AppText>
-            <AppText variant="body" color={colors.text} style={styles.suggestionText}>
-              {suggestion.titulo}
-            </AppText>
-          </View>
-        ))}
-
         <AppText variant="subtitle" style={styles.sectionTitle}>
           Suas ações de hoje
         </AppText>
@@ -253,32 +274,44 @@ export default function HomeScreen() {
           />
         )}
 
-        {currentAction && (
+        {timelineActions.map((instance) => (
           <ChallengeCard
-            key={currentAction.id}
-            instance={currentAction}
-            highlighted={currentAction.id === instanceId || currentAction.id === firstActionInstance?.id}
-            onSaveNote={(note) => handleSaveNote(currentAction, note)}
-            onScheduleReminder={(scheduledFor, reminderType) => handleScheduleReminder(currentAction, scheduledFor, reminderType)}
-            onCancelReminder={() => handleCancelReminder(currentAction)}
+            key={instance.id}
+            instance={instance}
+            profile={profile}
+            // Sempre destaca a mais recente (ver `mostRecentAction` acima), que também é sempre a
+            // primeira da lista (`timelineActions` já vem invertida). `instanceId`/
+            // `firstActionInstance` cobrem os outros casos de destaque: abriu direto pela
+            // notificação, ou é a primeiríssima ação.
+            highlighted={instance.id === mostRecentAction?.id || instance.id === instanceId || instance.id === firstActionInstance?.id}
+            // Card lembrado (ver app/_layout.tsx/notificationService.scheduleReminder) — nunca
+            // reordena a lista (a ação continua no lugar cronológico dela), só marca visualmente
+            // qual card motivou o lembrete. Sinal separado de `highlighted` de propósito: se uma
+            // ação nova já chegou nesse meio-tempo, ela é a "mais recente" (destaque de cor), mas
+            // não é necessariamente a que foi lembrada — os dois podem apontar pra cards diferentes.
+            remindedHighlight={reminded === '1' && instance.id === instanceId}
+            onSaveNote={(note) => handleSaveNote(instance, note)}
+            onSetReaction={(reaction) => handleSetReaction(instance, reaction)}
+            onScheduleReminder={(scheduledFor, reminderType) => handleScheduleReminder(instance, scheduledFor, reminderType)}
+            onCancelReminder={() => handleCancelReminder(instance)}
           />
-        )}
+        ))}
 
-        {openActions.length > 0 && (
+        {shareableMoments.length > 0 && (
           <>
             <AppText variant="subtitle" style={styles.sectionTitle}>
-              Em aberto · {openActions.length} {openActions.length === 1 ? 'ação' : 'ações'}
+              ✨ Momentos que valem compartilhar
             </AppText>
-            {openActions.map((instance) => (
-              <ChallengeCard
-                key={instance.id}
-                instance={instance}
-                highlighted={instance.id === instanceId || instance.id === firstActionInstance?.id}
-                onSaveNote={(note) => handleSaveNote(instance, note)}
-                onScheduleReminder={(scheduledFor, reminderType) => handleScheduleReminder(instance, scheduledFor, reminderType)}
-                onCancelReminder={() => handleCancelReminder(instance)}
-              />
-            ))}
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.shareableCarousel}
+              style={styles.shareableCarouselWrapper}
+            >
+              {shareableMoments.map((instance) => (
+                <ShareableMomentCard key={instance.id} instance={instance} />
+              ))}
+            </ScrollView>
           </>
         )}
       </ScrollView>
@@ -288,6 +321,17 @@ export default function HomeScreen() {
 
 function sortByScheduledTime(instances: ChallengeInstance[]): ChallengeInstance[] {
   return [...instances].sort((a, b) => a.scheduledFor.localeCompare(b.scheduledFor));
+}
+
+/** `instances` já é só o dia ativo (ver `load`/`refreshInstancesForToday`) — então, se sobra
+ * alguma com `scheduledFor` no futuro, a próxima ação ainda chega "ainda hoje"; senão, só amanhã.
+ * Nunca revela horário exato nem conteúdo (ver FirstActionCompletedScreen), só essa categoria
+ * qualitativa. */
+function computeNextActionPreview(instances: ChallengeInstance[], now: Date): NextActionPreview {
+  const hasMoreToday = instances.some((i) => new Date(i.scheduledFor).getTime() > now.getTime());
+  return hasMoreToday
+    ? { icon: 'sunny-outline', text: 'Sua próxima ação chega ainda hoje.' }
+    : { icon: 'moon-outline', text: 'Sua próxima ação chega amanhã.' };
 }
 
 interface EmptyStateContent {
@@ -408,21 +452,6 @@ const styles = StyleSheet.create({
   phrase: {
     marginTop: spacing.xs,
     marginBottom: spacing.lg,
-  },
-  suggestionBanner: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    borderRadius: radius.lg,
-    padding: spacing.md,
-    marginBottom: spacing.lg,
-    gap: spacing.sm,
-  },
-  suggestionIcon: {
-    fontSize: 16,
-    marginTop: 2,
-  },
-  suggestionText: {
-    flex: 1,
   },
   firstActionBanner: {
     flexDirection: 'row',

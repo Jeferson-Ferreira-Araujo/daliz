@@ -95,6 +95,12 @@ export default function MenuScreen() {
             </Pressable>
           </View>
 
+          <Pressable onPress={() => router.push('/terms-of-use')} style={styles.footerLinkRow}>
+            <Ionicons name="document-text-outline" size={16} color={colors.textMuted} style={styles.linkIcon} />
+            <AppText variant="caption" color={colors.textMuted}>
+              Termos de Uso
+            </AppText>
+          </Pressable>
           <Pressable onPress={() => router.push('/privacy-policy')} style={styles.footerLinkRow}>
             <Ionicons name="shield-checkmark-outline" size={16} color={colors.textMuted} style={styles.linkIcon} />
             <AppText variant="caption" color={colors.textMuted}>

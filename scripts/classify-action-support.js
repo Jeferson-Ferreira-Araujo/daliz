@@ -40,7 +40,7 @@ const KEY_ORDER = [
   'momentos', 'tiposDia', 'contexto', 'requerFamilia', 'requerTempoLivre',
   'cooldownDias', 'interests', 'relationships', 'minAge', 'maxAge',
   'requiresPresence', 'weatherTags', 'seasonTags', 'eventTags', 'contentLevel',
-  'musicQuery', 'bibleQuery', 'opensCamera', 'timing',
+  'bibleQuery', 'opensCamera', 'timing',
   'supportType', 'supportLabel', 'supportData',
 ];
 
@@ -106,8 +106,10 @@ rule('Aproveite o dia agradável pra visitar um pequeno comércio local.', maps(
 rule('Aproveite o dia de sol pra visitar um parque com sombra disponível.', maps('parque'));
 
 // --- Spotify: só intenção genuína de OUVIR/descobrir música agora — não "escolher uma música
-// para outra pessoa" (relacional) nem "conversar sobre música" (já coberto por musicQuery em
-// outros ~22 itens hand-tagged; não duplicamos botão aqui). ---
+// para outra pessoa" (relacional) nem "conversar sobre música" (já coberto por supportType:
+// 'spotify' em outros ~22 itens hand-tagged, ver creativity.ts/learning.ts/faith.ts; não
+// duplicamos botão aqui — nunca aplicar ESTE mesmo `supportType: 'spotify'` a um item que já
+// tenha um). ---
 const SPOTIFY = { supportType: 'spotify', supportLabel: '🎵 Abrir no Spotify' };
 rule('Dance uma música inteira.', SPOTIFY);
 rule('Escolha uma música alegre e dance por alguns minutos, só por diversão.', SPOTIFY);
@@ -122,6 +124,15 @@ rule('Aprenda uma palavra nova.', {
   supportType: 'search',
   supportLabel: '🔎 Pesquisar uma nova palavra',
   supportData: { query: 'Me ensine uma nova palavra' },
+});
+
+// --- "Descubra algo que aconteceu no mundo no dia em que você nasceu": título fala do DIA, então
+// a query usa a data de nascimento completa (não só o ano), resolvida em runtime a partir do
+// perfil (ver `{{data}}` em ChallengeCard.tsx) — sem isso a busca fica genérica demais. ---
+rule('Descubra algo que aconteceu no mundo no dia em que você nasceu.', {
+  supportType: 'search',
+  supportLabel: '🔎 Pesquisar',
+  supportData: { query: 'o que aconteceu de importante no mundo em {{data}}' },
 });
 
 // --- Aprendizado/curiosidade (learning.ts, ~96 itens da base oficial): busca construída a
@@ -202,7 +213,6 @@ const LEARNING_SEARCH = {
   'Aprenda uma forma melhor de receber críticas.': 'como lidar melhor com críticas',
   'Aprenda uma estratégia para reduzir distrações.': 'estratégia para reduzir distrações',
   'Aprenda uma técnica para lembrar compromissos.': 'técnica para lembrar compromissos',
-  'Descubra uma coisa que aconteceu no mundo no dia em que nasceu.': 'o que aconteceu no mundo no dia em que eu nasci',
   'Pesquise o significado de uma palavra que usa frequentemente.': 'significado de uma palavra',
   'Aprenda uma habilidade pequena em 10 minutos.': 'habilidade rápida para aprender em 10 minutos',
 };

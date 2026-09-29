@@ -1,35 +1,12 @@
 import type { OnboardingProfileInput } from '@/services/profileService';
 
-/**
- * Ponte só-dev entre "Dev Mode → Cenários" e a tela real de cadastro
- * (`app/onboarding/profile.tsx`). Diferente dos cenários que chamam
- * `profileService.completeOnboarding` direto e pulam pra Home, este fluxo precisa passar
- * pelas telas de verdade (pra revisar mudanças de UI/copy nelas) — só evita a digitação manual
- * dos ~8 passos. Estado em memória (mesmo padrão de `onboardingDraft.ts`): sobrevive à navegação
- * dentro do app, nunca é persistido, e é consumido uma única vez pra não vazar em cadastros
- * manuais depois.
- */
-let armedDraft: OnboardingProfileInput | null = null;
-
-export const devOnboardingAutofill = {
-  /** Chamado pelo Dev Mode antes de navegar pra `/onboarding/welcome`. */
-  arm(draft: OnboardingProfileInput) {
-    armedDraft = draft;
-  },
-  /** Chamado pela tela de cadastro no mount — retorna o draft uma única vez e limpa em seguida. */
-  consume(): OnboardingProfileInput | null {
-    const draft = armedDraft;
-    armedDraft = null;
-    return draft;
-  },
-};
-
-/** Mesmos valores de `ensureTestProfile` (devService.ts) — mantém os dois fluxos de teste
- * consistentes entre si. */
+/** Perfil de teste padrão — usado como rascunho inicial de app/dev/schedule-preview.tsx quando
+ * ainda não existe um perfil real salvo. */
 export const DEV_ONBOARDING_TEST_DATA: OnboardingProfileInput = {
   name: 'Usuário Teste',
   birthDate: '1995-06-15',
   occupation: 'Testador(a)',
+  workContext: null,
   isWorking: true,
   workStartTime: '08:00',
   workEndTime: '17:00',

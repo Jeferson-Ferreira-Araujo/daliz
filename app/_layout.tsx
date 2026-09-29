@@ -17,9 +17,16 @@ import {
 import { ThemeProvider, useTheme } from '@/theme';
 import { analyticsService } from '@/services/analyticsService';
 import { crashService } from '@/services/crashService';
+import { admobService } from '@/services/admobService';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
+
+// Chamada uma única vez, o quanto antes — precisa acontecer antes de qualquer <AdBannerNative />
+// tentar carregar um anúncio (ver TabBar.tsx). Fora de qualquer componente de propósito: não deve
+// esperar nenhum efeito de tela específica pra rodar, e a própria função já é no-op no Expo Go/web
+// (ver admobService.ts).
+admobService.initialize();
 
 // Captura qualquer erro de JS que escape de um try/catch e do próprio ErrorBoundary (que só pega
 // erro de render) — ex: erro dentro de um `setTimeout`, de um listener de evento, de uma Promise
@@ -34,22 +41,31 @@ if (errorUtils?.setGlobalHandler) {
   });
 }
 
-function navigateToInstance(instanceId: unknown) {
+// `reminded` marca que a notificação era um lembrete ("⏰ Lembrete: você pediu pra rever essa
+// ação", ver notificationService.scheduleReminder) — home.tsx usa isso pra destacar o card
+// lembrado de um jeito diferente do destaque de "ação mais recente" (que pode já ser outro card,
+// se uma ação nova chegou nesse meio-tempo). Nunca reordena a lista, só marca visualmente.
+function navigateToInstance(instanceId: unknown, options?: { reminded?: boolean }) {
   if (typeof instanceId !== 'string') return;
-  router.push({ pathname: '/(main)/(tabs)/home', params: { instanceId } });
+  router.push({ pathname: '/(main)/(tabs)/home', params: options?.reminded ? { instanceId, reminded: '1' } : { instanceId } });
 }
 
-// Navegação por tela em vez de instância — usada pela notificação de "O que você melhorou?"
-// (ver weeklyRecapService.ts), que não se refere a um desafio específico. Mesmo padrão de
-// `data.instanceId`, só que `data.screen` aponta pra uma aba em vez de uma instância.
-function navigateToScreen(screen: unknown) {
-  if (screen === 'insights') router.push('/(main)/(tabs)/insights');
+// Navegação por tela em vez de instância — usada pela notificação de "Seu resumo semanal" (ver
+// weeklyRecapService.ts) e pelo lembrete de fim de dia (ver notificationService.
+// scheduleDayReflectionReminder), nenhum dos dois se refere a um desafio específico. Mesmo padrão
+// de `data.instanceId`, só que `data.screen` aponta pra uma aba em vez de uma instância.
+function navigateToScreen(data: Record<string, unknown>) {
+  if (data.screen === 'insights') router.push('/(main)/(tabs)/insights');
+  // `focusToday` pede pro Histórico já abrir o card de hoje expandido, pronto pra escrever — sem
+  // isso a notificação "Como foi seu dia hoje?" só levava a uma lista de dias fechados, obrigando
+  // a pessoa a achar e tocar no card de novo.
+  else if (data.screen === 'history') router.push({ pathname: '/(main)/(tabs)/history', params: data.focusToday ? { focusToday: '1' } : undefined });
 }
 
 function handleNotificationData(data: Record<string, unknown> | undefined) {
   if (!data) return;
-  if (data.instanceId) navigateToInstance(data.instanceId);
-  else if (data.screen) navigateToScreen(data.screen);
+  if (data.instanceId) navigateToInstance(data.instanceId, { reminded: data.isReminder === true });
+  else if (data.screen) navigateToScreen(data);
 }
 
 // expo-notifications não implementa respostas de notificação na web.

@@ -1,6 +1,20 @@
 import type { ChallengeActionKind, ChallengeCategory, ChallengeTimingConfig } from './challenge';
 import type { Interest } from './interests';
 
+// Como a ação fez a pessoa se sentir — independente de status de conclusão obrigatório (não
+// existe mais botão de Concluir/Não consegui, ver plano de migração seção 4). Opcional e a
+// qualquer momento: a pessoa marca se quiser. Mas marcar UMA reação, qualquer que seja, é hoje o
+// próprio sinal de que a ação foi feita — grava `completedAt` (ver challengeActionsService.setReaction).
+export type ChallengeReaction = 'fez_muito_bem' | 'foi_bom' | 'foi_normal' | 'nao_fez_diferenca' | 'foi_dificil';
+
+export const CHALLENGE_REACTION_LABELS: Record<ChallengeReaction, string> = {
+  fez_muito_bem: 'Fez muito bem',
+  foi_bom: 'Foi bom',
+  foi_normal: 'Foi normal',
+  nao_fez_diferenca: 'Não fez muita diferença',
+  foi_dificil: 'Foi difícil',
+};
+
 export interface ChallengeInstance {
   id: string;
   challengeId: string;
@@ -20,18 +34,23 @@ export interface ChallengeInstance {
   scheduledFor: string; // ISO datetime — horário planejado da notificação
 
   // Histórico orientado a eventos (substitui sentAt + status + reaction + abandonReason —
-  // ver plano de migração seção 1/4). Só `deliveredAt` é populado hoje, no envio; os outros três
-  // ficam presentes na estrutura pra quando o produto decidir o que "concluir" significa nesse
-  // modelo novo — nada no app lê nem escreve neles ainda.
+  // ver plano de migração seção 1/4). `deliveredAt` é populado no envio. `completedAt` é
+  // populado quando a pessoa marca QUALQUER reação (ver `reaction` abaixo e
+  // challengeActionsService.setReaction) — reagir é o sinal de "feito", não um botão à parte.
+  // `dismissedAt`/`skippedAt` continuam presentes na estrutura pra uso futuro; nada escreve
+  // neles ainda.
   deliveredAt: string | null;
   completedAt: string | null;
   dismissedAt: string | null;
   skippedAt: string | null;
 
-  timeToCompleteMs?: number | null; // nunca populado no v1 (nada escreve completedAt ainda)
+  timeToCompleteMs?: number | null; // nunca populado (sem instante de "início" da ação pra medir)
   notificationId: string | null;
   // O que a pessoa escreveu, quando a ação pede uma anotação (ver ChallengeCard.asksToWrite).
   note?: string | null;
+  // Como a ação fez a pessoa se sentir (ver ReactionPicker) — opcional, marcável/trocável a
+  // qualquer momento. null/ausente = ainda não marcou (também = `completedAt` ainda null).
+  reaction?: ChallengeReaction | null;
   // Timing resolvido no momento em que a instância foi criada (ver buildInstance) — congelado,
   // não recalcula se o catálogo mudar depois.
   timing?: ChallengeTimingConfig;

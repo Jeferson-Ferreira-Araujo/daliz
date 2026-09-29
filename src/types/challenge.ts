@@ -64,6 +64,8 @@ export type ActionSupportType = 'none' | 'search' | 'categories' | 'maps' | 'spo
 export interface ActionSupportData {
   // 'search': termo pesquisado no Google. 'maps': tipo de lugar pesquisado no Maps.
   // 'spotify': termo de busca opcional (ausente = abre o Spotify sem busca específica).
+  // Pode conter o placeholder `{{data}}`, resolvido em runtime pela data de nascimento
+  // por extenso do perfil (ver ChallengeCard.tsx) antes de chegar em ActionSupport.
   query?: string;
   // 'categories': qual conjunto de categorias mostrar (hoje só 'movies' — filmes por gênero no
   // AdoroCinema; um 'kind' novo no futuro reaproveita o mesmo MovieCategorySupport-like case sem
@@ -83,6 +85,16 @@ export type LocationRequirementType = 'none' | 'city' | 'region' | 'country' | '
 // existentes (ver bakeSituations em src/data/challenges/index.ts, que deriva tiposDia/momentos a
 // partir disso quando eles estiverem ausentes, evitando duas fontes de verdade divergentes).
 export type SituationTag = 'workday' | 'day_off' | 'weekend' | 'after_waking' | 'before_sleep' | 'after_meal';
+
+// Contexto de trabalho da pessoa — derivado automaticamente da profissão informada no cadastro
+// (ver src/services/occupationService.ts), nunca perguntado diretamente. Usado só pra liberar
+// ações específicas durante o expediente que a categoria sozinha bloquearia por padrão (ver
+// Challenge.workHoursContexts abaixo e WORK_SAFE_CATEGORIES em ChallengeEngine.ts) — ex: um
+// motoboy pode receber "faça uma gentileza a um estranho" (categoria relacionamentos, normalmente
+// fora do expediente) porque isso faz sentido pro contexto dele. `em_equipe`/`sem_equipe` é uma
+// aproximação editorial (a CBO não classifica ocupações por "tem colega por perto"), menos
+// confiável que mesa/dirige.
+export type WorkContext = 'mesa_escritorio' | 'dirige_transito' | 'em_equipe' | 'sem_equipe';
 
 // Sinal derivado do perfil do usuário (ver computeProfileTags em src/engine/profileTags.ts) —
 // generaliza os filtros pontuais antigos (requerFamilia/requerTempoLivre/relationships/minAge/
@@ -157,10 +169,12 @@ export type DayType = 'trabalho' | 'folga' | 'qualquer';
 // nunca como filtro duro (o app não sabe a localização real do usuário).
 export type ContextType = 'em_casa' | 'no_trabalho' | 'qualquer';
 
-// 'acao' = tarefa concreta. 'sugestao' = orientação contextual sem conclusão objetiva (ex: "Se
-// perceber que está se comparando com outras pessoas hoje..."), exibida como banner avulso na
-// Home — nunca como card, nunca conta em Histórico/Insights (ver ChallengeCard/statsService).
-export type ChallengeActionKind = 'acao' | 'sugestao';
+// 'sugestao' (orientação contextual sem conclusão objetiva, ex: "Se perceber que está se
+// comparando com outras pessoas hoje...") existiu no catálogo antigo e foi removida na
+// reestruturação de ações (Fase 2) — nenhum desafio do catálogo atual usa mais esse tipo. Mantido
+// como união de um único valor (em vez de apagar `type`/`getInstanceActionKind` de todo lugar que
+// já lê isso) pra não forçar um refactor maior sem necessidade real hoje.
+export type ChallengeActionKind = 'acao';
 
 // Filosofia dos desafios com contexto de redes sociais: não é "use menos o
 // celular", é "faça algo melhor com o tempo que você já passa nele".
@@ -207,6 +221,13 @@ export interface Challenge {
   // `profile.required`/`profile.excluded` estiverem vazios.
   requerFamilia?: boolean;
   requerTempoLivre?: boolean; // não cabe num intervalo curto durante o expediente
+  // Libera esse desafio no slot de expediente mesmo com `categoria` fora de WORK_SAFE_CATEGORIES
+  // (ver ChallengeEngine.filterCandidatesForSlot), só pra quem tem um desses WorkContext no
+  // perfil (ver UserProfile.workContext). Deliberadamente SEPARADO de `profile.required`: esse
+  // campo só é lido dentro do filtro de horário de trabalho — fora do expediente o desafio segue
+  // com sua elegibilidade normal (categoria/momento/etc.), sem ficar restrito só a esse contexto
+  // o dia inteiro. Ausente/[] = desafio não tem nenhuma liberação especial de expediente.
+  workHoursContexts?: WorkContext[];
   cooldownDias?: number; // legado — ver `repetition.minIntervalDays`, que tem prioridade quando presente
   // Interesses/hobbies com que esse desafio conecta — ver ChallengeInterestRules. Ausente =
   // `{ required: [], preferred: [], excluded: [] }` (sem nenhuma restrição/bônus).
@@ -251,15 +272,13 @@ export interface Challenge {
   // 'event_specific' só faz sentido dentro da janela de uma data comemorativa —
   // ver EVENT_SPECIFIC_MIN_PHASE no ChallengeEngine. Ausente = 'normal'.
   contentLevel?: 'normal' | 'contextual' | 'event_specific';
-  // Termo de busca no Spotify, só presente nos desafios que envolvem ouvir/enviar música — a
-  // presença do campo já identifica "isso é uma ação de música" (ver ChallengeCard.tsx), sem
-  // precisar de heurística de texto. Não é um gênero real extraído do texto (a maioria dos
-  // desafios de música não especifica um) — é escolhido na autoria pra cada desafio.
-  musicQuery?: string;
-  // Termo de busca de versículo, só presente nos desafios de leitura bíblica — mesmo
-  // espírito do musicQuery: a presença do campo já identifica "isso é uma ação de leitura
-  // bíblica" (ver ChallengeCard.tsx). Escolhido na autoria priorizando referências/temas
+  // Termo de busca de versículo, só presente nos desafios de leitura bíblica — a presença do
+  // campo já identifica "isso é uma ação de leitura bíblica" (ver ChallengeCard.tsx), sem
+  // precisar de heurística de texto. Escolhido na autoria priorizando referências/temas
   // encorajadores (esperança, paz, força, gratidão) — não é extraído do texto do desafio.
+  // (Não existe mais o equivalente `musicQuery` pra Spotify — botão de música hoje é só
+  // `supportType: 'spotify'`/`supportData.query`, ver ActionSupport.tsx. Os dois coexistindo no
+  // mesmo desafio foi o que causava o botão duplicado do Spotify.)
   bibleQuery?: string;
   // true só nos desafios que pedem pra tirar uma foto nova, na hora (não "escolha uma foto
   // antiga"/"reveja fotos") — mostra o botão "Tirar foto agora" que abre a câmera direto (ver

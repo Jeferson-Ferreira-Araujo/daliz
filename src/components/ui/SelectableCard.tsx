@@ -1,7 +1,8 @@
 import React from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { AppText } from './AppText';
+import { AnimatedPressable } from './AnimatedPressable';
 import { radius, spacing, useTheme } from '@/theme';
 
 interface SelectableCardProps {
@@ -17,8 +18,9 @@ interface SelectableCardProps {
 export function SelectableCard({ icon, title, description, selected, onPress }: SelectableCardProps) {
   const { colors } = useTheme();
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={onPress}
+      scaleTo={0.98}
       style={[
         styles.base,
         {
@@ -46,7 +48,7 @@ export function SelectableCard({ icon, title, description, selected, onPress }: 
       >
         {selected && <Ionicons name="checkmark" size={14} color={colors.onPrimary} />}
       </View>
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 

@@ -21,6 +21,7 @@ import type {
   SocialNetwork,
   UserLocation,
   UserProfile,
+  WorkContext,
   WorkSchedule,
 } from '@/types';
 
@@ -28,6 +29,7 @@ export interface OnboardingProfileInput {
   name: string;
   birthDate: string;
   occupation: string;
+  workContext: WorkContext | null;
   isWorking: boolean;
   workStartTime: string | null;
   workEndTime: string | null;
@@ -70,6 +72,9 @@ export const profileService = {
       notificationsEnabled,
       onboardingCompletedAt: now,
       createdAt: now,
+      // Ninguém chega até aqui sem ter marcado a checkbox de aceite na tela de boas-vindas (ver
+      // app/onboarding/welcome.tsx) — "agora" é o registro correto do momento do aceite de fato.
+      termsAcceptedAt: now,
       firstActionState: 'not_requested',
       firstActionInstanceId: null,
     };
@@ -115,6 +120,19 @@ export const profileService = {
     const existing = await profileRepository.get();
     if (!existing) throw new Error('Nenhum perfil para atualizar');
     const updated: UserProfile = { ...existing, photoUri };
+    await profileRepository.save(updated);
+    return updated;
+  },
+
+  /** Atualização leve só de Pessoas Importantes — usada em editar perfil (nunca no onboarding,
+   * onde o perfil ainda não existe pra atualizar). `ImportantPeopleEditor` tem seu próprio botão
+   * "Adicionar", que parece uma ação concluída em si — sem salvar na hora, dava pra adicionar
+   * alguém e sair da tela sem tocar em "Salvar alterações" lá embaixo, perdendo a pessoa cadastrada
+   * sem perceber. Mesmo padrão de updateLocation logo abaixo. */
+  async updateImportantPeople(importantPeople: ImportantPerson[]): Promise<UserProfile> {
+    const existing = await profileRepository.get();
+    if (!existing) throw new Error('Nenhum perfil para atualizar');
+    const updated: UserProfile = { ...existing, importantPeople };
     await profileRepository.save(updated);
     return updated;
   },

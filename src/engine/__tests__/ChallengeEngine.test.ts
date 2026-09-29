@@ -127,30 +127,60 @@ describe('filterCandidatesForSlot (via explainNextChallenge)', () => {
     const profile = makeProfile({ selectedCategories: ['saude_bemestar'] });
     expect(explainNextChallenge(profile, [], NOW).instance).toBeNull();
   });
+
+  it('minAge/maxAge recalculam a idade a partir de birthDate, não travam na idade digitada no cadastro', () => {
+    // Desafio só faz sentido pra alguém de 10+ anos (ex: "combine algo com..." que exige
+    // autonomia). Pessoa foi cadastrada com "8 anos" há tempos, mas o birthDate real já indica
+    // 11 anos hoje — sem recalcular, o motor nunca liberaria essa ação pra ela.
+    const challenge = makeChallenge({ relationships: ['filho'], minAge: 10 });
+    setCatalog([challenge]);
+    const profile = makeProfile({
+      importantPeople: [
+        { id: 'p1', name: 'Filho', relationship: 'filho', age: 8, birthDate: '2014-06-15', livesWithUser: true },
+      ],
+    });
+    // NOW = 2026-01-01 → já fez aniversário de 2025 (junho), então tem 11 anos completos.
+    expect(explainNextChallenge(profile, [], NOW).instance?.challengeId).toBe(challenge.id);
+  });
+
+  it('minAge/maxAge sem birthDate continuam usando o age estático (fallback documentado)', () => {
+    const challenge = makeChallenge({ relationships: ['filho'], minAge: 10 });
+    setCatalog([challenge]);
+    const profile = makeProfile({
+      importantPeople: [{ id: 'p1', name: 'Filho', relationship: 'filho', age: 8, birthDate: null, livesWithUser: true }],
+    });
+    expect(explainNextChallenge(profile, [], NOW).instance).toBeNull();
+  });
 });
 
 describe('selectDailyChallenges — quantidade por dia', () => {
-  it('respeita a faixa de intensidade (equilibrado: 5-7) quando há candidatos suficientes', () => {
+  it('respeita a faixa de intensidade (equilibrado, dia inteiro: 8-12) quando há candidatos suficientes', () => {
     const challenges = Array.from({ length: 40 }, () => makeChallenge());
     setCatalog(challenges);
     const profile = makeProfile({ challengeIntensity: 'equilibrado', wakeTime: '06:00', sleepTime: '23:00' });
     const wakeUpNow = new Date('2026-01-01T06:00:00');
     const instances = selectDailyChallenges(profile, [], wakeUpNow);
-    expect(instances.length).toBeGreaterThanOrEqual(5);
-    expect(instances.length).toBeLessThanOrEqual(7);
+    expect(instances.length).toBeGreaterThanOrEqual(8);
+    expect(instances.length).toBeLessThanOrEqual(12);
   });
 
-  it('sugestões nunca aparecem misturadas às ações — cada type disputa na própria raia', () => {
-    const acao = makeChallenge({ type: 'acao', titulo: 'Ação de verdade' });
-    const sugestao = makeChallenge({ type: 'sugestao', titulo: 'Sugestão de verdade' });
-    setCatalog([acao, sugestao]);
-    const profile = makeProfile({ challengeIntensity: 'desafiador' });
-    const instances = selectDailyChallenges(profile, [], new Date('2026-01-01T06:00:00'));
-    const kinds = new Set(instances.map((i) => i.type));
-    // Não afirma que os dois tipos SEMPRE aparecem no mesmo dia (sugestão é sorteada
-    // probabilisticamente) — só que, se aparecerem, cada instância carrega o type certo.
-    for (const kind of kinds) {
-      expect(['acao', 'sugestao']).toContain(kind);
-    }
+  it('reduz a faixa quando o expediente não recebe ações (perde um pedaço grande do dia)', () => {
+    const challenges = Array.from({ length: 40 }, () => makeChallenge());
+    setCatalog(challenges);
+    const profile = makeProfile({
+      challengeIntensity: 'equilibrado',
+      wakeTime: '06:00',
+      sleepTime: '23:00',
+      isWorking: true,
+      workStartTime: '09:00',
+      workEndTime: '18:00',
+      workSchedule: 'fixa',
+      workDays: ['qui'], // 2026-01-01 é quinta
+      receiveDuringWorkHours: false,
+    });
+    const wakeUpNow = new Date('2026-01-01T06:00:00');
+    const instances = selectDailyChallenges(profile, [], wakeUpNow);
+    expect(instances.length).toBeGreaterThanOrEqual(6);
+    expect(instances.length).toBeLessThanOrEqual(9);
   });
 });

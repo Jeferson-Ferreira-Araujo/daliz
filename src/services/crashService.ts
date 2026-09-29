@@ -42,8 +42,15 @@ export const crashService = {
     }
     const crashlytics = getCrashlyticsInstance();
     if (!crashlytics) return;
-    if (context) crashlyticsModule.log(crashlytics, context);
-    crashlyticsModule.recordError(crashlytics, normalized);
+    // Crash real visto num build de teste com o equivalente em analyticsService.log: a chamada ao
+    // módulo nativo pode lançar SÍNCRONO. Reportar um erro nunca pode causar outro — try/catch
+    // aqui é a mesma garantia de "nunca derruba o app" que já existe pro `require` acima.
+    try {
+      if (context) crashlyticsModule.log(crashlytics, context);
+      crashlyticsModule.recordError(crashlytics, normalized);
+    } catch {
+      // silencioso de propósito — ver comentário acima.
+    }
   },
 
   // Trilha de contexto (breadcrumbs) — aparece junto do próximo crash/erro registrado, não é um
@@ -55,6 +62,10 @@ export const crashService = {
     }
     const crashlytics = getCrashlyticsInstance();
     if (!crashlytics) return;
-    crashlyticsModule.log(crashlytics, message);
+    try {
+      crashlyticsModule.log(crashlytics, message);
+    } catch {
+      // silencioso de propósito — ver comentário em recordError().
+    }
   },
 };

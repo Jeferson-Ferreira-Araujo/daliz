@@ -161,7 +161,7 @@ export default function SettingsScreen() {
               label="🛠️ Abrir Modo Desenvolvedor"
               variant="soft"
               tone="neutral"
-              onPress={() => router.push('/dev')}
+              onPress={() => router.push('/dev/schedule-preview')}
               style={styles.devButton}
             />
           </>

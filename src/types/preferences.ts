@@ -2,14 +2,10 @@ export type ThemePreference = 'system' | 'light' | 'dark';
 
 export interface AppPreferences {
   themePreference: ThemePreference;
-  // true depois que a pessoa já viu a explicação inicial da tela de Insights uma vez —
-  // enquanto ainda não há desafio concluído, distingue a primeira visita (explica o que
-  // vai aparecer ali) das visitas seguintes (só "aguardando dados").
-  hasSeenInsightsIntro: boolean;
-  // Segunda-feira ("YYYY-MM-DD") da última semana cujo "O que você melhorou?" já disparou
-  // notificação (ver weeklyRecapService.ts) — evita notificar de novo se o app for reaberto
-  // mais de uma vez na mesma segunda. null = nunca notificado ainda.
-  lastWeeklyRecapNotifiedWeekStart: string | null;
+  // Data ("YYYY-MM-DD") do domingo pro qual o convite "Seu resumo semanal" já foi agendado (ver
+  // weeklyRecapService.scheduleIfNeeded) — evita reagendar o mesmo domingo toda vez que um novo
+  // período é gerado. null = nunca agendado ainda.
+  lastWeeklyRecapScheduledFor: string | null;
   // `activeDate` ("YYYY-MM-DD") do último período cujo lembrete "Como foi seu dia hoje?" já foi
   // agendado (ver dayCycleService.generateForActiveDate) — guarda persistido, sobrevive a reabrir
   // o app. A trava em memória (`generationLocks`) só protege contra chamadas concorrentes dentro
@@ -23,7 +19,6 @@ export interface AppPreferences {
 
 export const DEFAULT_PREFERENCES: AppPreferences = {
   themePreference: 'light',
-  hasSeenInsightsIntro: false,
-  lastWeeklyRecapNotifiedWeekStart: null,
+  lastWeeklyRecapScheduledFor: null,
   lastDayReflectionReminderDate: null,
 };

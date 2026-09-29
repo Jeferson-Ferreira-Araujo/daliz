@@ -41,4 +41,14 @@ export const challengeInstanceRepository = {
   async clear(): Promise<void> {
     await storageClient.removeItem(STORAGE_KEYS.challengeInstances);
   },
+
+  /** Remove só as instâncias de uma data — usado pelo Modo Dev pra "limpar ações de hoje" sem
+   * apagar o histórico de outros dias (ver devService.clearTodayInstances). */
+  async deleteByDate(date: string): Promise<void> {
+    const map = await getAllMap();
+    for (const [id, instance] of Object.entries(map)) {
+      if (instance.date === date) delete map[id];
+    }
+    await storageClient.setItem(STORAGE_KEYS.challengeInstances, map);
+  },
 };

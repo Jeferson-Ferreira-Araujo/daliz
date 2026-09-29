@@ -2,21 +2,23 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { AppText } from '@/components/ui/AppText';
 import { CATEGORY_CHART_COLORS, radius, spacing, useTheme } from '@/theme';
-import { CHALLENGE_CATEGORY_ICONS, CHALLENGE_CATEGORY_LABELS, type CategoryBreakdownEntry } from '@/types';
+import { CHALLENGE_CATEGORY_ICONS, CHALLENGE_CATEGORY_LABELS, type CategoryCount } from '@/types';
 
 interface CategoryBreakdownChartProps {
-  entries: CategoryBreakdownEntry[];
+  entries: CategoryCount[];
 }
 
-/** Uma barra por categoria — a cor é fixa por identidade (nunca escolhida por
- * posição/índice), o comprimento é a taxa de conclusão daquela categoria. */
+/** Uma barra por categoria — a cor é fixa por identidade (nunca escolhida por posição/índice), o
+ * comprimento é relativo à categoria mais recebida (não uma taxa de conclusão, que não existe
+ * mais). Mostra quanto essa pessoa tem recebido de cada assunto, não o quanto "concluiu". */
 export function CategoryBreakdownChart({ entries }: CategoryBreakdownChartProps) {
   const { colors } = useTheme();
+  const max = Math.max(1, ...entries.map((e) => e.count));
 
   return (
     <View>
       {entries.map((entry) => {
-        const percent = Math.round(entry.completionRate * 100);
+        const percent = Math.round((entry.count / max) * 100);
         const color = CATEGORY_CHART_COLORS[entry.categoria];
         return (
           <View key={entry.categoria} style={styles.row}>
@@ -25,15 +27,12 @@ export function CategoryBreakdownChart({ entries }: CategoryBreakdownChartProps)
                 {CHALLENGE_CATEGORY_ICONS[entry.categoria]} {CHALLENGE_CATEGORY_LABELS[entry.categoria]}
               </AppText>
               <AppText variant="bodyStrong" color={color}>
-                {percent}%
+                {entry.count}
               </AppText>
             </View>
             <View style={[styles.track, { backgroundColor: colors.surfaceMuted }]}>
               <View style={[styles.fill, { width: `${Math.max(4, percent)}%`, backgroundColor: color }]} />
             </View>
-            <AppText variant="caption" color={colors.textMuted}>
-              {entry.totalCompleted}/{entry.totalResolved} concluídos
-            </AppText>
           </View>
         );
       })}
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
     height: 8,
     borderRadius: radius.pill,
     overflow: 'hidden',
-    marginBottom: spacing.xs,
   },
   fill: {
     height: '100%',

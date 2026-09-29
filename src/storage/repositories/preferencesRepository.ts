@@ -6,8 +6,8 @@ export const preferencesRepository = {
   async get(): Promise<AppPreferences> {
     const stored = await storageClient.getItem<AppPreferences>(STORAGE_KEYS.preferences);
     // Faz merge com os defaults em vez de usar o `stored` puro — assim, campos novos
-    // adicionados depois (ex: hasSeenInsightsIntro) não ficam `undefined` em preferências
-    // salvas por uma versão anterior do app.
+    // adicionados depois não ficam `undefined` em preferências salvas por uma versão anterior
+    // do app.
     return { ...DEFAULT_PREFERENCES, ...stored };
   },
 

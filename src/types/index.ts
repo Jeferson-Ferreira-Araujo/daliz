@@ -12,3 +12,4 @@ export * from './stats';
 export * from './preferences';
 export * from './journal';
 export * from './progression';
+export * from './occupation';

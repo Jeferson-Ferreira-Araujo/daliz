@@ -30,9 +30,10 @@ const POINTS: Point[] = [
   },
   {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    image: require('../../assets/brand/icon-conquista.png'),
-    title: 'O app aprende com você',
-    description: 'Faça quando puder. Se não der, conte o motivo. Suas respostas ajudam o app a entender o que funciona para você.',
+    image: require('../../assets/brand/icon-progresso.png'),
+    title: 'Feito sob medida, todo dia',
+    description:
+      'Nada de lista fixa: as ações mudam com sua rotina, seus interesses e até o clima do dia — sempre pensadas pra fazer sentido naquele momento.',
   },
   {
     // eslint-disable-next-line @typescript-eslint/no-require-imports

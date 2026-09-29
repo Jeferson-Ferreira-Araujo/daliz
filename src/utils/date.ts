@@ -50,6 +50,12 @@ export function formatLongDate(date: Date): string {
   return `${date.getDate()} de ${MONTHS[date.getMonth()]}`;
 }
 
+/** Data de nascimento por extenso com ano, a partir de "YYYY-MM-DD" (ex: "15 de março de 1990"). */
+export function formatBirthDate(birthDateISO: string): string {
+  const date = parseISODate(birthDateISO);
+  return `${formatLongDate(date)} de ${date.getFullYear()}`;
+}
+
 const WEEKDAYS = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab'] as const;
 
 export function dayOfWeekFor(date: Date): (typeof WEEKDAYS)[number] {
@@ -72,8 +78,20 @@ export function isBirthdayToday(birthDateISO: string, now: Date): boolean {
   return now.getMonth() + 1 === birthMonth && now.getDate() === birthDay;
 }
 
-/** Segunda-feira da semana que contém `dateISO` (ver "O que você melhorou?" — resumo semanal
- * respeita segunda a domingo, data/localidade do dispositivo). `Date.getDay()`: 0=dom..6=sáb. */
+/** Resolve a idade "de verdade" de uma pessoa importante: recalcula a partir de `birthDate`
+ * sempre que ele existir, em vez de confiar no `age` estático digitado no cadastro — sem isso,
+ * uma criança cadastrada com "3 anos" continua "3 anos" pro motor pra sempre, mesmo depois de
+ * fazer aniversário (ver ChallengeEngine.personMatchesChallenge, que usa isso pra filtrar ações
+ * por minAge/maxAge). `age` só sobra como fallback pra quem cadastrou sem informar a data de
+ * nascimento — nesse caso não tem como recalcular nada, e o valor digitado continua sendo o
+ * melhor palpite disponível. */
+export function resolvePersonAge(person: { age: number | null; birthDate: string | null }, now: Date): number | null {
+  if (person.birthDate) return calculateAge(person.birthDate, now);
+  return person.age;
+}
+
+/** Segunda-feira da semana que contém `dateISO` (ver "Seu resumo semanal" — weeklyRecapService.ts
+ * — que respeita segunda a domingo, data/localidade do dispositivo). `Date.getDay()`: 0=dom..6=sáb. */
 export function startOfWeek(dateISO: string): string {
   const day = parseISODate(dateISO).getDay();
   const diffToMonday = day === 0 ? -6 : 1 - day;

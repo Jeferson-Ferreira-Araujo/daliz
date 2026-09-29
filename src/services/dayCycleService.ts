@@ -1,4 +1,5 @@
 import { challengeInstanceRepository } from '@/storage/repositories/challengeInstanceRepository';
+import { devTestHold } from '@/dev/devTestHold';
 import { selectDailyChallenges, buildInstance, type SelectDailyChallengesOptions } from '@/engine/ChallengeEngine';
 import { sleepDeadlineFor } from '@/engine/dayModel';
 import { FIRST_ACTION_CHALLENGE } from '@/data/firstActionChallenge';
@@ -135,7 +136,7 @@ async function generateForActiveDate(
   // abertura veria `instances.length === 0` de novo e cairia aqui uma segunda vez, reagendando o
   // lembrete mesmo que o primeiro agendamento já tivesse ido pro SO com sucesso — era isso que
   // fazia "Como foi seu dia hoje?" chegar duplicado em alguns dias. Esse guard persistido (mesmo
-  // padrão de `lastWeeklyRecapNotifiedWeekStart`, ver weeklyRecapService) fecha a brecha: sobrevive
+  // padrão de `lastWeeklyRecapScheduledFor`, ver weeklyRecapService) fecha a brecha: sobrevive
   // a reabrir o app, então só a primeira geração de fato bem-sucedida de cada `activeDate` agenda.
   if (profile.notificationsEnabled) {
     const prefs = await preferencesRepository.get();
@@ -146,11 +147,12 @@ async function generateForActiveDate(
     }
   }
 
-  // "O que você melhorou?" ficou pronto — só dispara na segunda-feira (início de uma nova
-  // semana), aqui dentro do "gera pela primeira vez" garante no máximo uma checagem por
-  // período, e o próprio weeklyRecapService garante no máximo uma notificação por semana.
+  // "Seu resumo semanal" — agenda o convite pro próximo domingo ao meio-dia (nunca dispara na
+  // hora, ver weeklyRecapService.scheduleIfNeeded). Aqui dentro do "gera pela primeira vez"
+  // garante no máximo uma checagem por período; o próprio weeklyRecapService garante no máximo
+  // um agendamento por domingo (persistido, sobrevive a reabrir o app).
   if (profile.notificationsEnabled) {
-    await weeklyRecapService.notifyIfReady(now);
+    await weeklyRecapService.scheduleIfNeeded(now);
   }
 
   return { instances: newInstances, returningAfterGapDays, profile };
@@ -162,6 +164,10 @@ export const dayCycleService = {
    * expira preguiçosamente qualquer pendência de um período anterior já dormido. Idempotente por
    * dado (não por registro): reabrir o app várias vezes dentro do mesmo período nunca gera um
    * segundo lote, porque já existem instâncias salvas pra `activeDate`.
+   *
+   * Exceção só em Modo Dev: se essa `activeDate` estiver "segurada" (ver devTestHold, ligado por
+   * devService.clearTodayInstances), não gera nada mesmo com zero instâncias — permite testar a
+   * tela inicial genuinamente vazia sem o motor preencher sozinho.
    */
   async ensureUpcomingActions(
     profile: UserProfile,
@@ -174,7 +180,11 @@ export const dayCycleService = {
     let instances = await challengeInstanceRepository.getByDate(activeDate);
     let returningAfterGapDays: number | null = null;
 
-    if (instances.length === 0) {
+    if (instances.length === 0 && __DEV__ && (await devTestHold.isHeld(activeDate))) {
+      // Modo Dev pediu explicitamente pra não preencher essa data sozinho (ver "Limpar ações de
+      // hoje" em devService.clearTodayInstances) — devolve vazio mesmo, em vez do comportamento
+      // normal de sempre garantir alguma ação pro período.
+    } else if (instances.length === 0) {
       // Trava por `activeDate` (ver comentário em `generationLocks`) — se outra chamada
       // concorrente já está gerando esse período, espera o MESMO resultado em vez de gerar (e
       // notificar) tudo de novo.
@@ -215,9 +225,8 @@ export const dayCycleService = {
     const instances = await challengeInstanceRepository.getByDate(date);
     const activeDate = profile ? resolveActiveDate(profile, now) : logicalDateFor(now);
     const visible = date === activeDate ? instances.filter((i) => new Date(i.scheduledFor).getTime() <= now.getTime()) : instances;
-    // Sugestões nunca contam nas estatísticas de dia (ver ChallengeActionKind) — sem isso, uma
-    // sugestão que nunca teve botão de conclusão ficaria "pendente" pra sempre e, depois de
-    // expirada, contaria como "ignorado" no cabeçalho do Histórico.
+    // ChallengeActionKind hoje só tem 'acao' (sugestões existiram no catálogo antigo e foram
+    // removidas na Fase 2) — filtro mantido por segurança/documentação, não filtra nada de fato.
     const tracked = visible.filter((i) => getInstanceActionKind(i) === 'acao');
     return buildSummary(date, tracked);
   },
@@ -259,7 +268,7 @@ export const dayCycleService = {
     let notificationSent = false;
     if (profile.notificationsEnabled) {
       try {
-        const notificationId = await notificationService.sendNow(first);
+        const notificationId = await notificationService.sendNow(first, { isFirstNotification: true });
         notificationSent = notificationId != null;
       } catch (error) {
         notificationSent = false;

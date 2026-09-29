@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { Screen } from '@/components/ui/Screen';
 import { AppText } from '@/components/ui/AppText';
 import { EmptyState } from '@/components/EmptyState';
@@ -14,6 +14,7 @@ import type { DaySummary, UserProfile } from '@/types';
 
 export default function HistoryScreen() {
   const { colors } = useTheme();
+  const { focusToday } = useLocalSearchParams<{ focusToday?: string }>();
   const [summaries, setSummaries] = useState<DaySummary[] | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
 
@@ -52,7 +53,11 @@ export default function HistoryScreen() {
         {summaries.length === 0 ? (
           <EmptyState emoji="📅" title="Sem dias registrados ainda" description="Volte amanhã para começar a construir sua sequência." />
         ) : (
-          summaries.map((summary) => <DayCard key={summary.date} summary={summary} profile={profile} />)
+          summaries.map((summary, index) => (
+            // `focusToday` só faz sentido pro card mais recente (índice 0, já que `summaries` vem
+            // ordenado por data decrescente) — ver notificationService.scheduleDayReflectionReminder.
+            <DayCard key={summary.date} summary={summary} profile={profile} autoExpand={index === 0 && focusToday === '1'} />
+          ))
         )}
       </ScrollView>
     </Screen>

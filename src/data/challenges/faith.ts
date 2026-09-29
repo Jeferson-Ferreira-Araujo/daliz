@@ -667,7 +667,6 @@ export const faithChallenges: Challenge[] = [
     effort: {"time":"short","mental":"medium","physical":"low","emotional":"medium"},
     priority: 3,
     variants: [],
-    musicQuery: "gospel reflexão",
     supportType: "spotify",
     supportData: {"query":"gospel reflexão"},
   },

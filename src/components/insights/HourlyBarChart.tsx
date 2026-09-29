@@ -21,13 +21,13 @@ const LABEL_ROW_HEIGHT = 16; // altura fixa reservada pro texto do rótulo — s
 // (position: absolute) não empurra nenhuma altura pro layout, e a fileira seguinte fica colada.
 
 /**
- * Distribuição de conclusões por hora do dia, em duas fileiras de 12 barras (0h–11h e
- * 12h–23h) — versão anterior (1 fileira de 24) ficava pequena demais pra ler os rótulos num
- * ecrã real. Antes dessa, era uma grade 12×2 com só 1 fileira de rótulos embaixo de tudo: como
- * a grade quebrava em duas linhas, "12h" não ficava embaixo da barra que representava 12h de
- * verdade (essa estava na 2ª linha). Aqui cada fileira tem seus próprios rótulos, sempre na
- * coluna certa. Altura (não opacidade) codifica a magnitude. Toque numa barra pra ver a hora e
- * a contagem exatas no cabeçalho.
+ * Distribuição de HORÁRIOS DE ENTREGA (não de conclusão, que não existe mais) por hora do dia,
+ * em duas fileiras de 12 barras (0h–11h e 12h–23h) — versão anterior (1 fileira de 24) ficava
+ * pequena demais pra ler os rótulos num ecrã real. Antes dessa, era uma grade 12×2 com só 1
+ * fileira de rótulos embaixo de tudo: como a grade quebrava em duas linhas, "12h" não ficava
+ * embaixo da barra que representava 12h de verdade (essa estava na 2ª linha). Aqui cada fileira
+ * tem seus próprios rótulos, sempre na coluna certa. Altura (não opacidade) codifica a
+ * magnitude. Toque numa barra pra ver a hora e a contagem exatas no cabeçalho.
  */
 export function HourlyBarChart({ hours }: HourlyBarChartProps) {
   const { colors } = useTheme();
@@ -40,7 +40,7 @@ export function HourlyBarChart({ hours }: HourlyBarChartProps) {
   return (
     <View>
       <View style={styles.headerRow}>
-        <AppText variant="bodyStrong">Horários com mais conclusões</AppText>
+        <AppText variant="bodyStrong">Horários em que suas ações chegam</AppText>
         <AppText variant="caption" color={colors.textMuted}>
           {String(activeHour).padStart(2, '0')}h · {activeCount} {activeCount === 1 ? 'vez' : 'vezes'}
         </AppText>
